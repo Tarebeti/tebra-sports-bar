@@ -348,7 +348,7 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mx-auto mt-6 max-w-xl text-base text-ivory-dim md:text-lg"
+            className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-ivory md:text-lg"
           >
             A stylish cocktail bar and sports lounge, five minutes from the strip.
             Cocktails, cold beer, pool, darts and good food.
@@ -370,17 +370,15 @@ function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-3"
+            className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <BtnPrimary href={directionsUrl} target="_blank" rel="noopener">
+            <BtnPrimary href={directionsUrl} target="_blank" rel="noopener" className="animate-gold-pulse">
               Get Directions
             </BtnPrimary>
             <BtnOutline href="#sport">Book a table for the match</BtnOutline>
           </motion.div>
 
-          <p className="mt-6 text-xs uppercase tracking-[0.24em] text-ivory-dim">
-            Open daily, 11:00 til late
-          </p>
+          <HeroLiveLine />
         </div>
       </motion.div>
 
@@ -393,6 +391,30 @@ function Hero() {
         className="mx-auto h-px w-40 bg-gradient-to-r from-transparent via-gold to-transparent"
       />
     </section>
+  );
+}
+
+function HeroLiveLine() {
+  const now = useAthensNow();
+  const { isOpen, hour, minute } = getOpenState(now);
+  if (isOpen) {
+    const closeH = CONFIG.hoursLocal.close === 24 ? 0 : CONFIG.hoursLocal.close;
+    const mLeft = ((CONFIG.hoursLocal.close * 60) - (hour * 60 + minute));
+    const hrs = Math.floor(mLeft / 60);
+    return (
+      <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-open/40 bg-open/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-ivory">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-open opacity-75" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-open" />
+        </span>
+        Open now &middot; {hrs > 0 ? `${hrs}h left` : `closes at ${String(closeH).padStart(2,"0")}:00`}
+      </p>
+    );
+  }
+  return (
+    <p className="mt-6 text-xs uppercase tracking-[0.24em] text-ivory">
+      Open daily, 11:00 til late
+    </p>
   );
 }
 
@@ -430,7 +452,7 @@ function Cocktails() {
   ];
 
   return (
-    <section id="cocktails" className="relative py-24 md:py-32">
+    <section id="cocktails" className="relative py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
           <FadeUp>
@@ -506,10 +528,10 @@ function Sport() {
   }, [match, party, when]);
 
   return (
-    <section id="sport" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="sport" className="relative border-t border-gold/10 py-20 md:py-32">
       <div className="absolute inset-0 -z-10">
-        <img src={SCREENS} alt="" aria-hidden className="h-full w-full object-cover opacity-15" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background" />
+        <img src={SCREENS} alt="" aria-hidden className="h-full w-full object-cover opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(138,106,47,0.18),transparent_65%)]" />
       </div>
 
@@ -594,7 +616,7 @@ function Games() {
     { icon: <IconDice />, title: "and more", body: "Board games and easy nights, ask at the bar." },
   ];
   return (
-    <section id="games" className="relative py-24 md:py-32">
+    <section id="games" className="relative py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <FadeUp>
@@ -648,7 +670,7 @@ function Games() {
 // ---------- Food ----------
 function Food() {
   return (
-    <section id="food" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="food" className="relative border-t border-gold/10 py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <FadeUp>
@@ -697,7 +719,7 @@ function Experience() {
     { icon: <IconLeaf />, title: "A quieter, nicer setting", body: "A short hop from the busy strip, near the villas." },
   ];
   return (
-    <section id="experience" className="relative py-24 md:py-32">
+    <section id="experience" className="relative py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <header className="mx-auto max-w-2xl text-center">
@@ -786,7 +808,7 @@ function Reviews() {
   }, [all]);
 
   return (
-    <section id="reviews" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="reviews" className="relative border-t border-gold/10 py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <header className="mx-auto max-w-2xl text-center">
@@ -806,7 +828,7 @@ function Reviews() {
           </header>
         </FadeUp>
 
-        <div className="mt-10 flex items-center justify-end gap-2 text-xs uppercase tracking-[0.2em] text-ivory-dim">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 text-xs uppercase tracking-[0.2em] text-ivory-dim sm:justify-end">
           <span>Sort by</span>
           <SortBtn active={sort === "recent"} onClick={() => setSort("recent")}>Most recent</SortBtn>
           <SortBtn active={sort === "rating"} onClick={() => setSort("rating")}>Highest rated</SortBtn>
@@ -892,7 +914,7 @@ function FAQ() {
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="faq" className="relative border-t border-gold/10 py-16 md:py-32">
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         <FadeUp>
           <p className="label-eyebrow text-center">FAQ</p>
@@ -930,7 +952,7 @@ function FAQ() {
 // ---------- Find us ----------
 function FindUs() {
   return (
-    <section id="find-us" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="find-us" className="relative border-t border-gold/10 py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <p className="label-eyebrow text-center">Find us</p>
@@ -1023,23 +1045,35 @@ function Footer() {
 
 // ---------- Mobile sticky bar ----------
 function MobileStickyBar() {
+  const telHref = `tel:${CONFIG.phone.replace(/\s/g, "")}`;
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-gold/20 bg-background/95 p-3 backdrop-blur md:hidden">
+    <div className="pb-safe fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 gap-2 border-t border-gold/25 bg-background/95 px-3 pt-3 backdrop-blur-md md:hidden">
+      <a
+        href={telHref}
+        aria-label="Call TE.BRA"
+        className="inline-flex flex-col items-center justify-center gap-0.5 rounded-md border border-gold/40 px-2 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ivory active:scale-95"
+      >
+        <IconPhone className="h-4 w-4 text-gold" />
+        Call
+      </a>
+      <a
+        href={whatsappUrl("Hi TE.BRA, quick question")}
+        target="_blank"
+        rel="noopener"
+        aria-label="WhatsApp TE.BRA"
+        className="inline-flex flex-col items-center justify-center gap-0.5 rounded-md border border-gold/40 px-2 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ivory active:scale-95"
+      >
+        <IconWhatsapp className="h-4 w-4 text-gold" />
+        WhatsApp
+      </a>
       <a
         href={directionsUrl}
         target="_blank"
         rel="noopener"
-        className="inline-flex items-center justify-center gap-2 rounded-md bg-gold-gradient px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-background"
+        className="inline-flex flex-col items-center justify-center gap-0.5 rounded-md bg-gold-gradient px-2 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] text-background shadow-[0_10px_30px_-10px_rgba(201,162,75,0.6)] active:scale-95"
       >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5" fill="currentColor"/></svg>
         Directions
-      </a>
-      <a
-        href={whatsappUrl("Hi TE.BRA")}
-        target="_blank"
-        rel="noopener"
-        className="inline-flex items-center justify-center gap-2 rounded-md border border-gold/50 px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-ivory"
-      >
-        <IconWhatsapp className="h-4 w-4" /> WhatsApp
       </a>
     </div>
   );
