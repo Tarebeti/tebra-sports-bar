@@ -828,7 +828,7 @@ function Reviews() {
           </header>
         </FadeUp>
 
-        <div className="mt-10 flex items-center justify-end gap-2 text-xs uppercase tracking-[0.2em] text-ivory-dim">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 text-xs uppercase tracking-[0.2em] text-ivory-dim sm:justify-end">
           <span>Sort by</span>
           <SortBtn active={sort === "recent"} onClick={() => setSort("recent")}>Most recent</SortBtn>
           <SortBtn active={sort === "rating"} onClick={() => setSort("rating")}>Highest rated</SortBtn>
