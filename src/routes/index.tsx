@@ -452,7 +452,7 @@ function Cocktails() {
   ];
 
   return (
-    <section id="cocktails" className="relative py-24 md:py-32">
+    <section id="cocktails" className="relative py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
           <FadeUp>
@@ -616,7 +616,7 @@ function Games() {
     { icon: <IconDice />, title: "and more", body: "Board games and easy nights, ask at the bar." },
   ];
   return (
-    <section id="games" className="relative py-24 md:py-32">
+    <section id="games" className="relative py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <FadeUp>
@@ -670,7 +670,7 @@ function Games() {
 // ---------- Food ----------
 function Food() {
   return (
-    <section id="food" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="food" className="relative border-t border-gold/10 py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <FadeUp>
@@ -719,7 +719,7 @@ function Experience() {
     { icon: <IconLeaf />, title: "A quieter, nicer setting", body: "A short hop from the busy strip, near the villas." },
   ];
   return (
-    <section id="experience" className="relative py-24 md:py-32">
+    <section id="experience" className="relative py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <header className="mx-auto max-w-2xl text-center">
@@ -808,7 +808,7 @@ function Reviews() {
   }, [all]);
 
   return (
-    <section id="reviews" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="reviews" className="relative border-t border-gold/10 py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <header className="mx-auto max-w-2xl text-center">
@@ -914,7 +914,7 @@ function FAQ() {
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="faq" className="relative border-t border-gold/10 py-16 md:py-32">
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         <FadeUp>
           <p className="label-eyebrow text-center">FAQ</p>
@@ -952,7 +952,7 @@ function FAQ() {
 // ---------- Find us ----------
 function FindUs() {
   return (
-    <section id="find-us" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="find-us" className="relative border-t border-gold/10 py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <p className="label-eyebrow text-center">Find us</p>
