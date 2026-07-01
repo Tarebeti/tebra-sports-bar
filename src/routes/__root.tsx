@@ -75,7 +75,7 @@ const ORG_JSON_LD = {
   "@type": "BarOrPub",
   name: "TE.BRA Sports Bar",
   url: "/",
-  image: "/og-image.jpg",
+  image: "https://oceanspace.gr/wp-content/uploads/2025/10/OS_BAR_25.jpg",
   telephone: "+30 000 000 0000",
   priceRange: "€€",
   servesCuisine: ["Cocktails", "Bar food", "Breakfast"],
@@ -154,9 +154,9 @@ const FAQ_JSON_LD = {
   ],
 };
 
-const TITLE = "TE.BRA Sports Bar Hersonissos | Cocktails, Big Screens, Live Sport";
+const TITLE = "TE.BRA | Cocktail Bar and Sports Bar in Hersonissos, Crete";
 const DESCRIPTION =
-  "The number one rated sports bar in Hersonissos, Crete. Handcrafted cocktails, every big match on the screens, pool and darts, in a stylish deco lounge. Open daily.";
+  "The best cocktails in Hersonissos and every big match on the screens. A stylish cocktail bar and sports lounge with pool, darts and great food. Open daily. 5.0 on Tripadvisor.";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
