@@ -214,6 +214,7 @@ function Home() {
       <Header />
       <main>
         <Hero />
+        <SportsBanner />
         <TrustBar />
         
         <Sport />
