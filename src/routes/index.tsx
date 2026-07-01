@@ -45,6 +45,7 @@ import realExteriorDusk from "@/assets/venue/real_exterior_dusk.jpg.asset.json";
 import realExteriorLounge from "@/assets/venue/real_exterior_lounge.jpg.asset.json";
 import realBarCocktails from "@/assets/venue/real_bar_cocktails.jpg.asset.json";
 import realWorldCup from "@/assets/venue/real_worldcup_2026.jpg.asset.json";
+import menuPdf from "@/assets/venue/tebra-menu.pdf.asset.json";
 
 const LOGO = logoAsset.url;
 
@@ -88,7 +89,7 @@ const CONFIG = {
   phone: "+30 000 000 0000",
   whatsapp: "30000000000",
   address: "Hersonissos, Crete 70014, Greece",
-  menuUrl: "#menu",
+  menuUrl: menuPdf.url,
   coords: { lat: 35.31635468, lng: 25.387603686 },
   hoursLocal: { open: 11, close: 24 },
 };
