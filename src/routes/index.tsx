@@ -45,6 +45,7 @@ import realExteriorDusk from "@/assets/venue/real_exterior_dusk.jpg.asset.json";
 import realExteriorLounge from "@/assets/venue/real_exterior_lounge.jpg.asset.json";
 import realBarCocktails from "@/assets/venue/real_bar_cocktails.jpg.asset.json";
 import realWorldCup from "@/assets/venue/real_worldcup_2026.jpg.asset.json";
+import menuPdf from "@/assets/venue/tebra-menu.pdf.asset.json";
 
 const LOGO = logoAsset.url;
 
