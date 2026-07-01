@@ -1045,23 +1045,35 @@ function Footer() {
 
 // ---------- Mobile sticky bar ----------
 function MobileStickyBar() {
+  const telHref = `tel:${CONFIG.phone.replace(/\s/g, "")}`;
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-gold/20 bg-background/95 p-3 backdrop-blur md:hidden">
+    <div className="pb-safe fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 gap-2 border-t border-gold/25 bg-background/95 px-3 pt-3 backdrop-blur-md md:hidden">
+      <a
+        href={telHref}
+        aria-label="Call TE.BRA"
+        className="inline-flex flex-col items-center justify-center gap-0.5 rounded-md border border-gold/40 px-2 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ivory active:scale-95"
+      >
+        <IconPhone className="h-4 w-4 text-gold" />
+        Call
+      </a>
+      <a
+        href={whatsappUrl("Hi TE.BRA, quick question")}
+        target="_blank"
+        rel="noopener"
+        aria-label="WhatsApp TE.BRA"
+        className="inline-flex flex-col items-center justify-center gap-0.5 rounded-md border border-gold/40 px-2 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ivory active:scale-95"
+      >
+        <IconWhatsapp className="h-4 w-4 text-gold" />
+        WhatsApp
+      </a>
       <a
         href={directionsUrl}
         target="_blank"
         rel="noopener"
-        className="inline-flex items-center justify-center gap-2 rounded-md bg-gold-gradient px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-background"
+        className="inline-flex flex-col items-center justify-center gap-0.5 rounded-md bg-gold-gradient px-2 py-2.5 text-[11px] font-bold uppercase tracking-[0.14em] text-background shadow-[0_10px_30px_-10px_rgba(201,162,75,0.6)] active:scale-95"
       >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 21s-7-7.5-7-12a7 7 0 0114 0c0 4.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5" fill="currentColor"/></svg>
         Directions
-      </a>
-      <a
-        href={whatsappUrl("Hi TE.BRA")}
-        target="_blank"
-        rel="noopener"
-        className="inline-flex items-center justify-center gap-2 rounded-md border border-gold/50 px-4 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-ivory"
-      >
-        <IconWhatsapp className="h-4 w-4" /> WhatsApp
       </a>
     </div>
   );
