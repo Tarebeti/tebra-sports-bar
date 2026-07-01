@@ -88,7 +88,7 @@ const CONFIG = {
   phone: "+30 000 000 0000",
   whatsapp: "30000000000",
   address: "Hersonissos, Crete 70014, Greece",
-  menuUrl: "#menu",
+  menuUrl: menuPdf.url,
   coords: { lat: 35.31635468, lng: 25.387603686 },
   hoursLocal: { open: 11, close: 24 },
 };
