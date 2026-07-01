@@ -86,8 +86,8 @@ const GALLERY = [
 
 // ---- Owner details to confirm before launch ----
 const CONFIG = {
-  phone: "+30 000 000 0000",
-  whatsapp: "30000000000",
+  phone: "+30 699 339 9000",
+  whatsapp: "306993399000",
   address: "Hersonissos, Crete 70014, Greece",
   menuUrl: menuPdf.url,
   coords: { lat: 35.31635468, lng: 25.387603686 },
