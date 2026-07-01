@@ -349,7 +349,7 @@ function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.1, ease: [0.2, 0.7, 0.2, 1] }}
-            className="mt-6 font-display text-5xl leading-[1.05] text-ivory sm:text-6xl md:text-7xl"
+            className="mt-6 font-display text-3xl leading-tight text-ivory sm:text-4xl sm:leading-[1.05] md:text-6xl lg:text-7xl"
           >
             Best <span className="text-gold-gradient italic">cocktails</span> in town,
             <br className="hidden sm:block" /> every game on the screen.
@@ -496,7 +496,7 @@ function Cocktails() {
         <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
           <FadeUp>
             <p className="label-eyebrow">Cocktails</p>
-            <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
               The best <span className="text-gold-gradient italic">cocktails</span> in town.
             </h2>
             <p className="mt-5 max-w-md text-ivory-dim">
@@ -577,7 +577,7 @@ function Sport() {
       <div className="mx-auto grid max-w-7xl gap-12 px-4 md:grid-cols-2 md:px-8">
         <FadeUp>
           <p className="label-eyebrow">Match day</p>
-          <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
+          <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
             Every game, every <span className="text-gold-gradient italic">screen</span>.
           </h2>
           <p className="mt-5 max-w-md text-ivory-dim">
@@ -660,7 +660,7 @@ function Games() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <FadeUp>
             <p className="label-eyebrow">More than a bar</p>
-            <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
               Play a little, <span className="text-gold-gradient italic">settle in</span>.
             </h2>
             <p className="mt-5 max-w-md text-ivory-dim">
@@ -679,7 +679,7 @@ function Games() {
                   className="deco-frame bg-surface-raised/60 p-5"
                 >
                   <div className="text-gold">{t.icon}</div>
-                  <h3 className="mt-4 font-display text-lg text-ivory">{t.title}</h3>
+                  <h3 className="mt-4 font-display text-base text-ivory sm:text-lg">{t.title}</h3>
                   <p className="mt-1 text-xs leading-relaxed text-ivory-dim">{t.body}</p>
                 </motion.article>
               ))}
@@ -726,7 +726,7 @@ function Food() {
           </FadeUp>
           <FadeUp delay={0.15}>
             <p className="label-eyebrow">Food</p>
-            <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
               Good food, <span className="text-gold-gradient italic">all day</span>.
             </h2>
             <p className="mt-5 max-w-md text-ivory-dim">
@@ -763,7 +763,7 @@ function Experience() {
         <FadeUp>
           <header className="mx-auto max-w-2xl text-center">
             <p className="label-eyebrow">The experience</p>
-            <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
               Where relaxation meets{" "}
               <span className="text-gold-gradient italic">sophistication</span>.
             </h2>
@@ -783,7 +783,7 @@ function Experience() {
               className="deco-frame bg-surface-raised/60 p-6"
             >
               <div className="text-gold">{c.icon}</div>
-              <h3 className="mt-5 font-display text-xl text-ivory">{c.title}</h3>
+              <h3 className="mt-5 font-display text-lg text-ivory sm:text-xl">{c.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ivory-dim">{c.body}</p>
             </motion.article>
           ))}
@@ -852,7 +852,7 @@ function Reviews() {
         <FadeUp>
           <header className="mx-auto max-w-2xl text-center">
             <p className="label-eyebrow">Loved by everyone who finds it</p>
-            <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
               {summary.rating.toFixed(1)} out of 5, <span className="text-gold-gradient italic">{summary.total} reviews</span>.
             </h2>
             <div className="mt-5 flex items-center justify-center gap-3">
@@ -957,7 +957,7 @@ function FAQ() {
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         <FadeUp>
           <p className="label-eyebrow text-center">FAQ</p>
-          <h2 className="mt-4 text-center font-display text-4xl text-ivory md:text-5xl">
+          <h2 className="mt-4 text-center font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
             Good to <span className="text-gold-gradient italic">know</span>.
           </h2>
         </FadeUp>
@@ -971,7 +971,7 @@ function FAQ() {
                   className="flex w-full items-center justify-between gap-4 py-6 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-display text-lg text-ivory md:text-xl">{it.q}</span>
+                  <span className="font-display text-base text-ivory sm:text-lg md:text-xl">{it.q}</span>
                   <span className={`text-gold transition-transform ${isOpen ? "rotate-45" : ""}`}>
                     <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" fill="none">
                       <path d="M12 5v14M5 12h14" />
@@ -995,7 +995,7 @@ function FindUs() {
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <p className="label-eyebrow text-center">Find us</p>
-          <h2 className="mt-4 text-center font-display text-4xl text-ivory md:text-5xl">
+          <h2 className="mt-4 text-center font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
             Come <span className="text-gold-gradient italic">say hello</span>.
           </h2>
         </FadeUp>
@@ -1021,7 +1021,7 @@ function FindUs() {
           <FadeUp delay={0.15}>
             <div className="flex h-full flex-col justify-between">
               <div>
-                <h3 className="font-display text-2xl text-ivory">TE.BRA Sports Bar</h3>
+                <h3 className="font-display text-xl text-ivory sm:text-2xl">TE.BRA Sports Bar</h3>
                 <p className="mt-3 text-ivory-dim">{CONFIG.address}</p>
                 <ul className="mt-6 space-y-2 text-sm text-ivory-dim">
                   <li className="flex items-center gap-3">
