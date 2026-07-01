@@ -214,6 +214,7 @@ function Home() {
       <Header />
       <main>
         <Hero />
+        <SportsBanner />
         <TrustBar />
         
         <Sport />
@@ -425,6 +426,34 @@ function HeroLiveLine() {
     <p className="mt-6 text-xs uppercase tracking-[0.24em] text-ivory">
       Open daily, 11:00 til late
     </p>
+  );
+}
+
+// ---------- Sports banner ----------
+function SportsBanner() {
+  return (
+    <section className="relative overflow-hidden border-y border-gold/20 bg-surface-raised/70">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,oklch(0.78_0.12_85/0.10),transparent_60%)]" />
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-5 sm:flex-row sm:px-8 md:py-4">
+        <div className="flex items-center gap-3">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/40 bg-background">
+            <IconGlobe />
+          </span>
+          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-ivory sm:text-base">
+            Every sport <span className="text-gold">·</span> every league <span className="text-gold">·</span> everywhere
+          </p>
+        </div>
+        <a
+          href={whatsappUrl("Hi TE.BRA, I would like to reserve a table for the match.")}
+          target="_blank"
+          rel="noopener"
+          className="inline-flex items-center gap-2 rounded-full bg-gold-gradient px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-background shadow-[0_8px_24px_-8px_rgba(201,162,75,0.5)] transition-transform hover:-translate-y-0.5"
+        >
+          <IconWhatsapp className="h-4 w-4" />
+          Reserve on WhatsApp
+        </a>
+      </div>
+    </section>
   );
 }
 
