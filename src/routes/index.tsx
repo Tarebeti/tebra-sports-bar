@@ -394,6 +394,30 @@ function Hero() {
   );
 }
 
+function HeroLiveLine() {
+  const now = useAthensNow();
+  const { isOpen, hour, minute } = getOpenState(now);
+  if (isOpen) {
+    const closeH = CONFIG.hoursLocal.close === 24 ? 0 : CONFIG.hoursLocal.close;
+    const mLeft = ((CONFIG.hoursLocal.close * 60) - (hour * 60 + minute));
+    const hrs = Math.floor(mLeft / 60);
+    return (
+      <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-open/40 bg-open/10 px-4 py-2 text-xs font-medium uppercase tracking-[0.18em] text-ivory">
+        <span className="relative flex h-2 w-2">
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-open opacity-75" />
+          <span className="relative inline-flex h-2 w-2 rounded-full bg-open" />
+        </span>
+        Open now &middot; {hrs > 0 ? `${hrs}h left` : `closes at ${String(closeH).padStart(2,"0")}:00`}
+      </p>
+    );
+  }
+  return (
+    <p className="mt-6 text-xs uppercase tracking-[0.24em] text-ivory">
+      Open daily, 11:00 til late
+    </p>
+  );
+}
+
 // ---------- Trust bar ----------
 function TrustBar() {
   const s = getSummary();
