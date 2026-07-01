@@ -95,7 +95,6 @@ const CONFIG = {
 };
 
 const NAV = [
-  { href: "#cocktails", label: "Cocktails" },
   { href: "#sport", label: "Sport" },
   { href: "#games", label: "Games" },
   { href: "#food", label: "Food" },
