@@ -528,10 +528,10 @@ function Sport() {
   }, [match, party, when]);
 
   return (
-    <section id="sport" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="sport" className="relative border-t border-gold/10 py-20 md:py-32">
       <div className="absolute inset-0 -z-10">
-        <img src={SCREENS} alt="" aria-hidden className="h-full w-full object-cover opacity-15" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background" />
+        <img src={SCREENS} alt="" aria-hidden className="h-full w-full object-cover opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(138,106,47,0.18),transparent_65%)]" />
       </div>
 
