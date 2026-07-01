@@ -679,7 +679,7 @@ function Games() {
                   className="deco-frame bg-surface-raised/60 p-5"
                 >
                   <div className="text-gold">{t.icon}</div>
-                  <h3 className="mt-4 font-display text-lg text-ivory">{t.title}</h3>
+                  <h3 className="mt-4 font-display text-base text-ivory sm:text-lg">{t.title}</h3>
                   <p className="mt-1 text-xs leading-relaxed text-ivory-dim">{t.body}</p>
                 </motion.article>
               ))}
@@ -783,7 +783,7 @@ function Experience() {
               className="deco-frame bg-surface-raised/60 p-6"
             >
               <div className="text-gold">{c.icon}</div>
-              <h3 className="mt-5 font-display text-xl text-ivory">{c.title}</h3>
+              <h3 className="mt-5 font-display text-lg text-ivory sm:text-xl">{c.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ivory-dim">{c.body}</p>
             </motion.article>
           ))}
@@ -971,7 +971,7 @@ function FAQ() {
                   className="flex w-full items-center justify-between gap-4 py-6 text-left"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-display text-lg text-ivory md:text-xl">{it.q}</span>
+                  <span className="font-display text-base text-ivory sm:text-lg md:text-xl">{it.q}</span>
                   <span className={`text-gold transition-transform ${isOpen ? "rotate-45" : ""}`}>
                     <svg width="16" height="16" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" fill="none">
                       <path d="M12 5v14M5 12h14" />
@@ -1021,7 +1021,7 @@ function FindUs() {
           <FadeUp delay={0.15}>
             <div className="flex h-full flex-col justify-between">
               <div>
-                <h3 className="font-display text-2xl text-ivory">TE.BRA Sports Bar</h3>
+                <h3 className="font-display text-xl text-ivory sm:text-2xl">TE.BRA Sports Bar</h3>
                 <p className="mt-3 text-ivory-dim">{CONFIG.address}</p>
                 <ul className="mt-6 space-y-2 text-sm text-ivory-dim">
                   <li className="flex items-center gap-3">
