@@ -36,42 +36,52 @@ import img37 from "@/assets/venue/os_bar_37.jpg.asset.json";
 import img38 from "@/assets/venue/os_bar_38.jpg.asset.json";
 import img39 from "@/assets/venue/os_bar_39.jpg.asset.json";
 
+// Real user-supplied venue photos (freshest, highest priority)
+import realExteriorNight from "@/assets/venue/real_exterior_night.jpg.asset.json";
+import realPoolCrowd from "@/assets/venue/real_pool_crowd.jpg.asset.json";
+import realBreakfastGroup from "@/assets/venue/real_breakfast_group.jpg.asset.json";
+import realFoodGroup from "@/assets/venue/real_food_group.jpg.asset.json";
+import realExteriorDusk from "@/assets/venue/real_exterior_dusk.jpg.asset.json";
+import realExteriorLounge from "@/assets/venue/real_exterior_lounge.jpg.asset.json";
+import realBarCocktails from "@/assets/venue/real_bar_cocktails.jpg.asset.json";
+import realWorldCup from "@/assets/venue/real_worldcup_2026.jpg.asset.json";
+
 const LOGO = logoAsset.url;
 
-// Curated slots from the real photo pool
-const HERO_COCKTAIL = img25.url;      // signature cocktail on the bar
-const EXTERIOR_DUSK = img31.url;      // outside at dusk
-const LOUNGE_1 = img11.url;
-const LOUNGE_2 = img14.url;
-const SCREENS = img20.url;
-const POOL_DARTS = img27.url;
-const FOOD = img22.url;
-const DRINK_2 = img33.url;
+// Curated slots — prioritise the real venue photos supplied by the owner
+const HERO_COCKTAIL = img25.url;                    // cinematic cocktail hero
+const EXTERIOR_DUSK = realExteriorDusk.url;         // real exterior at dusk
+const LOUNGE_1 = realExteriorLounge.url;            // real front lounge
+const LOUNGE_2 = realExteriorNight.url;             // real exterior night
+const SCREENS = realWorldCup.url;                   // World Cup 2026 banner
+const POOL_DARTS = realPoolCrowd.url;               // real pool + crowd watching sport
+const FOOD = realFoodGroup.url;                     // real group enjoying food
+const DRINK_2 = realBarCocktails.url;               // real bar with fruit + spirits
 const DETAIL_1 = img36.url;
 const DETAIL_2 = img38.url;
 
 const GALLERY = [
+  { src: realExteriorNight.url, alt: "TE.BRA Sports Bar entrance lit up at night in Hersonissos" },
+  { src: realExteriorDusk.url, alt: "TE.BRA Sports Bar exterior at dusk in Hersonissos Crete" },
+  { src: realPoolCrowd.url, alt: "Guests watching sport around the pool table at TE.BRA Hersonissos" },
+  { src: realBreakfastGroup.url, alt: "Friends enjoying breakfast at TE.BRA Sports Bar Hersonissos" },
+  { src: realFoodGroup.url, alt: "Group sharing food and drinks at TE.BRA Hersonissos" },
+  { src: realExteriorLounge.url, alt: "Outdoor lounge seating at TE.BRA cocktail bar Hersonissos" },
+  { src: realBarCocktails.url, alt: "Cocktail bar with fresh fruit and premium spirits at TE.BRA" },
+  { src: realWorldCup.url, alt: "FIFA World Cup 2026 backdrop at TE.BRA Sports Bar" },
   { src: img10.url, alt: "Deco lounge seating at TE.BRA cocktail bar Hersonissos" },
   { src: img12.url, alt: "Warm bar lighting and glassware at TE.BRA Hersonissos" },
-  { src: img13.url, alt: "Detail shot of the bar at TE.BRA Sports Bar Crete" },
-  { src: img15.url, alt: "Comfortable seating inside TE.BRA lounge in Hersonissos" },
-  { src: img16.url, alt: "Deco interior at TE.BRA cocktail bar in Chersonissos" },
   { src: img17.url, alt: "Big screens and lounge at TE.BRA sports bar Hersonissos" },
   { src: img18.url, alt: "Signature drink at TE.BRA cocktail bar Hersonissos Crete" },
-  { src: img19.url, alt: "Warm lounge lighting at TE.BRA bar in Hersonissos" },
   { src: img21.url, alt: "Cocktail served at TE.BRA bar Hersonissos" },
-  { src: img23.url, alt: "TE.BRA sports bar interior in Hersonissos Crete" },
-  { src: img24.url, alt: "Bar details and glassware at TE.BRA Hersonissos" },
   { src: img26.url, alt: "Late night lounge vibes at TE.BRA Hersonissos" },
-  { src: img28.url, alt: "Bar top and stools at TE.BRA cocktail bar Hersonissos" },
   { src: img29.url, alt: "Cocktail garnish detail at TE.BRA Hersonissos" },
-  { src: img30.url, alt: "Deco lounge corner at TE.BRA Sports Bar Crete" },
   { src: img32.url, alt: "Exterior signage at TE.BRA Sports Bar Hersonissos" },
   { src: img34.url, alt: "Bar shelves and premium spirits at TE.BRA Hersonissos" },
   { src: img35.url, alt: "Champagne gold accents at TE.BRA bar Hersonissos" },
-  { src: img37.url, alt: "Lounge seating detail at TE.BRA Hersonissos" },
   { src: img39.url, alt: "Warm evening atmosphere at TE.BRA cocktail bar Hersonissos" },
 ];
+
 
 // ---- Owner details to confirm before launch ----
 const CONFIG = {
