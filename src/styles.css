@@ -70,8 +70,8 @@
   --amber-glow: oklch(0.55 0.09 70);
 
   /* Text */
-  --ivory: oklch(0.95 0.015 85);            /* #F5F1E8 */
-  --ivory-dim: oklch(0.82 0.012 85);        /* #C9C6BE */
+  --ivory: oklch(0.96 0.015 85);            /* #F7F3EA */
+  --ivory-dim: oklch(0.88 0.012 85);        /* brighter for mobile readability */
 
   /* Semantic */
   --primary: oklch(0.78 0.12 85);
