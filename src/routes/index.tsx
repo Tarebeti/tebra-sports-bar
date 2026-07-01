@@ -348,7 +348,7 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mx-auto mt-6 max-w-xl text-base text-ivory-dim md:text-lg"
+            className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-ivory md:text-lg"
           >
             A stylish cocktail bar and sports lounge, five minutes from the strip.
             Cocktails, cold beer, pool, darts and good food.
@@ -370,17 +370,15 @@ function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-10 flex flex-wrap items-center justify-center gap-3"
+            className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <BtnPrimary href={directionsUrl} target="_blank" rel="noopener">
+            <BtnPrimary href={directionsUrl} target="_blank" rel="noopener" className="animate-gold-pulse">
               Get Directions
             </BtnPrimary>
             <BtnOutline href="#sport">Book a table for the match</BtnOutline>
           </motion.div>
 
-          <p className="mt-6 text-xs uppercase tracking-[0.24em] text-ivory-dim">
-            Open daily, 11:00 til late
-          </p>
+          <HeroLiveLine />
         </div>
       </motion.div>
 
