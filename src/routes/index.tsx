@@ -1,28 +1,93 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useMemo, useState } from "react";
-import heroImg from "@/assets/hero.jpg";
-import lounge1 from "@/assets/lounge-1.jpg";
-import lounge2 from "@/assets/lounge-2.jpg";
-import cocktailsImg from "@/assets/cocktails.jpg";
-import screensImg from "@/assets/screens.jpg";
-import exteriorImg from "@/assets/exterior-dusk.jpg";
-import logo from "@/assets/logo.png";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { motion, useScroll, useTransform, useInView } from "motion/react";
 import { getReviews, getSummary, type Review } from "@/lib/reviews";
 
-// ---- CONFIG: owner should confirm before launch ----
+// ---- Real image assets (self hosted via Lovable Assets CDN) ----
+import logoAsset from "@/assets/venue/logo.png.asset.json";
+import img10 from "@/assets/venue/os_bar_10.jpg.asset.json";
+import img11 from "@/assets/venue/os_bar_11.jpg.asset.json";
+import img12 from "@/assets/venue/os_bar_12.jpg.asset.json";
+import img13 from "@/assets/venue/os_bar_13.jpg.asset.json";
+import img14 from "@/assets/venue/os_bar_14.jpg.asset.json";
+import img15 from "@/assets/venue/os_bar_15.jpg.asset.json";
+import img16 from "@/assets/venue/os_bar_16.jpg.asset.json";
+import img17 from "@/assets/venue/os_bar_17.jpg.asset.json";
+import img18 from "@/assets/venue/os_bar_18.jpg.asset.json";
+import img19 from "@/assets/venue/os_bar_19.jpg.asset.json";
+import img20 from "@/assets/venue/os_bar_20.jpg.asset.json";
+import img21 from "@/assets/venue/os_bar_21.jpg.asset.json";
+import img22 from "@/assets/venue/os_bar_22.jpg.asset.json";
+import img23 from "@/assets/venue/os_bar_23.jpg.asset.json";
+import img24 from "@/assets/venue/os_bar_24.jpg.asset.json";
+import img25 from "@/assets/venue/os_bar_25.jpg.asset.json";
+import img26 from "@/assets/venue/os_bar_26.jpg.asset.json";
+import img27 from "@/assets/venue/os_bar_27.jpg.asset.json";
+import img28 from "@/assets/venue/os_bar_28.jpg.asset.json";
+import img29 from "@/assets/venue/os_bar_29.jpg.asset.json";
+import img30 from "@/assets/venue/os_bar_30.jpg.asset.json";
+import img31 from "@/assets/venue/os_bar_31.jpg.asset.json";
+import img32 from "@/assets/venue/os_bar_32.jpg.asset.json";
+import img33 from "@/assets/venue/os_bar_33.jpg.asset.json";
+import img34 from "@/assets/venue/os_bar_34.jpg.asset.json";
+import img35 from "@/assets/venue/os_bar_35.jpg.asset.json";
+import img36 from "@/assets/venue/os_bar_36.jpg.asset.json";
+import img37 from "@/assets/venue/os_bar_37.jpg.asset.json";
+import img38 from "@/assets/venue/os_bar_38.jpg.asset.json";
+import img39 from "@/assets/venue/os_bar_39.jpg.asset.json";
+
+const LOGO = logoAsset.url;
+
+// Curated slots from the real photo pool
+const HERO_COCKTAIL = img25.url;      // signature cocktail on the bar
+const EXTERIOR_DUSK = img31.url;      // outside at dusk
+const LOUNGE_1 = img11.url;
+const LOUNGE_2 = img14.url;
+const SCREENS = img20.url;
+const POOL_DARTS = img27.url;
+const FOOD = img22.url;
+const DRINK_2 = img33.url;
+const DETAIL_1 = img36.url;
+const DETAIL_2 = img38.url;
+
+const GALLERY = [
+  { src: img10.url, alt: "Deco lounge seating at TE.BRA cocktail bar Hersonissos" },
+  { src: img12.url, alt: "Warm bar lighting and glassware at TE.BRA Hersonissos" },
+  { src: img13.url, alt: "Detail shot of the bar at TE.BRA Sports Bar Crete" },
+  { src: img15.url, alt: "Comfortable seating inside TE.BRA lounge in Hersonissos" },
+  { src: img16.url, alt: "Deco interior at TE.BRA cocktail bar in Chersonissos" },
+  { src: img17.url, alt: "Big screens and lounge at TE.BRA sports bar Hersonissos" },
+  { src: img18.url, alt: "Signature drink at TE.BRA cocktail bar Hersonissos Crete" },
+  { src: img19.url, alt: "Warm lounge lighting at TE.BRA bar in Hersonissos" },
+  { src: img21.url, alt: "Cocktail served at TE.BRA bar Hersonissos" },
+  { src: img23.url, alt: "TE.BRA sports bar interior in Hersonissos Crete" },
+  { src: img24.url, alt: "Bar details and glassware at TE.BRA Hersonissos" },
+  { src: img26.url, alt: "Late night lounge vibes at TE.BRA Hersonissos" },
+  { src: img28.url, alt: "Bar top and stools at TE.BRA cocktail bar Hersonissos" },
+  { src: img29.url, alt: "Cocktail garnish detail at TE.BRA Hersonissos" },
+  { src: img30.url, alt: "Deco lounge corner at TE.BRA Sports Bar Crete" },
+  { src: img32.url, alt: "Exterior signage at TE.BRA Sports Bar Hersonissos" },
+  { src: img34.url, alt: "Bar shelves and premium spirits at TE.BRA Hersonissos" },
+  { src: img35.url, alt: "Champagne gold accents at TE.BRA bar Hersonissos" },
+  { src: img37.url, alt: "Lounge seating detail at TE.BRA Hersonissos" },
+  { src: img39.url, alt: "Warm evening atmosphere at TE.BRA cocktail bar Hersonissos" },
+];
+
+// ---- Owner details to confirm before launch ----
 const CONFIG = {
-  phone: "+30 000 000 0000", // TODO owner: real phone
-  whatsapp: "30000000000", // TODO owner: intl no plus, e.g. 306912345678
-  address: "Hersonissos, Crete 70014, Greece", // TODO owner: full street
-  menuUrl: "#menu", // TODO owner: link to menu PDF
+  phone: "+30 000 000 0000",
+  whatsapp: "30000000000",
+  address: "Hersonissos, Crete 70014, Greece",
+  menuUrl: "#menu",
   coords: { lat: 35.31635468, lng: 25.387603686 },
-  hoursLocal: { open: 11, close: 24 }, // 11:00 til midnight, Europe/Athens
+  hoursLocal: { open: 11, close: 24 },
 };
 
 const NAV = [
-  { href: "#experience", label: "Experience" },
+  { href: "#cocktails", label: "Cocktails" },
   { href: "#sport", label: "Sport" },
-  { href: "#drinks", label: "Drinks" },
+  { href: "#games", label: "Games" },
+  { href: "#food", label: "Food" },
   { href: "#reviews", label: "Reviews" },
   { href: "#find-us", label: "Find Us" },
 ];
@@ -45,7 +110,6 @@ function useAthensNow() {
 }
 
 function getOpenState(now: Date) {
-  // Convert current instant to Europe/Athens wall clock parts.
   const parts = new Intl.DateTimeFormat("en-GB", {
     timeZone: "Europe/Athens",
     hour12: false,
@@ -57,7 +121,7 @@ function getOpenState(now: Date) {
   const minute = parseInt(parts.find((p) => p.type === "minute")!.value, 10);
   const mins = hour * 60 + minute;
   const openMins = CONFIG.hoursLocal.open * 60;
-  const closeMins = CONFIG.hoursLocal.close * 60; // 1440 = midnight
+  const closeMins = CONFIG.hoursLocal.close * 60;
   const isOpen = mins >= openMins && mins < closeMins;
   return { isOpen, hour, minute };
 }
@@ -113,6 +177,22 @@ function BtnOutline({ href, children, ...rest }: React.AnchorHTMLAttributes<HTML
   );
 }
 
+function FadeUp({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, delay, ease: [0.2, 0.7, 0.2, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
 // ---------- Route ----------
 export const Route = createFileRoute("/")({
   component: Home,
@@ -125,9 +205,12 @@ function Home() {
       <main>
         <Hero />
         <TrustBar />
-        <Experience />
+        <Cocktails />
         <Sport />
-        <Drinks />
+        <Games />
+        <Food />
+        <Experience />
+        <Gallery />
         <Reviews />
         <FAQ />
         <FindUs />
@@ -143,13 +226,13 @@ function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const now = useAthensNow();
   const { isOpen, hour } = getOpenState(now);
-  const label = isOpen ? "Open now" : hour < CONFIG.hoursLocal.open ? `Opens at 11:00` : `Opens tomorrow 11:00`;
+  const label = isOpen ? "Open now" : hour < CONFIG.hoursLocal.open ? "Opens at 11:00" : "Opens tomorrow 11:00";
 
   return (
     <header className="sticky top-0 z-40 border-b border-gold/10 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logo} alt="TE.BRA Sports Bar crest" className="h-10 w-10 object-contain" />
+          <img src={LOGO} alt="TE.BRA Sports Bar gold crest logo" className="h-11 w-11 object-contain" />
           <span className="hidden font-display text-lg tracking-wide text-ivory sm:inline">TE.BRA</span>
         </a>
 
@@ -219,52 +302,96 @@ function Header() {
 
 // ---------- Hero ----------
 function Hero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1.18]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
-    <section id="top" className="relative isolate overflow-hidden">
-      <div className="absolute inset-0 -z-10">
+    <section id="top" ref={ref} className="relative isolate overflow-hidden">
+      <motion.div style={{ y, scale }} className="absolute inset-0 -z-10">
         <img
-          src={heroImg}
-          alt="Interior of TE.BRA Sports Bar Hersonissos at night, art deco lounge with big screens showing live football"
-          className="h-full w-full object-cover opacity-55"
+          src={HERO_COCKTAIL}
+          alt="Signature cocktail on the bar at TE.BRA cocktail bar in Hersonissos, Crete"
+          className="h-full w-full object-cover opacity-60"
           width={1920}
           height={1280}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/65 to-background" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,var(--background)_85%)]" />
-      </div>
+      </motion.div>
 
-      <div className="mx-auto grid min-h-[92vh] max-w-6xl place-items-center px-4 py-24 md:px-8">
-        <div className="w-full max-w-3xl text-center animate-fade-up">
-          <p className="label-eyebrow">Hersonissos, Crete</p>
-          <h1 className="mt-6 font-display text-5xl leading-[1.05] text-ivory sm:text-6xl md:text-7xl">
-            The most stylish{" "}
-            <span className="text-gold-gradient italic">sports bar</span>
-            <br className="hidden sm:block" /> in Hersonissos.
-          </h1>
-          <p className="mx-auto mt-6 max-w-xl text-base text-ivory-dim md:text-lg">
-            Cold drinks, big screens, deco lounge vibes, five minutes from the strip.
-          </p>
+      <motion.div style={{ opacity }} className="mx-auto grid min-h-[92vh] max-w-6xl place-items-center px-4 py-24 md:px-8">
+        <div className="w-full max-w-3xl text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="label-eyebrow"
+          >
+            Hersonissos, Crete
+          </motion.p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, delay: 0.1, ease: [0.2, 0.7, 0.2, 1] }}
+            className="mt-6 font-display text-5xl leading-[1.05] text-ivory sm:text-6xl md:text-7xl"
+          >
+            Best <span className="text-gold-gradient italic">cocktails</span> in town,
+            <br className="hidden sm:block" /> every game on the screen.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mx-auto mt-6 max-w-xl text-base text-ivory-dim md:text-lg"
+          >
+            A stylish cocktail bar and sports lounge, five minutes from the strip.
+            Cocktails, cold beer, pool, darts and good food.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-8 flex flex-wrap items-center justify-center gap-2"
+          >
             <GoldPill>5.0 on Tripadvisor</GoldPill>
-            <GoldPill>#1 Nightlife in Hersonissos</GoldPill>
             <GoldPill>Travelers&rsquo; Choice 2026</GoldPill>
-            <GoldPill>86 plus five star reviews</GoldPill>
-          </div>
+            <GoldPill>Top rated bar in Hersonissos</GoldPill>
+            <GoldPill>86 five star reviews</GoldPill>
+          </motion.div>
 
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="mt-10 flex flex-wrap items-center justify-center gap-3"
+          >
             <BtnPrimary href={directionsUrl} target="_blank" rel="noopener">
               Get Directions
             </BtnPrimary>
             <BtnOutline href="#sport">Book a table for the match</BtnOutline>
-          </div>
+          </motion.div>
 
           <p className="mt-6 text-xs uppercase tracking-[0.24em] text-ivory-dim">
             Open daily, 11:00 til late
           </p>
         </div>
-      </div>
+      </motion.div>
+
+      {/* animated gold hairline */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1.4, delay: 0.4, ease: "easeOut" }}
+        style={{ transformOrigin: "center" }}
+        className="mx-auto h-px w-40 bg-gradient-to-r from-transparent via-gold to-transparent"
+      />
     </section>
   );
 }
@@ -283,66 +410,83 @@ function TrustBar() {
         <span className="hidden h-4 w-px bg-gold/25 md:inline" />
         <span className="label-eyebrow">Travelers&rsquo; Choice 2026</span>
         <span className="hidden h-4 w-px bg-gold/25 md:inline" />
-        <span className="label-eyebrow">#1 Nightlife, Hersonissos</span>
+        <span className="label-eyebrow">Top rated bar in Hersonissos</span>
       </div>
     </section>
   );
 }
 
-// ---------- Experience ----------
-function Experience() {
-  const cards = [
-    {
-      icon: <IconDiamond />,
-      title: "Deco lounge, done right",
-      body: "Scandi chic decor, comfortable seating, spotless, air conditioned.",
-    },
-    {
-      icon: <IconScreens />,
-      title: "Every game, every screen",
-      body: "Multiple large satellite screens. All the football and major sport, live.",
-    },
-    {
-      icon: <IconGlass />,
-      title: "Cocktails with talent behind them",
-      body: "Handcrafted cocktails, generous measures, premium spirits, cold beer and wine.",
-    },
-    {
-      icon: <IconCue />,
-      title: "Play a little",
-      body: "Pool table and darts, in a room that still feels grown up.",
-    },
+// ---------- Cocktails (lead section) ----------
+function Cocktails() {
+  const items = [
+    { name: "House Signature", note: "The one everyone talks about, ask the bar." },
+    { name: "Classic Negroni", note: "Campari, sweet vermouth, gin, orange peel." },
+    { name: "Espresso Martini", note: "Cold brew, vodka, coffee liqueur, ivory foam." },
+    { name: "Aperol Spritz", note: "Aperol, prosecco, soda, orange." },
+    { name: "Cold Beers on Tap", note: "Local and imported, always properly cold." },
+    { name: "Wine and Prosecco", note: "Greek and international, by glass or bottle." },
+    { name: "Premium Spirits", note: "Aged rum, single malt, small batch gin." },
+    { name: "Soft Drinks and Juices", note: "Freshly poured, no shortcuts." },
   ];
+
   return (
-    <section id="experience" className="relative py-24 md:py-32">
+    <section id="cocktails" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <header className="mx-auto max-w-2xl text-center">
-          <p className="label-eyebrow">The experience</p>
-          <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
-            Where relaxation meets{" "}
-            <span className="text-gold-gradient italic">sophistication</span>.
-          </h2>
-          <div className="gold-hairline mx-auto mt-8 w-40" />
-        </header>
+        <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
+          <FadeUp>
+            <p className="label-eyebrow">Cocktails</p>
+            <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
+              The best <span className="text-gold-gradient italic">cocktails</span> in town.
+            </h2>
+            <p className="mt-5 max-w-md text-ivory-dim">
+              Handcrafted cocktails with generous measures, mixed by someone with real talent.
+              Premium spirits, cold beer, wine and soft drinks. Come thirsty.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <BtnPrimary href="#menu">See the drinks</BtnPrimary>
+              <BtnOutline href={CONFIG.menuUrl}>Full menu</BtnOutline>
+            </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {cards.map((c) => (
-            <article
-              key={c.title}
-              className="deco-frame group relative bg-surface-raised/60 p-6 transition-all hover:-translate-y-1 hover:border-gold/40"
-            >
-              <div className="text-gold">{c.icon}</div>
-              <h3 className="mt-5 font-display text-xl text-ivory">{c.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ivory-dim">{c.body}</p>
-            </article>
-          ))}
-        </div>
+            <div className="mt-10 grid grid-cols-2 gap-3">
+              <motion.img
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.5 }}
+                src={HERO_COCKTAIL}
+                alt="Signature cocktail on the bar at TE.BRA cocktail bar Hersonissos"
+                loading="lazy"
+                className="aspect-[4/5] w-full rounded-md object-cover"
+              />
+              <motion.img
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.5 }}
+                src={DRINK_2}
+                alt="Handcrafted cocktail poured at TE.BRA bar in Hersonissos, Crete"
+                loading="lazy"
+                className="aspect-[4/5] w-full rounded-md object-cover"
+              />
+            </div>
+          </FadeUp>
 
-        <div className="mt-16 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-          <img src={lounge1} alt="Deco lounge seating inside TE.BRA sports bar Hersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
-          <img src={cocktailsImg} alt="Handcrafted cocktails at TE.BRA cocktail bar Hersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
-          <img src={screensImg} alt="Watch Champions League on multiple big screens at TE.BRA Crete" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
-          <img src={lounge2} alt="Pool table at TE.BRA sports bar Chersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
+          <FadeUp delay={0.15}>
+            <ul id="menu" className="grid grid-cols-1 gap-x-8 gap-y-1 sm:grid-cols-2">
+              {items.map((it, i) => (
+                <motion.li
+                  key={it.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  className="border-b border-gold/10 py-4"
+                >
+                  <div className="flex items-baseline justify-between gap-4">
+                    <span className="font-display text-lg text-ivory">{it.name}</span>
+                    <span className="h-px flex-1 translate-y-[-4px] bg-gold/20" />
+                  </div>
+                  <p className="mt-1 text-sm text-ivory-dim">{it.note}</p>
+                </motion.li>
+              ))}
+            </ul>
+          </FadeUp>
         </div>
       </div>
     </section>
@@ -362,16 +506,22 @@ function Sport() {
   }, [match, party, when]);
 
   return (
-    <section id="sport" className="relative py-24 md:py-32">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(138,106,47,0.15),transparent_60%)]" />
+    <section id="sport" className="relative border-t border-gold/10 py-24 md:py-32">
+      <div className="absolute inset-0 -z-10">
+        <img src={SCREENS} alt="" aria-hidden className="h-full w-full object-cover opacity-15" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(138,106,47,0.18),transparent_65%)]" />
+      </div>
+
       <div className="mx-auto grid max-w-7xl gap-12 px-4 md:grid-cols-2 md:px-8">
-        <div>
+        <FadeUp>
           <p className="label-eyebrow">Match day</p>
           <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
-            Reserve your seat for the <span className="text-gold-gradient italic">big game</span>.
+            Every game, every <span className="text-gold-gradient italic">screen</span>.
           </h2>
           <p className="mt-5 max-w-md text-ivory-dim">
-            Champions League nights, cup finals, Sunday football. Tell us the match, we will save you the best seat in the house.
+            Multiple large screens showing football, Champions League and all the major live sport.
+            Tell us the match, we save you the best seat in the house.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BtnPrimary href={whatsappUrl(message)} target="_blank" rel="noopener">
@@ -382,30 +532,32 @@ function Sport() {
           <p className="mt-6 text-xs uppercase tracking-[0.24em] text-ivory-dim">
             Watch football Hersonissos, every week
           </p>
-        </div>
+        </FadeUp>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            window.open(whatsappUrl(message), "_blank", "noopener");
-          }}
-          className="deco-frame bg-surface-raised/70 p-6 md:p-8"
-        >
-          <p className="label-eyebrow">Quick reserve</p>
-          <div className="mt-4 grid gap-4">
-            <Field label="Which match?" value={match} onChange={setMatch} placeholder="e.g. Real Madrid v Arsenal" />
-            <div className="grid grid-cols-2 gap-3">
-              <Field label="When?" value={when} onChange={setWhen} placeholder="Wed 8pm" />
-              <Field label="Party size" value={party} onChange={setParty} type="number" min={1} />
+        <FadeUp delay={0.15}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              window.open(whatsappUrl(message), "_blank", "noopener");
+            }}
+            className="deco-frame bg-surface-raised/70 p-6 md:p-8"
+          >
+            <p className="label-eyebrow">Quick reserve</p>
+            <div className="mt-4 grid gap-4">
+              <Field label="Which match?" value={match} onChange={setMatch} placeholder="e.g. Real Madrid v Arsenal" />
+              <div className="grid grid-cols-2 gap-3">
+                <Field label="When?" value={when} onChange={setWhen} placeholder="Wed 8pm" />
+                <Field label="Party size" value={party} onChange={setParty} type="number" min={1} />
+              </div>
+              <button
+                type="submit"
+                className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-gold-gradient px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:-translate-y-0.5"
+              >
+                Send on WhatsApp
+              </button>
             </div>
-            <button
-              type="submit"
-              className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-gold-gradient px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:-translate-y-0.5"
-            >
-              Send on WhatsApp
-            </button>
-          </div>
-        </form>
+          </form>
+        </FadeUp>
       </div>
     </section>
   );
@@ -434,50 +586,182 @@ function Field({
   );
 }
 
-// ---------- Drinks ----------
-function Drinks() {
-  const items = [
-    { name: "House Signature", note: "The one everyone talks about, ask the bar." },
-    { name: "Classic Negroni", note: "Campari, sweet vermouth, gin, orange peel." },
-    { name: "Espresso Martini", note: "Cold brew, vodka, coffee liqueur, ivory foam." },
-    { name: "Aperol Spritz", note: "Aperol, prosecco, soda, orange." },
-    { name: "Cold Beers on Tap", note: "Local and imported, always properly cold." },
-    { name: "Wine and Prosecco", note: "Greek and international, by glass or bottle." },
-    { name: "Premium Spirits", note: "Aged rum, single malt, small batch gin." },
-    { name: "Breakfast and Snacks", note: "Morning menu and bar bites, all day." },
+// ---------- Games ----------
+function Games() {
+  const tiles = [
+    { icon: <IconCue />, title: "Pool table", body: "Rack them up, play a few frames." },
+    { icon: <IconDart />, title: "Darts", body: "Steady arm, sharp arrows, good company." },
+    { icon: <IconDice />, title: "and more", body: "Board games and easy nights, ask at the bar." },
   ];
-
   return (
-    <section id="drinks" className="relative border-t border-gold/10 py-24 md:py-32">
+    <section id="games" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <div className="grid gap-12 md:grid-cols-[1fr_1.2fr]">
-          <div>
-            <p className="label-eyebrow">Drinks</p>
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
+          <FadeUp>
+            <p className="label-eyebrow">More than a bar</p>
             <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
-              Cocktails in Hersonissos, done <span className="text-gold-gradient italic">properly</span>.
+              Play a little, <span className="text-gold-gradient italic">settle in</span>.
             </h2>
             <p className="mt-5 max-w-md text-ivory-dim">
-              Generous measures, premium spirits, cold beer on tap. Breakfast and snacks served throughout the day.
+              Play a few frames, throw some arrows, settle in. It is that kind of place.
             </p>
-            <BtnOutline href={CONFIG.menuUrl} className="mt-8">
-              See the full menu
-            </BtnOutline>
-            <img src={cocktailsImg} alt="Signature cocktails on the bar at TE.BRA" loading="lazy" className="mt-10 hidden aspect-[4/3] w-full rounded-md object-cover md:block" />
-          </div>
 
-          <ul className="grid grid-cols-1 gap-x-8 gap-y-1 sm:grid-cols-2" id="menu">
-            {items.map((it) => (
-              <li key={it.name} className="group border-b border-gold/10 py-4">
-                <div className="flex items-baseline justify-between gap-4">
-                  <span className="font-display text-lg text-ivory">{it.name}</span>
-                  <span className="h-px flex-1 translate-y-[-4px] bg-gold/20" />
-                </div>
-                <p className="mt-1 text-sm text-ivory-dim">{it.note}</p>
-              </li>
-            ))}
-          </ul>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {tiles.map((t, i) => (
+                <motion.article
+                  key={t.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  whileHover={{ y: -4 }}
+                  className="deco-frame bg-surface-raised/60 p-5"
+                >
+                  <div className="text-gold">{t.icon}</div>
+                  <h3 className="mt-4 font-display text-lg text-ivory">{t.title}</h3>
+                  <p className="mt-1 text-xs leading-relaxed text-ivory-dim">{t.body}</p>
+                </motion.article>
+              ))}
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.15}>
+            <motion.div
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.6 }}
+              className="deco-frame overflow-hidden"
+            >
+              <img
+                src={POOL_DARTS}
+                alt="Pool table and games area at TE.BRA sports bar Hersonissos Crete"
+                loading="lazy"
+                className="aspect-[4/3] w-full object-cover"
+              />
+            </motion.div>
+          </FadeUp>
         </div>
       </div>
+    </section>
+  );
+}
+
+// ---------- Food ----------
+function Food() {
+  return (
+    <section id="food" className="relative border-t border-gold/10 py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <FadeUp>
+            <motion.img
+              initial={{ scale: 1.05 }}
+              whileInView={{ scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.4, ease: "easeOut" }}
+              src={FOOD}
+              alt="Bar food and breakfast plate served at TE.BRA in Hersonissos, Crete"
+              loading="lazy"
+              className="aspect-[4/3] w-full rounded-md object-cover"
+            />
+          </FadeUp>
+          <FadeUp delay={0.15}>
+            <p className="label-eyebrow">Food</p>
+            <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
+              Good food, <span className="text-gold-gradient italic">all day</span>.
+            </h2>
+            <p className="mt-5 max-w-md text-ivory-dim">
+              Breakfast in the morning, snacks and proper bar food through the day and night.
+              Everything done well, plenty of it.
+            </p>
+            <ul className="mt-6 grid grid-cols-2 gap-y-2 text-sm text-ivory-dim">
+              <li className="flex items-center gap-2"><Dot /> Breakfast</li>
+              <li className="flex items-center gap-2"><Dot /> Bar bites</li>
+              <li className="flex items-center gap-2"><Dot /> Sharing plates</li>
+              <li className="flex items-center gap-2"><Dot /> Vegetarian options</li>
+            </ul>
+          </FadeUp>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Dot() {
+  return <span className="h-1.5 w-1.5 rounded-full bg-gold" />;
+}
+
+// ---------- Experience strip ----------
+function Experience() {
+  const cards = [
+    { icon: <IconDiamond />, title: "Deco lounge, done right", body: "Scandi chic, comfortable, spotless, air conditioned." },
+    { icon: <IconHeart />, title: "Welcoming owners", body: "Zak and Valentina. Walk in a stranger, leave a friend." },
+    { icon: <IconLeaf />, title: "A quieter, nicer setting", body: "A short hop from the busy strip, near the villas." },
+  ];
+  return (
+    <section id="experience" className="relative py-24 md:py-32">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <FadeUp>
+          <header className="mx-auto max-w-2xl text-center">
+            <p className="label-eyebrow">The experience</p>
+            <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
+              Where relaxation meets{" "}
+              <span className="text-gold-gradient italic">sophistication</span>.
+            </h2>
+            <div className="gold-hairline mx-auto mt-8 w-40" />
+          </header>
+        </FadeUp>
+
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {cards.map((c, i) => (
+            <motion.article
+              key={c.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: i * 0.1 }}
+              whileHover={{ y: -6 }}
+              className="deco-frame bg-surface-raised/60 p-6"
+            >
+              <div className="text-gold">{c.icon}</div>
+              <h3 className="mt-5 font-display text-xl text-ivory">{c.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-ivory-dim">{c.body}</p>
+            </motion.article>
+          ))}
+        </div>
+
+        <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={LOUNGE_1} alt="Deco lounge seating inside TE.BRA sports bar Hersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
+          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={DETAIL_1} alt="Champagne gold detail at TE.BRA cocktail bar Hersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
+          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={LOUNGE_2} alt="Comfortable seating and warm lighting at TE.BRA" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
+          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={DETAIL_2} alt="Deco framing detail at TE.BRA bar in Chersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ---------- Gallery (marquee) ----------
+function Gallery() {
+  const row = [...GALLERY, ...GALLERY];
+  return (
+    <section aria-label="Gallery" className="relative overflow-hidden border-t border-gold/10 py-16">
+      <FadeUp>
+        <p className="label-eyebrow text-center">Inside TE.BRA</p>
+      </FadeUp>
+      <motion.div
+        className="mt-8 flex gap-4"
+        animate={{ x: ["0%", "-50%"] }}
+        transition={{ duration: 60, ease: "linear", repeat: Infinity }}
+      >
+        {row.map((g, i) => (
+          <img
+            key={i}
+            src={g.src}
+            alt={g.alt}
+            loading="lazy"
+            className="h-56 w-80 flex-none rounded-md object-cover md:h-72 md:w-96"
+          />
+        ))}
+      </motion.div>
     </section>
   );
 }
@@ -504,21 +788,23 @@ function Reviews() {
   return (
     <section id="reviews" className="relative border-t border-gold/10 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <header className="mx-auto max-w-2xl text-center">
-          <p className="label-eyebrow">Loved by everyone who finds it</p>
-          <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
-            {summary.rating.toFixed(1)} out of 5, <span className="text-gold-gradient italic">{summary.total} reviews</span>.
-          </h2>
-          <div className="mt-5 flex items-center justify-center gap-3">
-            <GoldStars n={5} size={18} />
-          </div>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-            {summary.badges.map((b) => (
-              <GoldPill key={b}>{b}</GoldPill>
-            ))}
-            <GoldPill>Verified on Tripadvisor</GoldPill>
-          </div>
-        </header>
+        <FadeUp>
+          <header className="mx-auto max-w-2xl text-center">
+            <p className="label-eyebrow">Loved by everyone who finds it</p>
+            <h2 className="mt-4 font-display text-4xl text-ivory md:text-5xl">
+              {summary.rating.toFixed(1)} out of 5, <span className="text-gold-gradient italic">{summary.total} reviews</span>.
+            </h2>
+            <div className="mt-5 flex items-center justify-center gap-3">
+              <GoldStars n={5} size={18} />
+            </div>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+              {summary.badges.map((b) => (
+                <GoldPill key={b}>{b}</GoldPill>
+              ))}
+              <GoldPill>Verified on Tripadvisor</GoldPill>
+            </div>
+          </header>
+        </FadeUp>
 
         <div className="mt-10 flex items-center justify-end gap-2 text-xs uppercase tracking-[0.2em] text-ivory-dim">
           <span>Sort by</span>
@@ -528,7 +814,15 @@ function Reviews() {
 
         <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {sorted.map((r, i) => (
-            <ReviewCard key={`${r.name}-${r.date}-${i}`} r={r} isNew={newestIds.has(`${r.name}-${r.date}`)} />
+            <motion.div
+              key={`${r.name}-${r.date}-${i}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
+            >
+              <ReviewCard r={r} isNew={newestIds.has(`${r.name}-${r.date}`)} />
+            </motion.div>
           ))}
         </div>
 
@@ -588,21 +882,24 @@ function ReviewCard({ r, isNew }: { r: Review; isNew: boolean }) {
 // ---------- FAQ ----------
 function FAQ() {
   const items = [
-    { q: "Where is TE.BRA Sports Bar in Hersonissos?", a: "Near the villas and a short drive from the main strip, in a quieter, nicer setting. Coordinates and directions link are in the Find Us section below." },
-    { q: "What sport can I watch at TE.BRA?", a: "Multiple large satellite screens showing football, Champions League, and major live sport. Ask us to put your match on." },
-    { q: "Can I reserve a table for a big match?", a: "Yes. Message us on WhatsApp with the match and your party size and we will save you a seat." },
-    { q: "Does TE.BRA serve food?", a: "Yes, breakfast, snacks and bar food, alongside cocktails, beer, wine and premium spirits." },
+    { q: "Where is TE.BRA in Hersonissos?", a: "A short drive from the main strip, in a quieter, nicer setting near the villas. Directions link below." },
+    { q: "Does TE.BRA have good cocktails?", a: "Yes, handcrafted cocktails with generous measures are the specialty, alongside premium spirits, beer and wine." },
+    { q: "Can I watch football and live sport at TE.BRA?", a: "Yes, multiple large screens show football, Champions League and major live sport. Ask us to put your match on." },
+    { q: "Can I reserve a table for a big match?", a: "Yes, message us on WhatsApp with the match and party size and we save you a seat." },
+    { q: "What games are there?", a: "A pool table and darts, and a relaxed space to settle in." },
+    { q: "Does TE.BRA serve food?", a: "Yes, breakfast, snacks and bar food throughout the day." },
     { q: "What are the opening hours?", a: "Open daily from 11:00 until late." },
-    { q: "Is it good for families and groups?", a: "Yes, families and groups are welcome, with pool, darts and comfortable seating." },
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
     <section id="faq" className="relative border-t border-gold/10 py-24 md:py-32">
       <div className="mx-auto max-w-3xl px-4 md:px-8">
-        <p className="label-eyebrow text-center">FAQ</p>
-        <h2 className="mt-4 text-center font-display text-4xl text-ivory md:text-5xl">
-          Good to <span className="text-gold-gradient italic">know</span>.
-        </h2>
+        <FadeUp>
+          <p className="label-eyebrow text-center">FAQ</p>
+          <h2 className="mt-4 text-center font-display text-4xl text-ivory md:text-5xl">
+            Good to <span className="text-gold-gradient italic">know</span>.
+          </h2>
+        </FadeUp>
         <div className="mt-12 divide-y divide-gold/10 border-y border-gold/10">
           {items.map((it, i) => {
             const isOpen = open === i;
@@ -635,51 +932,63 @@ function FindUs() {
   return (
     <section id="find-us" className="relative border-t border-gold/10 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <p className="label-eyebrow text-center">Find us</p>
-        <h2 className="mt-4 text-center font-display text-4xl text-ivory md:text-5xl">
-          Come <span className="text-gold-gradient italic">say hello</span>.
-        </h2>
+        <FadeUp>
+          <p className="label-eyebrow text-center">Find us</p>
+          <h2 className="mt-4 text-center font-display text-4xl text-ivory md:text-5xl">
+            Come <span className="text-gold-gradient italic">say hello</span>.
+          </h2>
+        </FadeUp>
 
         <div className="mt-14 grid gap-10 lg:grid-cols-[1.2fr_1fr]">
-          <div className="deco-frame overflow-hidden">
-            <iframe
-              title="TE.BRA Sports Bar on Google Maps"
-              src={mapEmbed}
-              className="h-[420px] w-full border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-          <div className="flex flex-col justify-between">
-            <div>
-              <h3 className="font-display text-2xl text-ivory">TE.BRA Sports Bar</h3>
-              <p className="mt-3 text-ivory-dim">{CONFIG.address}</p>
-              <ul className="mt-6 space-y-2 text-sm text-ivory-dim">
-                <li className="flex items-center gap-3">
-                  <IconClock className="h-4 w-4 text-gold" />
-                  Open daily, 11:00 til late
-                </li>
-                <li className="flex items-center gap-3">
-                  <IconPhone className="h-4 w-4 text-gold" />
-                  <a href={`tel:${CONFIG.phone.replace(/\s/g, "")}`} className="link-sweep text-ivory">
-                    {CONFIG.phone}
-                  </a>
-                </li>
-              </ul>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <BtnPrimary href={directionsUrl} target="_blank" rel="noopener">Get directions</BtnPrimary>
-                <BtnOutline href={whatsappUrl("Hi TE.BRA")} target="_blank" rel="noopener">
-                  <IconWhatsapp className="h-4 w-4" /> Message on WhatsApp
-                </BtnOutline>
+          <FadeUp>
+            <div className="deco-frame overflow-hidden">
+              <img
+                src={EXTERIOR_DUSK}
+                alt="TE.BRA sports bar exterior at dusk in Hersonissos, Crete"
+                loading="lazy"
+                className="h-56 w-full object-cover"
+              />
+              <iframe
+                title="TE.BRA Sports Bar on Google Maps"
+                src={mapEmbed}
+                className="h-[360px] w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </FadeUp>
+          <FadeUp delay={0.15}>
+            <div className="flex h-full flex-col justify-between">
+              <div>
+                <h3 className="font-display text-2xl text-ivory">TE.BRA Sports Bar</h3>
+                <p className="mt-3 text-ivory-dim">{CONFIG.address}</p>
+                <ul className="mt-6 space-y-2 text-sm text-ivory-dim">
+                  <li className="flex items-center gap-3">
+                    <IconClock className="h-4 w-4 text-gold" />
+                    Open daily, 11:00 til late
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <IconPhone className="h-4 w-4 text-gold" />
+                    <a href={`tel:${CONFIG.phone.replace(/\s/g, "")}`} className="link-sweep text-ivory">
+                      {CONFIG.phone}
+                    </a>
+                  </li>
+                </ul>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <BtnPrimary href={directionsUrl} target="_blank" rel="noopener">Get directions</BtnPrimary>
+                  <BtnOutline href={whatsappUrl("Hi TE.BRA")} target="_blank" rel="noopener">
+                    <IconWhatsapp className="h-4 w-4" /> Message on WhatsApp
+                  </BtnOutline>
+                </div>
+              </div>
+
+              <div className="mt-10 flex items-center gap-5">
+                <SocialLink href="https://www.instagram.com/tebra_sports_bar/" label="Instagram"><IconInstagram /></SocialLink>
+                <SocialLink href="https://www.facebook.com/p/TEBRA-Sports-Bar-61578308090517/" label="Facebook"><IconFacebook /></SocialLink>
+                <SocialLink href={getSummary().tripadvisorUrl} label="Tripadvisor"><IconGlobe /></SocialLink>
               </div>
             </div>
-
-            <div className="mt-10 flex items-center gap-5">
-              <SocialLink href="https://www.instagram.com/tebra_sports_bar/" label="Instagram"><IconInstagram /></SocialLink>
-              <SocialLink href="https://www.facebook.com/p/TEBRA-Sports-Bar-61578308090517/" label="Facebook"><IconFacebook /></SocialLink>
-              <SocialLink href={getSummary().tripadvisorUrl} label="Tripadvisor"><IconGlobe /></SocialLink>
-            </div>
-          </div>
+          </FadeUp>
         </div>
       </div>
     </section>
@@ -699,10 +1008,9 @@ function Footer() {
   return (
     <footer className="border-t border-gold/10 bg-background/80 pb-24 pt-12 md:pb-12">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 text-center md:px-8">
-        <img src={exteriorImg} alt="TE.BRA sports bar exterior at dusk in Hersonissos, Crete" loading="lazy" className="hidden" />
-        <img src={logo} alt="TE.BRA crest" className="h-12 w-12 object-contain" />
+        <img src={LOGO} alt="TE.BRA gold crest" className="h-16 w-16 object-contain" />
         <p className="font-display text-lg italic text-ivory-dim">
-          Where the game meets the good life.
+          Best cocktails in town, every game on the screen.
         </p>
         <div className="gold-hairline w-40" />
         <p className="text-xs uppercase tracking-[0.2em] text-ivory-dim">
@@ -746,19 +1054,18 @@ function IconDiamond() {
     </svg>
   );
 }
-function IconScreens() {
+function IconHeart() {
   return (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
-      <rect x="2" y="4" width="14" height="10" rx="1" />
-      <rect x="10" y="10" width="12" height="8" rx="1" />
+      <path d="M12 21s-7-4.5-9.5-9A5 5 0 0112 6a5 5 0 019.5 6C19 16.5 12 21 12 21z" />
     </svg>
   );
 }
-function IconGlass() {
+function IconLeaf() {
   return (
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
-      <path d="M6 3h12l-2 8a4 4 0 01-8 0L6 3z" />
-      <path d="M12 15v6M9 21h6" />
+      <path d="M5 21c8 0 14 6 14 14M20 4c0 8 6 14 14 14" transform="translate(-9 -13) scale(0.9)" />
+      <path d="M4 20c8 0 16-8 16-16-8 0-16 8-16 16z" />
     </svg>
   );
 }
@@ -767,6 +1074,28 @@ function IconCue() {
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
       <circle cx="7" cy="17" r="3" />
       <path d="M9 15L21 3" />
+    </svg>
+  );
+}
+function IconDart() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="12" r="5" />
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+      <path d="M12 12l8-8" />
+    </svg>
+  );
+}
+function IconDice() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+      <rect x="3" y="3" width="18" height="18" rx="3" />
+      <circle cx="8" cy="8" r="1" fill="currentColor" />
+      <circle cx="16" cy="8" r="1" fill="currentColor" />
+      <circle cx="12" cy="12" r="1" fill="currentColor" />
+      <circle cx="8" cy="16" r="1" fill="currentColor" />
+      <circle cx="16" cy="16" r="1" fill="currentColor" />
     </svg>
   );
 }
