@@ -215,7 +215,7 @@ function Home() {
       <main>
         <Hero />
         <TrustBar />
-        <Cocktails />
+        
         <Sport />
         <Games />
         <Food />
