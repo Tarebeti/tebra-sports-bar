@@ -154,9 +154,11 @@ const FAQ_JSON_LD = {
   ],
 };
 
-const TITLE = "TE.BRA | Cocktail Bar and Sports Bar in Hersonissos, Crete";
+const TITLE = "TE.BRA | Cocktail & Sports Bar in Hersonissos, Crete";
 const DESCRIPTION =
-  "The best cocktails in Hersonissos and every big match on the screens. A stylish cocktail bar and sports lounge with pool, darts and great food. Open daily. 5.0 on Tripadvisor.";
+  "Best cocktails in Hersonissos plus every big match on our screens. Sports lounge with pool, darts, great food. Open daily. 5.0 on Tripadvisor.";
+const OG_IMAGE =
+  "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9e67ad64-0449-4a2d-94e4-44bd910707a2/id-preview-97f88f63--de525b7f-6912-4fcf-8e81-e76ba2a71178.lovable.app-1782899533974.png";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -168,23 +170,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "TE.BRA Sports Bar" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
-      { property: "og:type", content: "business.business" },
+      { property: "og:type", content: "website" },
       { property: "og:site_name", content: "TE.BRA Sports Bar" },
-      { property: "og:url", content: "/" },
+      { property: "og:url", content: "https://tebrabar.com/" },
       { property: "og:locale", content: "en_GB" },
       { property: "og:locale:alternate", content: "el_GR" },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: OG_IMAGE },
       { name: "theme-color", content: "#0B0B0C" },
-      { title: "Cocktail Bar and Sports Bar in Hersonissos | TE.BRA" },
-      { property: "og:title", content: "Cocktail Bar and Sports Bar in Hersonissos | TE.BRA" },
-      { name: "twitter:title", content: "Cocktail Bar and Sports Bar in Hersonissos | TE.BRA" },
-      { name: "description", content: "Best cocktails in Hersonissos and every big match on the screens. Stylish sports bar with pool, darts and great food. Open daily, 5.0 on Tripadvisor." },
-      { property: "og:description", content: "Best cocktails in Hersonissos and every big match on the screens. Stylish sports bar with pool, darts and great food. Open daily, 5.0 on Tripadvisor." },
-      { name: "twitter:description", content: "Best cocktails in Hersonissos and every big match on the screens. Stylish sports bar with pool, darts and great food. Open daily, 5.0 on Tripadvisor." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9e67ad64-0449-4a2d-94e4-44bd910707a2/id-preview-97f88f63--de525b7f-6912-4fcf-8e81-e76ba2a71178.lovable.app-1782899533974.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/9e67ad64-0449-4a2d-94e4-44bd910707a2/id-preview-97f88f63--de525b7f-6912-4fcf-8e81-e76ba2a71178.lovable.app-1782899533974.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
