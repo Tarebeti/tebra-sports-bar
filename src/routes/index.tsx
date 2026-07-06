@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "motion/react";
+import { useQuery } from "@tanstack/react-query";
 import { getReviews, getSummary, type Review } from "@/lib/reviews";
+import { getLiveReviews } from "@/lib/reviews.functions";
 
 // ---- Real image assets (self hosted via Lovable Assets CDN) ----
 import logoAsset from "@/assets/venue/logo.png.asset.json";
