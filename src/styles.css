@@ -125,11 +125,29 @@
   }
 }
 
+/* Bulletproof gradient text — solid fallback first, then gradient on
+   capable browsers. Guarantees visibility on Samsung Internet, older
+   Android WebViews, Firefox mobile, and every browser that struggles
+   with background-clip: text. */
 @utility text-gold-gradient {
-  background: var(--gradient-gold);
+  /* 1. Solid, high-contrast fallback color (visible everywhere) */
+  color: #F0D98C;
+  /* 2. Subtle glow so letters always pop against dark backgrounds */
+  text-shadow: 0 2px 12px rgba(201, 162, 75, 0.35);
+  background: #F0D98C;
+  background-image: linear-gradient(135deg, #C9A24B 0%, #F0D98C 50%, #E8C572 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
+}
+
+/* 3. Only strip the text fill to transparent when the browser actually
+   supports background-clip: text. Otherwise the solid color above wins. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .text-gold-gradient,
+  [class*="text-gold-gradient"] {
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 }
 
 @utility bg-gold-gradient {
