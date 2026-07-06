@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "motion/react";
+import { useQuery } from "@tanstack/react-query";
 import { getReviews, getSummary, type Review } from "@/lib/reviews";
+import { getLiveReviews } from "@/lib/reviews.functions";
 
 // ---- Real image assets (self hosted via Lovable Assets CDN) ----
 import logoAsset from "@/assets/venue/logo.png.asset.json";
@@ -361,8 +363,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-ivory md:text-lg"
           >
-            A stylish cocktail bar and sports lounge, five minutes from the strip.
-            Cocktails, cold beer, pool, darts and good food.
+            The top <strong className="font-semibold text-ivory">sports bar in Hersonissos, Crete</strong> — cocktails, cold beer, live football on every screen, pool, darts and great food. Five minutes from the strip.
           </motion.p>
 
           <motion.div
@@ -800,18 +801,68 @@ function Experience() {
   );
 }
 
-// ---------- Gallery (marquee) ----------
+// ---------- Gallery (swipeable + auto-scroll) ----------
 function Gallery() {
-  const row = [...GALLERY, ...GALLERY];
+  const row = useMemo(() => [...GALLERY, ...GALLERY], []);
+  const scrollerRef = useRef<HTMLDivElement | null>(null);
+  const pausedRef = useRef(false);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    let rafId = 0;
+    let last = performance.now();
+    const speed = 30; // px per second — subtle, natural feel
+
+    const tick = (now: number) => {
+      const dt = now - last;
+      last = now;
+      if (!pausedRef.current && el) {
+        el.scrollLeft += (speed * dt) / 1000;
+        // seamless loop — the row is doubled, so reset at halfway
+        const half = el.scrollWidth / 2;
+        if (el.scrollLeft >= half) el.scrollLeft -= half;
+      }
+      rafId = requestAnimationFrame(tick);
+    };
+    rafId = requestAnimationFrame(tick);
+
+    const pause = () => (pausedRef.current = true);
+    const resume = () => {
+      // small delay after touch/mouse leaves so it doesn't jerk back to auto
+      window.setTimeout(() => (pausedRef.current = false), 1500);
+    };
+
+    el.addEventListener("pointerdown", pause);
+    el.addEventListener("pointerup", resume);
+    el.addEventListener("pointercancel", resume);
+    el.addEventListener("mouseenter", pause);
+    el.addEventListener("mouseleave", resume);
+    el.addEventListener("touchstart", pause, { passive: true });
+    el.addEventListener("touchend", resume, { passive: true });
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      el.removeEventListener("pointerdown", pause);
+      el.removeEventListener("pointerup", resume);
+      el.removeEventListener("pointercancel", resume);
+      el.removeEventListener("mouseenter", pause);
+      el.removeEventListener("mouseleave", resume);
+      el.removeEventListener("touchstart", pause);
+      el.removeEventListener("touchend", resume);
+    };
+  }, []);
+
   return (
-    <section aria-label="Gallery" className="relative overflow-hidden border-t border-gold/10 py-16">
+    <section aria-label="Gallery inside TE.BRA sports bar in Hersonissos, Crete" className="relative overflow-hidden border-t border-gold/10 py-16">
       <FadeUp>
-        <p className="label-eyebrow text-center">Inside TE.BRA</p>
+        <p className="label-eyebrow text-center">Inside TE.BRA · Hersonissos · Crete</p>
       </FadeUp>
-      <motion.div
-        className="mt-8 flex gap-4"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 60, ease: "linear", repeat: Infinity }}
+      <div
+        ref={scrollerRef}
+        className="mt-8 flex gap-4 overflow-x-auto overflow-y-hidden scroll-smooth px-4 pb-2 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        style={{ touchAction: "pan-x", overscrollBehaviorX: "contain" }}
       >
         {row.map((g, i) => (
           <img
@@ -819,10 +870,12 @@ function Gallery() {
             src={g.src}
             alt={g.alt}
             loading="lazy"
-            className="h-56 w-80 flex-none rounded-md object-cover md:h-72 md:w-96"
+            draggable={false}
+            className="h-56 w-80 flex-none select-none rounded-md object-cover md:h-72 md:w-96"
           />
         ))}
-      </motion.div>
+      </div>
+      <p className="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-ivory-dim/70">Swipe to explore →</p>
     </section>
   );
 }
@@ -831,8 +884,21 @@ function Gallery() {
 type SortMode = "recent" | "rating";
 
 function Reviews() {
-  const summary = getSummary();
-  const all = useMemo(() => getReviews(), []);
+  const seedSummary = getSummary();
+  const seedReviews = useMemo(() => getReviews(), []);
+
+  // Auto-refresh from Tripadvisor via Firecrawl every 30 min; falls back to seed.
+  const { data } = useQuery({
+    queryKey: ["tripadvisor-reviews"],
+    queryFn: () => getLiveReviews(),
+    initialData: { summary: seedSummary, reviews: seedReviews, fetchedAt: "", source: "seed" as const },
+    staleTime: 30 * 60 * 1000,
+    refetchInterval: 30 * 60 * 1000,
+    refetchOnWindowFocus: false,
+  });
+
+  const summary = data.summary;
+  const all = data.reviews;
   const [sort, setSort] = useState<SortMode>("recent");
 
   const sorted = useMemo(() => {
