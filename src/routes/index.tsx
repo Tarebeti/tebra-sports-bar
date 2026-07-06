@@ -363,8 +363,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-ivory md:text-lg"
           >
-            A stylish cocktail bar and sports lounge, five minutes from the strip.
-            Cocktails, cold beer, pool, darts and good food.
+            The top <strong className="font-semibold text-ivory">sports bar in Hersonissos, Crete</strong> — cocktails, cold beer, live football on every screen, pool, darts and great food. Five minutes from the strip.
           </motion.p>
 
           <motion.div
