@@ -975,7 +975,7 @@ function Reviews() {
         )}
 
         <div className="mt-12 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-          <BtnPrimary href={waLink} target="_blank" rel="noopener">
+          <BtnPrimary href={whatsappUrl("Hi TE.BRA, I would like to book a table.")} target="_blank" rel="noopener">
             Book your table on WhatsApp
           </BtnPrimary>
           <BtnOutline href={summary.tripadvisorUrl} target="_blank" rel="noopener">
