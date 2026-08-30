@@ -373,7 +373,6 @@ function Hero() {
             className="mt-8 flex flex-wrap items-center justify-center gap-2"
           >
             <GoldPill>5.0 on Tripadvisor</GoldPill>
-            <GoldPill>Ranked #1 of 25 Bars &amp; Clubs in Hersonissos</GoldPill>
             <GoldPill>Top rated bar in Hersonissos</GoldPill>
             <GoldPill>86 five star reviews</GoldPill>
           </motion.div>
@@ -469,8 +468,6 @@ function TrustBar() {
           <GoldStars n={5} size={16} />
           <span>{s.total} reviews on Tripadvisor</span>
         </div>
-        <span className="hidden h-4 w-px bg-gold/25 md:inline" />
-        <span className="label-eyebrow">Ranked #1 of 25 Bars &amp; Clubs in Hersonissos on Tripadvisor</span>
         <span className="hidden h-4 w-px bg-gold/25 md:inline" />
         <span className="label-eyebrow">Top rated bar in Hersonissos</span>
       </div>
@@ -924,8 +921,7 @@ function Reviews() {
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <header className="mx-auto max-w-2xl text-center">
-            <p className="label-eyebrow">Ranked #1 of 25 Bars &amp; Clubs in Hersonissos</p>
-            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
+            <h2 className="font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
               {summary.rating.toFixed(1)} out of 5 from{" "}
               <span className="text-gold-gradient italic">{summary.total} reviews</span>
               <span className="block text-ivory-dim">for the best sports bar in Hersonissos, Crete</span>
