@@ -470,7 +470,7 @@ function TrustBar() {
           <span>{s.total} reviews on Tripadvisor</span>
         </div>
         <span className="hidden h-4 w-px bg-gold/25 md:inline" />
-        <span className="label-eyebrow">Travelers&rsquo; Choice 2026</span>
+        <span className="label-eyebrow">Ranked #1 of 25 Bars &amp; Clubs in Hersonissos on Tripadvisor</span>
         <span className="hidden h-4 w-px bg-gold/25 md:inline" />
         <span className="label-eyebrow">Top rated bar in Hersonissos</span>
       </div>
