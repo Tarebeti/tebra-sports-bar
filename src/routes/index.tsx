@@ -373,7 +373,7 @@ function Hero() {
             className="mt-8 flex flex-wrap items-center justify-center gap-2"
           >
             <GoldPill>5.0 on Tripadvisor</GoldPill>
-            <GoldPill>Travelers&rsquo; Choice 2026</GoldPill>
+            <GoldPill>Ranked #1 of 25 Bars &amp; Clubs in Hersonissos</GoldPill>
             <GoldPill>Top rated bar in Hersonissos</GoldPill>
             <GoldPill>86 five star reviews</GoldPill>
           </motion.div>
@@ -470,7 +470,7 @@ function TrustBar() {
           <span>{s.total} reviews on Tripadvisor</span>
         </div>
         <span className="hidden h-4 w-px bg-gold/25 md:inline" />
-        <span className="label-eyebrow">Travelers&rsquo; Choice 2026</span>
+        <span className="label-eyebrow">Ranked #1 of 25 Bars &amp; Clubs in Hersonissos on Tripadvisor</span>
         <span className="hidden h-4 w-px bg-gold/25 md:inline" />
         <span className="label-eyebrow">Top rated bar in Hersonissos</span>
       </div>
