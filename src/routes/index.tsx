@@ -363,7 +363,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-ivory md:text-lg"
           >
-            The top <strong className="font-semibold text-ivory">sports bar in Hersonissos, Crete</strong> — cocktails, cold beer, live football on every screen, pool, darts and great food. Five minutes from the strip.
+            The top <strong className="font-semibold text-ivory">sports bar in Hersonissos, Crete</strong>. Cocktails, cold beer, live football on every screen, pool, darts and great food. Five minutes from the strip.
           </motion.p>
 
           <motion.div
@@ -898,14 +898,21 @@ function Reviews() {
   });
 
   const summary = data.summary;
-  const all = data.reviews;
+  // Only publish the best guest reviews: five star, with real wording.
+  const all = useMemo(
+    () => data.reviews.filter((r) => r.rating >= 5 && r.snippet.trim().length > 20),
+    [data.reviews],
+  );
   const [sort, setSort] = useState<SortMode>("recent");
+  const [showAll, setShowAll] = useState(false);
 
   const sorted = useMemo(() => {
-    const list = [...all];
+    const list = [...all].sort((a, b) => (a.date < b.date ? 1 : -1));
     if (sort === "rating") list.sort((a, b) => b.rating - a.rating);
     return list;
   }, [all, sort]);
+
+  const visible = showAll ? sorted : sorted.slice(0, 6);
 
   const newestIds = useMemo(() => {
     const byDate = [...all].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
@@ -917,9 +924,11 @@ function Reviews() {
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <header className="mx-auto max-w-2xl text-center">
-            <p className="label-eyebrow">Loved by everyone who finds it</p>
+            <p className="label-eyebrow">Ranked #1 of 25 Bars &amp; Clubs in Hersonissos</p>
             <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
-              {summary.rating.toFixed(1)} out of 5, <span className="text-gold-gradient italic">{summary.total} reviews</span>.
+              {summary.rating.toFixed(1)} out of 5 from{" "}
+              <span className="text-gold-gradient italic">{summary.total} reviews</span>
+              <span className="block text-ivory-dim">for the best sports bar in Hersonissos, Crete</span>
             </h2>
             <div className="mt-5 flex items-center justify-center gap-3">
               <GoldStars n={5} size={18} />
@@ -930,6 +939,10 @@ function Reviews() {
               ))}
               <GoldPill>Verified on Tripadvisor</GoldPill>
             </div>
+            <p className="mt-5 text-[15px] leading-relaxed text-ivory-dim">
+              Guests in Chersonisos rate us five stars for the welcome, the cocktails and every match on the big
+              screens. Newest reviews load automatically.
+            </p>
           </header>
         </FadeUp>
 
@@ -940,7 +953,7 @@ function Reviews() {
         </div>
 
         <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {sorted.map((r, i) => (
+          {visible.map((r, i) => (
             <motion.div
               key={`${r.name}-${r.date}-${i}`}
               initial={{ opacity: 0, y: 20 }}
@@ -953,7 +966,18 @@ function Reviews() {
           ))}
         </div>
 
-        <div className="mt-12 flex justify-center">
+        {!showAll && sorted.length > 6 && (
+          <div className="mt-8 flex justify-center">
+            <SortBtn active={false} onClick={() => setShowAll(true)}>
+              Show more reviews
+            </SortBtn>
+          </div>
+        )}
+
+        <div className="mt-12 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+          <BtnPrimary href={waLink} target="_blank" rel="noopener">
+            Book your table on WhatsApp
+          </BtnPrimary>
           <BtnOutline href={summary.tripadvisorUrl} target="_blank" rel="noopener">
             Read all reviews on Tripadvisor
           </BtnOutline>
