@@ -374,7 +374,7 @@ function Hero() {
           >
             <GoldPill>5.0 on Tripadvisor</GoldPill>
             <GoldPill>Top rated bar in Hersonissos</GoldPill>
-            <GoldPill>86 five star reviews</GoldPill>
+            <GoldPill>162 five star reviews</GoldPill>
           </motion.div>
 
           <motion.div
