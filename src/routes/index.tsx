@@ -210,7 +210,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "TE.BRA | Cocktail & Sports Bar in Hersonissos, Crete" },
-      { name: "description", content: "Cocktails, live sport, pool, darts and food at TE.BRA Sports Bar in Hersonissos, Crete. Open daily with 162 five star reviews." },
+      { name: "description", content: "Cocktails, live sport, pool, darts and food at TE.BRA Sports Bar in Hersonissos, Crete. Open daily with 183 five star reviews." },
       { property: "og:title", content: "TE.BRA | Cocktail & Sports Bar in Hersonissos, Crete" },
       { property: "og:description", content: "Cocktails, live sport, pool, darts and food at TE.BRA Sports Bar in Hersonissos, Crete." },
       { property: "og:type", content: "website" },
@@ -396,7 +396,7 @@ function Hero() {
           >
             <GoldPill>5.0 on Tripadvisor</GoldPill>
             <GoldPill>Top rated bar in Hersonissos</GoldPill>
-            <GoldPill>162 five star reviews</GoldPill>
+            <GoldPill>183 five star reviews</GoldPill>
           </motion.div>
 
           <motion.div
