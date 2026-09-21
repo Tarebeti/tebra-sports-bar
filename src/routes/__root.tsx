@@ -76,7 +76,7 @@ const ORG_JSON_LD = {
   name: "TE.BRA Sports Bar",
   url: "/",
   image: "https://oceanspace.gr/wp-content/uploads/2025/10/OS_BAR_25.jpg",
-  telephone: "+30 000 000 0000",
+  telephone: "+30 699 339 9000",
   priceRange: "€€",
   servesCuisine: ["Cocktails", "Bar food", "Breakfast"],
   address: {
