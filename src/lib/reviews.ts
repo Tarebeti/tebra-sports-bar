@@ -21,7 +21,7 @@ export interface ReviewSummary {
 
 export const REVIEW_SUMMARY: ReviewSummary = {
   rating: 5.0,
-  total: 162,
+  total: 183,
   source: "Tripadvisor",
   tripadvisorUrl:
     "https://www.tripadvisor.com/Attraction_Review-g503710-d33284920-Reviews-TE_BRA_Sports_Bar-Hersonissos_Crete.html",
