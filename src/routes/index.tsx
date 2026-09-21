@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "motion/react";
 import { useQuery } from "@tanstack/react-query";
@@ -207,6 +207,18 @@ function FadeUp({ children, delay = 0, className = "" }: { children: React.React
 
 // ---------- Route ----------
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "TE.BRA | Cocktail & Sports Bar in Hersonissos, Crete" },
+      { name: "description", content: "Cocktails, live sport, pool, darts and food at TE.BRA Sports Bar in Hersonissos, Crete. Open daily with 162 five star reviews." },
+      { property: "og:title", content: "TE.BRA | Cocktail & Sports Bar in Hersonissos, Crete" },
+      { property: "og:description", content: "Cocktails, live sport, pool, darts and food at TE.BRA Sports Bar in Hersonissos, Crete." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://tebrabar.com/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "https://tebrabar.com/" }],
+  }),
   component: Home,
 });
 
@@ -255,6 +267,9 @@ function Header() {
               {n.label}
             </a>
           ))}
+          <Link to="/active" className="link-sweep text-sm font-semibold text-gold">
+            TEBRA ACTIVE
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -303,6 +318,13 @@ function Header() {
                 {n.label}
               </a>
             ))}
+            <Link
+              to="/active"
+              onClick={() => setMenuOpen(false)}
+              className="rounded px-3 py-2.5 font-semibold text-gold hover:bg-surface-raised"
+            >
+              TEBRA ACTIVE
+            </Link>
             <BtnPrimary href={directionsUrl} target="_blank" rel="noopener" className="mt-2 w-full">
               Get Directions
             </BtnPrimary>
