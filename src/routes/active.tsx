@@ -65,7 +65,7 @@ function ActivePage() {
           <article><small>THE ACTIVE SIGNATURE</small><h3>TEBRA SUNRISE</h3><p>Energy. Protein. A new day.</p></article>
         </section>
 
-        <section className="active-menu">
+        <section id="active-products" className="active-menu">
           <div className="active-wrap">
             <small>SIGNATURE BLENDS · 450 ML</small>
             <h2>Five names. Five clear choices.</h2>
