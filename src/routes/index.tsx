@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useInView } from "motion/react";
 import { useQuery } from "@tanstack/react-query";
 import { getReviews, getSummary, type Review } from "@/lib/reviews";
 import { loadProgramme, type ProgrammeFeed } from "@/lib/programme-feed";
+import programmeSnapshot from "../../public/sports-programme.json";
 import { getLiveReviews } from "@/lib/reviews.functions";
 
 // ---- Real image assets (self hosted via Lovable Assets CDN) ----
@@ -458,17 +459,10 @@ function HeroLiveLine() {
 }
 
 // ---------- Sports banner ----------
-// Verified against the official Premier League fixture list on 9 October 2026.
-// This verified fallback remains available if the programme feed cannot be reached.
-const HOME_MATCHES = [
-  { teams: "Arsenal vs Leeds United", kickoff: "2026-10-10T14:30:00+03:00" },
-  { teams: "Manchester United vs Tottenham", kickoff: "2026-10-10T19:30:00+03:00" },
-  { teams: "Liverpool vs Manchester City", kickoff: "2026-10-11T18:30:00+03:00" },
-];
-
 function HomepageProgramme() {
   const now = useAthensNow();
-  const [feed, setFeed] = useState<ProgrammeFeed | null>(null);
+  const [feed, setFeed] = useState<ProgrammeFeed>(programmeSnapshot);
+  const [competition, setCompetition] = useState("All sports");
   useEffect(() => {
     const controller = new AbortController();
     const refresh = () => loadProgramme(controller.signal).then(setFeed).catch(() => {});
@@ -476,9 +470,10 @@ function HomepageProgramme() {
     const interval = window.setInterval(refresh, 300000);
     return () => { controller.abort(); window.clearInterval(interval); };
   }, []);
-  const matches = feed ? feed.events.filter(e => e.featured).map(e => ({ teams: e.title, kickoff: e.start, competition: e.competition })) : HOME_MATCHES.map(e => ({ ...e, competition: "Premier League" }));
-  const upcoming = matches.filter((match) => new Date(match.kickoff).getTime() + 3 * 60 * 60 * 1000 > now.getTime()).slice(0, 3);
-  const checked = feed?.checked || "2026-10-09";
+  const available = feed.events.filter(e => Date.parse(e.start) + 3 * 3600000 > now.getTime());
+  const competitions = [...new Set(available.map(e => e.competition))].sort((a,b) => a === "Premier League" ? -1 : b === "Premier League" ? 1 : a.localeCompare(b));
+  const selected = competition === "All sports" ? competitions : competitions.filter(c => c === competition);
+  const checked = feed.checked;
   const formatDate = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Athens", weekday: "short", day: "numeric", month: "short" });
   const formatTime = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Athens", hour: "2-digit", minute: "2-digit", hour12: false });
   return (
@@ -487,24 +482,32 @@ function HomepageProgramme() {
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <p className="label-eyebrow">Live sport at Tebra</p>
-            <h2 id="match-highlights-title" className="mt-3 font-display text-3xl text-ivory md:text-5xl">Your weekend. Your match.</h2>
-            <p className="mt-3 text-sm text-ivory-dim">Premier League highlights · All times in Greece</p>
+            <h2 id="match-highlights-title" className="mt-3 font-display text-3xl text-ivory md:text-5xl">Your sport. Your match.</h2>
+            <p className="mt-3 text-sm text-ivory-dim">Football, Formula 1 and more · All times in Greece</p>
           </div>
           <BtnOutline href="/sports-desk">Full programme ↗</BtnOutline>
         </div>
-        <div className="mt-7 grid gap-4 md:grid-cols-3">
-          {upcoming.map((match) => (
-            <article key={match.kickoff} className="flex flex-col rounded-md border border-gold/35 bg-background p-6">
-              <p className="text-xs uppercase tracking-[0.16em] text-gold">{match.competition} · {formatDate.format(new Date(match.kickoff))}</p>
-              <h3 className="mt-4 flex-1 font-display text-2xl leading-tight text-ivory">{match.teams}</h3>
-              <p className="mt-5 text-3xl font-semibold text-gold">{formatTime.format(new Date(match.kickoff))}</p>
-              <p className="mt-2 text-xs text-ivory-dim">Ask us to confirm your match and table.</p>
-              <BtnPrimary className="mt-5" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.teams} on ${formatDate.format(new Date(match.kickoff))} at ${formatTime.format(new Date(match.kickoff))} Greek time. Please confirm availability.`)} target="_blank" rel="noopener">Request a table ↗</BtnPrimary>
-            </article>
-          ))}
+        <div className="mt-6 flex flex-wrap gap-2" aria-label="Choose a league or sport">
+          {["All sports", ...competitions].map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={() => setCompetition(c)} className={`rounded-md border px-4 py-3 text-sm ${competition === c ? "border-gold bg-gold text-background" : "border-gold/30 text-ivory hover:border-gold"}`}>{c}</button>)}
         </div>
-        {upcoming.length === 0 && <p className="mt-7 text-ivory-dim">Ask us about the next matches and table availability.</p>}
-        <p className="mt-5 text-xs text-ivory-dim">Fixture times checked {checked} · <a className="underline hover:text-gold" href="https://www.premierleague.com/en/news/4675097" target="_blank" rel="noopener">Official fixture list</a></p>
+        <p className="mt-5 text-xs text-ivory-dim">Fixture times checked {checked}. Please ask Tebra to confirm screening and table availability.</p>
+        <div className="mt-7 grid items-start gap-5 lg:grid-cols-2">
+          {selected.map(c => <div key={c} className="overflow-hidden rounded-md border border-gold/30 bg-background">
+            <h3 className="border-b border-gold/25 px-5 py-4 font-display text-2xl text-gold">{c}</h3>
+            {available.filter(e => e.competition === c).sort((a,b) => Date.parse(a.start) - Date.parse(b.start)).map(match => <article key={match.id} className="border-b border-gold/15 p-5 last:border-b-0">
+              <div className="flex items-start justify-between gap-4">
+                <div><p className="text-xs uppercase tracking-wider text-ivory-dim">{formatDate.format(new Date(match.start))}</p><h4 className="mt-2 text-lg font-semibold text-ivory">{match.title}</h4></div>
+                <p className="shrink-0 text-xl font-semibold text-gold">{formatTime.format(new Date(match.start))}</p>
+              </div>
+              <div className="mt-3 flex items-center justify-between gap-3">
+                <a href={match.source} target="_blank" rel="noopener noreferrer" className="text-xs text-ivory-dim underline">Official schedule</a>
+                <a className="rounded-md bg-gold px-3 py-2 text-xs font-bold text-background" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.title} on ${formatDate.format(new Date(match.start))} at ${formatTime.format(new Date(match.start))} Greek time. Please confirm screening and availability.`)} target="_blank" rel="noopener noreferrer">Request a table ↗</a>
+              </div>
+            </article>)}
+          </div>)}
+        </div>
+        {available.length === 0 && <p className="mt-7 text-ivory-dim">Ask us about the next matches and table availability.</p>}
+        <div className="mt-6"><BtnOutline href="/sports-desk">More leagues, sports and the full programme ↗</BtnOutline></div>
       </div>
     </section>
   );
