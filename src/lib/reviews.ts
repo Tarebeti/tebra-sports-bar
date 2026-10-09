@@ -21,11 +21,11 @@ export interface ReviewSummary {
 
 export const REVIEW_SUMMARY: ReviewSummary = {
   rating: 5.0,
-  total: 183,
+  total: 214,
   source: "Tripadvisor",
   tripadvisorUrl:
     "https://www.tripadvisor.com/Attraction_Review-g503710-d33284920-Reviews-TE_BRA_Sports_Bar-Hersonissos_Crete.html",
-  badges: ["Top rated on Tripadvisor", "5.0 rating"],
+  badges: ["#1 of 25 Nightlife in Hersonissos", "5.0 rating"],
 };
 
 const SEED: Review[] = [
