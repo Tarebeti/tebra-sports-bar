@@ -401,6 +401,7 @@ function Hero() {
             <GoldPill>5.0 on Tripadvisor</GoldPill>
             <GoldPill>Top rated bar in Hersonissos</GoldPill>
             <GoldPill>{getSummary().total} reviews on Tripadvisor</GoldPill>
+            <GoldPill>Google 5.0 · 125 reviews</GoldPill>
           </motion.div>
 
           <motion.div
@@ -552,7 +553,8 @@ function TrustBar() {
           <span>{s.total} reviews on Tripadvisor</span>
         </div>
         <span className="hidden h-4 w-px bg-gold/25 md:inline" />
-        <span className="label-eyebrow">Top rated bar in Hersonissos</span>
+        <span className="label-eyebrow">#1 of 25 Nightlife in Hersonissos · Tripadvisor</span>
+        <div className="flex items-center gap-3"><span className="font-display text-2xl text-ivory">5.0</span><GoldStars n={5} size={16} /><span>125 reviews on Google</span></div>
       </div>
     </section>
   );
