@@ -597,6 +597,20 @@
       "verified": "2026-10-09",
       "source": "https://www.ufc.com/event/ufc-fight-night-october-10-2026",
       "featured": false
+    },
+    {
+      "id": "tebra-83",
+      "date": "2026-10-10",
+      "time": "22:15",
+      "title": "Schofield vs Bahdi · Event starts",
+      "competition": "Boxing",
+      "sport": "Fight",
+      "start": "2026-10-10T22:15:00+03:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-09",
+      "source": "https://www.wintrustarena.com/events/detail/golden-boy",
+      "priority": 3,
+      "featured": false
     }
   ]
 }
