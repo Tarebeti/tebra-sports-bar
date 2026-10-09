@@ -1,5 +1,5 @@
 export const PROGRAMME_URL = "https://raw.githubusercontent.com/Tarebeti/tebra-sports-bar/main/public/sports-programme.json";
-export type ProgrammeEvent = { id: string; title: string; start: string; competition: string; featured?: boolean; verified: string; source: string };
+export type ProgrammeEvent = { id: string; title: string; start: string; competition: string; sport?: string; featured?: boolean; verified: string; source: string };
 export type ProgrammeFeed = { timezone: string; checked: string; events: ProgrammeEvent[] };
 export async function loadProgramme(signal?: AbortSignal): Promise<ProgrammeFeed> {
   const response = await fetch(`${PROGRAMME_URL}?v=${Math.floor(Date.now() / 300000)}`, { signal });
