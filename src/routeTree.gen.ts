@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ActiveRouteImport } from './routes/active'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SportsDeskRouteImport } from './routes/sports-desk'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,35 +29,44 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SportsDeskRoute = SportsDeskRouteImport.update({
+  id: '/sports-desk',
+  path: '/sports-desk',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/active': typeof ActiveRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sports-desk': typeof SportsDeskRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/active': typeof ActiveRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sports-desk': typeof SportsDeskRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/active': typeof ActiveRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/sports-desk': typeof SportsDeskRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/active' | '/sitemap.xml'
+  fullPaths: '/' | '/active' | '/sitemap.xml' | '/sports-desk'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/active' | '/sitemap.xml'
-  id: '__root__' | '/' | '/active' | '/sitemap.xml'
+  to: '/' | '/active' | '/sitemap.xml' | '/sports-desk'
+  id: '__root__' | '/' | '/active' | '/sitemap.xml' | '/sports-desk'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ActiveRoute: typeof ActiveRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SportsDeskRoute: typeof SportsDeskRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -82,6 +92,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sports-desk': {
+      id: '/sports-desk'
+      path: '/sports-desk'
+      fullPath: '/sports-desk'
+      preLoaderRoute: typeof SportsDeskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ActiveRoute: ActiveRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SportsDeskRoute: SportsDeskRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
