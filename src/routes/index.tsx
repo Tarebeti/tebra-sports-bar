@@ -228,6 +228,7 @@ function Home() {
     <div className="min-h-screen bg-background text-ivory">
       <Header />
       <main>
+        <HomepageProgramme />
         <Hero />
         <SportsBanner />
         <TrustBar />
@@ -456,6 +457,48 @@ function HeroLiveLine() {
 }
 
 // ---------- Sports banner ----------
+// Verified against the official Premier League fixture list on 9 October 2026.
+// This snapshot is not an automated feed. Expired fixtures are hidden.
+const HOME_MATCHES = [
+  { teams: "Arsenal vs Leeds United", kickoff: "2026-10-10T14:30:00+03:00" },
+  { teams: "Manchester United vs Tottenham", kickoff: "2026-10-10T19:30:00+03:00" },
+  { teams: "Liverpool vs Manchester City", kickoff: "2026-10-11T18:30:00+03:00" },
+];
+
+function HomepageProgramme() {
+  const now = useAthensNow();
+  const upcoming = HOME_MATCHES.filter((match) => new Date(match.kickoff).getTime() > now.getTime());
+  const formatDate = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Athens", weekday: "short", day: "numeric", month: "short" });
+  const formatTime = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Athens", hour: "2-digit", minute: "2-digit", hour12: false });
+  return (
+    <section id="match-highlights" aria-labelledby="match-highlights-title" className="border-y border-gold/25 bg-surface-raised/60 py-10 md:py-16">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p className="label-eyebrow">Live sport at Tebra</p>
+            <h2 id="match-highlights-title" className="mt-3 font-display text-3xl text-ivory md:text-5xl">Your weekend. Your match.</h2>
+            <p className="mt-3 text-sm text-ivory-dim">Premier League highlights · All times in Greece</p>
+          </div>
+          <BtnOutline href="/sports-desk">Full programme ↗</BtnOutline>
+        </div>
+        <div className="mt-7 grid gap-4 md:grid-cols-3">
+          {upcoming.map((match) => (
+            <article key={match.kickoff} className="flex flex-col rounded-md border border-gold/35 bg-background p-6">
+              <p className="text-xs uppercase tracking-[0.16em] text-gold">Premier League · {formatDate.format(new Date(match.kickoff))}</p>
+              <h3 className="mt-4 flex-1 font-display text-2xl leading-tight text-ivory">{match.teams}</h3>
+              <p className="mt-5 text-3xl font-semibold text-gold">{formatTime.format(new Date(match.kickoff))}</p>
+              <p className="mt-2 text-xs text-ivory-dim">Ask us to confirm your match and table.</p>
+              <BtnPrimary className="mt-5" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.teams} on ${formatDate.format(new Date(match.kickoff))} at ${formatTime.format(new Date(match.kickoff))} Greek time. Please confirm availability.`)} target="_blank" rel="noopener">Request a table ↗</BtnPrimary>
+            </article>
+          ))}
+        </div>
+        {upcoming.length === 0 && <p className="mt-7 text-ivory-dim">Ask us about the next matches and table availability.</p>}
+        <p className="mt-5 text-xs text-ivory-dim">Fixture times checked 9 October 2026 · <a className="underline hover:text-gold" href="https://www.premierleague.com/en/news/4675097" target="_blank" rel="noopener">Official fixture list</a></p>
+      </div>
+    </section>
+  );
+}
+
 function SportsBanner() {
   return (
     <section className="relative overflow-hidden border-y border-gold/20 bg-surface-raised/70">
