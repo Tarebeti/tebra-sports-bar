@@ -97,6 +97,7 @@ const CONFIG = {
 };
 
 const NAV = [
+  { href: "/sports-desk", label: "Sports Desk" },
   { href: "#sport", label: "Sport" },
   { href: "#games", label: "Games" },
   { href: "#food", label: "Food" },
@@ -405,6 +406,9 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center"
           >
+            <BtnPrimary href="/sports-desk">
+              Sports Desk
+            </BtnPrimary>
             <BtnPrimary href={directionsUrl} target="_blank" rel="noopener" className="animate-gold-pulse">
               Get Directions
             </BtnPrimary>
