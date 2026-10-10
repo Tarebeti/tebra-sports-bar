@@ -519,7 +519,7 @@ function HomepageProgramme() {
           {visible.map(match => <article key={match.id} className="flex flex-col rounded-xl border border-gold/30 bg-background p-5 md:p-6">
             <p className="text-xs font-semibold uppercase tracking-wider text-gold">{match.competition}</p>
             <p className="mt-4 text-xs uppercase tracking-wider text-ivory-dim">{formatDate.format(new Date(match.start))} · Greece</p>
-            <h3 className="mt-2 break-words text-2xl font-semibold leading-snug text-ivory md:text-[26px]">{match.title}</h3>
+            <h3 style={{ fontFamily: "Arial, Helvetica, sans-serif" }} className="mt-2 flex-1 break-words text-2xl font-semibold leading-snug text-ivory md:text-[26px]">{match.title}</h3>
             <p className="mt-4 text-3xl font-semibold text-gold">{formatTime.format(new Date(match.start))}</p>
             <a href={match.source} target="_blank" rel="noopener noreferrer" className="mt-3 text-xs text-ivory-dim underline">Official fixture</a>
             <a className="mt-6 block rounded-md bg-gold px-4 py-3 text-center text-sm font-bold text-background" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.title} on ${formatDate.format(new Date(match.start))} at ${formatTime.format(new Date(match.start))} Greek time. Please confirm screening and availability.`)} target="_blank" rel="noopener noreferrer">Request a table ↗</a>
