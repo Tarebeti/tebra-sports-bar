@@ -495,23 +495,25 @@ function HomepageProgramme() {
           </div>
           <BtnOutline href="/sports-desk">Full programme ↗</BtnOutline>
         </div>
-        <div className="mt-6 flex flex-wrap items-center gap-2" aria-label="Choose a league or sport">
-          {["All sports", ...competitions.filter(c => c === "Premier League")].map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={() => { setCompetition(c); setExpanded(false); }} className={`min-h-11 rounded-md border px-4 py-2 text-sm ${competition === c ? "border-gold bg-gold text-background" : "border-gold/30 text-ivory hover:border-gold"}`}>{c}</button>)}
-          <details className="group w-full rounded-xl border border-gold/25 bg-background sm:w-auto sm:min-w-72">
-            <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-6 px-4 py-3 text-sm font-semibold text-ivory [&::-webkit-details-marker]:hidden">
-              <span>{competition !== "All sports" && competition !== "Premier League" ? competition : "Explore leagues & sports"}</span>
-              <span aria-hidden="true" className="text-gold transition-transform group-open:rotate-180">⌄</span>
-            </summary>
-            <div className="border-t border-gold/20 p-4 sm:max-w-xl">
-              {[{ label: "Football", sport: "Football" }, { label: "Beyond football", sport: "Other" }].map(group => <div key={group.label} className="mb-4 last:mb-0">
-                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">{group.label}</p>
-                <div className="grid grid-cols-2 gap-2">
-                  {competitions.filter(c => c !== "Premier League" && available.some(e => e.competition === c && (group.sport === "Football" ? e.sport === "Football" : e.sport !== "Football"))).map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={event => { setCompetition(c); setExpanded(false); event.currentTarget.closest("details")?.removeAttribute("open"); }} className={`flex min-h-12 items-center justify-between gap-3 rounded-lg border px-3 py-3 text-left text-sm transition-colors ${competition === c ? "border-gold bg-gold/10 text-gold" : "border-ivory/10 text-ivory hover:border-gold/60 hover:bg-gold/5"}`}><span>{c}</span><span className="text-xs text-ivory-dim">{available.filter(e => e.competition === c).length}</span></button>)}
-                </div>
-              </div>)}
-            </div>
-          </details>
-        </div>
+        <nav className="mt-7 rounded-2xl border border-gold/25 bg-background p-4 md:p-6" aria-label="Choose a league or sport">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-gold/15 pb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Find your match</p>
+            <button type="button" aria-pressed={competition === "All sports"} onClick={() => { setCompetition("All sports"); setExpanded(false); }} className={`min-h-11 rounded-full border px-5 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-gold ${competition === "All sports" ? "border-gold bg-gold text-background" : "border-gold/30 text-ivory hover:border-gold"}`}>All sports</button>
+          </div>
+          {[{ label: "Football leagues & cups", sport: "Football" }, { label: "Motorsport, fights & more", sport: "Other" }].map(group => {
+            const entries = competitions.filter(c => available.some(e => e.competition === c && (group.sport === "Football" ? e.sport === "Football" : e.sport !== "Football")));
+            if (!entries.length) return null;
+            return <div key={group.label} className="mt-5 first:mt-0">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ivory-dim">{group.label}</p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+                {entries.map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={() => { setCompetition(c); setExpanded(false); }} className={`group flex min-h-16 min-w-0 items-center justify-between gap-2 rounded-xl border px-3 py-3 text-left transition-colors focus-visible:outline-2 focus-visible:outline-gold md:px-4 ${competition === c ? "border-gold bg-gold text-background" : c === "Premier League" ? "border-gold/60 bg-gold/10 text-ivory hover:bg-gold/20" : "border-ivory/15 bg-surface-raised/40 text-ivory hover:border-gold/60 hover:bg-gold/10"}`}>
+                  <span className="break-words text-sm font-semibold leading-snug">{c}</span>
+                  <span aria-label="fixtures" className={`flex h-6 min-w-6 shrink-0 items-center justify-center rounded-full px-1 text-[11px] ${competition === c ? "bg-background/15 text-background" : "bg-gold/10 text-gold"}`}>{available.filter(e => e.competition === c).length}</span>
+                </button>)}
+              </div>
+            </div>;
+          })}
+        </nav>
         <p className="mt-5 text-xs text-ivory-dim">Fixture times checked {checked}. Please ask Tebra to confirm screening and table availability.</p>
         <div className="mt-7 grid items-stretch gap-4 md:grid-cols-3">
           {visible.map(match => <article key={match.id} className="flex flex-col rounded-xl border border-gold/30 bg-background p-5 md:p-6">
