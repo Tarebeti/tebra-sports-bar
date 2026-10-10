@@ -497,11 +497,20 @@ function HomepageProgramme() {
         </div>
         <div className="mt-6 flex flex-wrap items-center gap-2" aria-label="Choose a league or sport">
           {["All sports", ...competitions.filter(c => c === "Premier League")].map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={() => { setCompetition(c); setExpanded(false); }} className={`min-h-11 rounded-md border px-4 py-2 text-sm ${competition === c ? "border-gold bg-gold text-background" : "border-gold/30 text-ivory hover:border-gold"}`}>{c}</button>)}
-          <label className="sr-only" htmlFor="programme-competition">Other leagues and sports</label>
-          <select id="programme-competition" value={competition === "All sports" || competition === "Premier League" ? "" : competition} onChange={event => { setCompetition(event.target.value || "All sports"); setExpanded(false); }} className="min-h-11 min-w-0 flex-1 rounded-md border border-gold/30 bg-background px-3 py-2 text-base text-ivory sm:flex-none">
-            <option value="">Other leagues &amp; sports</option>
-            {competitions.filter(c => c !== "Premier League").map(c => <option key={c} value={c}>{c}</option>)}
-          </select>
+          <details className="group w-full rounded-xl border border-gold/25 bg-background sm:w-auto sm:min-w-72">
+            <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-6 px-4 py-3 text-sm font-semibold text-ivory [&::-webkit-details-marker]:hidden">
+              <span>{competition !== "All sports" && competition !== "Premier League" ? competition : "Explore leagues & sports"}</span>
+              <span aria-hidden="true" className="text-gold transition-transform group-open:rotate-180">⌄</span>
+            </summary>
+            <div className="border-t border-gold/20 p-4 sm:max-w-xl">
+              {[{ label: "Football", sport: "Football" }, { label: "Beyond football", sport: "Other" }].map(group => <div key={group.label} className="mb-4 last:mb-0">
+                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">{group.label}</p>
+                <div className="grid grid-cols-2 gap-2">
+                  {competitions.filter(c => c !== "Premier League" && available.some(e => e.competition === c && (group.sport === "Football" ? e.sport === "Football" : e.sport !== "Football"))).map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={event => { setCompetition(c); setExpanded(false); event.currentTarget.closest("details")?.removeAttribute("open"); }} className={`flex min-h-12 items-center justify-between gap-3 rounded-lg border px-3 py-3 text-left text-sm transition-colors ${competition === c ? "border-gold bg-gold/10 text-gold" : "border-ivory/10 text-ivory hover:border-gold/60 hover:bg-gold/5"}`}><span>{c}</span><span className="text-xs text-ivory-dim">{available.filter(e => e.competition === c).length}</span></button>)}
+                </div>
+              </div>)}
+            </div>
+          </details>
         </div>
         <p className="mt-5 text-xs text-ivory-dim">Fixture times checked {checked}. Please ask Tebra to confirm screening and table availability.</p>
         <div className="mt-7 grid items-stretch gap-4 md:grid-cols-3">
