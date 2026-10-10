@@ -470,6 +470,8 @@ function HomepageProgramme() {
   const [feed, setFeed] = useState<ProgrammeFeed>(programmeSnapshot);
   const [competition, setCompetition] = useState("All sports");
   const [expanded, setExpanded] = useState(false);
+  const [query, setQuery] = useState("");
+  const [day, setDay] = useState("all");
   useEffect(() => {
     const controller = new AbortController();
     const refresh = () => loadProgramme(controller.signal).then(setFeed).catch(() => {});
@@ -479,7 +481,9 @@ function HomepageProgramme() {
   }, []);
   const available = feed.events.filter(e => Date.parse(e.start) + 3 * 3600000 > now.getTime());
   const competitions = [...new Set(available.map(e => e.competition))].sort((a,b) => a === "Premier League" ? -1 : b === "Premier League" ? 1 : a.localeCompare(b));
-  const { ordered, compact } = selectProgrammeCards(available, competition);
+  const filtered = available.filter(e => (day === "all" || e.date === day) && e.title.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()));
+  const dates = [...new Set(available.map(e => e.date))].sort();
+  const { ordered, compact } = selectProgrammeCards(filtered, competition);
   const visible = expanded ? ordered : compact;
   const checked = feed.checked;
   const formatDate = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Athens", weekday: "short", day: "numeric", month: "short" });
@@ -514,6 +518,17 @@ function HomepageProgramme() {
             </div>;
           })}
         </nav>
+        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+          <label className="text-xs font-semibold uppercase tracking-wider text-ivory-dim">Find your team or event
+            <input type="search" value={query} onChange={e => { setQuery(e.target.value); setExpanded(true); }} placeholder="Liverpool, Formula 1, boxing…" className="mt-2 block min-h-12 w-full rounded-xl border border-gold/25 bg-background px-4 text-base font-normal normal-case tracking-normal text-ivory focus:border-gold focus:outline-none" />
+          </label>
+          <label className="text-xs font-semibold uppercase tracking-wider text-ivory-dim">Choose your day
+            <select value={day} onChange={e => { setDay(e.target.value); setExpanded(true); }} className="mt-2 block min-h-12 w-full rounded-xl border border-gold/25 bg-background px-4 text-base font-normal normal-case tracking-normal text-ivory focus:border-gold focus:outline-none">
+              <option value="all">All upcoming days</option>
+              {dates.map(date => <option key={date} value={date}>{formatDate.format(new Date(date + "T12:00:00+03:00"))}</option>)}
+            </select>
+          </label>
+        </div>
         <p className="mt-5 text-xs text-ivory-dim">Fixture times checked {checked}. Please ask Tebra to confirm screening and table availability.</p>
         <div className="mt-7 grid items-stretch gap-4 md:grid-cols-3">
           {visible.map(match => <article key={match.id} className="flex flex-col rounded-xl border border-gold/30 bg-background p-5 md:p-6">
@@ -526,7 +541,7 @@ function HomepageProgramme() {
           </article>)}
         </div>
         {ordered.length > 3 && <button type="button" onClick={() => setExpanded(!expanded)} aria-expanded={expanded} className="mt-5 rounded-md border border-gold/30 px-5 py-3 text-sm text-ivory hover:border-gold">{expanded ? "Show highlights" : `Show all ${ordered.length} fixtures${competition === "All sports" ? "" : ` in ${competition}`}`}</button>}
-        {available.length === 0 && <p className="mt-7 text-ivory-dim">Ask us about the next matches and table availability.</p>}
+        {ordered.length === 0 && <p role="status" className="mt-7 rounded-xl border border-gold/20 p-5 text-ivory-dim">No upcoming events match your selection. Try another day or team, or ask us on WhatsApp.</p>}
         <div className="mt-6"><BtnOutline href="/sports-desk">More leagues, sports and the full programme ↗</BtnOutline></div>
       </div>
     </section>
