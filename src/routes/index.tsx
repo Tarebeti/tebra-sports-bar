@@ -228,7 +228,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-ivory">
+    <div className="min-h-screen bg-background text-ivory [&_section[id]]:scroll-mt-20">
       <Header />
       <main>
         <HomepageProgramme />
@@ -304,6 +304,8 @@ function Header() {
             onClick={() => setMenuOpen((v) => !v)}
             className="rounded-md border border-gold/40 p-2 text-ivory lg:hidden"
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
               {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -314,7 +316,7 @@ function Header() {
 
       {menuOpen && (
         <div className="border-t border-gold/10 bg-background lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
+          <nav id="mobile-navigation" aria-label="Mobile navigation" className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
             {NAV.map((n) => (
               <a
                 key={n.href}
@@ -493,8 +495,13 @@ function HomepageProgramme() {
           </div>
           <BtnOutline href="/sports-desk">Full programme ↗</BtnOutline>
         </div>
-        <div className="mt-6 flex flex-wrap gap-2" aria-label="Choose a league or sport">
-          {["All sports", ...competitions].map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={() => { setCompetition(c); setExpanded(false); }} className={`rounded-md border px-4 py-3 text-sm ${competition === c ? "border-gold bg-gold text-background" : "border-gold/30 text-ivory hover:border-gold"}`}>{c}</button>)}
+        <div className="mt-6 flex flex-wrap items-center gap-2" aria-label="Choose a league or sport">
+          {["All sports", ...competitions.filter(c => c === "Premier League")].map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={() => { setCompetition(c); setExpanded(false); }} className={`min-h-11 rounded-md border px-4 py-2 text-sm ${competition === c ? "border-gold bg-gold text-background" : "border-gold/30 text-ivory hover:border-gold"}`}>{c}</button>)}
+          <label className="sr-only" htmlFor="programme-competition">Other leagues and sports</label>
+          <select id="programme-competition" value={competition === "All sports" || competition === "Premier League" ? "" : competition} onChange={event => { setCompetition(event.target.value || "All sports"); setExpanded(false); }} className="min-h-11 min-w-0 flex-1 rounded-md border border-gold/30 bg-background px-3 py-2 text-base text-ivory sm:flex-none">
+            <option value="">Other leagues &amp; sports</option>
+            {competitions.filter(c => c !== "Premier League").map(c => <option key={c} value={c}>{c}</option>)}
+          </select>
         </div>
         <p className="mt-5 text-xs text-ivory-dim">Fixture times checked {checked}. Please ask Tebra to confirm screening and table availability.</p>
         <div className="mt-7 grid items-stretch gap-4 md:grid-cols-3">
@@ -813,6 +820,7 @@ function Food() {
               <li className="flex items-center gap-2"><Dot /> Sharing plates</li>
               <li className="flex items-center gap-2"><Dot /> Vegetarian options</li>
             </ul>
+            <div className="mt-8"><BtnOutline href={CONFIG.menuUrl} target="_blank" rel="noopener noreferrer">View the full menu ↗</BtnOutline></div>
           </FadeUp>
         </div>
       </div>
@@ -988,7 +996,7 @@ function Reviews() {
   const visible = showAll ? sorted : sorted.slice(0, 6);
 
   const newestIds = useMemo(() => {
-    const byDate = [...all].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
+    const byDate = [...all].sort((a, b) => (a.date < b.date ? 1 : -1)).filter(r => Date.now() - Date.parse(r.date) <= 30 * 86400000).slice(0, 3);
     return new Set(byDate.map((r) => `${r.name}-${r.date}`));
   }, [all]);
 
@@ -1013,7 +1021,7 @@ function Reviews() {
             </div>
             <p className="mt-5 text-[15px] leading-relaxed text-ivory-dim">
               Guests in Chersonisos rate us five stars for the welcome, the cocktails and every match on the big
-              screens. Newest reviews load automatically.
+              screens. Read the full guest reviews on Tripadvisor.
             </p>
           </header>
         </FadeUp>
