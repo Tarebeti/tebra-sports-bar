@@ -50,3 +50,12 @@ export function selectFixtures(fixtures: readonly VerifiedFixture[], now: Date) 
     upcoming: upcoming.filter((fixture) => greekDate(new Date(fixture.startsAt)) !== today).slice(0, 3),
   };
 }
+// The homepage is a compact introduction; the full programme stays accessible.
+export function selectProgrammeCards<T extends { competition: string; start: string; featured?: boolean }>(events: readonly T[], competition: string) {
+  const ordered = events.filter(event => competition === "All sports" || event.competition === competition)
+    .sort((a, b) => (a.competition === "Premier League" ? 0 : 1) - (b.competition === "Premier League" ? 0 : 1) || Date.parse(a.start) - Date.parse(b.start));
+  const compact = competition === "All sports"
+    ? [...ordered.filter(event => event.featured), ...ordered.filter(event => !event.featured)].slice(0, 3)
+    : ordered.slice(0, 3);
+  return { ordered, compact };
+}
