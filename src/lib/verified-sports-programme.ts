@@ -56,4 +56,28 @@ export const VERIFIED_SPORTS_PROGRAMME: readonly VerifiedFixture[] = [
     startsAt: "2026-10-11T15:30:00Z",
     sourceUrl: premierLeague, sourceName: "Premier League", verifiedAt,
   },
+  {
+    id: "coventry-newcastle-20261012",
+    title: "Coventry City vs Newcastle",
+    sport: "Football", competition: "Premier League",
+    startsAt: "2026-10-12T19:00:00Z",
+    sourceUrl: premierLeague, sourceName: "Premier League",
+    verifiedAt: "2026-10-11T22:10:00Z",
+  },
+  {
+    id: "everton-chelsea-20261017",
+    title: "Everton vs Chelsea",
+    sport: "Football", competition: "Premier League",
+    startsAt: "2026-10-17T11:30:00Z",
+    sourceUrl: premierLeague, sourceName: "Premier League",
+    verifiedAt: "2026-10-11T22:10:00Z",
+  },
+  {
+    id: "newcastle-villa-20261017",
+    title: "Newcastle vs Aston Villa",
+    sport: "Football", competition: "Premier League",
+    startsAt: "2026-10-17T16:30:00Z",
+    sourceUrl: premierLeague, sourceName: "Premier League",
+    verifiedAt: "2026-10-11T22:10:00Z",
+  },
 ];
