@@ -67,25 +67,46 @@ const DETAIL_1 = img36.url;
 const DETAIL_2 = img38.url;
 
 const GALLERY = [
-  { src: realExteriorNight.url, alt: "TE.BRA Sports Bar entrance lit up at night in Hersonissos" },
-  { src: realExteriorDusk.url, alt: "TE.BRA Sports Bar exterior at dusk in Hersonissos Crete" },
-  { src: realPoolCrowd.url, alt: "Guests watching sport around the pool table at TE.BRA Hersonissos" },
-  { src: realBreakfastGroup.url, alt: "Friends enjoying breakfast at TE.BRA Sports Bar Hersonissos" },
-  { src: realFoodGroup.url, alt: "Group sharing food and drinks at TE.BRA Hersonissos" },
-  { src: realExteriorLounge.url, alt: "Outdoor lounge seating at TE.BRA cocktail bar Hersonissos" },
-  { src: realBarCocktails.url, alt: "Cocktail bar with fresh fruit and premium spirits at TE.BRA" },
-  { src: realWorldCup.url, alt: "FIFA World Cup 2026 backdrop at TE.BRA Sports Bar" },
-  { src: img10.url, alt: "Deco lounge seating at TE.BRA cocktail bar Hersonissos" },
-  { src: img12.url, alt: "Warm bar lighting and glassware at TE.BRA Hersonissos" },
-  { src: img17.url, alt: "Big screens and lounge at TE.BRA sports bar Hersonissos" },
-  { src: img18.url, alt: "Signature drink at TE.BRA cocktail bar Hersonissos Crete" },
-  { src: img21.url, alt: "Cocktail served at TE.BRA bar Hersonissos" },
-  { src: img26.url, alt: "Late night lounge vibes at TE.BRA Hersonissos" },
-  { src: img29.url, alt: "Cocktail garnish detail at TE.BRA Hersonissos" },
-  { src: img32.url, alt: "Exterior signage at TE.BRA Sports Bar Hersonissos" },
-  { src: img34.url, alt: "Bar shelves and premium spirits at TE.BRA Hersonissos" },
-  { src: img35.url, alt: "Champagne gold accents at TE.BRA bar Hersonissos" },
-  { src: img39.url, alt: "Warm evening atmosphere at TE.BRA cocktail bar Hersonissos" },
+  {
+    "src": "/gallery/tebra-1.webp",
+    "alt": "Daylight lounge",
+    "category": "The space"
+  },
+  {
+    "src": "/gallery/tebra-2.webp",
+    "alt": "A warm welcome",
+    "category": "The space"
+  },
+  {
+    "src": "/gallery/tebra-3.webp",
+    "alt": "Step inside",
+    "category": "The space"
+  },
+  {
+    "src": "/gallery/tebra-4.webp",
+    "alt": "Tebra in the sunshine",
+    "category": "The space"
+  },
+  {
+    "src": "/gallery/tebra-5.webp",
+    "alt": "Matchday atmosphere",
+    "category": "Our guests"
+  },
+  {
+    "src": "/gallery/tebra-6.webp",
+    "alt": "Pool and good company",
+    "category": "Our guests"
+  },
+  {
+    "src": "/gallery/tebra-7.webp",
+    "alt": "Friends at Tebra",
+    "category": "Our guests"
+  },
+  {
+    "src": "/gallery/tebra-8.webp",
+    "alt": "Your home away from home",
+    "category": "Our guests"
+  }
 ];
 
 
@@ -104,6 +125,7 @@ const NAV = [
   { href: "#sport", label: "Sport" },
   { href: "#games", label: "Games" },
   { href: "#food", label: "Food" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#reviews", label: "Reviews" },
   { href: "#find-us", label: "Find Us" },
 ];
@@ -925,81 +947,65 @@ function Experience() {
   );
 }
 
-// ---------- Gallery (swipeable + auto-scroll) ----------
+// ---------- Curated venue gallery ----------
 function Gallery() {
-  const row = useMemo(() => [...GALLERY, ...GALLERY], []);
-  const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const pausedRef = useRef(false);
-
+  const [filter, setFilter] = useState("All photos");
+  const [active, setActive] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const visible = GALLERY.filter(g => filter === "All photos" || g.category === filter);
   useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-
-    let rafId = 0;
-    let last = performance.now();
-    const speed = 30; // px per second — subtle, natural feel
-
-    const tick = (now: number) => {
-      const dt = now - last;
-      last = now;
-      if (!pausedRef.current && el) {
-        el.scrollLeft += (speed * dt) / 1000;
-        // seamless loop — the row is doubled, so reset at halfway
-        const half = el.scrollWidth / 2;
-        if (el.scrollLeft >= half) el.scrollLeft -= half;
-      }
-      rafId = requestAnimationFrame(tick);
-    };
-    rafId = requestAnimationFrame(tick);
-
-    const pause = () => (pausedRef.current = true);
-    const resume = () => {
-      // small delay after touch/mouse leaves so it doesn't jerk back to auto
-      window.setTimeout(() => (pausedRef.current = false), 1500);
-    };
-
-    el.addEventListener("pointerdown", pause);
-    el.addEventListener("pointerup", resume);
-    el.addEventListener("pointercancel", resume);
-    el.addEventListener("mouseenter", pause);
-    el.addEventListener("mouseleave", resume);
-    el.addEventListener("touchstart", pause, { passive: true });
-    el.addEventListener("touchend", resume, { passive: true });
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      el.removeEventListener("pointerdown", pause);
-      el.removeEventListener("pointerup", resume);
-      el.removeEventListener("pointercancel", resume);
-      el.removeEventListener("mouseenter", pause);
-      el.removeEventListener("mouseleave", resume);
-      el.removeEventListener("touchstart", pause);
-      el.removeEventListener("touchend", resume);
-    };
-  }, []);
-
+    const dialog = dialogRef.current;
+    if (active !== null) dialog?.showModal();
+    else dialog?.close();
+    if (active === null) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = previous; };
+  }, [active]);
+  const move = (step: number) => setActive(index => index === null ? null : (index + step + GALLERY.length) % GALLERY.length);
   return (
-    <section aria-label="Gallery inside TE.BRA sports bar in Hersonissos, Crete" className="relative overflow-hidden border-t border-gold/10 py-16">
-      <FadeUp>
-        <p className="label-eyebrow text-center">Inside TE.BRA · Hersonissos · Crete</p>
-      </FadeUp>
-      <div
-        ref={scrollerRef}
-        className="mt-8 flex gap-4 overflow-x-auto overflow-y-hidden scroll-smooth px-4 pb-2 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        style={{ touchAction: "pan-x", overscrollBehaviorX: "contain" }}
-      >
-        {row.map((g, i) => (
-          <img
-            key={i}
-            src={g.src}
-            alt={g.alt}
-            loading="lazy"
-            draggable={false}
-            className="h-56 w-80 flex-none select-none rounded-md object-cover md:h-72 md:w-96"
-          />
-        ))}
+    <section id="gallery" aria-label="Tebra photo gallery" className="border-t border-gold/10 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <header className="mb-8 max-w-2xl">
+          <p className="label-eyebrow">THE TEBRA EXPERIENCE</p>
+          <h2 className="mt-3 font-display text-4xl text-ivory md:text-5xl">See the place. Feel the welcome.</h2>
+          <p className="mt-4 text-lg text-ivory-dim">Daylight comfort, big match moments and good company in Hersonissos.</p>
+        </header>
+        <div className="mb-6 flex flex-wrap gap-2" aria-label="Filter gallery">
+          {["All photos", "The space", "Our guests"].map(label => (
+            <button key={label} type="button" aria-pressed={filter === label} onClick={() => setFilter(label)}
+              className={`min-h-12 rounded-full border px-5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold ${filter === label ? "border-gold bg-gold text-black" : "border-gold/30 text-ivory hover:border-gold"}`}>{label}</button>
+          ))}
+        </div>
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+          {visible.map((g, i) => (
+            <button type="button" key={g.src} onClick={() => setActive(GALLERY.indexOf(g))}
+              aria-label={`Open photo: ${g.alt}`}
+              className={`group relative overflow-hidden rounded-xl border border-gold/15 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold ${i === 0 ? "col-span-2 row-span-2" : ""}`}>
+              <img src={g.src} alt={g.alt} loading="lazy" width="1600" height="1200"
+                className={`h-full w-full object-cover transition-transform duration-500 motion-reduce:transition-none group-hover:scale-105 ${i === 0 ? "aspect-square" : "aspect-[4/3]"}`} />
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-4 pb-4 pt-12 text-sm font-semibold text-white md:text-base">{g.alt}</span>
+            </button>
+          ))}
+        </div>
+        <p className="mt-4 text-sm text-ivory-dim">Tap any photo to explore.</p>
       </div>
-      <p className="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-ivory-dim/70">Swipe to explore →</p>
+      <dialog ref={dialogRef} aria-label="Enlarged Tebra photograph" onCancel={() => setActive(null)} onClick={e => { if (e.target === e.currentTarget) setActive(null); }}
+        onKeyDown={e => { if (e.key === "ArrowRight") move(1); if (e.key === "ArrowLeft") move(-1); }}
+        className="fixed inset-0 m-auto max-h-[95dvh] w-[96vw] max-w-6xl overflow-auto rounded-xl border border-gold/30 bg-black p-3 text-white backdrop:bg-black/90">
+        {active !== null && <>
+          <div className="mb-3 flex items-center justify-between gap-4">
+            <p className="font-semibold">{GALLERY[active].alt}</p>
+            <button type="button" autoFocus onClick={() => setActive(null)} className="min-h-12 min-w-12 rounded-lg border border-white/30 px-4" aria-label="Close photo">Close ×</button>
+          </div>
+          <img src={GALLERY[active].src} alt={GALLERY[active].alt} className="max-h-[72dvh] w-full object-contain" />
+          <div className="mt-3 flex items-center justify-between">
+            <button type="button" onClick={() => move(-1)} className="min-h-12 rounded-lg border border-white/30 px-4">← Previous</button>
+            <span>{active + 1} / {GALLERY.length}</span>
+            <button type="button" onClick={() => move(1)} className="min-h-12 rounded-lg border border-white/30 px-4">Next →</button>
+          </div>
+        </>}
+      </dialog>
     </section>
   );
 }
