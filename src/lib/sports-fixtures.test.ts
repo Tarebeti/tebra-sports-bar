@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { greekTime, selectFixtures, type VerifiedFixture } from "./sports-fixtures";
+import { VERIFIED_SPORTS_PROGRAMME } from "./verified-sports-programme";
 
 const fixture: VerifiedFixture = {
   id: "test", title: "Test match", sport: "Football", competition: "Test competition",
@@ -21,6 +22,11 @@ describe("Greek fixture times", () => {
 });
 
 describe("Verified fixtures only", () => {
+  test("officially checked programme uses exact Greek kickoff times", () => {
+    const selected = selectFixtures(VERIFIED_SPORTS_PROGRAMME, new Date("2026-10-09T06:45:00Z"));
+    expect(selected.today.map((event) => greekTime(event.startsAt))).toEqual(["15:30", "21:45", "21:45"]);
+    expect(selected.upcoming.map((event) => greekTime(event.startsAt))).toEqual(["14:30", "19:30", "18:30"]);
+  });
   test("omits entries without verification evidence", () => {
     expect(selectFixtures([{ ...fixture, verifiedAt: "" }], new Date("2026-10-09T07:00:00Z")).today).toEqual([]);
   });

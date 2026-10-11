@@ -3,7 +3,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "motion/react";
 import { useQuery } from "@tanstack/react-query";
 import { getReviews, getSummary, type Review } from "@/lib/reviews";
+import { loadProgramme, type ProgrammeFeed } from "@/lib/programme-feed";
+import programmeSnapshot from "../../public/sports-programme.json";
+import { selectProgrammeCards } from "@/lib/sports-fixtures";
 import { getLiveReviews } from "@/lib/reviews.functions";
+import { HomeLiveSports } from "@/components/home-live-sports";
+import { VERIFIED_SPORTS_PROGRAMME } from "@/lib/verified-sports-programme";
 
 // ---- Real image assets (self hosted via Lovable Assets CDN) ----
 import logoAsset from "@/assets/venue/logo.png.asset.json";
@@ -64,25 +69,46 @@ const DETAIL_1 = img36.url;
 const DETAIL_2 = img38.url;
 
 const GALLERY = [
-  { src: realExteriorNight.url, alt: "TE.BRA Sports Bar entrance lit up at night in Hersonissos" },
-  { src: realExteriorDusk.url, alt: "TE.BRA Sports Bar exterior at dusk in Hersonissos Crete" },
-  { src: realPoolCrowd.url, alt: "Guests watching sport around the pool table at TE.BRA Hersonissos" },
-  { src: realBreakfastGroup.url, alt: "Friends enjoying breakfast at TE.BRA Sports Bar Hersonissos" },
-  { src: realFoodGroup.url, alt: "Group sharing food and drinks at TE.BRA Hersonissos" },
-  { src: realExteriorLounge.url, alt: "Outdoor lounge seating at TE.BRA cocktail bar Hersonissos" },
-  { src: realBarCocktails.url, alt: "Cocktail bar with fresh fruit and premium spirits at TE.BRA" },
-  { src: realWorldCup.url, alt: "FIFA World Cup 2026 backdrop at TE.BRA Sports Bar" },
-  { src: img10.url, alt: "Deco lounge seating at TE.BRA cocktail bar Hersonissos" },
-  { src: img12.url, alt: "Warm bar lighting and glassware at TE.BRA Hersonissos" },
-  { src: img17.url, alt: "Big screens and lounge at TE.BRA sports bar Hersonissos" },
-  { src: img18.url, alt: "Signature drink at TE.BRA cocktail bar Hersonissos Crete" },
-  { src: img21.url, alt: "Cocktail served at TE.BRA bar Hersonissos" },
-  { src: img26.url, alt: "Late night lounge vibes at TE.BRA Hersonissos" },
-  { src: img29.url, alt: "Cocktail garnish detail at TE.BRA Hersonissos" },
-  { src: img32.url, alt: "Exterior signage at TE.BRA Sports Bar Hersonissos" },
-  { src: img34.url, alt: "Bar shelves and premium spirits at TE.BRA Hersonissos" },
-  { src: img35.url, alt: "Champagne gold accents at TE.BRA bar Hersonissos" },
-  { src: img39.url, alt: "Warm evening atmosphere at TE.BRA cocktail bar Hersonissos" },
+  {
+    "src": "/gallery/tebra-1.webp",
+    "alt": "Daylight lounge",
+    "category": "The space"
+  },
+  {
+    "src": "/gallery/tebra-2.webp",
+    "alt": "A warm welcome",
+    "category": "The space"
+  },
+  {
+    "src": "/gallery/tebra-3.webp",
+    "alt": "Step inside",
+    "category": "The space"
+  },
+  {
+    "src": "/gallery/tebra-4.webp",
+    "alt": "Tebra in the sunshine",
+    "category": "The space"
+  },
+  {
+    "src": "/gallery/tebra-5.webp",
+    "alt": "Matchday atmosphere",
+    "category": "Our guests"
+  },
+  {
+    "src": "/gallery/tebra-6.webp",
+    "alt": "Pool and good company",
+    "category": "Our guests"
+  },
+  {
+    "src": "/gallery/tebra-7.webp",
+    "alt": "Friends at Tebra",
+    "category": "Our guests"
+  },
+  {
+    "src": "/gallery/tebra-8.webp",
+    "alt": "Your home away from home",
+    "category": "Our guests"
+  }
 ];
 
 
@@ -101,6 +127,7 @@ const NAV = [
   { href: "#sport", label: "Sport" },
   { href: "#games", label: "Games" },
   { href: "#food", label: "Food" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#reviews", label: "Reviews" },
   { href: "#find-us", label: "Find Us" },
 ];
@@ -211,7 +238,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "TE.BRA | Cocktail & Sports Bar in Hersonissos, Crete" },
-      { name: "description", content: "Cocktails, live sport, pool, darts and food at TE.BRA Sports Bar in Hersonissos, Crete. Open daily with 183 five star reviews." },
+      { name: "description", content: "Cocktails, live sport, pool, darts and food at TE.BRA Sports Bar in Hersonissos, Crete. Open daily. Rated 5.0 on Tripadvisor from 214 reviews." },
       { property: "og:title", content: "TE.BRA | Cocktail & Sports Bar in Hersonissos, Crete" },
       { property: "og:description", content: "Cocktails, live sport, pool, darts and food at TE.BRA Sports Bar in Hersonissos, Crete." },
       { property: "og:type", content: "website" },
@@ -225,10 +252,12 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-ivory">
+    <div className="min-h-screen bg-background text-ivory [&_section[id]]:scroll-mt-20 [&_h1]:font-semibold [&_h2]:font-semibold [&_h3]:font-semibold">
       <Header />
       <main>
+        <HomepageProgramme />
         <Hero />
+        <HomeLiveSports fixtures={VERIFIED_SPORTS_PROGRAMME} requestUrl={whatsappUrl} />
         <SportsBanner />
         <TrustBar />
         
@@ -256,10 +285,10 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-gold/10 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
-        <a href="#top" className="flex items-center gap-3">
-          <img src={LOGO} alt="TE.BRA Sports Bar gold crest logo" className="h-11 w-11 object-contain" />
-          <span className="hidden font-display text-lg tracking-wide text-ivory sm:inline">TE.BRA</span>
+      <div className="mx-auto flex h-[84px] max-w-7xl items-center justify-between px-4 md:px-8">
+        <a href="#top" className="flex shrink-0 items-center gap-2">
+          <img src={LOGO} alt="TE.BRA Sports Bar gold crest logo" className="hidden h-12 w-12 object-contain sm:block" />
+          <span className="flex min-w-0 flex-col"><span className="font-sans text-[32px] font-black leading-none tracking-[0.045em] text-ivory sm:text-[38px]">TEBRA</span><span className="mt-1.5 text-[11px] font-extrabold uppercase leading-tight tracking-[0.035em] text-gold sm:text-[13px]">Premium Sports Bar</span></span>
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
@@ -282,22 +311,26 @@ function Header() {
             <span className={`h-1.5 w-1.5 rounded-full ${isOpen ? "bg-open animate-pulse" : "bg-ivory-dim"}`} />
             {label}
           </span>
-          <BtnPrimary href={directionsUrl} target="_blank" rel="noopener" className="hidden md:inline-flex">
-            Get Directions
-          </BtnPrimary>
+          <div className="hidden xl:block">
+            <BtnPrimary href={directionsUrl} target="_blank" rel="noopener">
+              Get Directions
+            </BtnPrimary>
+          </div>
           <a
             href={whatsappUrl("Hi TE.BRA")}
             target="_blank"
             rel="noopener"
             aria-label="Message on WhatsApp"
-            className="rounded-md border border-gold/40 p-2 text-gold hover:bg-gold/10 md:hidden"
+            className="rounded-md border border-gold/40 p-3 text-gold hover:bg-gold/10 md:hidden"
           >
             <IconWhatsapp className="h-5 w-5" />
           </a>
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="rounded-md border border-gold/40 p-2 text-ivory lg:hidden"
+            className="rounded-md border border-gold/40 p-3 text-ivory lg:hidden"
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
               {menuOpen ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -308,7 +341,7 @@ function Header() {
 
       {menuOpen && (
         <div className="border-t border-gold/10 bg-background lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
+          <nav id="mobile-navigation" aria-label="Mobile navigation" className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
             {NAV.map((n) => (
               <a
                 key={n.href}
@@ -359,7 +392,7 @@ function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,var(--background)_85%)]" />
       </motion.div>
 
-      <motion.div style={{ opacity }} className="mx-auto grid min-h-[92vh] max-w-6xl place-items-center px-4 py-24 md:px-8">
+      <motion.div style={{ opacity }} className="mx-auto grid min-h-[65vh] max-w-6xl place-items-center px-4 py-24 md:px-8">
         <div className="w-full max-w-3xl text-center">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
@@ -376,8 +409,8 @@ function Hero() {
             transition={{ duration: 0.9, delay: 0.1, ease: [0.2, 0.7, 0.2, 1] }}
             className="mt-6 font-display text-3xl leading-tight text-ivory sm:text-4xl sm:leading-[1.05] md:text-6xl lg:text-7xl"
           >
-            Best <span className="text-gold-gradient italic">cocktails</span> in town,
-            <br className="hidden sm:block" /> every game on the screen.
+            Your match. Your <span className="text-gold-gradient italic">people.</span>
+            <br className="hidden sm:block" /> Your place in Crete.
           </motion.h1>
 
           <motion.p
@@ -386,7 +419,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-ivory md:text-lg"
           >
-            The top <strong className="font-semibold text-ivory">sports bar in Hersonissos, Crete</strong>. Cocktails, cold beer, live football on every screen, pool, darts and great food. Five minutes from the strip.
+            Welcome to <strong className="font-semibold text-ivory">TE.BRA Premium Sports Bar in Hersonissos</strong>. Come for the sport. Stay for cocktails, food, pool and darts — and a warm welcome from Zac and Valentina.
           </motion.p>
 
           <motion.div
@@ -396,8 +429,9 @@ function Hero() {
             className="mt-8 flex flex-wrap items-center justify-center gap-2"
           >
             <GoldPill>5.0 on Tripadvisor</GoldPill>
-            <GoldPill>Top rated bar in Hersonissos</GoldPill>
-            <GoldPill>183 five star reviews</GoldPill>
+            <GoldPill>Sport · Cocktails · Good company</GoldPill>
+            <GoldPill>{getSummary().total} reviews on Tripadvisor</GoldPill>
+            <GoldPill>Google 5.0 · 125 reviews</GoldPill>
           </motion.div>
 
           <motion.div
@@ -412,7 +446,7 @@ function Hero() {
             <BtnPrimary href={directionsUrl} target="_blank" rel="noopener" className="animate-gold-pulse">
               Get Directions
             </BtnPrimary>
-            <BtnOutline href="#sport">Book a table for the match</BtnOutline>
+            <BtnOutline href="#sport">Request a match table</BtnOutline>
           </motion.div>
 
           <HeroLiveLine />
@@ -456,34 +490,124 @@ function HeroLiveLine() {
 }
 
 // ---------- Sports banner ----------
-function SportsBanner() {
+function HomepageProgramme() {
+  const now = useAthensNow();
+  const [feed, setFeed] = useState<ProgrammeFeed>(programmeSnapshot);
+  const [competition, setCompetition] = useState("All sports");
+  const [expanded, setExpanded] = useState(false);
+  const [query, setQuery] = useState("");
+  const [day, setDay] = useState("all");
+  useEffect(() => {
+    const controller = new AbortController();
+    const refresh = () => loadProgramme(controller.signal).then(setFeed).catch(() => {});
+    refresh();
+    const interval = window.setInterval(refresh, 300000);
+    return () => { controller.abort(); window.clearInterval(interval); };
+  }, []);
+  const available = feed.events.filter(e => Date.parse(e.start) + 3 * 3600000 > now.getTime());
+  const competitions = [...new Set(available.map(e => e.competition))].sort((a,b) => a === "Premier League" ? -1 : b === "Premier League" ? 1 : a.localeCompare(b));
+  const filtered = available.filter(e => (day === "all" || e.date === day) && e.title.toLocaleLowerCase().includes(query.trim().toLocaleLowerCase()));
+  const dates = [...new Set(available.map(e => e.date))].sort();
+  const { ordered, compact } = selectProgrammeCards(filtered, competition);
+  const visible = expanded ? ordered : compact;
+  const highlights = selectProgrammeCards(available, "All sports").compact;
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Athens", year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
+  const tomorrow = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Athens", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(now.getTime() + 86400000));
+  const checked = feed.checked;
+  const formatDate = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Athens", weekday: "short", day: "numeric", month: "short" });
+  const formatTime = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Athens", hour: "2-digit", minute: "2-digit", hour12: false });
   return (
-    <section className="relative overflow-hidden border-y border-gold/20 bg-surface-raised/70">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,oklch(0.78_0.12_85/0.10),transparent_60%)]" />
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-5 sm:flex-row sm:px-8 md:py-4">
-        <div className="flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full border border-gold/40 bg-background">
-            <IconGlobe />
-          </span>
-          <p className="text-sm font-semibold uppercase tracking-[0.14em] text-ivory sm:text-base">
-            Every sport <span className="text-gold">·</span> every league <span className="text-gold">·</span> everywhere
-          </p>
+    <section id="match-highlights" aria-labelledby="match-highlights-title" className="border-y border-gold/25 bg-surface-raised/60 py-6 md:py-10">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div>
+            <p className="label-eyebrow">Live sport at Tebra</p>
+            <h2 id="match-highlights-title" className="mt-3 font-display text-[34px] font-semibold leading-tight text-ivory sm:text-4xl md:text-5xl">Your sport. Your match.</h2>
+            <p className="mt-3 text-sm text-ivory-dim">Football, Formula 1 and more · All times in Greece</p>
+          </div>
+          <BtnOutline href="/sports-desk">Full programme ↗</BtnOutline>
         </div>
-        <a
-          href={whatsappUrl("Hi TE.BRA, I would like to reserve a table for the match.")}
-          target="_blank"
-          rel="noopener"
-          className="inline-flex items-center gap-2 rounded-full bg-gold-gradient px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-background shadow-[0_8px_24px_-8px_rgba(201,162,75,0.5)] transition-transform hover:-translate-y-0.5"
-        >
-          <IconWhatsapp className="h-4 w-4" />
-          Reserve on WhatsApp
-        </a>
+        <div className="mt-6 grid items-stretch gap-4 md:grid-cols-3">
+          {highlights.map(match => <article key={match.id} className="flex min-w-0 flex-col rounded-xl border border-gold/30 bg-background p-5 shadow-[0_10px_30px_-20px_rgba(201,162,75,0.3)] md:p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-gold">{match.competition}</p>
+            <p className="mt-4 text-xs uppercase tracking-wider text-ivory-dim">{formatDate.format(new Date(match.start))} · Greece</p>
+            <h3 className="mt-2 flex-1 break-words font-sans text-[25px] font-bold leading-[1.25] text-ivory md:text-[28px]">{match.title}</h3>
+            <p className="mt-4 text-[34px] font-bold leading-none tabular-nums text-gold">{formatTime.format(new Date(match.start))}</p>
+            <a href={match.source} target="_blank" rel="noopener noreferrer" className="mt-3 text-xs text-ivory-dim underline">Official fixture</a>
+            <a className="mt-5 flex min-h-12 items-center justify-center rounded-lg bg-gold px-4 py-3 text-center text-[15px] font-bold text-background transition-colors hover:bg-gold/85 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.title} on ${formatDate.format(new Date(match.start))} at ${formatTime.format(new Date(match.start))} Greek time. Please confirm screening and availability.`)} target="_blank" rel="noopener noreferrer">Request a table ↗</a>
+          </article>)}
+        </div>
+        <p className="mt-4 text-xs leading-relaxed text-ivory-dim">All times in Greece · Request your table and we will confirm the screening.</p>
+        <nav className="mt-7 rounded-2xl border border-gold/25 bg-background p-3 md:p-4" aria-label="Choose a league or sport">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-3 border-b border-gold/15 pb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Find your match</p>
+            <button type="button" aria-pressed={competition === "All sports"} onClick={() => { setCompetition("All sports"); setExpanded(false); }} className={`min-h-11 rounded-full border px-5 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-gold ${competition === "All sports" ? "border-gold bg-gold text-background" : "border-gold/30 text-ivory hover:border-gold"}`}>All sports</button>
+          </div>
+          {[{ label: "Football leagues & cups", sport: "Football" }, { label: "Motorsport, fights & more", sport: "Other" }].map(group => {
+            const entries = competitions.filter(c => available.some(e => e.competition === c && (group.sport === "Football" ? e.sport === "Football" : e.sport !== "Football")));
+            if (!entries.length) return null;
+            return <div key={group.label} className="mt-3 first:mt-0">
+              <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ivory-dim">{group.label}</p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
+                {entries.map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={() => { setCompetition(c); setExpanded(false); }} className={`group flex min-h-11 min-w-0 items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left transition-colors focus-visible:outline-2 focus-visible:outline-gold md:px-4 ${competition === c ? "border-gold bg-gold text-background" : c === "Premier League" ? "border-gold/60 bg-gold/10 text-ivory hover:bg-gold/20" : "border-ivory/15 bg-surface-raised/40 text-ivory hover:border-gold/60 hover:bg-gold/10"}`}>
+                  <span className="break-words text-[15px] font-semibold leading-snug">{c}</span>
+                  <span aria-label="fixtures" className={`flex h-6 min-w-6 shrink-0 items-center justify-center rounded-full px-1 text-[11px] ${competition === c ? "bg-background/15 text-background" : "bg-gold/10 text-gold"}`}>{available.filter(e => e.competition === c).length}</span>
+                </button>)}
+              </div>
+            </div>;
+          })}
+        </nav>
+        <div className="mt-6 flex flex-wrap gap-2" aria-label="Quick day selection">
+          {[{ value: "all", label: "This week" }, { value: today, label: "Today" }, { value: tomorrow, label: "Tomorrow" }].map(option => <button key={option.value} type="button" aria-pressed={day === option.value} onClick={() => { setDay(option.value); setExpanded(true); }} className={`min-h-11 rounded-full border px-5 py-2 text-sm font-semibold ${day === option.value ? "border-gold bg-gold text-background" : "border-gold/30 text-ivory hover:border-gold"}`}>{option.label}</button>)}
+        </div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <label className="text-xs font-semibold uppercase tracking-wider text-ivory-dim">Find your team or event
+            <input type="search" value={query} onChange={e => { setQuery(e.target.value); setExpanded(true); }} placeholder="Liverpool, Formula 1, boxing…" className="mt-2 block min-h-12 w-full rounded-xl border border-gold/25 bg-background px-4 text-base font-normal normal-case tracking-normal text-ivory focus:border-gold focus:outline-none" />
+          </label>
+          <label className="text-xs font-semibold uppercase tracking-wider text-ivory-dim">Choose your day
+            <select value={day} onChange={e => { setDay(e.target.value); setExpanded(true); }} className="mt-2 block min-h-12 w-full rounded-xl border border-gold/25 bg-background px-4 text-base font-normal normal-case tracking-normal text-ivory focus:border-gold focus:outline-none">
+              <option value="all">All upcoming days</option>
+              {dates.map(date => <option key={date} value={date}>{formatDate.format(new Date(date + "T12:00:00+03:00"))}</option>)}
+            </select>
+          </label>
+        </div>
+        <p className="mt-5 text-xs text-ivory-dim">Fixture times checked {checked}. Please ask Tebra to confirm screening and table availability.</p>
+        {(expanded || competition !== "All sports" || query.trim() || day !== "all") && <div id="programme-results" aria-live="polite"><div className="mt-7 grid items-stretch gap-4 md:grid-cols-3">
+          {visible.map(match => <article key={match.id} className="flex flex-col rounded-xl border border-gold/30 bg-background p-5 md:p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-gold">{match.competition}</p>
+            <p className="mt-4 text-xs uppercase tracking-wider text-ivory-dim">{formatDate.format(new Date(match.start))} · Greece</p>
+            <h3 className="mt-2 flex-1 break-words font-sans text-[25px] font-bold leading-[1.25] text-ivory md:text-[28px]">{match.title}</h3>
+            <p className="mt-4 text-[34px] font-bold leading-none tabular-nums text-gold">{formatTime.format(new Date(match.start))}</p>
+            <a href={match.source} target="_blank" rel="noopener noreferrer" className="mt-3 text-xs text-ivory-dim underline">Official fixture</a>
+            <a className="mt-5 flex min-h-12 items-center justify-center rounded-lg bg-gold px-4 py-3 text-center text-[15px] font-bold text-background transition-colors hover:bg-gold/85 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.title} on ${formatDate.format(new Date(match.start))} at ${formatTime.format(new Date(match.start))} Greek time. Please confirm screening and availability.`)} target="_blank" rel="noopener noreferrer">Request a table ↗</a>
+          </article>)}
+        </div></div>}
+        {ordered.length > 3 && <button type="button" onClick={() => setExpanded(!expanded)} aria-expanded={expanded} className="mt-5 rounded-md border border-gold/30 px-5 py-3 text-sm text-ivory hover:border-gold">{expanded ? "Close full list" : `Show all ${ordered.length} fixtures${competition === "All sports" ? "" : ` in ${competition}`}`}</button>}
+        {ordered.length === 0 && <p role="status" className="mt-7 rounded-xl border border-gold/20 p-5 text-ivory-dim">No upcoming events match your selection. Try another day or team, or ask us on WhatsApp.</p>}
+        <div className="mt-6"><BtnOutline href="/sports-desk">More leagues, sports and the full programme ↗</BtnOutline></div>
       </div>
     </section>
   );
 }
 
-// ---------- Trust bar ----------
+function SportsBanner() {
+  const experiences = [
+    { title: "Watch", description: "Find your fixture. Request your table.", image: SCREENS, alt: "Guests watching sport at Tebra", href: "#match-highlights", action: "Explore the programme" },
+    { title: "Taste", description: "Cocktails, cold beers and food to share.", image: DRINK_2, alt: "Cocktails served at the Tebra bar", href: "#food", action: "Discover food and drinks" },
+    { title: "Stay a little longer", description: "Pool, darts and good company.", image: POOL_DARTS, alt: "Pool and guests at Tebra", href: "#games", action: "See the games" },
+  ];
+  return (
+    <section aria-label="Discover Tebra" className="border-y border-gold/20 bg-surface-raised/40 py-12 md:py-20">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 md:grid-cols-3 md:px-8">
+        {experiences.map(item => <a key={item.title} href={item.href} className="group overflow-hidden rounded-xl border border-gold/20 bg-background transition-colors hover:border-gold focus-visible:outline-2 focus-visible:outline-gold">
+          <img src={item.image} alt={item.alt} loading="lazy" width={640} height={480} className="aspect-[4/3] w-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-105" />
+          <div className="p-6"><h2 className="font-display text-3xl text-ivory">{item.title}</h2><p className="mt-3 text-sm leading-relaxed text-ivory-dim">{item.description}</p><p className="mt-5 text-xs font-semibold uppercase tracking-wider text-gold">{item.action} ↗</p></div>
+        </a>)}
+      </div>
+    </section>
+  );
+}
+
 function TrustBar() {
   const s = getSummary();
   return (
@@ -495,7 +619,8 @@ function TrustBar() {
           <span>{s.total} reviews on Tripadvisor</span>
         </div>
         <span className="hidden h-4 w-px bg-gold/25 md:inline" />
-        <span className="label-eyebrow">Top rated bar in Hersonissos</span>
+        <span className="label-eyebrow">#1 of 25 Nightlife in Hersonissos · Tripadvisor</span>
+        <div className="flex items-center gap-3"><span className="font-display text-2xl text-ivory">5.0</span><GoldStars n={5} size={16} /><span>125 reviews on Google</span></div>
       </div>
     </section>
   );
@@ -602,11 +727,11 @@ function Sport() {
         <FadeUp>
           <p className="label-eyebrow">Match day</p>
           <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
-            Every game, every <span className="text-gold-gradient italic">screen</span>.
+            A great seat for your <span className="text-gold-gradient italic">match</span>.
           </h2>
           <p className="mt-5 max-w-md text-ivory-dim">
             Multiple large screens showing football, Champions League and all the major live sport.
-            Tell us the match, we save you the best seat in the house.
+            Tell us your match and party size. We will confirm screening and table availability.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BtnPrimary href={whatsappUrl(message)} target="_blank" rel="noopener">
@@ -763,6 +888,7 @@ function Food() {
               <li className="flex items-center gap-2"><Dot /> Sharing plates</li>
               <li className="flex items-center gap-2"><Dot /> Vegetarian options</li>
             </ul>
+            <div className="mt-8"><BtnOutline href={CONFIG.menuUrl} target="_blank" rel="noopener noreferrer">View the full menu ↗</BtnOutline></div>
           </FadeUp>
         </div>
       </div>
@@ -778,7 +904,7 @@ function Dot() {
 function Experience() {
   const cards = [
     { icon: <IconDiamond />, title: "Deco lounge, done right", body: "Scandi chic, comfortable, spotless, air conditioned." },
-    { icon: <IconHeart />, title: "Welcoming owners", body: "Zak and Valentina. Walk in a stranger, leave a friend." },
+    { icon: <IconHeart />, title: "Welcoming owners", body: "Zac and Valentina. Walk in a stranger, leave a friend." },
     { icon: <IconLeaf />, title: "A quieter, nicer setting", body: "A short hop from the busy strip, near the villas." },
   ];
   return (
@@ -824,81 +950,65 @@ function Experience() {
   );
 }
 
-// ---------- Gallery (swipeable + auto-scroll) ----------
+// ---------- Curated venue gallery ----------
 function Gallery() {
-  const row = useMemo(() => [...GALLERY, ...GALLERY], []);
-  const scrollerRef = useRef<HTMLDivElement | null>(null);
-  const pausedRef = useRef(false);
-
+  const [filter, setFilter] = useState("All photos");
+  const [active, setActive] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
+  const visible = GALLERY.filter(g => filter === "All photos" || g.category === filter);
   useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-
-    let rafId = 0;
-    let last = performance.now();
-    const speed = 30; // px per second — subtle, natural feel
-
-    const tick = (now: number) => {
-      const dt = now - last;
-      last = now;
-      if (!pausedRef.current && el) {
-        el.scrollLeft += (speed * dt) / 1000;
-        // seamless loop — the row is doubled, so reset at halfway
-        const half = el.scrollWidth / 2;
-        if (el.scrollLeft >= half) el.scrollLeft -= half;
-      }
-      rafId = requestAnimationFrame(tick);
-    };
-    rafId = requestAnimationFrame(tick);
-
-    const pause = () => (pausedRef.current = true);
-    const resume = () => {
-      // small delay after touch/mouse leaves so it doesn't jerk back to auto
-      window.setTimeout(() => (pausedRef.current = false), 1500);
-    };
-
-    el.addEventListener("pointerdown", pause);
-    el.addEventListener("pointerup", resume);
-    el.addEventListener("pointercancel", resume);
-    el.addEventListener("mouseenter", pause);
-    el.addEventListener("mouseleave", resume);
-    el.addEventListener("touchstart", pause, { passive: true });
-    el.addEventListener("touchend", resume, { passive: true });
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      el.removeEventListener("pointerdown", pause);
-      el.removeEventListener("pointerup", resume);
-      el.removeEventListener("pointercancel", resume);
-      el.removeEventListener("mouseenter", pause);
-      el.removeEventListener("mouseleave", resume);
-      el.removeEventListener("touchstart", pause);
-      el.removeEventListener("touchend", resume);
-    };
-  }, []);
-
+    const dialog = dialogRef.current;
+    if (active !== null) dialog?.showModal();
+    else dialog?.close();
+    if (active === null) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = previous; };
+  }, [active]);
+  const move = (step: number) => setActive(index => index === null ? null : (index + step + GALLERY.length) % GALLERY.length);
   return (
-    <section aria-label="Gallery inside TE.BRA sports bar in Hersonissos, Crete" className="relative overflow-hidden border-t border-gold/10 py-16">
-      <FadeUp>
-        <p className="label-eyebrow text-center">Inside TE.BRA · Hersonissos · Crete</p>
-      </FadeUp>
-      <div
-        ref={scrollerRef}
-        className="mt-8 flex gap-4 overflow-x-auto overflow-y-hidden scroll-smooth px-4 pb-2 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-        style={{ touchAction: "pan-x", overscrollBehaviorX: "contain" }}
-      >
-        {row.map((g, i) => (
-          <img
-            key={i}
-            src={g.src}
-            alt={g.alt}
-            loading="lazy"
-            draggable={false}
-            className="h-56 w-80 flex-none select-none rounded-md object-cover md:h-72 md:w-96"
-          />
-        ))}
+    <section id="gallery" aria-label="Tebra photo gallery" className="border-t border-gold/10 py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <header className="mb-8 max-w-2xl">
+          <p className="label-eyebrow">THE TEBRA EXPERIENCE</p>
+          <h2 className="mt-3 font-display text-4xl text-ivory md:text-5xl">See the place. Feel the welcome.</h2>
+          <p className="mt-4 text-lg text-ivory-dim">Daylight comfort, big match moments and good company in Hersonissos.</p>
+        </header>
+        <div className="mb-6 flex flex-wrap gap-2" aria-label="Filter gallery">
+          {["All photos", "The space", "Our guests"].map(label => (
+            <button key={label} type="button" aria-pressed={filter === label} onClick={() => setFilter(label)}
+              className={`min-h-12 rounded-full border px-5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold ${filter === label ? "border-gold bg-gold text-black" : "border-gold/30 text-ivory hover:border-gold"}`}>{label}</button>
+          ))}
+        </div>
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+          {visible.map((g, i) => (
+            <button type="button" key={g.src} onClick={() => setActive(GALLERY.indexOf(g))}
+              aria-label={`Open photo: ${g.alt}`}
+              className={`group relative overflow-hidden rounded-xl border border-gold/15 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold ${i === 0 ? "col-span-2 row-span-2" : ""}`}>
+              <img src={g.src} alt={g.alt} loading="lazy" width="1600" height="1200"
+                className={`h-full w-full object-cover transition-transform duration-500 motion-reduce:transition-none group-hover:scale-105 ${i === 0 ? "aspect-square" : "aspect-[4/3]"}`} />
+              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-4 pb-4 pt-12 text-sm font-semibold text-white md:text-base">{g.alt}</span>
+            </button>
+          ))}
+        </div>
+        <p className="mt-4 text-sm text-ivory-dim">Tap any photo to explore.</p>
       </div>
-      <p className="mt-3 text-center text-[11px] uppercase tracking-[0.2em] text-ivory-dim/70">Swipe to explore →</p>
+      <dialog ref={dialogRef} aria-label="Enlarged Tebra photograph" onCancel={() => setActive(null)} onClick={e => { if (e.target === e.currentTarget) setActive(null); }}
+        onKeyDown={e => { if (e.key === "ArrowRight") move(1); if (e.key === "ArrowLeft") move(-1); }}
+        className="fixed inset-0 m-auto max-h-[95dvh] w-[96vw] max-w-6xl overflow-auto rounded-xl border border-gold/30 bg-black p-3 text-white backdrop:bg-black/90">
+        {active !== null && <>
+          <div className="mb-3 flex items-center justify-between gap-4">
+            <p className="font-semibold">{GALLERY[active].alt}</p>
+            <button type="button" autoFocus onClick={() => setActive(null)} className="min-h-12 min-w-12 rounded-lg border border-white/30 px-4" aria-label="Close photo">Close ×</button>
+          </div>
+          <img src={GALLERY[active].src} alt={GALLERY[active].alt} className="max-h-[72dvh] w-full object-contain" />
+          <div className="mt-3 flex items-center justify-between">
+            <button type="button" onClick={() => move(-1)} className="min-h-12 rounded-lg border border-white/30 px-4">← Previous</button>
+            <span>{active + 1} / {GALLERY.length}</span>
+            <button type="button" onClick={() => move(1)} className="min-h-12 rounded-lg border border-white/30 px-4">Next →</button>
+          </div>
+        </>}
+      </dialog>
     </section>
   );
 }
@@ -938,7 +1048,7 @@ function Reviews() {
   const visible = showAll ? sorted : sorted.slice(0, 6);
 
   const newestIds = useMemo(() => {
-    const byDate = [...all].sort((a, b) => (a.date < b.date ? 1 : -1)).slice(0, 3);
+    const byDate = [...all].sort((a, b) => (a.date < b.date ? 1 : -1)).filter(r => Date.now() - Date.parse(r.date) <= 30 * 86400000).slice(0, 3);
     return new Set(byDate.map((r) => `${r.name}-${r.date}`));
   }, [all]);
 
@@ -963,7 +1073,7 @@ function Reviews() {
             </div>
             <p className="mt-5 text-[15px] leading-relaxed text-ivory-dim">
               Guests in Chersonisos rate us five stars for the welcome, the cocktails and every match on the big
-              screens. Newest reviews load automatically.
+              screens. Read the full guest reviews on Tripadvisor.
             </p>
           </header>
         </FadeUp>
@@ -1058,7 +1168,7 @@ function FAQ() {
     { q: "Where is TE.BRA in Hersonissos?", a: "A short drive from the main strip, in a quieter, nicer setting near the villas. Directions link below." },
     { q: "Does TE.BRA have good cocktails?", a: "Yes, handcrafted cocktails with generous measures are the specialty, alongside premium spirits, beer and wine." },
     { q: "Can I watch football and live sport at TE.BRA?", a: "Yes, multiple large screens show football, Champions League and major live sport. Ask us to put your match on." },
-    { q: "Can I reserve a table for a big match?", a: "Yes, message us on WhatsApp with the match and party size and we save you a seat." },
+    { q: "Can I reserve a table for a big match?", a: "Message us on WhatsApp with the match, date and party size. Your request becomes a reservation once our team confirms screening and availability." },
     { q: "What games are there?", a: "A pool table and darts, and a relaxed space to settle in." },
     { q: "Does TE.BRA serve food?", a: "Yes, breakfast, snacks and bar food throughout the day." },
     { q: "What are the opening hours?", a: "Open daily from 11:00 until late." },
@@ -1183,7 +1293,7 @@ function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 text-center md:px-8">
         <img src={LOGO} alt="TE.BRA gold crest" className="h-16 w-16 object-contain" />
         <p className="font-display text-lg italic text-ivory-dim">
-          Best cocktails in town, every game on the screen.
+          Live sport, cocktails and a warm welcome in Hersonissos.
         </p>
         <div className="gold-hairline w-40" />
         <p className="text-xs uppercase tracking-[0.2em] text-ivory-dim">
@@ -1326,3 +1436,4 @@ function IconGlobe() {
     </svg>
   );
 }
+

@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, CalendarDays, Clock3, MessageCircle, Tv } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
