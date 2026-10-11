@@ -1,5 +1,11 @@
-import { describe, expect, test } from "bun:test";
+import { describe, it as test } from "node:test";
+import assert from "node:assert/strict";
+const expect = (actual: unknown) => ({
+  toBe: (expected: unknown) => assert.equal(actual, expected),
+  toEqual: (expected: unknown) => assert.deepEqual(actual, expected),
+});
 import { greekTime, selectFixtures, type VerifiedFixture } from "./sports-fixtures";
+import { VERIFIED_SPORTS_PROGRAMME } from "./verified-sports-programme";
 
 const fixture: VerifiedFixture = {
   id: "test", title: "Test match", sport: "Football", competition: "Test competition",
@@ -21,6 +27,16 @@ describe("Greek fixture times", () => {
 });
 
 describe("Verified fixtures only", () => {
+  test("newly verified upcoming matches use the official BST conversions", () => {
+    const selected = selectFixtures(VERIFIED_SPORTS_PROGRAMME, new Date("2026-10-12T01:00:00Z"));
+    expect(selected.today.map((event) => greekTime(event.startsAt))).toEqual(["22:00"]);
+    expect(selected.upcoming.map((event) => greekTime(event.startsAt))).toEqual(["14:30", "19:30"]);
+  });
+  test("officially checked programme uses exact Greek kickoff times", () => {
+    const selected = selectFixtures(VERIFIED_SPORTS_PROGRAMME, new Date("2026-10-09T06:45:00Z"));
+    expect(selected.today.map((event) => greekTime(event.startsAt))).toEqual(["15:30", "21:45", "21:45"]);
+    expect(selected.upcoming.map((event) => greekTime(event.startsAt))).toEqual(["14:30", "19:30", "18:30"]);
+  });
   test("omits entries without verification evidence", () => {
     expect(selectFixtures([{ ...fixture, verifiedAt: "" }], new Date("2026-10-09T07:00:00Z")).today).toEqual([]);
   });
