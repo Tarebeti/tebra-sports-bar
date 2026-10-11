@@ -1,4 +1,9 @@
-import { describe, expect, test } from "bun:test";
+import { describe, it as test } from "node:test";
+import assert from "node:assert/strict";
+const expect = (actual: unknown) => ({
+  toBe: (expected: unknown) => assert.equal(actual, expected),
+  toEqual: (expected: unknown) => assert.deepEqual(actual, expected),
+});
 import { greekTime, selectFixtures, type VerifiedFixture } from "./sports-fixtures";
 import { VERIFIED_SPORTS_PROGRAMME } from "./verified-sports-programme";
 
