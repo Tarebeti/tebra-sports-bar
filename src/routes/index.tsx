@@ -485,11 +485,14 @@ function HomepageProgramme() {
   const dates = [...new Set(available.map(e => e.date))].sort();
   const { ordered, compact } = selectProgrammeCards(filtered, competition);
   const visible = expanded ? ordered : compact;
+  const highlights = selectProgrammeCards(available, "All sports").compact;
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Athens", year: "numeric", month: "2-digit", day: "2-digit" }).format(now);
+  const tomorrow = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Athens", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(now.getTime() + 86400000));
   const checked = feed.checked;
   const formatDate = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Athens", weekday: "short", day: "numeric", month: "short" });
   const formatTime = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Athens", hour: "2-digit", minute: "2-digit", hour12: false });
   return (
-    <section id="match-highlights" aria-labelledby="match-highlights-title" className="border-y border-gold/25 bg-surface-raised/60 py-10 md:py-16">
+    <section id="match-highlights" aria-labelledby="match-highlights-title" className="border-y border-gold/25 bg-surface-raised/60 py-6 md:py-10">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
@@ -499,18 +502,29 @@ function HomepageProgramme() {
           </div>
           <BtnOutline href="/sports-desk">Full programme ↗</BtnOutline>
         </div>
-        <nav className="mt-7 rounded-2xl border border-gold/25 bg-background p-4 md:p-6" aria-label="Choose a league or sport">
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-gold/15 pb-4">
+        <div className="mt-6 grid items-stretch gap-4 md:grid-cols-3">
+          {highlights.map(match => <article key={match.id} className="flex flex-col rounded-xl border border-gold/30 bg-background p-5 md:p-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-gold">{match.competition}</p>
+            <p className="mt-4 text-xs uppercase tracking-wider text-ivory-dim">{formatDate.format(new Date(match.start))} · Greece</p>
+            <h3 style={{ fontFamily: "Arial, Helvetica, sans-serif" }} className="mt-2 flex-1 break-words text-2xl font-semibold leading-snug text-ivory md:text-[26px]">{match.title}</h3>
+            <p className="mt-4 text-3xl font-semibold text-gold">{formatTime.format(new Date(match.start))}</p>
+            <a href={match.source} target="_blank" rel="noopener noreferrer" className="mt-3 text-xs text-ivory-dim underline">Official fixture</a>
+            <a className="mt-6 block rounded-md bg-gold px-4 py-3 text-center text-sm font-bold text-background" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.title} on ${formatDate.format(new Date(match.start))} at ${formatTime.format(new Date(match.start))} Greek time. Please confirm screening and availability.`)} target="_blank" rel="noopener noreferrer">Request a table ↗</a>
+          </article>)}
+        </div>
+        <p className="mt-4 text-xs leading-relaxed text-ivory-dim">All times in Greece · Request your table and we will confirm the screening.</p>
+        <nav className="mt-7 rounded-2xl border border-gold/25 bg-background p-3 md:p-4" aria-label="Choose a league or sport">
+          <div className="mb-3 flex flex-wrap items-center justify-between gap-3 border-b border-gold/15 pb-4">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold">Find your match</p>
             <button type="button" aria-pressed={competition === "All sports"} onClick={() => { setCompetition("All sports"); setExpanded(false); }} className={`min-h-11 rounded-full border px-5 py-2 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-gold ${competition === "All sports" ? "border-gold bg-gold text-background" : "border-gold/30 text-ivory hover:border-gold"}`}>All sports</button>
           </div>
           {[{ label: "Football leagues & cups", sport: "Football" }, { label: "Motorsport, fights & more", sport: "Other" }].map(group => {
             const entries = competitions.filter(c => available.some(e => e.competition === c && (group.sport === "Football" ? e.sport === "Football" : e.sport !== "Football")));
             if (!entries.length) return null;
-            return <div key={group.label} className="mt-5 first:mt-0">
+            return <div key={group.label} className="mt-3 first:mt-0">
               <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ivory-dim">{group.label}</p>
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
-                {entries.map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={() => { setCompetition(c); setExpanded(false); }} className={`group flex min-h-16 min-w-0 items-center justify-between gap-2 rounded-xl border px-3 py-3 text-left transition-colors focus-visible:outline-2 focus-visible:outline-gold md:px-4 ${competition === c ? "border-gold bg-gold text-background" : c === "Premier League" ? "border-gold/60 bg-gold/10 text-ivory hover:bg-gold/20" : "border-ivory/15 bg-surface-raised/40 text-ivory hover:border-gold/60 hover:bg-gold/10"}`}>
+                {entries.map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={() => { setCompetition(c); setExpanded(false); }} className={`group flex min-h-11 min-w-0 items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left transition-colors focus-visible:outline-2 focus-visible:outline-gold md:px-4 ${competition === c ? "border-gold bg-gold text-background" : c === "Premier League" ? "border-gold/60 bg-gold/10 text-ivory hover:bg-gold/20" : "border-ivory/15 bg-surface-raised/40 text-ivory hover:border-gold/60 hover:bg-gold/10"}`}>
                   <span className="break-words text-sm font-semibold leading-snug">{c}</span>
                   <span aria-label="fixtures" className={`flex h-6 min-w-6 shrink-0 items-center justify-center rounded-full px-1 text-[11px] ${competition === c ? "bg-background/15 text-background" : "bg-gold/10 text-gold"}`}>{available.filter(e => e.competition === c).length}</span>
                 </button>)}
@@ -518,7 +532,10 @@ function HomepageProgramme() {
             </div>;
           })}
         </nav>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        <div className="mt-6 flex flex-wrap gap-2" aria-label="Quick day selection">
+          {[{ value: "all", label: "This week" }, { value: today, label: "Today" }, { value: tomorrow, label: "Tomorrow" }].map(option => <button key={option.value} type="button" aria-pressed={day === option.value} onClick={() => { setDay(option.value); setExpanded(true); }} className={`min-h-11 rounded-full border px-5 py-2 text-sm font-semibold ${day === option.value ? "border-gold bg-gold text-background" : "border-gold/30 text-ivory hover:border-gold"}`}>{option.label}</button>)}
+        </div>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
           <label className="text-xs font-semibold uppercase tracking-wider text-ivory-dim">Find your team or event
             <input type="search" value={query} onChange={e => { setQuery(e.target.value); setExpanded(true); }} placeholder="Liverpool, Formula 1, boxing…" className="mt-2 block min-h-12 w-full rounded-xl border border-gold/25 bg-background px-4 text-base font-normal normal-case tracking-normal text-ivory focus:border-gold focus:outline-none" />
           </label>
@@ -530,7 +547,7 @@ function HomepageProgramme() {
           </label>
         </div>
         <p className="mt-5 text-xs text-ivory-dim">Fixture times checked {checked}. Please ask Tebra to confirm screening and table availability.</p>
-        <div className="mt-7 grid items-stretch gap-4 md:grid-cols-3">
+        {(expanded || competition !== "All sports" || query.trim() || day !== "all") && <div id="programme-results" aria-live="polite"><div className="mt-7 grid items-stretch gap-4 md:grid-cols-3">
           {visible.map(match => <article key={match.id} className="flex flex-col rounded-xl border border-gold/30 bg-background p-5 md:p-6">
             <p className="text-xs font-semibold uppercase tracking-wider text-gold">{match.competition}</p>
             <p className="mt-4 text-xs uppercase tracking-wider text-ivory-dim">{formatDate.format(new Date(match.start))} · Greece</p>
@@ -539,8 +556,8 @@ function HomepageProgramme() {
             <a href={match.source} target="_blank" rel="noopener noreferrer" className="mt-3 text-xs text-ivory-dim underline">Official fixture</a>
             <a className="mt-6 block rounded-md bg-gold px-4 py-3 text-center text-sm font-bold text-background" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.title} on ${formatDate.format(new Date(match.start))} at ${formatTime.format(new Date(match.start))} Greek time. Please confirm screening and availability.`)} target="_blank" rel="noopener noreferrer">Request a table ↗</a>
           </article>)}
-        </div>
-        {ordered.length > 3 && <button type="button" onClick={() => setExpanded(!expanded)} aria-expanded={expanded} className="mt-5 rounded-md border border-gold/30 px-5 py-3 text-sm text-ivory hover:border-gold">{expanded ? "Show highlights" : `Show all ${ordered.length} fixtures${competition === "All sports" ? "" : ` in ${competition}`}`}</button>}
+        </div></div>}
+        {ordered.length > 3 && <button type="button" onClick={() => setExpanded(!expanded)} aria-expanded={expanded} className="mt-5 rounded-md border border-gold/30 px-5 py-3 text-sm text-ivory hover:border-gold">{expanded ? "Close full list" : `Show all ${ordered.length} fixtures${competition === "All sports" ? "" : ` in ${competition}`}`}</button>}
         {ordered.length === 0 && <p role="status" className="mt-7 rounded-xl border border-gold/20 p-5 text-ivory-dim">No upcoming events match your selection. Try another day or team, or ask us on WhatsApp.</p>}
         <div className="mt-6"><BtnOutline href="/sports-desk">More leagues, sports and the full programme ↗</BtnOutline></div>
       </div>
