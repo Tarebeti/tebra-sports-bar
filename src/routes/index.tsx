@@ -228,7 +228,7 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-ivory [&_section[id]]:scroll-mt-20">
+    <div className="min-h-screen bg-background text-ivory [&_section[id]]:scroll-mt-20 [&_h1]:font-semibold [&_h2]:font-semibold [&_h3]:font-semibold">
       <Header />
       <main>
         <HomepageProgramme />
@@ -260,10 +260,10 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-gold/10 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
+      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 md:px-8">
         <a href="#top" className="flex shrink-0 items-center gap-2">
-          <img src={LOGO} alt="TE.BRA Sports Bar gold crest logo" className="h-11 w-11 object-contain" />
-          <span className="flex min-w-0 flex-col"><span className="font-display text-lg tracking-wide text-ivory">TE.BRA</span><span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-gold sm:text-xs">Premium Sports Bar</span></span>
+          <img src={LOGO} alt="TE.BRA Sports Bar gold crest logo" className="h-10 w-10 object-contain sm:h-12 sm:w-12" />
+          <span className="flex min-w-0 flex-col"><span className="font-sans text-[25px] font-extrabold leading-none tracking-[0.08em] text-ivory sm:text-[29px]">TE.BRA</span><span className="mt-1.5 text-[9px] font-bold uppercase tracking-[0.13em] text-gold sm:text-[10px]">Premium Sports Bar</span></span>
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
@@ -296,13 +296,13 @@ function Header() {
             target="_blank"
             rel="noopener"
             aria-label="Message on WhatsApp"
-            className="rounded-md border border-gold/40 p-2 text-gold hover:bg-gold/10 md:hidden"
+            className="rounded-md border border-gold/40 p-3 text-gold hover:bg-gold/10 md:hidden"
           >
             <IconWhatsapp className="h-5 w-5" />
           </a>
           <button
             onClick={() => setMenuOpen((v) => !v)}
-            className="rounded-md border border-gold/40 p-2 text-ivory lg:hidden"
+            className="rounded-md border border-gold/40 p-3 text-ivory lg:hidden"
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
             aria-controls="mobile-navigation"
@@ -497,19 +497,19 @@ function HomepageProgramme() {
         <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
           <div>
             <p className="label-eyebrow">Live sport at Tebra</p>
-            <h2 id="match-highlights-title" className="mt-3 font-display text-3xl text-ivory md:text-5xl">Your sport. Your match.</h2>
+            <h2 id="match-highlights-title" className="mt-3 font-display text-[34px] font-semibold leading-tight text-ivory sm:text-4xl md:text-5xl">Your sport. Your match.</h2>
             <p className="mt-3 text-sm text-ivory-dim">Football, Formula 1 and more · All times in Greece</p>
           </div>
           <BtnOutline href="/sports-desk">Full programme ↗</BtnOutline>
         </div>
         <div className="mt-6 grid items-stretch gap-4 md:grid-cols-3">
-          {highlights.map(match => <article key={match.id} className="flex flex-col rounded-xl border border-gold/30 bg-background p-5 md:p-6">
+          {highlights.map(match => <article key={match.id} className="flex min-w-0 flex-col rounded-xl border border-gold/30 bg-background p-5 shadow-[0_10px_30px_-20px_rgba(201,162,75,0.3)] md:p-6">
             <p className="text-xs font-semibold uppercase tracking-wider text-gold">{match.competition}</p>
             <p className="mt-4 text-xs uppercase tracking-wider text-ivory-dim">{formatDate.format(new Date(match.start))} · Greece</p>
-            <h3 style={{ fontFamily: "Arial, Helvetica, sans-serif" }} className="mt-2 flex-1 break-words text-2xl font-semibold leading-snug text-ivory md:text-[26px]">{match.title}</h3>
-            <p className="mt-4 text-3xl font-semibold text-gold">{formatTime.format(new Date(match.start))}</p>
+            <h3 className="mt-2 flex-1 break-words font-sans text-[25px] font-bold leading-[1.25] text-ivory md:text-[28px]">{match.title}</h3>
+            <p className="mt-4 text-[34px] font-bold leading-none tabular-nums text-gold">{formatTime.format(new Date(match.start))}</p>
             <a href={match.source} target="_blank" rel="noopener noreferrer" className="mt-3 text-xs text-ivory-dim underline">Official fixture</a>
-            <a className="mt-6 block rounded-md bg-gold px-4 py-3 text-center text-sm font-bold text-background" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.title} on ${formatDate.format(new Date(match.start))} at ${formatTime.format(new Date(match.start))} Greek time. Please confirm screening and availability.`)} target="_blank" rel="noopener noreferrer">Request a table ↗</a>
+            <a className="mt-5 flex min-h-12 items-center justify-center rounded-lg bg-gold px-4 py-3 text-center text-[15px] font-bold text-background transition-colors hover:bg-gold/85 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.title} on ${formatDate.format(new Date(match.start))} at ${formatTime.format(new Date(match.start))} Greek time. Please confirm screening and availability.`)} target="_blank" rel="noopener noreferrer">Request a table ↗</a>
           </article>)}
         </div>
         <p className="mt-4 text-xs leading-relaxed text-ivory-dim">All times in Greece · Request your table and we will confirm the screening.</p>
@@ -525,7 +525,7 @@ function HomepageProgramme() {
               <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-ivory-dim">{group.label}</p>
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
                 {entries.map(c => <button key={c} type="button" aria-pressed={competition === c} onClick={() => { setCompetition(c); setExpanded(false); }} className={`group flex min-h-11 min-w-0 items-center justify-between gap-2 rounded-xl border px-3 py-2 text-left transition-colors focus-visible:outline-2 focus-visible:outline-gold md:px-4 ${competition === c ? "border-gold bg-gold text-background" : c === "Premier League" ? "border-gold/60 bg-gold/10 text-ivory hover:bg-gold/20" : "border-ivory/15 bg-surface-raised/40 text-ivory hover:border-gold/60 hover:bg-gold/10"}`}>
-                  <span className="break-words text-sm font-semibold leading-snug">{c}</span>
+                  <span className="break-words text-[15px] font-semibold leading-snug">{c}</span>
                   <span aria-label="fixtures" className={`flex h-6 min-w-6 shrink-0 items-center justify-center rounded-full px-1 text-[11px] ${competition === c ? "bg-background/15 text-background" : "bg-gold/10 text-gold"}`}>{available.filter(e => e.competition === c).length}</span>
                 </button>)}
               </div>
@@ -551,10 +551,10 @@ function HomepageProgramme() {
           {visible.map(match => <article key={match.id} className="flex flex-col rounded-xl border border-gold/30 bg-background p-5 md:p-6">
             <p className="text-xs font-semibold uppercase tracking-wider text-gold">{match.competition}</p>
             <p className="mt-4 text-xs uppercase tracking-wider text-ivory-dim">{formatDate.format(new Date(match.start))} · Greece</p>
-            <h3 style={{ fontFamily: "Arial, Helvetica, sans-serif" }} className="mt-2 flex-1 break-words text-2xl font-semibold leading-snug text-ivory md:text-[26px]">{match.title}</h3>
-            <p className="mt-4 text-3xl font-semibold text-gold">{formatTime.format(new Date(match.start))}</p>
+            <h3 className="mt-2 flex-1 break-words font-sans text-[25px] font-bold leading-[1.25] text-ivory md:text-[28px]">{match.title}</h3>
+            <p className="mt-4 text-[34px] font-bold leading-none tabular-nums text-gold">{formatTime.format(new Date(match.start))}</p>
             <a href={match.source} target="_blank" rel="noopener noreferrer" className="mt-3 text-xs text-ivory-dim underline">Official fixture</a>
-            <a className="mt-6 block rounded-md bg-gold px-4 py-3 text-center text-sm font-bold text-background" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.title} on ${formatDate.format(new Date(match.start))} at ${formatTime.format(new Date(match.start))} Greek time. Please confirm screening and availability.`)} target="_blank" rel="noopener noreferrer">Request a table ↗</a>
+            <a className="mt-5 flex min-h-12 items-center justify-center rounded-lg bg-gold px-4 py-3 text-center text-[15px] font-bold text-background transition-colors hover:bg-gold/85 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold" href={whatsappUrl(`Hi TE.BRA, I would like to request a table for ${match.title} on ${formatDate.format(new Date(match.start))} at ${formatTime.format(new Date(match.start))} Greek time. Please confirm screening and availability.`)} target="_blank" rel="noopener noreferrer">Request a table ↗</a>
           </article>)}
         </div></div>}
         {ordered.length > 3 && <button type="button" onClick={() => setExpanded(!expanded)} aria-expanded={expanded} className="mt-5 rounded-md border border-gold/30 px-5 py-3 text-sm text-ivory hover:border-gold">{expanded ? "Close full list" : `Show all ${ordered.length} fixtures${competition === "All sports" ? "" : ` in ${competition}`}`}</button>}
