@@ -27,6 +27,11 @@ describe("Greek fixture times", () => {
 });
 
 describe("Verified fixtures only", () => {
+  test("newly verified upcoming matches use the official BST conversions", () => {
+    const selected = selectFixtures(VERIFIED_SPORTS_PROGRAMME, new Date("2026-10-12T01:00:00Z"));
+    expect(selected.today.map((event) => greekTime(event.startsAt))).toEqual(["22:00"]);
+    expect(selected.upcoming.map((event) => greekTime(event.startsAt))).toEqual(["14:30", "19:30"]);
+  });
   test("officially checked programme uses exact Greek kickoff times", () => {
     const selected = selectFixtures(VERIFIED_SPORTS_PROGRAMME, new Date("2026-10-09T06:45:00Z"));
     expect(selected.today.map((event) => greekTime(event.startsAt))).toEqual(["15:30", "21:45", "21:45"]);
