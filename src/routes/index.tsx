@@ -263,7 +263,7 @@ function Header() {
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-4 md:px-8">
         <a href="#top" className="flex shrink-0 items-center gap-2">
           <img src={LOGO} alt="TE.BRA Sports Bar gold crest logo" className="h-10 w-10 object-contain sm:h-12 sm:w-12" />
-          <span className="flex min-w-0 flex-col"><span className="font-sans text-[25px] font-extrabold leading-none tracking-[0.08em] text-ivory sm:text-[29px]">TE.BRA</span><span className="mt-1.5 text-[9px] font-bold uppercase tracking-[0.13em] text-gold sm:text-[10px]">Premium Sports Bar</span></span>
+          <span className="flex min-w-0 flex-col"><span className="font-sans text-[25px] font-extrabold leading-none tracking-[0.08em] text-ivory sm:text-[29px]">TEBRA</span><span className="mt-1.5 text-[9px] font-bold uppercase tracking-[0.13em] text-gold sm:text-[10px]">Premium Sports Bar</span></span>
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
