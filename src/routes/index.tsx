@@ -414,10 +414,10 @@ function Hero() {
   return (
     <section id="top" className="relative overflow-hidden border-b border-gold/15 bg-[#111311]">
       <div className="mx-auto grid max-w-[1440px] items-center gap-0 md:grid-cols-[0.9fr_1.1fr]">
-        <div className="order-2 px-6 py-10 sm:px-10 md:order-1 md:py-16 lg:px-14 lg:py-20">
+        <div className="order-1 px-5 py-7 sm:px-10 md:py-16 lg:px-14 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#E7C77F]">Hersonissos · Crete</p>
           <p className="mt-5 text-sm font-bold uppercase tracking-[0.14em] text-[#FAF6EC]">TEBRA PREMIUM SPORTS BAR</p>
-          <h1 className="mt-5 max-w-xl font-sans text-[36px] font-semibold leading-[1.12] tracking-[-0.035em] text-[#FAF6EC] sm:text-[44px] lg:text-[54px]">
+          <h1 className="mt-5 max-w-xl font-sans text-[32px] font-semibold leading-[1.12] tracking-[-0.035em] text-[#FAF6EC] sm:text-[44px] lg:text-[54px]">
             Your match.<br />Your people.<br /><span className="text-[#E7C77F]">Your place.</span>
           </h1>
           <p className="mt-6 max-w-md text-[16px] leading-[1.75] text-[#D5D4CD]">
@@ -433,7 +433,7 @@ function Hero() {
             <span>Hersonissos, Crete</span>
           </div>
         </div>
-        <div className="order-1 p-3 pb-0 sm:p-5 sm:pb-0 md:order-2 md:p-5 lg:p-8">
+        <div className="order-2 p-3 pt-0 sm:p-5 sm:pt-0 md:p-5 lg:p-8">
           <figure className="overflow-hidden rounded-xl border border-[#E7C77F]/20 bg-[#1B1D19] shadow-2xl">
             <img src={realExteriorNight.url} alt="The illuminated facade and welcoming lounge of Tebra Premium Sports Bar in Hersonissos" width={1368} height={1028} fetchPriority="high" className="block h-auto w-full" />
             <figcaption className="flex items-center justify-between gap-3 border-t border-[#E7C77F]/15 px-5 py-4">
@@ -1112,12 +1112,12 @@ function MobileStickyBar() {
   return (
     <div className="pb-safe fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 gap-2 border-t border-gold/25 bg-background/95 px-3 pt-3 backdrop-blur-md md:hidden">
       <a
-        href={telHref}
-        aria-label="Call Tebra"
+        href="/sports-desk"
+        aria-label="Live sport at Tebra"
         className="inline-flex flex-col items-center justify-center gap-0.5 rounded-md border border-gold/40 px-2 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ivory active:scale-95"
       >
-        <IconPhone className="h-4 w-4 text-gold" />
-        Call
+        <IconDiamond />
+        Live Sport
       </a>
       <a
         href={whatsappUrl("Hi Tebra, quick question")}
