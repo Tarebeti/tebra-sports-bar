@@ -367,96 +367,38 @@ function Header() {
 
 // ---------- Hero ----------
 function Hero() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-
   return (
-    <section id="top" ref={ref} className="relative isolate overflow-hidden">
-      <motion.div style={{ y, scale }} className="absolute inset-0 -z-10">
-        <img
-          src={realExteriorNight.url}
-          alt="Tebra Premium Sports Bar facade with warm golden lights in Hersonissos"
-          className="h-full w-full object-cover object-center opacity-100"
-          width={1920}
-          height={1280}
-          fetchPriority="high"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/45 to-background/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_25%,rgba(0,0,0,0.5)_100%)]" />
-      </motion.div>
-
-      <motion.div style={{ opacity }} className="mx-auto grid min-h-[55vh] max-w-6xl place-items-center px-4 py-16 md:px-8 md:py-20">
-        <div className="w-full max-w-3xl text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="label-eyebrow"
-          >
-            Hersonissos, Crete
-          </motion.p>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.1, ease: [0.2, 0.7, 0.2, 1] }}
-            className="mt-6 font-display text-3xl leading-tight text-ivory sm:text-4xl sm:leading-[1.05] md:text-6xl lg:text-7xl"
-          >
-            Your match. Your <span className="text-gold-gradient italic">people.</span>
-            <br className="hidden sm:block" /> Your place in Crete.
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-ivory md:text-lg"
-          >
-            Welcome to <strong className="font-semibold text-ivory">Tebra Premium Sports Bar in Hersonissos</strong>. Come for the sport. Stay for cocktails, food, pool and darts — and a warm welcome from Zac and Valentina.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-2"
-          >
-            <GoldPill>5.0 on Tripadvisor</GoldPill>
-            <GoldPill>Sport · Cocktails · Good company</GoldPill>
-            <GoldPill>Read our guest reviews</GoldPill>
-            <GoldPill>Google reviews</GoldPill>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center"
-          >
-            <BtnPrimary href="/sports-desk">
-              Sports Desk
-            </BtnPrimary>
-            <BtnPrimary href={directionsUrl} target="_blank" rel="noopener" className="animate-gold-pulse">
-              Get Directions
-            </BtnPrimary>
-            <BtnOutline href="#sport">Request a match table</BtnOutline>
-          </motion.div>
-
-          <HeroLiveLine />
+    <section id="top" className="relative overflow-hidden border-b border-gold/15 bg-[#111311]">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-0 md:grid-cols-[0.9fr_1.1fr]">
+        <div className="order-2 px-6 py-10 sm:px-10 md:order-1 md:py-16 lg:px-14 lg:py-20">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#E7C77F]">Hersonissos · Crete</p>
+          <p className="mt-5 text-sm font-bold uppercase tracking-[0.14em] text-[#FAF6EC]">TEBRA PREMIUM SPORTS BAR</p>
+          <h1 className="mt-5 max-w-xl font-sans text-[40px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#FAF6EC] sm:text-5xl lg:text-[64px]">
+            Your match.<br />Your people.<br /><span className="text-[#E7C77F]">Your place in Crete.</span>
+          </h1>
+          <p className="mt-6 max-w-md text-[16px] leading-[1.75] text-[#D5D4CD]">
+            Live sport, premium cocktails and a warm welcome from Zac and Valentina. Settle in. Feel at home.
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a href="/sports-desk" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#E7C77F] px-6 text-sm font-semibold text-[#111311] transition-colors hover:bg-[#F2DDA7]">Explore live sport ↗</a>
+            <a href={whatsappUrl("Hi Tebra, I would like to request a table. Please confirm availability.")} target="_blank" rel="noopener" className="inline-flex min-h-12 items-center justify-center rounded-md border border-[#E7C77F]/50 px-6 text-sm font-semibold text-[#FAF6EC] transition-colors hover:bg-white/5">Request a table</a>
+          </div>
+          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 text-xs text-[#D5D4CD]">
+            <a href={directionsUrl} target="_blank" rel="noopener" className="underline decoration-[#E7C77F]/50 underline-offset-4">Find us ↗</a>
+            <a href={getSummary().tripadvisorUrl} target="_blank" rel="noopener" className="underline decoration-[#E7C77F]/50 underline-offset-4">Guest reviews ↗</a>
+            <span>Sport · Cocktails · Good company</span>
+          </div>
         </div>
-      </motion.div>
-
-      {/* animated gold hairline */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1.4, delay: 0.4, ease: "easeOut" }}
-        style={{ transformOrigin: "center" }}
-        className="mx-auto h-px w-40 bg-gradient-to-r from-transparent via-gold to-transparent"
-      />
+        <div className="order-1 p-3 pb-0 sm:p-5 sm:pb-0 md:order-2 md:p-5 lg:p-8">
+          <figure className="overflow-hidden rounded-xl border border-[#E7C77F]/20 bg-[#1B1D19] shadow-2xl">
+            <img src={realExteriorNight.url} alt="The illuminated facade and welcoming lounge of Tebra Premium Sports Bar in Hersonissos" width={1368} height={1028} fetchPriority="high" className="block h-auto w-full" />
+            <figcaption className="flex items-center justify-between gap-3 border-t border-[#E7C77F]/15 px-5 py-4">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#E7C77F]">Your home away from home</span>
+              <span className="text-xs text-[#D5D4CD]">Tebra, Crete</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
   );
 }
