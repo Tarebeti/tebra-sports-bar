@@ -379,7 +379,7 @@ function Hero() {
         <img
           src={realExteriorNight.url}
           alt="Tebra Premium Sports Bar facade with warm golden lights in Hersonissos"
-          className="h-full w-full object-contain object-center opacity-100"
+          className="h-full w-full object-cover object-center opacity-100"
           width={1920}
           height={1280}
           fetchPriority="high"
