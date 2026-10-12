@@ -994,7 +994,7 @@ function HostStory() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#716044]">THE PEOPLE BEHIND TEBRA</p>
         <h2 id="host-title" className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">You arrive as a guest.<br />You leave as a friend.</h2>
         <p className="mt-5 text-base leading-7 text-[#555C50]">I’m Željko, known to our guests as Zac — founder of Tebra Premium Sports Bar and the Tebra Visitor Guide. Together with Valentina, I welcome you to our bar in Hersonissos.</p>
-        <p className="mt-4 text-base leading-7 text-[#555C50]">Tebra brings live sport, cocktails and a comfortable lounge together with personal hospitality. Whether you come for your team or an evening with friends, we want you to feel at home.</p>
+        <p className="mt-4 text-base leading-7 text-[#555C50]">Over the past two years, we have built our guests’ trust through a warm welcome, personal attention and care for every visit. Many guests return as friends — and that means the most to us. Tebra is now ranked #1 of 25 nightlife venues in Hersonissos on Tripadvisor (ranking checked 12 October 2026).</p>
         <p className="mt-5 font-semibold text-[#20251F]">Your match. Your people. Your place.</p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <a href="tel:+306993399000" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#20251F] px-5 text-sm font-semibold text-[#FAF6EC]">Call Zac · +30 699 339 9000</a>
