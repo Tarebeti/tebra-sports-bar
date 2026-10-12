@@ -58,7 +58,7 @@ const HERO_COCKTAIL = img25.url;                    // cinematic cocktail hero
 const EXTERIOR_DUSK = realExteriorDusk.url;         // real exterior at dusk
 const LOUNGE_1 = realExteriorLounge.url;            // real front lounge
 const LOUNGE_2 = realBreakfastGroup.url;            // real interior group breakfast
-const SCREENS = "/photos/screens-lounge.webp";                   // Real Tebra screen lounge
+const SCREENS = realPoolCrowd.url;                // Real guests gathered at Tebra
 const POOL_DARTS = realPoolCrowd.url;               // real pool + crowd watching sport
 const FOOD = realFoodGroup.url;                     // real group enjoying food
 const DRINK_2 = realBarCocktails.url;               // real bar with fruit + spirits
@@ -66,50 +66,14 @@ const DETAIL_1 = img36.url;
 const DETAIL_2 = img38.url;
 
 const GALLERY = [
-  {
-    "src": realExteriorLounge.url,
-    "alt": "Daylight lounge",
-    "category": "The space"
-  },
-  {
-    "src": realExteriorDusk.url,
-    "alt": "A warm welcome",
-    "category": "The space"
-  },
-  {
-    "src": realBarCocktails.url,
-    "alt": "Step inside",
-    "category": "The space"
-  },
-  {
-    "src": img10.url,
-    "alt": "Signature cocktails",
-    "category": "The space"
-  },
-  {
-    "src": "/photos/screens-lounge.webp",
-    "alt": "Your seat for the match",
-    "category": "The space"
-  },
-  {
-    "src": realPoolCrowd.url,
-    "alt": "Pool and good company",
-    "category": "Our guests"
-  },
-  {
-    "src": realFoodGroup.url,
-    "alt": "Friends at Tebra",
-    "category": "Our guests"
-  },
-  {
-    "src": realBreakfastGroup.url,
-    "alt": "Your home away from home",
-    "category": "Our guests"
-  },
-  { src: "/photos/lounge-wide.webp", alt: "The Tebra lounge", category: "The space" },
-  { src: "/photos/daylight-lounge.webp", alt: "Light, space and comfort", category: "The space" },
+  { src: realPoolCrowd.url, alt: "Good company at Tebra", category: "Our guests" },
+  { src: realFoodGroup.url, alt: "Friends around the table", category: "Our guests" },
+  { src: realBreakfastGroup.url, alt: "Your home away from home", category: "Our guests" },
+  { src: img10.url, alt: "Signature cocktails", category: "The space" },
+  { src: realExteriorDusk.url, alt: "A warm welcome", category: "The space" },
+  { src: realBarCocktails.url, alt: "At the Tebra bar", category: "The space" },
+  { src: realExteriorLounge.url, alt: "The front lounge", category: "The space" },
   { src: "/photos/welcome-sign.webp", alt: "Everyone is welcome", category: "The space" }
-
 ];
 
 
@@ -373,11 +337,11 @@ function Header() {
 function LoungeStory() {
   return <section id="lounge" className="border-y border-gold/15 bg-[#EEE9DE] py-14 text-[#20251F] md:py-20">
     <div className="mx-auto grid max-w-7xl items-center gap-9 px-5 md:grid-cols-[1.25fr_1fr] md:gap-16 md:px-8">
-      <img src="/photos/lounge-wide.webp" alt="Daylight in the Tebra lounge with comfortable seating and large screens" width={1536} height={1152} loading="lazy" className="w-full rounded-lg" />
+      <img src={realPoolCrowd.url} alt="Guests gathered around the pool table and lounge at Tebra" loading="lazy" className="mx-auto max-h-[620px] w-full rounded-lg object-contain" />
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#716044]">LIVE SPORT. TEBRA COMFORT.</p>
         <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">The match brings you in.<br />The welcome brings you back.</h2>
-        <p className="mt-5 text-base leading-7 text-[#555C50]">Big screens, comfortable seats and daylight in the lounge. A place for your team, your friends and the people who simply want a good evening.</p>
+        <p className="mt-5 text-base leading-7 text-[#555C50]">Your team, your friends and a room full of good company. Settle into the lounge, join us around the pool table and make an evening of it.</p>
         <p className="mt-4 text-base leading-7 text-[#555C50]">Zac and Valentina welcome you to Tebra — your home away from home in Hersonissos.</p>
         <a href="#sport" className="mt-7 inline-flex min-h-12 items-center rounded-md bg-[#20251F] px-6 text-sm font-semibold text-[#FAF6EC]">Plan your visit ↗</a>
       </div>
@@ -393,7 +357,7 @@ function CocktailStory() {
         <p className="max-w-lg text-base leading-7 text-ivory-dim">Cocktails, cold beers, wine and alcohol-free choices. From the first coffee to a drink after the final whistle.</p>
       </header>
       <div className="grid gap-5 md:grid-cols-3">
-        <figure className="overflow-hidden rounded-lg border border-gold/15"><img src={img10.url} alt="A signature cocktail at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover" /><figcaption className="p-5 text-lg font-semibold">Cocktails, made for your evening</figcaption></figure>
+        <figure className="overflow-hidden rounded-lg border border-gold/15"><img src={img10.url} alt="A signature cocktail at Tebra" loading="lazy" className="aspect-[4/3] w-full bg-black object-contain p-3" /><figcaption className="p-5 text-lg font-semibold">Cocktails, made for your evening</figcaption></figure>
         <figure className="overflow-hidden rounded-lg border border-gold/15"><img src={realBarCocktails.url} alt="The Tebra bar with fresh fruit and spirits" loading="lazy" className="aspect-[4/3] w-full object-cover" /><figcaption className="p-5 text-lg font-semibold">A warm welcome at the bar</figcaption></figure>
         <a href="/active" className="flex min-h-64 flex-col justify-center rounded-lg border border-gold/25 bg-[#1C231D] p-7"><p className="label-eyebrow">TEBRA ACTIVE</p><h3 className="mt-5 text-3xl font-semibold text-ivory">More choice.<br />Same Tebra.</h3><p className="mt-4 text-sm leading-6 text-ivory-dim">Explore our smoothie and protein line.</p><span className="mt-7 text-sm font-semibold text-gold">Discover Active ↗</span></a>
       </div>
@@ -871,7 +835,7 @@ function Gallery() {
               aria-label={`Open photo: ${g.alt}`}
               className={`group relative overflow-hidden rounded-xl border border-gold/15 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold ${i === 0 ? "col-span-2 row-span-2" : ""}`}>
               <img src={g.src} alt={g.alt} loading="lazy" width="1600" height="1200"
-                className={`h-full w-full object-cover transition-transform duration-500 motion-reduce:transition-none group-hover:scale-105 ${i === 0 ? "aspect-square" : "aspect-[4/3]"}`} />
+                className={`h-full w-full ${g.src === img10.url ? "bg-black object-contain p-3" : "object-cover"} transition-transform duration-500 motion-reduce:transition-none ${g.src === img10.url ? "" : "group-hover:scale-105"} ${i === 0 ? "aspect-square" : "aspect-[4/3]"}`} />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-4 pb-4 pt-12 text-sm font-semibold text-white md:text-base">{g.alt}</span>
             </button>
           ))}
