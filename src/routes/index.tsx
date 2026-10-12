@@ -67,42 +67,42 @@ const DETAIL_2 = img38.url;
 
 const GALLERY = [
   {
-    "src": "/gallery/tebra-1.webp",
+    "src": realExteriorLounge.url,
     "alt": "Daylight lounge",
     "category": "The space"
   },
   {
-    "src": "/gallery/tebra-2.webp",
+    "src": realExteriorDusk.url,
     "alt": "A warm welcome",
     "category": "The space"
   },
   {
-    "src": "/gallery/tebra-3.webp",
+    "src": realBarCocktails.url,
     "alt": "Step inside",
     "category": "The space"
   },
   {
-    "src": "/gallery/tebra-4.webp",
+    "src": img10.url,
     "alt": "Tebra in the sunshine",
     "category": "The space"
   },
   {
-    "src": "/gallery/tebra-5.webp",
+    "src": realWorldCup.url,
     "alt": "Matchday atmosphere",
     "category": "Our guests"
   },
   {
-    "src": "/gallery/tebra-6.webp",
+    "src": realPoolCrowd.url,
     "alt": "Pool and good company",
     "category": "Our guests"
   },
   {
-    "src": "/gallery/tebra-7.webp",
+    "src": realFoodGroup.url,
     "alt": "Friends at Tebra",
     "category": "Our guests"
   },
   {
-    "src": "/gallery/tebra-8.webp",
+    "src": realBreakfastGroup.url,
     "alt": "Your home away from home",
     "category": "Our guests"
   }
