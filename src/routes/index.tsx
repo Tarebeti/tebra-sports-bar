@@ -267,6 +267,7 @@ function Home() {
         <Reviews />
         <VisitorGuide />
         <FAQ />
+        <HostStory />
         <FindUs />
       </main>
       <Footer />
@@ -1014,6 +1015,29 @@ function FAQ() {
       </div>
     </section>
   );
+}
+
+
+function HostStory() {
+  return <section id="your-host" aria-labelledby="host-title" className="border-t border-gold/15 bg-[#EEE9DE] py-14 text-[#20251F] md:py-20">
+    <div className="mx-auto grid max-w-5xl items-center gap-9 px-5 md:grid-cols-[0.8fr_1.2fr] md:gap-14 md:px-8">
+      <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-[#716044]/20">
+        <img src="/photos/zeljko-zac.jpg" alt="Željko, known to Tebra guests as Zac, owner and host" width={755} height={755} loading="lazy" className="block h-auto w-full" />
+        <figcaption className="bg-[#20251F] px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#E7C77F]">Zac · Your host at Tebra</figcaption>
+      </figure>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#716044]">THE PEOPLE BEHIND TEBRA</p>
+        <h2 id="host-title" className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">You arrive as a guest.<br />You leave as a friend.</h2>
+        <p className="mt-5 text-base leading-7 text-[#555C50]">I’m Željko, but our guests know me as Zac. Together with Valentina, I welcome you to Tebra Premium Sports Bar in Hersonissos.</p>
+        <p className="mt-4 text-base leading-7 text-[#555C50]">Tebra brings live sport, cocktails and a comfortable lounge together with personal hospitality. Whether you come for your team or an evening with friends, we want you to feel at home.</p>
+        <p className="mt-5 font-semibold text-[#20251F]">Your match. Your people. Your place.</p>
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <a href="tel:+306993399000" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#20251F] px-5 text-sm font-semibold text-[#FAF6EC]">Call Zac · +30 699 339 9000</a>
+          <a href={whatsappUrl("Hi Zac, I would like to ask about visiting Tebra.")} target="_blank" rel="noopener" className="inline-flex min-h-12 items-center justify-center rounded-md border border-[#716044]/50 px-5 text-sm font-semibold text-[#20251F]">Message on WhatsApp ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>;
 }
 
 // ---------- Find us ----------
