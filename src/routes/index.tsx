@@ -83,13 +83,13 @@ const GALLERY = [
   },
   {
     "src": img10.url,
-    "alt": "Tebra in the sunshine",
+    "alt": "Signature cocktails",
     "category": "The space"
   },
   {
     "src": realWorldCup.url,
-    "alt": "Matchday atmosphere",
-    "category": "Our guests"
+    "alt": "World Cup 2026 at Tebra",
+    "category": "The space"
   },
   {
     "src": realPoolCrowd.url,
@@ -234,10 +234,10 @@ function FadeUp({ children, delay = 0, className = "" }: { children: React.React
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TE.BRA | Cocktail & Sports Bar in Hersonissos, Crete" },
-      { name: "description", content: "Cocktails, live sport, pool, darts and food at TE.BRA Sports Bar in Hersonissos, Crete. Open daily. Rated 5.0 on Tripadvisor from 214 reviews." },
-      { property: "og:title", content: "TE.BRA | Cocktail & Sports Bar in Hersonissos, Crete" },
-      { property: "og:description", content: "Cocktails, live sport, pool, darts and food at TE.BRA Sports Bar in Hersonissos, Crete." },
+      { title: "Tebra | Cocktail & Sports Bar in Hersonissos, Crete" },
+      { name: "description", content: "Cocktails, live sport, pool, darts and food at Tebra Sports Bar in Hersonissos, Crete. Open daily." },
+      { property: "og:title", content: "Tebra | Cocktail & Sports Bar in Hersonissos, Crete" },
+      { property: "og:description", content: "Cocktails, live sport, pool, darts and food at Tebra Sports Bar in Hersonissos, Crete." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://tebrabar.com/" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -283,7 +283,7 @@ function Header() {
     <header className="sticky top-0 z-40 border-b border-gold/10 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-[84px] max-w-7xl items-center justify-between px-4 md:px-8">
         <a href="#top" className="flex shrink-0 items-center gap-2">
-          <img src={LOGO} alt="TE.BRA Sports Bar gold crest logo" className="hidden h-12 w-12 object-contain sm:block" />
+          <img src={LOGO} alt="Tebra Sports Bar gold crest logo" className="hidden h-12 w-12 object-contain sm:block" />
           <span className="flex min-w-0 flex-col"><span className="font-sans text-[32px] font-black leading-none tracking-[0.045em] text-ivory sm:text-[38px]">TEBRA</span><span className="mt-1.5 text-[11px] font-extrabold uppercase leading-tight tracking-[0.035em] text-gold sm:text-[13px]">Premium Sports Bar</span></span>
         </a>
 
@@ -313,7 +313,7 @@ function Header() {
             </BtnPrimary>
           </div>
           <a
-            href={whatsappUrl("Hi TE.BRA")}
+            href={whatsappUrl("Hi Tebra")}
             target="_blank"
             rel="noopener"
             aria-label="Message on WhatsApp"
@@ -378,7 +378,7 @@ function Hero() {
       <motion.div style={{ y, scale }} className="absolute inset-0 -z-10">
         <img
           src={HERO_COCKTAIL}
-          alt="Signature cocktail on the bar at TE.BRA cocktail bar in Hersonissos, Crete"
+          alt="Signature cocktail on the bar at Tebra cocktail bar in Hersonissos, Crete"
           className="h-full w-full object-cover opacity-60"
           width={1920}
           height={1280}
@@ -415,7 +415,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="mx-auto mt-6 max-w-xl text-[17px] leading-relaxed text-ivory md:text-lg"
           >
-            Welcome to <strong className="font-semibold text-ivory">TE.BRA Premium Sports Bar in Hersonissos</strong>. Come for the sport. Stay for cocktails, food, pool and darts — and a warm welcome from Zac and Valentina.
+            Welcome to <strong className="font-semibold text-ivory">Tebra Premium Sports Bar in Hersonissos</strong>. Come for the sport. Stay for cocktails, food, pool and darts — and a warm welcome from Zac and Valentina.
           </motion.p>
 
           <motion.div
@@ -558,7 +558,7 @@ function Cocktails() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.5 }}
                 src={HERO_COCKTAIL}
-                alt="Signature cocktail on the bar at TE.BRA cocktail bar Hersonissos"
+                alt="Signature cocktail on the bar at Tebra cocktail bar Hersonissos"
                 loading="lazy"
                 className="aspect-[4/5] w-full rounded-md object-cover"
               />
@@ -566,7 +566,7 @@ function Cocktails() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.5 }}
                 src={DRINK_2}
-                alt="Handcrafted cocktail poured at TE.BRA bar in Hersonissos, Crete"
+                alt="Handcrafted cocktail poured at Tebra bar in Hersonissos, Crete"
                 loading="lazy"
                 className="aspect-[4/5] w-full rounded-md object-cover"
               />
@@ -608,7 +608,7 @@ function Sport() {
   const message = useMemo(() => {
     const m = match || "the match";
     const w = when || "date and time";
-    return `Hi TE.BRA, I would like to reserve a table for ${m} on ${w}, for ${party} people.`;
+    return `Hi Tebra, I would like to reserve a table for ${m} on ${w}, for ${party} people.`;
   }, [match, party, when]);
 
   return (
@@ -739,7 +739,7 @@ function Games() {
             >
               <img
                 src={POOL_DARTS}
-                alt="Pool table and games area at TE.BRA sports bar Hersonissos Crete"
+                alt="Pool table and games area at Tebra sports bar Hersonissos Crete"
                 loading="lazy"
                 className="aspect-[4/3] w-full object-cover"
               />
@@ -764,7 +764,7 @@ function Food() {
               viewport={{ once: true }}
               transition={{ duration: 1.4, ease: "easeOut" }}
               src={FOOD}
-              alt="Bar food and breakfast plate served at TE.BRA in Hersonissos, Crete"
+              alt="Bar food and breakfast plate served at Tebra in Hersonissos, Crete"
               loading="lazy"
               className="aspect-[4/3] w-full rounded-md object-cover"
             />
@@ -836,10 +836,10 @@ function Experience() {
         </div>
 
         <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
-          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={LOUNGE_1} alt="Deco lounge seating inside TE.BRA sports bar Hersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
-          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={DETAIL_1} alt="Champagne gold detail at TE.BRA cocktail bar Hersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
-          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={LOUNGE_2} alt="Comfortable seating and warm lighting at TE.BRA" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
-          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={DETAIL_2} alt="Deco framing detail at TE.BRA bar in Chersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
+          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={LOUNGE_1} alt="Deco lounge seating inside Tebra sports bar Hersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
+          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={DETAIL_1} alt="Champagne gold detail at Tebra cocktail bar Hersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
+          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={LOUNGE_2} alt="Comfortable seating and warm lighting at Tebra" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
+          <motion.img whileHover={{ scale: 1.03 }} transition={{ duration: 0.5 }} src={DETAIL_2} alt="Deco framing detail at Tebra bar in Hersonissos" loading="lazy" className="aspect-[4/5] w-full rounded-md object-cover" />
         </div>
       </div>
     </section>
@@ -965,10 +965,10 @@ function Reviews() {
               {summary.badges.map((b) => (
                 <GoldPill key={b}>{b}</GoldPill>
               ))}
-              <GoldPill>Verified on Tripadvisor</GoldPill>
+              {data.source === "live" && <GoldPill>Verified on Tripadvisor</GoldPill>}
             </div>
             <p className="mt-5 text-[15px] leading-relaxed text-ivory-dim">
-              Guests in Chersonisos rate us five stars for the welcome, the cocktails and every match on the big
+              Guests in Hersonissos rate us five stars for the welcome, the cocktails and every match on the big
               screens. Read the full guest reviews on Tripadvisor.
             </p>
           </header>
@@ -1003,7 +1003,7 @@ function Reviews() {
         )}
 
         <div className="mt-12 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-          <BtnPrimary href={whatsappUrl("Hi TE.BRA, I would like to book a table.")} target="_blank" rel="noopener">
+          <BtnPrimary href={whatsappUrl("Hi Tebra, I would like to book a table.")} target="_blank" rel="noopener">
             Book your table on WhatsApp
           </BtnPrimary>
           <BtnOutline href={summary.tripadvisorUrl} target="_blank" rel="noopener">
@@ -1061,12 +1061,12 @@ function ReviewCard({ r, isNew }: { r: Review; isNew: boolean }) {
 // ---------- FAQ ----------
 function FAQ() {
   const items = [
-    { q: "Where is TE.BRA in Hersonissos?", a: "A short drive from the main strip, in a quieter, nicer setting near the villas. Directions link below." },
-    { q: "Does TE.BRA have good cocktails?", a: "Yes, handcrafted cocktails with generous measures are the specialty, alongside premium spirits, beer and wine." },
-    { q: "Can I watch football and live sport at TE.BRA?", a: "Yes, multiple large screens show football, Champions League and major live sport. Ask us to put your match on." },
+    { q: "Where is Tebra in Hersonissos?", a: "A short drive from the main strip, in a quieter, nicer setting near the villas. Directions link below." },
+    { q: "Does Tebra have good cocktails?", a: "Yes, handcrafted cocktails with generous measures are the specialty, alongside premium spirits, beer and wine." },
+    { q: "Can I watch football and live sport at Tebra?", a: "Yes, multiple large screens show football, Champions League and major live sport. Ask us to put your match on." },
     { q: "Can I reserve a table for a big match?", a: "Message us on WhatsApp with the match, date and party size. Your request becomes a reservation once our team confirms screening and availability." },
     { q: "What games are there?", a: "A pool table and darts, and a relaxed space to settle in." },
-    { q: "Does TE.BRA serve food?", a: "Yes, breakfast, snacks and bar food throughout the day." },
+    { q: "Does Tebra serve food?", a: "Yes, breakfast, snacks and bar food throughout the day." },
     { q: "What are the opening hours?", a: "Open daily from 11:00 until late." },
   ];
   const [open, setOpen] = useState<number | null>(0);
@@ -1123,12 +1123,12 @@ function FindUs() {
             <div className="deco-frame overflow-hidden">
               <img
                 src={EXTERIOR_DUSK}
-                alt="TE.BRA sports bar exterior at dusk in Hersonissos, Crete"
+                alt="Tebra sports bar exterior at dusk in Hersonissos, Crete"
                 loading="lazy"
                 className="h-56 w-full object-cover"
               />
               <iframe
-                title="TE.BRA Sports Bar on Google Maps"
+                title="Tebra Sports Bar on Google Maps"
                 src={mapEmbed}
                 className="h-[360px] w-full border-0"
                 loading="lazy"
@@ -1139,7 +1139,7 @@ function FindUs() {
           <FadeUp delay={0.15}>
             <div className="flex h-full flex-col justify-between">
               <div>
-                <h3 className="font-display text-xl text-ivory sm:text-2xl">TE.BRA Sports Bar</h3>
+                <h3 className="font-display text-xl text-ivory sm:text-2xl">Tebra Sports Bar</h3>
                 <p className="mt-3 text-ivory-dim">{CONFIG.address}</p>
                 <ul className="mt-6 space-y-2 text-sm text-ivory-dim">
                   <li className="flex items-center gap-3">
@@ -1155,7 +1155,7 @@ function FindUs() {
                 </ul>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <BtnPrimary href={directionsUrl} target="_blank" rel="noopener">Get directions</BtnPrimary>
-                  <BtnOutline href={whatsappUrl("Hi TE.BRA")} target="_blank" rel="noopener">
+                  <BtnOutline href={whatsappUrl("Hi Tebra")} target="_blank" rel="noopener">
                     <IconWhatsapp className="h-4 w-4" /> Message on WhatsApp
                   </BtnOutline>
                 </div>
@@ -1187,13 +1187,13 @@ function Footer() {
   return (
     <footer className="border-t border-gold/10 bg-background/80 pb-24 pt-12 md:pb-12">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 text-center md:px-8">
-        <img src={LOGO} alt="TE.BRA gold crest" className="h-16 w-16 object-contain" />
+        <img src={LOGO} alt="Tebra gold crest" className="h-16 w-16 object-contain" />
         <p className="font-display text-lg italic text-ivory-dim">
           Live sport, cocktails and a warm welcome in Hersonissos.
         </p>
         <div className="gold-hairline w-40" />
         <p className="text-xs uppercase tracking-[0.2em] text-ivory-dim">
-          &copy; {new Date().getFullYear()} TE.BRA Sports Bar, Hersonissos, Crete
+          &copy; {new Date().getFullYear()} Tebra Sports Bar, Hersonissos, Crete
         </p>
       </div>
     </footer>
@@ -1207,17 +1207,17 @@ function MobileStickyBar() {
     <div className="pb-safe fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 gap-2 border-t border-gold/25 bg-background/95 px-3 pt-3 backdrop-blur-md md:hidden">
       <a
         href={telHref}
-        aria-label="Call TE.BRA"
+        aria-label="Call Tebra"
         className="inline-flex flex-col items-center justify-center gap-0.5 rounded-md border border-gold/40 px-2 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ivory active:scale-95"
       >
         <IconPhone className="h-4 w-4 text-gold" />
         Call
       </a>
       <a
-        href={whatsappUrl("Hi TE.BRA, quick question")}
+        href={whatsappUrl("Hi Tebra, quick question")}
         target="_blank"
         rel="noopener"
-        aria-label="WhatsApp TE.BRA"
+        aria-label="WhatsApp Tebra"
         className="inline-flex flex-col items-center justify-center gap-0.5 rounded-md border border-gold/40 px-2 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-ivory active:scale-95"
       >
         <IconWhatsapp className="h-4 w-4 text-gold" />
