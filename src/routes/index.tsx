@@ -719,7 +719,7 @@ function Food() {
               loading="lazy"
               className="aspect-[4/3] w-full rounded-md object-cover object-center"
             />
-            <figure className="mt-4 overflow-hidden rounded-md border border-gold/15"><img src="/photos/tebra-breakfast.jpg" alt="Breakfast with omelettes, croissants and bread at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover object-bottom" /><figcaption className="px-4 py-3 text-sm text-ivory-dim">Breakfast, with a Tebra welcome.</figcaption></figure>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2"><figure className="overflow-hidden rounded-md border border-gold/15"><img src="/photos/tebra-breakfast.jpg" alt="Breakfast with omelettes, croissants and bread at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover object-bottom" /><figcaption className="px-4 py-3 text-sm text-ivory-dim">Breakfast, with a Tebra welcome.</figcaption></figure><figure className="overflow-hidden rounded-md border border-gold/15"><img src="/photos/zac-breakfast-welcome.jpg" alt="Zac welcoming guests to a breakfast table at Tebra" loading="lazy" className="aspect-[3/4] w-full object-cover" /><figcaption className="px-4 py-3 text-sm text-ivory-dim">Your breakfast. Your host.</figcaption></figure></div>
           </FadeUp>
           <FadeUp delay={0.15}>
             <p className="label-eyebrow">Food</p>
@@ -803,8 +803,8 @@ function AtmosphereVideo() {
     <div className="mx-auto max-w-6xl px-5 md:px-8">
       <p className="label-eyebrow">A MOMENT AT TEBRA</p>
       <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Step inside. Feel the atmosphere.</h2>
-      <p className="mt-4 max-w-2xl text-base leading-7 text-ivory-dim">Our guests, our lounge and an afternoon together. A glimpse of life at Tebra Premium Sports Bar.</p>
-      <video controls playsInline preload="none" poster="/photos/tebra-video-poster.jpg" className="mt-7 aspect-video w-full rounded-lg border border-gold/20 bg-black" aria-label="Video of guests and the lounge at Tebra Premium Sports Bar">
+      <p className="mt-4 max-w-2xl text-base leading-7 text-ivory-dim">A game of pool, live sport on the screens and good company in the lounge. A glimpse of life at Tebra Premium Sports Bar.</p>
+      <video controls playsInline preload="none" poster="/photos/tebra-video-poster.jpg" className="mt-7 aspect-[9/16] max-h-[620px] w-full max-w-sm mx-auto rounded-lg border border-gold/20 bg-black" aria-label="Video of guests and the lounge at Tebra Premium Sports Bar">
         <source src="/photos/tebra-atmosphere.mp4" type="video/mp4" />
         Your browser does not support video. <a href="/photos/tebra-atmosphere.mp4">Open the Tebra video.</a>
       </video>
