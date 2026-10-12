@@ -377,15 +377,15 @@ function Hero() {
     <section id="top" ref={ref} className="relative isolate overflow-hidden">
       <motion.div style={{ y, scale }} className="absolute inset-0 -z-10">
         <img
-          src={HERO_COCKTAIL}
-          alt="Signature cocktail on the bar at Tebra cocktail bar in Hersonissos, Crete"
-          className="h-full w-full object-cover opacity-60"
+          src={realExteriorNight.url}
+          alt="Tebra Premium Sports Bar facade with warm golden lights in Hersonissos"
+          className="h-full w-full object-cover object-center opacity-90"
           width={1920}
           height={1280}
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/65 to-background" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,var(--background)_85%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-background/45 to-background/80" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_25%,rgba(0,0,0,0.5)_100%)]" />
       </motion.div>
 
       <motion.div style={{ opacity }} className="mx-auto grid min-h-[65vh] max-w-6xl place-items-center px-4 py-24 md:px-8">
@@ -426,8 +426,8 @@ function Hero() {
           >
             <GoldPill>5.0 on Tripadvisor</GoldPill>
             <GoldPill>Sport · Cocktails · Good company</GoldPill>
-            <GoldPill>{getSummary().total} reviews on Tripadvisor</GoldPill>
-            <GoldPill>Google 5.0 · 125 reviews</GoldPill>
+            <GoldPill>Read our guest reviews</GoldPill>
+            <GoldPill>Google reviews</GoldPill>
           </motion.div>
 
           <motion.div
@@ -512,11 +512,11 @@ function TrustBar() {
         <div className="flex items-center gap-3">
           <span className="font-display text-2xl text-ivory">{s.rating.toFixed(1)}</span>
           <GoldStars n={5} size={16} />
-          <span>{s.total} reviews on Tripadvisor</span>
+          <a href={s.tripadvisorUrl} target="_blank" rel="noopener">Tripadvisor reviews ↗</a>
         </div>
         <span className="hidden h-4 w-px bg-gold/25 md:inline" />
         <span className="label-eyebrow">#1 of 25 Nightlife in Hersonissos · Tripadvisor</span>
-        <div className="flex items-center gap-3"><span className="font-display text-2xl text-ivory">5.0</span><GoldStars n={5} size={16} /><span>125 reviews on Google</span></div>
+        <div className="flex items-center gap-3"><span className="font-display text-2xl text-ivory">5.0</span><GoldStars n={5} size={16} /><a href="https://maps.app.goo.gl/BKm2gsfkUKHxqGo67" target="_blank" rel="noopener">Google reviews ↗</a></div>
       </div>
     </section>
   );
@@ -913,102 +913,24 @@ function Gallery() {
 type SortMode = "recent" | "rating";
 
 function Reviews() {
-  const seedSummary = getSummary();
-  const seedReviews = useMemo(() => getReviews(), []);
-
-  // Auto-refresh from Tripadvisor via Firecrawl every 30 min; falls back to seed.
-  const { data } = useQuery({
-    queryKey: ["tripadvisor-reviews"],
-    queryFn: () => getLiveReviews(),
-    initialData: { summary: seedSummary, reviews: seedReviews, fetchedAt: "", source: "seed" as const },
-    staleTime: 30 * 60 * 1000,
-    refetchInterval: 30 * 60 * 1000,
-    refetchOnWindowFocus: false,
-  });
-
-  const summary = data.summary;
-  // Only publish the best guest reviews: five star, with real wording.
-  const all = useMemo(
-    () => data.reviews.filter((r) => r.rating >= 5 && r.snippet.trim().length > 20),
-    [data.reviews],
-  );
-  const [sort, setSort] = useState<SortMode>("recent");
-  const [showAll, setShowAll] = useState(false);
-
-  const sorted = useMemo(() => {
-    const list = [...all].sort((a, b) => (a.date < b.date ? 1 : -1));
-    if (sort === "rating") list.sort((a, b) => b.rating - a.rating);
-    return list;
-  }, [all, sort]);
-
-  const visible = showAll ? sorted : sorted.slice(0, 6);
-
-  const newestIds = useMemo(() => {
-    const byDate = [...all].sort((a, b) => (a.date < b.date ? 1 : -1)).filter(r => Date.now() - Date.parse(r.date) <= 30 * 86400000).slice(0, 3);
-    return new Set(byDate.map((r) => `${r.name}-${r.date}`));
-  }, [all]);
-
+  const platforms = [
+    { name: "Tripadvisor", href: getSummary().tripadvisorUrl, description: "Read our guests’ experiences on Tripadvisor." },
+    { name: "Google", href: "https://maps.app.goo.gl/BKm2gsfkUKHxqGo67", description: "Read guest reviews and find Tebra on Google Maps." },
+    { name: "Restaurant Guru", href: "https://restaurantguru.com/TEBRA-Sports-Bar-Chersonisos", description: "Explore the Tebra listing on Restaurant Guru." },
+  ];
   return (
-    <section id="reviews" className="relative border-t border-gold/10 py-16 md:py-32">
+    <section id="reviews" className="border-t border-gold/10 py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <FadeUp>
-          <header className="mx-auto max-w-2xl text-center">
-            <h2 className="font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
-              {summary.rating.toFixed(1)} out of 5 from{" "}
-              <span className="text-gold-gradient italic">{summary.total} reviews</span>
-              <span className="block text-ivory-dim">for the best sports bar in Hersonissos, Crete</span>
-            </h2>
-            <div className="mt-5 flex items-center justify-center gap-3">
-              <GoldStars n={5} size={18} />
-            </div>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
-              {summary.badges.map((b) => (
-                <GoldPill key={b}>{b}</GoldPill>
-              ))}
-              {data.source === "live" && <GoldPill>Verified on Tripadvisor</GoldPill>}
-            </div>
-            <p className="mt-5 text-[15px] leading-relaxed text-ivory-dim">
-              Guests in Hersonissos rate us five stars for the welcome, the cocktails and every match on the big
-              screens. Read the full guest reviews on Tripadvisor.
-            </p>
-          </header>
-        </FadeUp>
-
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2 text-xs uppercase tracking-[0.2em] text-ivory-dim sm:justify-end">
-          <span>Sort by</span>
-          <SortBtn active={sort === "recent"} onClick={() => setSort("recent")}>Most recent</SortBtn>
-          <SortBtn active={sort === "rating"} onClick={() => setSort("rating")}>Highest rated</SortBtn>
-        </div>
-
-        <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {visible.map((r, i) => (
-            <motion.div
-              key={`${r.name}-${r.date}-${i}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: (i % 3) * 0.08 }}
-            >
-              <ReviewCard r={r} isNew={newestIds.has(`${r.name}-${r.date}`)} />
-            </motion.div>
-          ))}
-        </div>
-
-        {!showAll && sorted.length > 6 && (
-          <div className="mt-8 flex justify-center">
-            <SortBtn active={false} onClick={() => setShowAll(true)}>
-              Show more reviews
-            </SortBtn>
-          </div>
-        )}
-
-        <div className="mt-12 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-          <BtnPrimary href={whatsappUrl("Hi Tebra, I would like to book a table.")} target="_blank" rel="noopener">
-            Book your table on WhatsApp
-          </BtnPrimary>
-          <BtnOutline href={summary.tripadvisorUrl} target="_blank" rel="noopener">
-            Read all reviews on Tripadvisor
-          </BtnOutline>
+        <header className="mx-auto max-w-2xl text-center">
+          <p className="label-eyebrow">Our guests’ experiences</p>
+          <h2 className="mt-4 font-display text-3xl text-ivory md:text-5xl">Read them in their own words.</h2>
+          <p className="mt-5 text-ivory-dim">The welcome, the atmosphere and the moments that bring people back. Visit our profiles for the latest reviews and ratings.</p>
+        </header>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {platforms.map(platform => <a key={platform.name} href={platform.href} target="_blank" rel="noopener" className="deco-frame block bg-surface-raised/70 p-6 transition-colors hover:border-gold/60">
+            <h3 className="text-xl font-semibold text-ivory">{platform.name} ↗</h3>
+            <p className="mt-4 text-sm leading-relaxed text-ivory-dim">{platform.description}</p>
+          </a>)}
         </div>
       </div>
     </section>
