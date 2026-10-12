@@ -994,13 +994,13 @@ function HostStory() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#716044]">THE PEOPLE BEHIND TEBRA</p>
         <h2 id="host-title" className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">A welcome from Zac.</h2>
         <p className="mt-5 text-base leading-7 text-[#555C50]">I’m Željko, known to our guests as Zac — founder of <strong>Tebra Premium Sports Bar</strong> and the <strong>Hersonissos visitor guide</strong>. Originally from Serbia, <strong>Greece has been my home for almost two decades</strong>. My extensive experience in hospitality has shaped my approach: quality service, attention to detail and a personal connection with our guests.</p>
-        <p className="mt-4 text-base leading-7 text-[#555C50]">Together with my wife Valentina, I have spent the past two years developing a place that brings together live sport, great cocktails and hospitality. We are proud of the trust we have built and the guests who return to us.</p>
+        <p className="mt-4 text-base leading-7 text-[#555C50]">Together with my wife Valentina, I am developing a place that brings together live sport, great cocktails and hospitality. We are proud of the trust we have built and the guests who return to us.</p>
         <p className="mt-4 text-base leading-7 text-[#555C50]">Today, we are <strong className="text-[#20251F]">ranked #1 of 25 nightlife venues in Hersonissos on Tripadvisor</strong>, in the <strong>Bars &amp; Clubs</strong> category. Our guests’ reviews are the best reflection of the experience we offer.</p>
         <p className="mt-4 text-base leading-7 text-[#555C50]">Welcome. As your host, I’m here to help — with a reservation, a local recommendation or advice during your stay in Hersonissos.</p>
         <div className="mt-6">
           <p className="text-sm text-[#555C50]">Warm regards,</p>
           <p className="mt-1 text-xl font-semibold">Zac</p>
-          <p className="mt-2 text-2xl leading-relaxed text-[#806024] sm:text-3xl" style={{ fontFamily: '"Segoe Script", "Apple Chancery", "URW Chancery L", cursive', fontStyle: "italic" }}>Tebra Premium Sports Bar <span aria-label="star">✦</span></p>
+          <p className="mt-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#806024]">Tebra Premium Sports Bar</p>
         </div>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <a href="tel:+306993399000" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#20251F] px-5 text-sm font-semibold text-[#FAF6EC]">Call Zac · +30 699 339 9000</a>
