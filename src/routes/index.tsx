@@ -876,6 +876,7 @@ function Reviews() {
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <header className="mx-auto max-w-2xl text-center">
           <p className="label-eyebrow">Our guests’ experiences</p>
+          <a href={getSummary().tripadvisorUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex flex-col gap-2 rounded-lg border border-gold/40 bg-gold/10 px-6 py-5"><span className="text-xl font-semibold text-gold md:text-2xl">#1 of 25 Nightlife in Hersonissos</span><span className="text-sm text-ivory">Tripadvisor · 5.0 / 5</span><span className="text-xs text-ivory-dim">Ranking checked 12 October 2026 · View current ranking ↗</span></a>
           <h2 className="mt-4 font-display text-3xl text-ivory md:text-5xl">Read them in their own words.</h2>
           <p className="mt-5 text-ivory-dim">The welcome, the atmosphere and the moments that bring people back. Visit our profiles for the latest reviews and ratings.</p>
         </header>
@@ -987,12 +988,12 @@ function HostStory() {
     <div className="mx-auto grid max-w-5xl items-center gap-9 px-5 md:grid-cols-[0.8fr_1.2fr] md:gap-14 md:px-8">
       <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-[#716044]/20">
         <img src="/photos/zeljko-zac.jpg" alt="Željko, known to Tebra guests as Zac, owner and host" width={755} height={755} loading="lazy" className="block h-auto w-full" />
-        <figcaption className="bg-[#20251F] px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#E7C77F]">Zac · Your host at Tebra</figcaption>
+        <figcaption className="bg-[#20251F] px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#E7C77F]">Zac · Founder & host</figcaption>
       </figure>
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#716044]">THE PEOPLE BEHIND TEBRA</p>
         <h2 id="host-title" className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">You arrive as a guest.<br />You leave as a friend.</h2>
-        <p className="mt-5 text-base leading-7 text-[#555C50]">I’m Željko, but our guests know me as Zac. Together with Valentina, I welcome you to Tebra Premium Sports Bar in Hersonissos.</p>
+        <p className="mt-5 text-base leading-7 text-[#555C50]">I’m Željko, known to our guests as Zac — founder of Tebra Premium Sports Bar and the Tebra Visitor Guide. Together with Valentina, I welcome you to our bar in Hersonissos.</p>
         <p className="mt-4 text-base leading-7 text-[#555C50]">Tebra brings live sport, cocktails and a comfortable lounge together with personal hospitality. Whether you come for your team or an evening with friends, we want you to feel at home.</p>
         <p className="mt-5 font-semibold text-[#20251F]">Your match. Your people. Your place.</p>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
