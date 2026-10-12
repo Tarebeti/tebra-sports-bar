@@ -876,7 +876,7 @@ function Reviews() {
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <header className="mx-auto max-w-2xl text-center">
           <p className="label-eyebrow">Our guests’ experiences</p>
-          <a href={getSummary().tripadvisorUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex flex-col gap-2 rounded-lg border border-gold/40 bg-gold/10 px-6 py-5"><span className="text-xl font-semibold text-gold md:text-2xl">#1 of 25 Nightlife in Hersonissos</span><span className="text-sm text-ivory">Tripadvisor · 5.0 / 5</span><span className="text-xs text-ivory-dim">Ranking checked 12 October 2026 · View current ranking ↗</span></a>
+          <a href={getSummary().tripadvisorUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex flex-col gap-2 rounded-lg border border-gold/40 bg-gold/10 px-6 py-5"><span className="text-xl font-semibold text-gold md:text-2xl">#1 of 25 Nightlife in Hersonissos</span><span className="text-sm text-ivory">Tripadvisor · Bars &amp; Clubs · 5.0 / 5</span><span className="text-xs text-ivory-dim">Ranking checked 12 October 2026 · View current ranking ↗</span></a>
           <h2 className="mt-4 font-display text-3xl text-ivory md:text-5xl">Read them in their own words.</h2>
           <p className="mt-5 text-ivory-dim">The welcome, the atmosphere and the moments that bring people back. Visit our profiles for the latest reviews and ratings.</p>
         </header>
@@ -992,10 +992,16 @@ function HostStory() {
       </figure>
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#716044]">THE PEOPLE BEHIND TEBRA</p>
-        <h2 id="host-title" className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">You arrive as a guest.<br />You leave as a friend.</h2>
-        <p className="mt-5 text-base leading-7 text-[#555C50]">I’m Željko, known to our guests as Zac — founder of Tebra Premium Sports Bar and the Tebra Visitor Guide. Together with Valentina, I welcome you to our bar in Hersonissos.</p>
-        <p className="mt-4 text-base leading-7 text-[#555C50]">Over the past two years, we have built our guests’ trust through a warm welcome, personal attention and care for every visit. Many guests return as friends — and that means the most to us. Tebra is now ranked #1 of 25 nightlife venues in Hersonissos on Tripadvisor (ranking checked 12 October 2026).</p>
-        <p className="mt-5 font-semibold text-[#20251F]">Your match. Your people. Your place.</p>
+        <h2 id="host-title" className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">A welcome from Zac.</h2>
+        <p className="mt-5 text-base leading-7 text-[#555C50]">I’m Željko, known to our guests as Zac — founder of <strong>Tebra Premium Sports Bar</strong> and the <strong>Hersonissos visitor guide</strong>. Originally from Serbia, <strong>Greece has been my home for almost two decades</strong>. My extensive experience in hospitality has shaped my approach: quality service, attention to detail and a personal connection with our guests.</p>
+        <p className="mt-4 text-base leading-7 text-[#555C50]">Together with my wife Valentina, I have spent the past two years developing a place that brings together live sport, great cocktails and hospitality. We are proud of the trust we have built and the guests who return to us.</p>
+        <p className="mt-4 text-base leading-7 text-[#555C50]">Today, we are <strong className="text-[#20251F]">ranked #1 of 25 nightlife venues in Hersonissos on Tripadvisor</strong>, in the <strong>Bars &amp; Clubs</strong> category. Our guests’ reviews are the best reflection of the experience we offer.</p>
+        <p className="mt-4 text-base leading-7 text-[#555C50]">Welcome. As your host, I’m here to help — with a reservation, a local recommendation or advice during your stay in Hersonissos.</p>
+        <div className="mt-6">
+          <p className="text-sm text-[#555C50]">Warm regards,</p>
+          <p className="mt-1 text-xl font-semibold">Zac</p>
+          <p className="mt-2 text-2xl leading-relaxed text-[#806024] sm:text-3xl" style={{ fontFamily: '"Segoe Script", "Apple Chancery", "URW Chancery L", cursive', fontStyle: "italic" }}>Tebra Premium Sports Bar <span aria-label="star">✦</span></p>
+        </div>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <a href="tel:+306993399000" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#20251F] px-5 text-sm font-semibold text-[#FAF6EC]">Call Zac · +30 699 339 9000</a>
           <a href={whatsappUrl("Hi Zac, I would like to ask about visiting Tebra.")} target="_blank" rel="noopener" className="inline-flex min-h-12 items-center justify-center rounded-md border border-[#716044]/50 px-5 text-sm font-semibold text-[#20251F]">Message on WhatsApp ↗</a>
