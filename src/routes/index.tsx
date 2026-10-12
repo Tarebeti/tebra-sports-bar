@@ -369,8 +369,8 @@ function Header() {
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1.18]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
@@ -379,7 +379,7 @@ function Hero() {
         <img
           src={realExteriorNight.url}
           alt="Tebra Premium Sports Bar facade with warm golden lights in Hersonissos"
-          className="h-full w-full object-cover object-center opacity-90"
+          className="h-full w-full object-contain object-center opacity-100"
           width={1920}
           height={1280}
           fetchPriority="high"
@@ -388,7 +388,7 @@ function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_25%,rgba(0,0,0,0.5)_100%)]" />
       </motion.div>
 
-      <motion.div style={{ opacity }} className="mx-auto grid min-h-[65vh] max-w-6xl place-items-center px-4 py-24 md:px-8">
+      <motion.div style={{ opacity }} className="mx-auto grid min-h-[55vh] max-w-6xl place-items-center px-4 py-16 md:px-8 md:py-20">
         <div className="w-full max-w-3xl text-center">
           <motion.p
             initial={{ opacity: 0, y: 12 }}
