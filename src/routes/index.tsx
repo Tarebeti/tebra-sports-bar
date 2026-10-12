@@ -67,10 +67,6 @@ const DETAIL_2 = img38.url;
 
 const GALLERY = [
   { src: img25.url, alt: "Cocktails at the Tebra bar", category: "The space" },
-  { src: realFoodGroup.url, alt: "Friends around the table", category: "Our guests" },
-  { src: img10.url, alt: "Signature cocktails", category: "The space" },
-  { src: realExteriorDusk.url, alt: "A warm welcome", category: "The space" },
-  { src: realBarCocktails.url, alt: "At the Tebra bar", category: "The space" },
   { src: realExteriorLounge.url, alt: "The front lounge", category: "The space" },
   { src: "/photos/welcome-sign.webp", alt: "Everyone is welcome", category: "The space" }
 ];
@@ -822,12 +818,6 @@ function Gallery() {
           <h2 className="mt-3 font-display text-4xl text-ivory md:text-5xl">See the place. Feel the welcome.</h2>
           <p className="mt-4 text-lg text-ivory-dim">Daylight comfort, big match moments and good company in Hersonissos.</p>
         </header>
-        <div className="mb-6 flex flex-wrap gap-2" aria-label="Filter gallery">
-          {["All photos", "The space", "Our guests"].map(label => (
-            <button key={label} type="button" aria-pressed={filter === label} onClick={() => setFilter(label)}
-              className={`min-h-12 rounded-full border px-5 text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold ${filter === label ? "border-gold bg-gold text-black" : "border-gold/30 text-ivory hover:border-gold"}`}>{label}</button>
-          ))}
-        </div>
         <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
           {visible.map((g, i) => (
             <button type="button" key={g.src} onClick={() => setActive(GALLERY.indexOf(g))}
