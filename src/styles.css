@@ -40,7 +40,7 @@
   --color-surface-raised: var(--surface-raised);
   --color-open: var(--open);
 
-  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --gradient-gold: linear-gradient(135deg, oklch(0.74 0.13 82) 0%, oklch(0.88 0.11 92) 100%);
