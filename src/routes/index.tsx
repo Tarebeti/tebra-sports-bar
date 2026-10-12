@@ -58,7 +58,7 @@ const HERO_COCKTAIL = img25.url;                    // cinematic cocktail hero
 const EXTERIOR_DUSK = realExteriorDusk.url;         // real exterior at dusk
 const LOUNGE_1 = realExteriorLounge.url;            // real front lounge
 const LOUNGE_2 = realBreakfastGroup.url;            // real interior group breakfast
-const SCREENS = realWorldCup.url;                   // World Cup 2026 banner
+const SCREENS = "/photos/screens-lounge.webp";                   // Real Tebra screen lounge
 const POOL_DARTS = realPoolCrowd.url;               // real pool + crowd watching sport
 const FOOD = realFoodGroup.url;                     // real group enjoying food
 const DRINK_2 = realBarCocktails.url;               // real bar with fruit + spirits
@@ -87,8 +87,8 @@ const GALLERY = [
     "category": "The space"
   },
   {
-    "src": realWorldCup.url,
-    "alt": "World Cup 2026 at Tebra",
+    "src": "/photos/screens-lounge.webp",
+    "alt": "Your seat for the match",
     "category": "The space"
   },
   {
@@ -105,7 +105,11 @@ const GALLERY = [
     "src": realBreakfastGroup.url,
     "alt": "Your home away from home",
     "category": "Our guests"
-  }
+  },
+  { src: "/photos/lounge-wide.webp", alt: "The Tebra lounge", category: "The space" },
+  { src: "/photos/daylight-lounge.webp", alt: "Light, space and comfort", category: "The space" },
+  { src: "/photos/welcome-sign.webp", alt: "Everyone is welcome", category: "The space" }
+
 ];
 
 
@@ -120,12 +124,10 @@ const CONFIG = {
 };
 
 const NAV = [
-  { href: "/sports-desk", label: "Sports Desk" },
-  { href: "#sport", label: "Sport" },
-  { href: "#games", label: "Games" },
-  { href: "#food", label: "Food" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "#reviews", label: "Reviews" },
+  { href: "/sports-desk", label: "Live Sport" },
+  { href: "#food", label: "Food & Drinks" },
+  { href: "#gallery", label: "The Bar" },
+  { href: "#guide", label: "Visitor Guide" },
   { href: "#find-us", label: "Find Us" },
 ];
 
@@ -254,15 +256,15 @@ function Home() {
       <main>
         <Hero />
         <HomeLiveSports fixtures={VERIFIED_SPORTS_PROGRAMME} requestUrl={whatsappUrl} />
-        <SportsBanner />
-        <TrustBar />
+        <LoungeStory />
         
         <Sport />
         <Games />
         <Food />
-        <Experience />
+        <CocktailStory />
         <Gallery />
         <Reviews />
+        <VisitorGuide />
         <FAQ />
         <FindUs />
       </main>
@@ -287,13 +289,13 @@ function Header() {
           <span className="flex min-w-0 flex-col"><span className="font-sans text-[32px] font-black leading-none tracking-[0.045em] text-ivory sm:text-[38px]">TEBRA</span><span className="mt-1.5 text-[11px] font-extrabold uppercase leading-tight tracking-[0.035em] text-gold sm:text-[13px]">Premium Sports Bar</span></span>
         </a>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">
           {NAV.map((n) => (
             <a key={n.href} href={n.href} className="link-sweep text-sm text-ivory-dim hover:text-ivory">
               {n.label}
             </a>
           ))}
-          <Link to="/active" className="link-sweep text-sm font-semibold text-gold">
+          <Link to="/active" className="link-sweep text-xs font-semibold text-gold">
             TEBRA ACTIVE
           </Link>
         </nav>
@@ -365,6 +367,48 @@ function Header() {
   );
 }
 
+
+function LoungeStory() {
+  return <section id="lounge" className="border-y border-gold/15 bg-[#EEE9DE] py-14 text-[#20251F] md:py-20">
+    <div className="mx-auto grid max-w-7xl items-center gap-9 px-5 md:grid-cols-[1.25fr_1fr] md:gap-16 md:px-8">
+      <img src="/photos/lounge-wide.webp" alt="Daylight in the Tebra lounge with comfortable seating and large screens" width={1536} height={1152} loading="lazy" className="w-full rounded-lg" />
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#716044]">LIVE SPORT. TEBRA COMFORT.</p>
+        <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">The match brings you in.<br />The welcome brings you back.</h2>
+        <p className="mt-5 text-base leading-7 text-[#555C50]">Big screens, comfortable seats and daylight in the lounge. A place for your team, your friends and the people who simply want a good evening.</p>
+        <p className="mt-4 text-base leading-7 text-[#555C50]">Zac and Valentina welcome you to Tebra — your home away from home in Hersonissos.</p>
+        <a href="#sport" className="mt-7 inline-flex min-h-12 items-center rounded-md bg-[#20251F] px-6 text-sm font-semibold text-[#FAF6EC]">Plan your visit ↗</a>
+      </div>
+    </div>
+  </section>;
+}
+
+function CocktailStory() {
+  return <section id="drinks" className="border-t border-gold/15 py-14 md:py-20">
+    <div className="mx-auto max-w-7xl px-5 md:px-8">
+      <header className="mb-8 grid items-end gap-5 md:grid-cols-2">
+        <div><p className="label-eyebrow">AT THE BAR</p><h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">A proper cocktail.<br />Your kind of evening.</h2></div>
+        <p className="max-w-lg text-base leading-7 text-ivory-dim">Cocktails, cold beers, wine and alcohol-free choices. From the first coffee to a drink after the final whistle.</p>
+      </header>
+      <div className="grid gap-5 md:grid-cols-3">
+        <figure className="overflow-hidden rounded-lg border border-gold/15"><img src={img10.url} alt="A signature cocktail at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover" /><figcaption className="p-5 text-lg font-semibold">Cocktails, made for your evening</figcaption></figure>
+        <figure className="overflow-hidden rounded-lg border border-gold/15"><img src={realBarCocktails.url} alt="The Tebra bar with fresh fruit and spirits" loading="lazy" className="aspect-[4/3] w-full object-cover" /><figcaption className="p-5 text-lg font-semibold">A warm welcome at the bar</figcaption></figure>
+        <a href="/active" className="flex min-h-64 flex-col justify-center rounded-lg border border-gold/25 bg-[#1C231D] p-7"><p className="label-eyebrow">TEBRA ACTIVE</p><h3 className="mt-5 text-3xl font-semibold text-ivory">More choice.<br />Same Tebra.</h3><p className="mt-4 text-sm leading-6 text-ivory-dim">Explore our smoothie and protein line.</p><span className="mt-7 text-sm font-semibold text-gold">Discover Active ↗</span></a>
+      </div>
+      <a href={CONFIG.menuUrl} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-12 items-center rounded-md border border-gold/40 px-6 text-sm font-semibold">View the menu ↗</a>
+    </div>
+  </section>;
+}
+
+function VisitorGuide() {
+  return <section id="guide" className="border-y border-gold/15 bg-[#1C231D] py-14 md:py-20">
+    <div className="mx-auto grid max-w-7xl items-center gap-8 px-5 md:grid-cols-[1fr_auto] md:px-8">
+      <div><p className="label-eyebrow">TEBRA VISITOR GUIDE · COMING SOON</p><h2 className="mt-4 text-3xl font-semibold tracking-tight md:text-4xl">Your stay. With a Tebra welcome.</h2><p className="mt-5 max-w-2xl text-base leading-7 text-ivory-dim">Useful information for your time in Hersonissos: beaches, transport, days out and live sport. Our visitor guide is being prepared.</p></div>
+      <div className="flex flex-wrap gap-2 text-sm text-ivory-dim md:max-w-60"><span className="rounded-full border border-gold/25 px-4 py-2">Beaches</span><span className="rounded-full border border-gold/25 px-4 py-2">Transport</span><span className="rounded-full border border-gold/25 px-4 py-2">Days out</span><span className="rounded-full border border-gold/25 px-4 py-2">Live sport</span></div>
+    </div>
+  </section>;
+}
+
 // ---------- Hero ----------
 function Hero() {
   return (
@@ -373,8 +417,8 @@ function Hero() {
         <div className="order-2 px-6 py-10 sm:px-10 md:order-1 md:py-16 lg:px-14 lg:py-20">
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#E7C77F]">Hersonissos · Crete</p>
           <p className="mt-5 text-sm font-bold uppercase tracking-[0.14em] text-[#FAF6EC]">TEBRA PREMIUM SPORTS BAR</p>
-          <h1 className="mt-5 max-w-xl font-sans text-[40px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#FAF6EC] sm:text-5xl lg:text-[64px]">
-            Your match.<br />Your people.<br /><span className="text-[#E7C77F]">Your place in Crete.</span>
+          <h1 className="mt-5 max-w-xl font-sans text-[36px] font-semibold leading-[1.12] tracking-[-0.035em] text-[#FAF6EC] sm:text-[44px] lg:text-[54px]">
+            Your match.<br />Your people.<br /><span className="text-[#E7C77F]">Your place.</span>
           </h1>
           <p className="mt-6 max-w-md text-[16px] leading-[1.75] text-[#D5D4CD]">
             Live sport, premium cocktails and a warm welcome from Zac and Valentina. Settle in. Feel at home.
@@ -386,7 +430,7 @@ function Hero() {
           <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 text-xs text-[#D5D4CD]">
             <a href={directionsUrl} target="_blank" rel="noopener" className="underline decoration-[#E7C77F]/50 underline-offset-4">Find us ↗</a>
             <a href={getSummary().tripadvisorUrl} target="_blank" rel="noopener" className="underline decoration-[#E7C77F]/50 underline-offset-4">Guest reviews ↗</a>
-            <span>Sport · Cocktails · Good company</span>
+            <span>Hersonissos, Crete</span>
           </div>
         </div>
         <div className="order-1 p-3 pb-0 sm:p-5 sm:pb-0 md:order-2 md:p-5 lg:p-8">
@@ -550,7 +594,7 @@ function Sport() {
   const message = useMemo(() => {
     const m = match || "the match";
     const w = when || "date and time";
-    return `Hi Tebra, I would like to reserve a table for ${m} on ${w}, for ${party} people.`;
+    return `Hi Tebra, I would like to request a table for ${m} on ${w}, for ${party} people.`;
   }, [match, party, when]);
 
   return (
@@ -568,17 +612,16 @@ function Sport() {
             A great seat for your <span className="text-gold-gradient italic">match</span>.
           </h2>
           <p className="mt-5 max-w-md text-ivory-dim">
-            Multiple large screens showing football, Champions League and all the major live sport.
-            Tell us your match and party size. We will confirm screening and table availability.
+            Tell us your match, date and group size. We will confirm whether we can show it and whether a table is available.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <BtnPrimary href={whatsappUrl(message)} target="_blank" rel="noopener">
-              <IconWhatsapp className="h-4 w-4" /> Reserve on WhatsApp
+              <IconWhatsapp className="h-4 w-4" /> Request on WhatsApp
             </BtnPrimary>
             <BtnOutline href={`tel:${CONFIG.phone.replace(/\s/g, "")}`}>Call us</BtnOutline>
           </div>
           <p className="mt-6 text-xs uppercase tracking-[0.24em] text-ivory-dim">
-            Watch football Hersonissos, every week
+            Please arrive 15–20 minutes before your confirmed match.
           </p>
         </FadeUp>
 
@@ -590,7 +633,7 @@ function Sport() {
             }}
             className="deco-frame bg-surface-raised/70 p-6 md:p-8"
           >
-            <p className="label-eyebrow">Quick reserve</p>
+            <p className="label-eyebrow">Request your table</p>
             <div className="mt-4 grid gap-4">
               <Field label="Which match?" value={match} onChange={setMatch} placeholder="e.g. Real Madrid v Arsenal" />
               <div className="grid grid-cols-2 gap-3">
@@ -639,19 +682,19 @@ function Games() {
   const tiles = [
     { icon: <IconCue />, title: "Pool table", body: "Rack them up, play a few frames." },
     { icon: <IconDart />, title: "Darts", body: "Steady arm, sharp arrows, good company." },
-    { icon: <IconDice />, title: "and more", body: "Board games and easy nights, ask at the bar." },
+    { icon: <IconDice />, title: "and more", body: "Ask us what is available during your visit." },
   ];
   return (
     <section id="games" className="relative py-16 md:py-32">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <FadeUp>
-            <p className="label-eyebrow">More than a bar</p>
+            <p className="label-eyebrow">Between the matches</p>
             <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
               Play a little, <span className="text-gold-gradient italic">settle in</span>.
             </h2>
             <p className="mt-5 max-w-md text-ivory-dim">
-              Play a few frames, throw some arrows, settle in. It is that kind of place.
+              A game of pool, a round of darts and another reason to stay a little longer.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -706,7 +749,7 @@ function Food() {
               viewport={{ once: true }}
               transition={{ duration: 1.4, ease: "easeOut" }}
               src={FOOD}
-              alt="Bar food and breakfast plate served at Tebra in Hersonissos, Crete"
+              alt="Guests enjoying food together at Tebra in Hersonissos, Crete"
               loading="lazy"
               className="aspect-[4/3] w-full rounded-md object-cover"
             />
@@ -717,8 +760,7 @@ function Food() {
               Good food, <span className="text-gold-gradient italic">all day</span>.
             </h2>
             <p className="mt-5 max-w-md text-ivory-dim">
-              Breakfast in the morning, snacks and proper bar food through the day and night.
-              Everything done well, plenty of it.
+              Start with coffee and breakfast. Come back for pizza, bar bites and a drink with your match.
             </p>
             <ul className="mt-6 grid grid-cols-2 gap-y-2 text-sm text-ivory-dim">
               <li className="flex items-center gap-2"><Dot /> Breakfast</li>
@@ -925,9 +967,9 @@ function ReviewCard({ r, isNew }: { r: Review; isNew: boolean }) {
 // ---------- FAQ ----------
 function FAQ() {
   const items = [
-    { q: "Where is Tebra in Hersonissos?", a: "A short drive from the main strip, in a quieter, nicer setting near the villas. Directions link below." },
+    { q: "Where is Tebra in Hersonissos?", a: "We are in Hersonissos, Crete. Use the directions link below to find the bar and plan your route." },
     { q: "Does Tebra have good cocktails?", a: "Yes, handcrafted cocktails with generous measures are the specialty, alongside premium spirits, beer and wine." },
-    { q: "Can I watch football and live sport at Tebra?", a: "Yes, multiple large screens show football, Champions League and major live sport. Ask us to put your match on." },
+    { q: "Can I watch football and live sport at Tebra?", a: "We show live sport on multiple screens. Send us your match and date so we can confirm broadcast availability before you visit." },
     { q: "Can I reserve a table for a big match?", a: "Message us on WhatsApp with the match, date and party size. Your request becomes a reservation once our team confirms screening and availability." },
     { q: "What games are there?", a: "A pool table and darts, and a relaxed space to settle in." },
     { q: "Does Tebra serve food?", a: "Yes, breakfast, snacks and bar food throughout the day." },
