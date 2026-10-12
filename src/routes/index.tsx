@@ -66,9 +66,8 @@ const DETAIL_1 = img36.url;
 const DETAIL_2 = img38.url;
 
 const GALLERY = [
-  { src: realPoolCrowd.url, alt: "Good company at Tebra", category: "Our guests" },
+  { src: img25.url, alt: "Cocktails at the Tebra bar", category: "The space" },
   { src: realFoodGroup.url, alt: "Friends around the table", category: "Our guests" },
-  { src: realBreakfastGroup.url, alt: "Your home away from home", category: "Our guests" },
   { src: img10.url, alt: "Signature cocktails", category: "The space" },
   { src: realExteriorDusk.url, alt: "A warm welcome", category: "The space" },
   { src: realBarCocktails.url, alt: "At the Tebra bar", category: "The space" },
@@ -337,7 +336,7 @@ function Header() {
 function LoungeStory() {
   return <section id="lounge" className="border-y border-gold/15 bg-[#EEE9DE] py-14 text-[#20251F] md:py-20">
     <div className="mx-auto grid max-w-7xl items-center gap-9 px-5 md:grid-cols-[1.25fr_1fr] md:gap-16 md:px-8">
-      <img src={realPoolCrowd.url} alt="Guests gathered around the pool table and lounge at Tebra" loading="lazy" className="mx-auto max-h-[620px] w-full rounded-lg object-contain" />
+      <img src={realBreakfastGroup.url} alt="Guests enjoying breakfast together at Tebra" loading="lazy" className="mx-auto max-h-[620px] w-full rounded-lg object-contain" />
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#716044]">LIVE SPORT. TEBRA COMFORT.</p>
         <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">The match brings you in.<br />The welcome brings you back.</h2>
