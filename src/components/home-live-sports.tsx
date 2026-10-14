@@ -21,7 +21,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
     const controller = new AbortController();
     const refresh = () => loadProgramme(controller.signal).then(feed => {
       setRemoteFixtures(feed.events.map(event => ({
-        id: event.id, title: event.title, sport: "Football",
+        id: event.id, title: event.title, sport: event.sport || "Sport",
         competition: event.competition, startsAt: event.start,
         sourceUrl: event.source, sourceName: "Official source",
         verifiedAt: event.verified + "T00:00:00Z",
