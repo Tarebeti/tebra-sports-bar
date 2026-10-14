@@ -1,5 +1,6 @@
 import { ArrowUpRight, CalendarDays, Clock3, MessageCircle, Tv } from "lucide-react";
 import { useEffect, useState } from "react";
+import { loadProgramme } from "@/lib/programme-feed";
 import { Button } from "@/components/ui/button";
 import { fixtureDate, greekTime, selectFixtures, type VerifiedFixture } from "@/lib/sports-fixtures";
 
@@ -15,7 +16,22 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
     const timer = setInterval(() => setNow(new Date()), 60_000);
     return () => clearInterval(timer);
   }, []);
-  const selected = now ? selectFixtures(fixtures, now) : { today: [], upcoming: [] };
+  const [remoteFixtures, setRemoteFixtures] = useState<readonly VerifiedFixture[] | null>(null);
+  useEffect(() => {
+    const controller = new AbortController();
+    const refresh = () => loadProgramme(controller.signal).then(feed => {
+      setRemoteFixtures(feed.events.map(event => ({
+        id: event.id, title: event.title, sport: "Football",
+        competition: event.competition, startsAt: event.start,
+        sourceUrl: event.source, sourceName: "Official source",
+        verifiedAt: event.verified + "T00:00:00Z",
+      })));
+    }).catch(() => { /* Preserve the last successfully loaded programme. */ });
+    refresh();
+    const timer = setInterval(refresh, 300_000);
+    return () => { controller.abort(); clearInterval(timer); };
+  }, []);
+  const selected = now ? selectFixtures(remoteFixtures ?? fixtures, now) : { today: [], upcoming: [] };
 
   return (
     <section id="live-sports" aria-labelledby="live-sports-title" className="border-y border-gold/30 bg-background">
