@@ -8,6 +8,106 @@ const premierLeague = "https://www.premierleague.com/en/news/4688862/fixture-ame
 const rugby = "https://springboks.rugby/match-centre/fixtures";
 
 export const VERIFIED_SPORTS_PROGRAMME: readonly VerifiedFixture[] = [
+{
+  "id": "lask-liverpool-20261014",
+  "title": "LASK vs Liverpool",
+  "sport": "Football",
+  "competition": "UEFA Champions League",
+  "startsAt": "2026-10-14T16:45:00Z",
+  "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-by-team/",
+  "sourceName": "UEFA",
+  "verifiedAt": "2026-10-14T18:43:00Z"
+},
+{
+  "id": "city-psg-20261014",
+  "title": "Manchester City vs Paris Saint-Germain",
+  "sport": "Football",
+  "competition": "UEFA Champions League",
+  "startsAt": "2026-10-14T19:00:00Z",
+  "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-by-team/",
+  "sourceName": "UEFA",
+  "verifiedAt": "2026-10-14T18:43:00Z"
+},
+{
+  "id": "villa-fenerbahce-20261014",
+  "title": "Aston Villa vs Fenerbahçe",
+  "sport": "Football",
+  "competition": "UEFA Champions League",
+  "startsAt": "2026-10-14T19:00:00Z",
+  "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-by-team/",
+  "sourceName": "UEFA",
+  "verifiedAt": "2026-10-14T18:43:00Z"
+},
+{
+  "id": "bodo-dortmund-20261014",
+  "title": "Bodø/Glimt vs Borussia Dortmund",
+  "sport": "Football",
+  "competition": "UEFA Champions League",
+  "startsAt": "2026-10-14T19:00:00Z",
+  "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-by-team/",
+  "sourceName": "UEFA",
+  "verifiedAt": "2026-10-14T18:43:00Z"
+},
+{
+  "id": "roma-madrid-20261014",
+  "title": "Roma vs Real Madrid",
+  "sport": "Football",
+  "competition": "UEFA Champions League",
+  "startsAt": "2026-10-14T19:00:00Z",
+  "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-by-team/",
+  "sourceName": "UEFA",
+  "verifiedAt": "2026-10-14T18:43:00Z"
+},
+{
+  "id": "liverpool-villarreal-20261020",
+  "title": "Liverpool vs Villarreal",
+  "sport": "Football",
+  "competition": "UEFA Champions League",
+  "startsAt": "2026-10-20T19:00:00Z",
+  "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-by-team/",
+  "sourceName": "UEFA",
+  "verifiedAt": "2026-10-14T18:43:00Z"
+},
+{
+  "id": "city-aek-20261020",
+  "title": "Manchester City vs AEK Athens",
+  "sport": "Football",
+  "competition": "UEFA Champions League",
+  "startsAt": "2026-10-20T19:00:00Z",
+  "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-by-team/",
+  "sourceName": "UEFA",
+  "verifiedAt": "2026-10-14T18:43:00Z"
+},
+{
+  "id": "psg-barcelona-20261020",
+  "title": "Paris Saint-Germain vs Barcelona",
+  "sport": "Football",
+  "competition": "UEFA Champions League",
+  "startsAt": "2026-10-20T19:00:00Z",
+  "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-by-team/",
+  "sourceName": "UEFA",
+  "verifiedAt": "2026-10-14T18:43:00Z"
+},
+{
+  "id": "bayern-arsenal-20261021",
+  "title": "Bayern München vs Arsenal",
+  "sport": "Football",
+  "competition": "UEFA Champions League",
+  "startsAt": "2026-10-21T19:00:00Z",
+  "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-by-team/",
+  "sourceName": "UEFA",
+  "verifiedAt": "2026-10-14T18:43:00Z"
+},
+{
+  "id": "como-united-20261021",
+  "title": "Como vs Manchester United",
+  "sport": "Football",
+  "competition": "UEFA Champions League",
+  "startsAt": "2026-10-21T16:45:00Z",
+  "sourceUrl": "https://www.uefa.com/uefachampionsleague/news/02a8-2176fa83582b-d99f0b27f405-1000--champions-league-league-phase-fixtures-by-team/",
+  "sourceName": "UEFA",
+  "verifiedAt": "2026-10-14T18:43:00Z"
+},
   {
     id: "singapore-sprint-qualifying-2026",
     title: "Singapore Grand Prix · Sprint qualifying",
