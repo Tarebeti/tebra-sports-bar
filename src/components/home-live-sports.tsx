@@ -25,6 +25,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
         competition: event.competition, startsAt: event.start,
         sourceUrl: event.source, sourceName: "Official source",
         verifiedAt: event.verified + "T00:00:00Z",
+        priority: event.priority, featured: event.featured,
       })));
     }).catch(() => { /* Preserve the last successfully loaded programme. */ });
     refresh();
