@@ -7,6 +7,8 @@ export type VerifiedFixture = {
   sourceUrl: string;
   sourceName: string;
   verifiedAt: string;
+  priority?: number;
+  featured?: boolean;
 };
 
 export const GREEK_TIME_ZONE = "Europe/Athens";
@@ -33,8 +35,7 @@ export function fixtureDate(startsAt: string): string {
 }
 
 export function selectFixtures(fixtures: readonly VerifiedFixture[], now: Date) {
-  // Starts only: never infer that a fixture is currently live or that Tebra
-  // has confirmed a screening. Previously started fixtures are removed.
+  // Keep recently started fixtures for three hours without claiming a screening.
   const upcoming = fixtures.filter((fixture) => {
     const start = Date.parse(fixture.startsAt);
     const verification = Date.parse(fixture.verifiedAt);
@@ -42,8 +43,10 @@ export function selectFixtures(fixtures: readonly VerifiedFixture[], now: Date) 
       && verification <= now.getTime()
       && /^https:\/\//.test(fixture.sourceUrl)
       && fixture.sourceName.trim().length > 0
-      && start >= now.getTime();
-  }).sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt));
+      && start + 3 * 60 * 60 * 1000 >= now.getTime();
+  }).sort((a, b) => (a.priority ?? 2) - (b.priority ?? 2)
+    || Number(!!b.featured) - Number(!!a.featured)
+    || Date.parse(a.startsAt) - Date.parse(b.startsAt));
   const today = greekDate(now);
   return {
     today: upcoming.filter((fixture) => greekDate(new Date(fixture.startsAt)) === today).slice(0, 3),
