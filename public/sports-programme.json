@@ -16,7 +16,8 @@
     "Conference League",
     "Championship",
     "UFC",
-    "Ligue 1"
+    "Ligue 1",
+    "Serie A"
   ],
   "events": [
     {
@@ -1056,6 +1057,20 @@
       "featured": false
     },
     {
+      "id": "serie-a-2026-10-17-bologna-inter",
+      "title": "Bologna vs Inter",
+      "competition": "Serie A",
+      "sport": "Football",
+      "date": "2026-10-17",
+      "time": "19:00",
+      "start": "2026-10-17T19:00:00+03:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-15",
+      "source": "https://www.inter.it/en/news/inter-ticket-calendar-october-matches-san-siro",
+      "priority": 2,
+      "featured": false
+    },
+    {
       "id": "bundesliga-2026-10-17-bayern-munich-vs-rb-leipzig",
       "title": "Bayern Munich vs RB Leipzig",
       "competition": "Bundesliga",
@@ -1064,8 +1079,8 @@
       "time": "19:30",
       "start": "2026-10-17T19:30:00+03:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-11",
-      "source": "https://www.bundesliga.com/en/bundesliga/matchday/2026-2027/6",
+      "verified": "2026-10-15",
+      "source": "https://fcbayern.com/en/news/2026/09/bundesliga-fixtures-up-to-matchday-11-scheduled",
       "priority": 2,
       "featured": false
     },
