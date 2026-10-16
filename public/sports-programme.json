@@ -18,7 +18,8 @@
     "UFC",
     "Ligue 1",
     "Serie A",
-    "ATP Masters 1000"
+    "ATP Masters 1000",
+    "Boxing"
   ],
   "events": [
     {
@@ -1686,6 +1687,20 @@
       "source": "https://www.sassuolocalcio.it/biglietteria/frosinone-sassuolo-info-prevendita-per-il-settore-ospiti/",
       "priority": 2,
       "featured": false
+    },
+    {
+      "id": "boxing-2026-10-17-dubois-wardley-2",
+      "title": "Daniel Dubois vs Fabio Wardley 2 — Main card",
+      "competition": "Boxing",
+      "sport": "Boxing",
+      "date": "2026-10-17",
+      "time": "21:00",
+      "start": "2026-10-17T21:00:00+03:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-16",
+      "source": "https://www.dazn.com/fr-CA/help/articles/39722510152733-daniel-dubois-vs-fabio-wardley-2-ppv-faqs",
+      "priority": 2,
+      "featured": true
     }
   ],
   "verificationTimezone": "UTC"
