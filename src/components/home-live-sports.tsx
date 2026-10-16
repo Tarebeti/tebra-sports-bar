@@ -80,19 +80,19 @@ function FixtureGroup({ title, fixtures, loading, requestUrl }: {
     <div className="min-w-0">
       <h3 className="flex items-center gap-2 border-b border-gold/30 pb-3 font-sans text-sm font-semibold uppercase text-ivory"><CalendarDays className="h-4 w-4 text-gold" aria-hidden="true" /> {title}</h3>
       {fixtures.length ? (
-        <ul className="divide-y divide-gold/15">
+        <ul className="mt-3 grid gap-3">
           {fixtures.map((fixture) => (
-            <li key={fixture.id} className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-2 py-4">
+            <li key={fixture.id} className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-3 gap-y-2 rounded-lg border border-gold/20 bg-surface-raised/40 p-3 sm:p-4">
               <div className="min-w-0">
                 <p className="text-xs leading-relaxed text-ivory-dim">{fixture.competition} · {fixture.sport}</p>
-                <h4 className="mt-1 break-words font-sans text-base font-semibold leading-snug text-ivory">{fixture.title}</h4>
-                <a href={fixture.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-6 items-center gap-1 text-xs text-gold underline underline-offset-4">{fixture.sourceName} <ArrowUpRight className="h-3 w-3" aria-hidden="true" /></a>
+                <h4 className="mt-1 break-words font-sans text-lg font-semibold leading-snug tracking-tight text-ivory">{fixture.title}</h4>
+                <a href={fixture.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-8 items-center gap-1 text-xs text-gold underline underline-offset-4">{fixture.sourceName} <ArrowUpRight className="h-3 w-3" aria-hidden="true" /></a>
               </div>
               <div className="shrink-0 text-right">
-                <time dateTime={fixture.startsAt} className="block text-xl font-semibold tabular-nums text-gold-bright">{greekTime(fixture.startsAt)}</time>
+                <time dateTime={fixture.startsAt} className="block text-2xl font-semibold tabular-nums text-gold-bright">{greekTime(fixture.startsAt)}</time>
                 <span className="mt-1 block text-xs text-ivory-dim">{fixtureDate(fixture.startsAt)}</span>
               </div>
-              <Button asChild variant="outline" className="col-span-2 mt-1 min-h-11 w-full border-gold/40 text-ivory hover:bg-gold/10 hover:text-ivory sm:w-fit">
+              <Button asChild variant="outline" className="col-span-2 min-h-11 w-full border-gold/40 text-ivory hover:bg-gold/10 hover:text-ivory sm:col-start-2 sm:row-start-1 sm:mt-14 sm:w-fit">
                 <a href={requestUrl(`Hi Tebra, I would like to request a table for ${fixture.title} on ${fixtureDate(fixture.startsAt)} at ${greekTime(fixture.startsAt)} Greek time. Please confirm the screening and table availability.`)} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden="true" /> Request a table</a>
               </Button>
             </li>
