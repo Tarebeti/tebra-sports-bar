@@ -35,7 +35,7 @@ export function fixtureDate(startsAt: string): string {
 }
 
 export function selectFixtures(fixtures: readonly VerifiedFixture[], now: Date) {
-  // Keep recently started fixtures for three hours without claiming a screening.
+  // Only offer upcoming starts; a schedule never implies a confirmed screening.
   const upcoming = fixtures.filter((fixture) => {
     const start = Date.parse(fixture.startsAt);
     const verification = Date.parse(fixture.verifiedAt);
@@ -43,13 +43,13 @@ export function selectFixtures(fixtures: readonly VerifiedFixture[], now: Date) 
       && verification <= now.getTime()
       && /^https:\/\//.test(fixture.sourceUrl)
       && fixture.sourceName.trim().length > 0
-      && start + 3 * 60 * 60 * 1000 >= now.getTime();
+      && start >= now.getTime();
   }).sort((a, b) => (a.priority ?? 2) - (b.priority ?? 2)
     || Number(!!b.featured) - Number(!!a.featured)
     || Date.parse(a.startsAt) - Date.parse(b.startsAt));
   const today = greekDate(now);
   return {
-    today: upcoming.filter((fixture) => greekDate(new Date(fixture.startsAt)) === today).slice(0, 3),
-    upcoming: upcoming.filter((fixture) => greekDate(new Date(fixture.startsAt)) !== today).slice(0, 3),
+    today: upcoming.filter((fixture) => greekDate(new Date(fixture.startsAt)) === today).slice(0, 4),
+    upcoming: upcoming.filter((fixture) => greekDate(new Date(fixture.startsAt)) !== today).slice(0, 4),
   };
 }
