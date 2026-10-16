@@ -5,7 +5,7 @@ import logoAsset from "@/assets/venue/logo.png.asset.json";
 
 const LOGO = logoAsset.url;
 const PHONE = "+30 699 339 9000";
-const WHATSAPP = "https://wa.me/306993399000?text=Hi%20TE.BRA";
+const WHATSAPP = "https://wa.me/306993399000?text=Hi%20TEBRA";
 const DIRECTIONS = "https://www.google.com/maps/dir/?api=1&destination=35.31635468,25.387603686";
 
 const PRODUCTS = [
@@ -19,9 +19,9 @@ const PRODUCTS = [
 export const Route = createFileRoute("/active")({
   head: () => ({
     meta: [
-      { title: "TEBRA ACTIVE | A New Line by TE.BRA Sports Bar" },
-      { name: "description", content: "Discover TEBRA ACTIVE, a new line by TE.BRA Sports Bar in Hersonissos with smoothies, protein blends and choices for every side of you." },
-      { property: "og:title", content: "TEBRA ACTIVE | A New Line by TE.BRA Sports Bar" },
+      { title: "TEBRA ACTIVE | A New Line by TEBRA Sports Bar" },
+      { name: "description", content: "Discover TEBRA ACTIVE, a new line by TEBRA Sports Bar in Hersonissos with smoothies, protein blends and choices for every side of you." },
+      { property: "og:title", content: "TEBRA ACTIVE | A New Line by TEBRA Sports Bar" },
       { property: "og:description", content: "More choice. Same Tebra. Discover five TEBRA ACTIVE signature blends in Hersonissos, Crete." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://tebrabar.com/active" },
@@ -90,9 +90,9 @@ function ActiveHeader() {
   return (
     <header className="active-header">
       <div className="active-header-inner">
-        <Link to="/" className="active-logo-link" aria-label="TE.BRA home">
-          <img src={LOGO} alt="TE.BRA Sports Bar gold crest logo" />
-          <span>TE.BRA</span>
+        <Link to="/" className="active-logo-link" aria-label="TEBRA home">
+          <img src={LOGO} alt="TEBRA Sports Bar gold crest logo" />
+          <span>TEBRA</span>
         </Link>
         <nav className="active-desktop-nav" aria-label="Primary navigation">
           <Link to="/">Home</Link>
@@ -120,10 +120,10 @@ function ActiveHeader() {
 function ActiveFooter() {
   return (
     <footer className="active-footer">
-      <img src={LOGO} alt="TE.BRA gold crest" />
+      <img src={LOGO} alt="TEBRA gold crest" />
       <p>TEBRA PREMIUM BAR</p>
       <Link to="/">Return to Tebra</Link>
-      <small>© {new Date().getFullYear()} TE.BRA Sports Bar, Hersonissos, Crete</small>
+      <small>© {new Date().getFullYear()} TEBRA Sports Bar, Hersonissos, Crete</small>
     </footer>
   );
 }
