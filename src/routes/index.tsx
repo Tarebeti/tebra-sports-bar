@@ -87,7 +87,6 @@ const NAV = [
   { href: "/sports-desk", label: "Live Sport" },
   { href: "#food", label: "Food & Drinks" },
   { href: "#gallery", label: "The Bar" },
-  { href: "#guide", label: "Visitor Guide" },
   { href: "#find-us", label: "Find Us" },
 ];
 
@@ -211,24 +210,21 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-ivory [&_section[id]]:scroll-mt-20 [&_h1]:font-semibold [&_h2]:font-semibold [&_h3]:font-semibold">
+    <div className="min-h-screen bg-background text-ivory [&_section[id]]:scroll-mt-20 [&_h1]:font-sans [&_h2]:font-sans [&_h3]:font-sans [&_h1]:font-semibold [&_h2]:font-semibold [&_h3]:font-semibold [&_h2]:tracking-tight">
       <Header />
-      <main>
-        <Hero />
+      <main id="top">
         <HomeLiveSports fixtures={VERIFIED_SPORTS_PROGRAMME} requestUrl={whatsappUrl} />
         <FacadePhoto />
+        <Reviews />
         <LoungeStory />
-        
-        <Sport />
-        <Games />
+        <AtmosphereVideo />
         <Food />
         <CocktailStory />
-        <AtmosphereVideo />
+        <Games />
         <Gallery />
-        <Reviews />
-        <VisitorGuide />
-        <FAQ />
+        <Sport />
         <HostStory />
+        <FAQ />
         <FindUs />
       </main>
       <Footer />
@@ -403,7 +399,7 @@ function Hero() {
 }
 
 function FacadePhoto() {
-  return <section aria-label="The Tebra facade" className="border-b border-gold/15 bg-[#111311] px-4 py-8 md:px-8 md:py-12"><div className="mx-auto max-w-5xl">
+  return <section aria-label="The Tebra facade" className="border-b border-gold/15 bg-[#111311] px-4 py-8 md:px-8 md:py-12"><div className="mx-auto max-w-7xl">
           <figure className="overflow-hidden rounded-xl border border-[#E7C77F]/20 bg-[#1B1D19] shadow-2xl">
             <img src={realExteriorNight.url} alt="The illuminated facade and welcoming lounge of Tebra Premium Sports Bar in Hersonissos" width={1368} height={1028} fetchPriority="high" className="block h-auto w-full" />
             <figcaption className="flex items-center justify-between gap-3 border-t border-[#E7C77F]/15 px-5 py-4">
@@ -488,7 +484,7 @@ function Cocktails() {
   ];
 
   return (
-    <section id="cocktails" className="relative py-16 md:py-32">
+    <section id="cocktails" className="relative py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
           <FadeUp>
@@ -566,7 +562,7 @@ function Sport() {
   }, [match, party, when]);
 
   return (
-    <section id="sport" className="relative border-t border-gold/10 py-20 md:py-32">
+    <section id="sport" className="relative border-t border-gold/10 py-20 md:py-20">
       <div className="absolute inset-0 -z-10">
         <img src={SCREENS} alt="" aria-hidden className="h-full w-full object-cover opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background" />
@@ -663,7 +659,7 @@ function Games() {
     { icon: <IconDice />, title: "and more", body: "Ask us what is available during your visit." },
   ];
   return (
-    <section id="games" className="relative py-16 md:py-32">
+    <section id="games" className="relative py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <FadeUp>
@@ -717,7 +713,7 @@ function Games() {
 // ---------- Food ----------
 function Food() {
   return (
-    <section id="food" className="relative border-t border-gold/10 py-16 md:py-32">
+    <section id="food" className="relative border-t border-gold/10 py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <FadeUp>
@@ -767,7 +763,7 @@ function Experience() {
     { icon: <IconLeaf />, title: "A quieter, nicer setting", body: "A short hop from the busy strip, near the villas." },
   ];
   return (
-    <section id="experience" className="relative py-16 md:py-32">
+    <section id="experience" className="relative py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <header className="mx-auto max-w-2xl text-center">
@@ -965,7 +961,7 @@ function FAQ() {
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faq" className="relative border-t border-gold/10 py-16 md:py-32">
+    <section id="faq" className="relative border-t border-gold/10 py-16 md:py-20">
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         <FadeUp>
           <p className="label-eyebrow text-center">FAQ</p>
@@ -1028,7 +1024,7 @@ function HostStory() {
 // ---------- Find us ----------
 function FindUs() {
   return (
-    <section id="find-us" className="relative border-t border-gold/10 py-16 md:py-32">
+    <section id="find-us" className="relative border-t border-gold/10 py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <p className="label-eyebrow text-center">Find us</p>
