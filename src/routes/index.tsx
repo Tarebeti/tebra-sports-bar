@@ -215,11 +215,11 @@ function Home() {
       <main id="top">
         <HomeLiveSports fixtures={VERIFIED_SPORTS_PROGRAMME} requestUrl={whatsappUrl} />
         <FacadePhoto />
-        <Reviews />
         <LoungeStory />
         <AtmosphereVideo />
-        <Food />
+        <Reviews />
         <CocktailStory />
+        <Food />
         <Games />
         <Gallery />
         <Sport />
