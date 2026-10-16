@@ -350,7 +350,7 @@ function CocktailStory() {
         <p className="max-w-lg text-base leading-7 text-ivory-dim">Cocktails, cold beers, wine and alcohol-free choices. From the first coffee to a drink after the final whistle.</p>
       </header>
       <div className="grid gap-5 md:grid-cols-3">
-        <figure className="overflow-hidden rounded-lg border border-gold/15"><img src={img10.url} alt="A signature cocktail at Tebra" loading="lazy" className="aspect-[4/3] w-full bg-black object-contain p-3" /><figcaption className="p-5 text-lg font-semibold">Cocktails, made for your evening</figcaption></figure>
+        <figure className="overflow-hidden rounded-lg border border-gold/15"><img src={img25.url} alt="A signature cocktail at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover" /><figcaption className="p-5 text-lg font-semibold">Cocktails, made for your evening</figcaption></figure>
         <figure className="overflow-hidden rounded-lg border border-gold/15"><img src={realBarCocktails.url} alt="The Tebra bar with fresh fruit and spirits" loading="lazy" className="aspect-[4/3] w-full object-cover" /><figcaption className="p-5 text-lg font-semibold">A warm welcome at the bar</figcaption></figure>
         <a href="/active" className="flex min-h-64 flex-col justify-center rounded-lg border border-gold/25 bg-[#1C231D] p-7"><p className="label-eyebrow">TEBRA ACTIVE</p><h3 className="mt-5 text-3xl font-semibold text-ivory">More choice.<br />Same Tebra.</h3><p className="mt-4 text-sm leading-6 text-ivory-dim">Explore our smoothie and protein line.</p><span className="mt-7 text-sm font-semibold text-gold">Discover Active ↗</span></a>
       </div>
