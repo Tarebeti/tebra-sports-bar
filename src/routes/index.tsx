@@ -379,18 +379,18 @@ function Hero() {
       <div className="mx-auto grid max-w-7xl items-center gap-0">
         <div className="order-1 px-5 py-5 sm:px-10 md:py-7 lg:px-14 lg:py-8">
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#E7C77F]">Hersonissos · Crete</p>
-          <p className="mt-5 text-sm font-bold uppercase tracking-[0.14em] text-[#FAF6EC]">TEBRA PREMIUM SPORTS BAR</p>
-          <h1 className="mt-5 max-w-xl font-sans text-[30px] font-semibold leading-[1.12] tracking-[-0.035em] text-[#FAF6EC] sm:text-[40px] lg:text-[48px]">
+          <p className="mt-2 text-sm font-bold uppercase tracking-[0.14em] text-[#FAF6EC]">TEBRA PREMIUM SPORTS BAR</p>
+          <h1 className="mt-3 max-w-xl font-sans text-[30px] font-semibold leading-[1.12] tracking-[-0.035em] text-[#FAF6EC] sm:text-[40px] lg:text-[48px]">
             Your match. Your people. <span className="text-[#E7C77F]">Your place.</span>
           </h1>
-          <p className="mt-6 max-w-md text-[16px] leading-[1.75] text-[#D5D4CD]">
-            Live sport, premium cocktails and a warm welcome from Zac and Valentina. Settle in. Feel at home.
+          <p className="mt-3 max-w-md text-[16px] leading-[1.75] text-[#D5D4CD]">
+            Live sport. Premium cocktails. Your home away from home.
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-4 grid grid-cols-2 gap-3 sm:flex sm:flex-wrap">
             <a href="#live-sports" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#E7C77F] px-6 text-sm font-semibold text-[#111311] transition-colors hover:bg-[#F2DDA7]">Explore live sport ↗</a>
             <a href={whatsappUrl("Hi Tebra, I would like to request a table. Please confirm availability.")} target="_blank" rel="noopener" className="inline-flex min-h-12 items-center justify-center rounded-md border border-[#E7C77F]/50 px-6 text-sm font-semibold text-[#FAF6EC] transition-colors hover:bg-white/5">Request a table</a>
           </div>
-          <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 text-xs text-[#D5D4CD]">
+          <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3 text-xs text-[#D5D4CD]">
             <a href={directionsUrl} target="_blank" rel="noopener" className="underline decoration-[#E7C77F]/50 underline-offset-4">Find us ↗</a>
             <a href={getSummary().tripadvisorUrl} target="_blank" rel="noopener" className="underline decoration-[#E7C77F]/50 underline-offset-4">Guest reviews ↗</a>
             <span>Hersonissos, Crete</span>
