@@ -54,9 +54,9 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
         </div>
 
         <p className="mt-3 text-xs leading-relaxed text-ivory-dim">{checked ? `Schedule checked ${checked} · ` : ""}All times in Greece. Contact Tebra to confirm your screening.</p>
-        <div className="mt-6 grid gap-7 md:grid-cols-2 md:gap-8" aria-busy={!now}>
-          <FixtureGroup title="Today" fixtures={selected.today} loading={!now} requestUrl={requestUrl} />
-          <FixtureGroup title="Coming up" fixtures={selected.upcoming} loading={!now} requestUrl={requestUrl} />
+        <div className={`mt-6 grid gap-7 md:gap-8 ${selected.today.length && selected.upcoming.length ? "md:grid-cols-2" : ""}`} aria-busy={!now}>
+          {(!now || selected.today.length > 0 || !selected.upcoming.length) && <FixtureGroup title="Today" fixtures={selected.today} loading={!now} requestUrl={requestUrl} />}
+          <FixtureGroup title="Coming up" fixtures={selected.upcoming} loading={!now} requestUrl={requestUrl} wide={!selected.today.length} />
         </div>
 
         <div className="mt-7 grid gap-4 border-t border-gold/20 pt-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
@@ -75,7 +75,8 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
   );
 }
 
-function FixtureGroup({ title, fixtures, loading, requestUrl }: {
+function FixtureGroup({ title, fixtures, loading, requestUrl, wide = false }: {
+  wide?: boolean;
   title: string;
   fixtures: readonly VerifiedFixture[];
   loading: boolean;
@@ -85,7 +86,7 @@ function FixtureGroup({ title, fixtures, loading, requestUrl }: {
     <div className="min-w-0">
       <h3 className="flex items-center gap-2 border-b border-gold/30 pb-3 font-sans text-sm font-semibold uppercase text-ivory"><CalendarDays className="h-4 w-4 text-gold" aria-hidden="true" /> {title}</h3>
       {fixtures.length ? (
-        <ul className="mt-3 grid gap-3">
+        <ul className={`mt-3 grid gap-3 ${wide ? "md:grid-cols-2" : ""}`}>
           {fixtures.map((fixture) => (
             <li key={fixture.id} className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-3 gap-y-2 rounded-lg border border-gold/20 bg-surface-raised/40 p-3 sm:p-4">
               <div className="min-w-0">
