@@ -1658,6 +1658,20 @@
       "source": "https://credencial.cbf.com.br/competicoes/listar/42/1",
       "priority": 5,
       "featured": false
+    },
+    {
+      "id": "euroleague-2026-10-16-barcelona-vs-olympiacos",
+      "title": "Barcelona vs Olympiacos",
+      "competition": "EuroLeague",
+      "sport": "Basketball",
+      "date": "2026-10-16",
+      "time": "21:30",
+      "start": "2026-10-16T21:30:00+03:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-16",
+      "source": "https://www.olympiacosbc.gr/en/games/euroleague/schedule/2026.html",
+      "priority": 2,
+      "featured": false
     }
   ],
   "verificationTimezone": "UTC"
