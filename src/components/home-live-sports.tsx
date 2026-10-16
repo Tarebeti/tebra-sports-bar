@@ -42,7 +42,8 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
         <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 sm:flex sm:items-center sm:justify-between">
           <div className="min-w-0">
             <p className="flex items-center gap-2 text-xs font-semibold uppercase text-gold"><Tv className="h-4 w-4 shrink-0" aria-hidden="true" /> Sports Desk</p>
-            <h2 id="live-sports-title" className="mt-2 font-display text-3xl leading-tight text-ivory sm:text-4xl">Live sport at Tebra</h2>
+            <h1 id="live-sports-title" className="mt-2 font-sans text-3xl font-semibold leading-tight tracking-tight text-ivory sm:text-4xl">Your match. Your place.</h1>
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-ivory-dim">Live sport at Tebra Premium Sports Bar · Hersonissos, Crete</p>
           </div>
           <span className="flex shrink-0 items-center gap-1.5 pt-1 text-xs text-ivory-dim"><Clock3 className="h-4 w-4" aria-hidden="true" /> Greek time</span>
         </div>
