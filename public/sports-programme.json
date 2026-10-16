@@ -1672,6 +1672,20 @@
       "source": "https://www.olympiacosbc.gr/en/games/euroleague/schedule/2026.html",
       "priority": 2,
       "featured": false
+    },
+    {
+      "id": "serie-a-2026-10-16-frosinone-vs-sassuolo",
+      "title": "Frosinone vs Sassuolo",
+      "competition": "Serie A",
+      "sport": "Football",
+      "date": "2026-10-16",
+      "time": "21:45",
+      "start": "2026-10-16T21:45:00+03:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-16",
+      "source": "https://www.sassuolocalcio.it/biglietteria/frosinone-sassuolo-info-prevendita-per-il-settore-ospiti/",
+      "priority": 2,
+      "featured": false
     }
   ],
   "verificationTimezone": "UTC"
