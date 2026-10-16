@@ -377,17 +377,17 @@ function Hero() {
   return (
     <section id="top" className="relative overflow-hidden border-b border-gold/15 bg-[#111311]">
       <div className="mx-auto grid max-w-7xl items-center gap-0">
-        <div className="order-1 px-5 py-7 sm:px-10 md:py-10 lg:px-14 lg:py-12">
+        <div className="order-1 px-5 py-5 sm:px-10 md:py-7 lg:px-14 lg:py-8">
           <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#E7C77F]">Hersonissos · Crete</p>
           <p className="mt-5 text-sm font-bold uppercase tracking-[0.14em] text-[#FAF6EC]">TEBRA PREMIUM SPORTS BAR</p>
-          <h1 className="mt-5 max-w-xl font-sans text-[32px] font-semibold leading-[1.12] tracking-[-0.035em] text-[#FAF6EC] sm:text-[44px] lg:text-[54px]">
-            Your match. Your people.<br /><span className="text-[#E7C77F]">Your place.</span>
+          <h1 className="mt-5 max-w-xl font-sans text-[30px] font-semibold leading-[1.12] tracking-[-0.035em] text-[#FAF6EC] sm:text-[40px] lg:text-[48px]">
+            Your match. Your people. <span className="text-[#E7C77F]">Your place.</span>
           </h1>
           <p className="mt-6 max-w-md text-[16px] leading-[1.75] text-[#D5D4CD]">
             Live sport, premium cocktails and a warm welcome from Zac and Valentina. Settle in. Feel at home.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <a href="/sports-desk" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#E7C77F] px-6 text-sm font-semibold text-[#111311] transition-colors hover:bg-[#F2DDA7]">Explore live sport ↗</a>
+            <a href="#live-sports" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#E7C77F] px-6 text-sm font-semibold text-[#111311] transition-colors hover:bg-[#F2DDA7]">Explore live sport ↗</a>
             <a href={whatsappUrl("Hi Tebra, I would like to request a table. Please confirm availability.")} target="_blank" rel="noopener" className="inline-flex min-h-12 items-center justify-center rounded-md border border-[#E7C77F]/50 px-6 text-sm font-semibold text-[#FAF6EC] transition-colors hover:bg-white/5">Request a table</a>
           </div>
           <div className="mt-7 flex flex-wrap items-center gap-x-5 gap-y-3 text-xs text-[#D5D4CD]">
@@ -1004,11 +1004,6 @@ function HostStory() {
         <div className="my-7 border-l-2 border-[#806024] bg-[#E5DECF] px-5 py-5"><p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#806024]">THE MEANING OF TEBRA</p><p className="mt-3 text-base leading-7 text-[#20251F]">The name <strong>Tebra</strong> comes from <strong>“brate”</strong>, meaning “brother” in my native Serbian, and represents <strong>closeness, friendship and togetherness</strong>. That is the spirit we want to share with every guest.</p></div>
         <p className="mt-4 text-base leading-7 text-[#555C50]">Today, we are <strong className="text-[#20251F]">ranked #1 of 25 nightlife venues in Hersonissos on Tripadvisor</strong>, in the <strong>Bars &amp; Clubs</strong> category. Our guests’ reviews are the best reflection of the experience we offer.</p>
         <p className="mt-4 text-base leading-7 text-[#555C50]">Welcome. As your host, I’m here to help — with a reservation, a local recommendation or advice during your stay in Hersonissos.</p>
-        <div className="mt-6">
-          <p className="text-sm text-[#555C50]">Warm regards,</p>
-          <p className="mt-1 text-xl font-semibold">Zac</p>
-          <p className="mt-2 text-sm font-semibold uppercase tracking-[0.12em] text-[#806024]">Tebra Premium Sports Bar</p>
-        </div>
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <a href="tel:+306993399000" className="inline-flex min-h-12 items-center justify-center rounded-md bg-[#20251F] px-5 text-sm font-semibold text-[#FAF6EC]">Call Zac · +30 699 339 9000</a>
           <a href={whatsappUrl("Hi Zac, I would like to ask about visiting Tebra.")} target="_blank" rel="noopener" className="inline-flex min-h-12 items-center justify-center rounded-md border border-[#716044]/50 px-5 text-sm font-semibold text-[#20251F]">Message on WhatsApp ↗</a>
