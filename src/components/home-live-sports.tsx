@@ -16,10 +16,12 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
     const timer = setInterval(() => setNow(new Date()), 60_000);
     return () => clearInterval(timer);
   }, []);
+  const [checked, setChecked] = useState<string | null>(null);
   const [remoteFixtures, setRemoteFixtures] = useState<readonly VerifiedFixture[] | null>(null);
   useEffect(() => {
     const controller = new AbortController();
     const refresh = () => loadProgramme(controller.signal).then(feed => {
+      setChecked(feed.checked);
       setRemoteFixtures(feed.events.map(event => ({
         id: event.id, title: event.title, sport: event.sport || "Sport",
         competition: event.competition, startsAt: event.start,
@@ -45,6 +47,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
           <span className="flex shrink-0 items-center gap-1.5 pt-1 text-xs text-ivory-dim"><Clock3 className="h-4 w-4" aria-hidden="true" /> Greek time</span>
         </div>
 
+        <p className="mt-3 text-xs leading-relaxed text-ivory-dim">{checked ? `Schedule checked ${checked} · ` : ""}All times in Greece. Contact Tebra to confirm your screening.</p>
         <div className="mt-6 grid gap-7 md:grid-cols-2 md:gap-8" aria-busy={!now}>
           <FixtureGroup title="Today" fixtures={selected.today} loading={!now} requestUrl={requestUrl} />
           <FixtureGroup title="Coming up" fixtures={selected.upcoming} loading={!now} requestUrl={requestUrl} />
@@ -54,7 +57,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
           <p className="min-w-0 text-sm leading-relaxed text-ivory-dim">Request your match and table on WhatsApp. Tebra will confirm availability.</p>
           <div className="grid gap-2 sm:flex sm:items-center">
             <Button asChild className="h-auto min-h-12 bg-gold-gradient px-5 py-3 font-semibold text-primary-foreground">
-              <a href={requestUrl("Hi TE.BRA, I would like to request a table for live sport. Please confirm the match and table availability.")} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden="true" /> Request a table</a>
+              <a href={requestUrl("Hi Tebra, I would like to request a table for live sport. Please confirm the match and table availability.")} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden="true" /> Request a table</a>
             </Button>
             <Button asChild variant="ghost" className="min-h-12 text-gold hover:bg-gold/10 hover:text-gold-bright">
               <a href="/sports-desk">Full programme <ArrowUpRight aria-hidden="true" /></a>
@@ -89,13 +92,13 @@ function FixtureGroup({ title, fixtures, loading, requestUrl }: {
                 <span className="mt-1 block text-xs text-ivory-dim">{fixtureDate(fixture.startsAt)}</span>
               </div>
               <Button asChild variant="outline" className="col-span-2 mt-1 min-h-11 w-full border-gold/40 text-ivory hover:bg-gold/10 hover:text-ivory sm:w-fit">
-                <a href={requestUrl(`Hi TE.BRA, I would like to request a table for ${fixture.title} on ${fixtureDate(fixture.startsAt)} at ${greekTime(fixture.startsAt)} Greek time. Please confirm the screening and table availability.`)} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden="true" /> Request a table</a>
+                <a href={requestUrl(`Hi Tebra, I would like to request a table for ${fixture.title} on ${fixtureDate(fixture.startsAt)} at ${greekTime(fixture.startsAt)} Greek time. Please confirm the screening and table availability.`)} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden="true" /> Request a table</a>
               </Button>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="py-5 text-sm leading-relaxed text-ivory-dim">{loading ? "Checking the programme…" : title === "Today" ? "No confirmed fixtures for today. Ask us about your match." : "More fixtures will appear once confirmed by official sources."}</p>
+        <p className="py-5 text-sm leading-relaxed text-ivory-dim">{loading ? "Checking the programme…" : title === "Today" ? "No upcoming fixtures listed for today. Ask us about your match." : "More fixtures will appear once verified against official schedules."}</p>
       )}
     </div>
   );
