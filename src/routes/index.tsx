@@ -556,8 +556,8 @@ function Sport() {
   const [match, setMatch] = useState("");
   const [party, setParty] = useState("2");
   const [when, setWhen] = useState("");
-  const [preview, setPreview] = useState(false);
-  useEffect(() => setPreview(false), [match, party, when]);
+  const [preview, setPreview] = useState<string | null>(null);
+  useEffect(() => setPreview(null), [match, party, when]);
 
   const message = useMemo(() => {
     const m = match || "the match";
@@ -597,16 +597,21 @@ function Sport() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              setPreview(true);
+              const data = new FormData(e.currentTarget);
+              const event = String(data.get("match") || "").trim();
+              const dateTime = String(data.get("when") || "").replace("T", " ");
+              const guests = String(data.get("party") || "");
+              if (!event || !dateTime || !Number.isInteger(Number(guests)) || Number(guests) < 1) return;
+              setPreview(`Hi Tebra, I would like to request a table for ${event} on ${dateTime} Greek time, for ${guests} people. Please confirm the screening and table availability.`);
             }}
             className="deco-frame bg-surface-raised/70 p-6 md:p-8"
           >
             <p className="label-eyebrow">Request your table</p>
             <div className="mt-4 grid gap-4">
-              <Field label="Which match?" value={match} onChange={setMatch} required maxLength={120} placeholder="e.g. Liverpool v Arsenal" />
+              <Field name="match" label="Which match?" value={match} onChange={setMatch} required maxLength={120} placeholder="e.g. Liverpool v Arsenal" />
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <Field label="Date & time · Greece" value={when} onChange={setWhen} type="datetime-local" required />
-                <Field label="Party size" value={party} onChange={setParty} type="number" min={1} step={1} required />
+                <Field name="when" label="Date & time · Greece" value={when} onChange={setWhen} type="datetime-local" required />
+                <Field name="party" label="Party size" value={party} onChange={setParty} type="number" min={1} step={1} required />
               </div>
               <button
                 type="submit"
@@ -615,8 +620,8 @@ function Sport() {
                 Preview your request
               </button>
               {preview && <div className="min-w-0 rounded-md border border-gold/25 bg-background/60 p-4" role="status" aria-live="polite">
-                <p className="break-words text-sm leading-relaxed text-ivory">{message}</p>
-                <a href={whatsappUrl(message)} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-gold-gradient px-4 py-3 text-center text-sm font-semibold text-background">Continue to WhatsApp ↗</a>
+                <p className="break-words text-sm leading-relaxed text-ivory">{preview}</p>
+                <a href={whatsappUrl(preview)} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-gold-gradient px-4 py-3 text-center text-sm font-semibold text-background">Continue to WhatsApp ↗</a>
                 <p className="mt-3 text-xs leading-relaxed text-ivory-dim">Send your request in WhatsApp. Your table and screening are confirmed only when Tebra replies.</p>
               </div>}
             </div>
