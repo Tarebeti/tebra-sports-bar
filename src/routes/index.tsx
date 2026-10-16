@@ -556,11 +556,13 @@ function Sport() {
   const [match, setMatch] = useState("");
   const [party, setParty] = useState("2");
   const [when, setWhen] = useState("");
+  const [preview, setPreview] = useState(false);
+  useEffect(() => setPreview(false), [match, party, when]);
 
   const message = useMemo(() => {
     const m = match || "the match";
-    const w = when || "date and time";
-    return `Hi Tebra, I would like to request a table for ${m} on ${w}, for ${party} people.`;
+    const w = when ? `${when.replace("T", " ")} Greek time` : "date and time";
+    return `Hi Tebra, I would like to request a table for ${m.trim()} on ${w}, for ${party} people. Please confirm the screening and table availability.`;
   }, [match, party, when]);
 
   return (
@@ -595,23 +597,28 @@ function Sport() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              window.open(whatsappUrl(message), "_blank", "noopener");
+              setPreview(true);
             }}
             className="deco-frame bg-surface-raised/70 p-6 md:p-8"
           >
             <p className="label-eyebrow">Request your table</p>
             <div className="mt-4 grid gap-4">
-              <Field label="Which match?" value={match} onChange={setMatch} placeholder="e.g. Real Madrid v Arsenal" />
-              <div className="grid grid-cols-2 gap-3">
-                <Field label="When?" value={when} onChange={setWhen} placeholder="Wed 8pm" />
-                <Field label="Party size" value={party} onChange={setParty} type="number" min={1} />
+              <Field label="Which match?" value={match} onChange={setMatch} required maxLength={120} placeholder="e.g. Liverpool v Arsenal" />
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                <Field label="Date & time · Greece" value={when} onChange={setWhen} type="datetime-local" required />
+                <Field label="Party size" value={party} onChange={setParty} type="number" min={1} step={1} required />
               </div>
               <button
                 type="submit"
                 className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-gold-gradient px-6 py-3 text-sm font-semibold uppercase tracking-[0.14em] text-background transition-transform hover:-translate-y-0.5"
               >
-                Send on WhatsApp
+                Preview your request
               </button>
+              {preview && <div className="min-w-0 rounded-md border border-gold/25 bg-background/60 p-4" role="status" aria-live="polite">
+                <p className="break-words text-sm leading-relaxed text-ivory">{message}</p>
+                <a href={whatsappUrl(message)} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex min-h-12 w-full items-center justify-center rounded-md bg-gold-gradient px-4 py-3 text-center text-sm font-semibold text-background">Continue to WhatsApp ↗</a>
+                <p className="mt-3 text-xs leading-relaxed text-ivory-dim">Send your request in WhatsApp. Your table and screening are confirmed only when Tebra replies.</p>
+              </div>}
             </div>
           </form>
         </FadeUp>
