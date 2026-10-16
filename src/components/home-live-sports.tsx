@@ -88,7 +88,7 @@ function FixtureGroup({ title, fixtures, loading, requestUrl }: {
                 <h4 className="mt-1 break-words font-sans text-lg font-semibold leading-snug tracking-tight text-ivory">{fixture.title}</h4>
                 <a href={fixture.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-8 items-center gap-1 text-xs text-gold underline underline-offset-4">{fixture.sourceName} <ArrowUpRight className="h-3 w-3" aria-hidden="true" /></a>
               </div>
-              <div className="shrink-0 text-right">
+              <div className="col-start-2 row-start-1 shrink-0 text-right">
                 <time dateTime={fixture.startsAt} className="block text-2xl font-semibold tabular-nums text-gold-bright">{greekTime(fixture.startsAt)}</time>
                 <span className="mt-1 block text-xs text-ivory-dim">{fixtureDate(fixture.startsAt)}</span>
               </div>
