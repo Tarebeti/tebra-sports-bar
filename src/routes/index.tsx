@@ -84,10 +84,11 @@ const CONFIG = {
 };
 
 const NAV = [
-  { href: "/sports-desk", label: "Live Sport" },
-  { href: "#drinks", label: "Food & Drinks" },
   { href: "#gallery", label: "The Bar" },
-  { href: "#find-us", label: "Find Us" },
+  { href: "#menus", label: "Food & Drinks" },
+  { href: "/sports-desk", label: "Live Sport" },
+  { href: "#live-sports", label: "What's On" },
+  { href: "#sport", label: "Group Bookings" },
 ];
 
 const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${CONFIG.coords.lat},${CONFIG.coords.lng}`;
@@ -249,7 +250,7 @@ function Header() {
           <span className="flex min-w-0 flex-col"><span className="font-sans text-[32px] font-black leading-none tracking-[0.045em] text-ivory sm:text-[38px]">TEBRA</span><span className="mt-1.5 text-[11px] font-extrabold uppercase leading-tight tracking-[0.035em] text-gold sm:text-[13px]">Premium Sports Bar</span></span>
         </a>
 
-        <nav className="hidden items-center gap-5 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-3 xl:gap-5 lg:flex" aria-label="Primary">
           {NAV.map((n) => (
             <a key={n.href} href={n.href} className="link-sweep text-sm text-ivory-dim hover:text-ivory">
               {n.label}
@@ -262,15 +263,15 @@ function Header() {
 
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <span
-            className={`hidden items-center gap-2 rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.16em] md:inline-flex ${
+            className={`hidden items-center gap-2 rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.16em] 2xl:inline-flex ${
               isOpen ? "bg-open/15 text-open border border-open/40" : "bg-surface-raised text-ivory-dim border border-border"
             }`}
           >
             <span className={`h-1.5 w-1.5 rounded-full ${isOpen ? "bg-open animate-pulse" : "bg-ivory-dim"}`} />
             {label}
           </span>
-          <div className="hidden xl:block">
-            <BtnPrimary href="#sport">Request a table ↗</BtnPrimary>
+          <div className="home-header-book">
+            <BtnPrimary href="#sport">Book a table ↗</BtnPrimary>
           </div>
           <a
             href={whatsappUrl("Hi Tebra")}
@@ -295,6 +296,10 @@ function Header() {
         </div>
       </div>
 
+      <nav className="home-mobile-top-nav" aria-label="Quick navigation">
+        {NAV.map(n => <a key={n.label} href={n.href}>{n.label}</a>)}
+        <a href="/active">Tebra Active</a>
+      </nav>
       {menuOpen && (
         <div className="border-t border-gold/10 bg-background lg:hidden">
           <nav id="mobile-navigation" aria-label="Mobile navigation" className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
