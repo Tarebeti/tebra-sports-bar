@@ -85,7 +85,7 @@ const CONFIG = {
 
 const NAV = [
   { href: "/sports-desk", label: "Live Sport" },
-  { href: "#food", label: "Food & Drinks" },
+  { href: "#drinks", label: "Food & Drinks" },
   { href: "#gallery", label: "The Bar" },
   { href: "#find-us", label: "Find Us" },
 ];
@@ -242,7 +242,7 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-gold/10 bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-[84px] max-w-7xl items-center justify-between px-4 md:px-8">
+      <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between gap-3 px-4 md:h-[84px] md:px-8">
         <a href="#top" className="flex shrink-0 items-center gap-2">
           <img src={LOGO} alt="Tebra Sports Bar gold crest logo" className="hidden h-12 w-12 object-contain sm:block" />
           <span className="flex min-w-0 flex-col"><span className="font-sans text-[32px] font-black leading-none tracking-[0.045em] text-ivory sm:text-[38px]">TEBRA</span><span className="mt-1.5 text-[11px] font-extrabold uppercase leading-tight tracking-[0.035em] text-gold sm:text-[13px]">Premium Sports Bar</span></span>
@@ -259,7 +259,7 @@ function Header() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <span
             className={`hidden items-center gap-2 rounded-full px-3 py-1 text-[11px] uppercase tracking-[0.16em] md:inline-flex ${
               isOpen ? "bg-open/15 text-open border border-open/40" : "bg-surface-raised text-ivory-dim border border-border"
@@ -329,7 +329,7 @@ function Header() {
 
 function LoungeStory() {
   return <section id="lounge" className="border-y border-gold/15 bg-[#EEE9DE] py-14 text-[#20251F] md:py-20">
-    <div className="mx-auto grid max-w-7xl items-center gap-9 px-5 md:grid-cols-[1.25fr_1fr] md:gap-16 md:px-8">
+    <div className="mx-auto grid max-w-7xl items-center gap-9 px-4 md:grid-cols-[1.25fr_1fr] md:gap-16 md:px-8">
       <img src="/photos/match-night-guests.jpg" alt="Guests enjoying an evening of football at Tebra" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover object-bottom" />
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#716044]">LIVE SPORT. TEBRA COMFORT.</p>
@@ -344,7 +344,7 @@ function LoungeStory() {
 
 function CocktailStory() {
   return <section id="drinks" className="border-t border-gold/15 py-14 md:py-20">
-    <div className="mx-auto max-w-7xl px-5 md:px-8">
+    <div className="mx-auto max-w-7xl px-4 md:px-8">
       <header className="mb-8 grid items-end gap-5 md:grid-cols-2">
         <div><p className="label-eyebrow">AT THE BAR</p><h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">A proper cocktail.<br />Your kind of evening.</h2></div>
         <p className="max-w-lg text-base leading-7 text-ivory-dim">Cocktails, cold beers, wine and alcohol-free choices. From the first coffee to a drink after the final whistle.</p>
@@ -401,7 +401,7 @@ function Hero() {
 function FacadePhoto() {
   return <section aria-label="The Tebra facade" className="border-b border-gold/15 bg-[#111311] px-4 py-8 md:px-8 md:py-12"><div className="mx-auto max-w-7xl">
           <figure className="overflow-hidden rounded-xl border border-[#E7C77F]/20 bg-[#1B1D19] shadow-2xl">
-            <img src={realExteriorNight.url} alt="The illuminated facade and welcoming lounge of Tebra Premium Sports Bar in Hersonissos" width={1368} height={1028} fetchPriority="high" className="block h-auto w-full" />
+            <img src={realExteriorNight.url} alt="The illuminated facade and welcoming lounge of Tebra Premium Sports Bar in Hersonissos" width={1368} height={1028} fetchPriority="high" className="block h-auto max-h-[680px] w-full object-cover object-center" />
             <figcaption className="flex items-center justify-between gap-3 border-t border-[#E7C77F]/15 px-5 py-4">
               <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#E7C77F]">Your home away from home</span>
               <span className="text-xs text-[#D5D4CD]">Tebra, Crete</span>
@@ -489,8 +489,8 @@ function Cocktails() {
         <div className="grid gap-12 lg:grid-cols-[1.05fr_1fr] lg:items-start">
           <FadeUp>
             <p className="label-eyebrow">Cocktails</p>
-            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
-              The best <span className="text-gold-gradient italic">cocktails</span> in town.
+            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory md:text-4xl">
+              The best <span className="text-gold-gradient">cocktails</span> in town.
             </h2>
             <p className="mt-5 max-w-md text-ivory-dim">
               Handcrafted cocktails with generous measures, mixed by someone with real talent.
@@ -572,8 +572,8 @@ function Sport() {
       <div className="mx-auto grid max-w-7xl gap-12 px-4 md:grid-cols-2 md:px-8">
         <FadeUp>
           <p className="label-eyebrow">Match day</p>
-          <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
-            A great seat for your <span className="text-gold-gradient italic">match</span>.
+          <h2 className="mt-4 font-display text-3xl leading-tight text-ivory md:text-4xl">
+            A great seat for your <span className="text-gold-gradient">match</span>.
           </h2>
           <p className="mt-5 max-w-md text-ivory-dim">
             Tell us your match, date and group size. We will confirm whether we can show it and whether a table is available.
@@ -664,8 +664,8 @@ function Games() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-center">
           <FadeUp>
             <p className="label-eyebrow">Between the matches</p>
-            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
-              Play a little, <span className="text-gold-gradient italic">settle in</span>.
+            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory md:text-4xl">
+              Play a little, <span className="text-gold-gradient">settle in</span>.
             </h2>
             <p className="mt-5 max-w-md text-ivory-dim">
               A game of pool, a round of darts and another reason to stay a little longer.
@@ -727,12 +727,12 @@ function Food() {
               loading="lazy"
               className="aspect-[4/3] w-full rounded-md object-cover object-center"
             />
-            <div className="mt-4 grid gap-4 sm:grid-cols-2"><figure className="overflow-hidden rounded-md border border-gold/15"><img src="/photos/tebra-breakfast.jpg" alt="Breakfast with omelettes, croissants and bread at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover object-bottom" /><figcaption className="px-4 py-3 text-sm text-ivory-dim">Breakfast, with a Tebra welcome.</figcaption></figure><figure className="overflow-hidden rounded-md border border-gold/15"><img src="/photos/zac-breakfast-welcome.jpg" alt="Zac welcoming guests to a breakfast table at Tebra" loading="lazy" className="aspect-[3/4] w-full object-cover" /><figcaption className="px-4 py-3 text-sm text-ivory-dim">Your breakfast. Your host.</figcaption></figure></div>
+            <div className="mt-4 grid grid-cols-2 items-start gap-3 sm:gap-4"><figure className="overflow-hidden rounded-md border border-gold/15"><img src="/photos/tebra-breakfast.jpg" alt="Breakfast with omelettes, croissants and bread at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover object-bottom" /><figcaption className="px-3 py-3 text-xs text-ivory-dim sm:px-4 sm:text-sm">Breakfast, with a Tebra welcome.</figcaption></figure><figure className="overflow-hidden rounded-md border border-gold/15"><img src="/photos/zac-breakfast-welcome.jpg" alt="Zac welcoming guests to a breakfast table at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover object-[center_30%]" /><figcaption className="px-3 py-3 text-xs text-ivory-dim sm:px-4 sm:text-sm">Your breakfast. Your host.</figcaption></figure></div>
           </FadeUp>
           <FadeUp delay={0.15}>
             <p className="label-eyebrow">Food</p>
-            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
-              Good food, <span className="text-gold-gradient italic">all day</span>.
+            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory md:text-4xl">
+              Good food, <span className="text-gold-gradient">all day</span>.
             </h2>
             <p className="mt-5 max-w-md text-ivory-dim">
               Start with coffee and breakfast. Come back for pizza, bar bites and a drink with your match.
@@ -768,9 +768,9 @@ function Experience() {
         <FadeUp>
           <header className="mx-auto max-w-2xl text-center">
             <p className="label-eyebrow">The experience</p>
-            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
+            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory md:text-4xl">
               Where relaxation meets{" "}
-              <span className="text-gold-gradient italic">sophistication</span>.
+              <span className="text-gold-gradient">sophistication</span>.
             </h2>
             <div className="gold-hairline mx-auto mt-8 w-40" />
           </header>
@@ -808,11 +808,14 @@ function Experience() {
 // ---------- Curated venue gallery ----------
 function AtmosphereVideo() {
   return <section id="atmosphere" className="border-t border-gold/15 py-14 md:py-20">
-    <div className="mx-auto max-w-6xl px-5 md:px-8">
-      <p className="label-eyebrow">A MOMENT AT TEBRA</p>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">Step inside. Feel the atmosphere.</h2>
-      <p className="mt-4 max-w-2xl text-base leading-7 text-ivory-dim">A game of pool, live sport on the screens and good company in the lounge. A glimpse of life at Tebra Premium Sports Bar.</p>
-      <video controls playsInline preload="none" poster="/photos/tebra-video-poster.jpg" className="mt-7 aspect-[9/16] max-h-[620px] w-full max-w-sm mx-auto rounded-lg border border-gold/20 bg-black" aria-label="Video of guests and the lounge at Tebra Premium Sports Bar">
+    <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 md:px-8 lg:grid-cols-[1.25fr_0.75fr] lg:gap-16">
+      <div>
+        <p className="label-eyebrow">A MOMENT AT TEBRA</p>
+        <h2 className="mt-3 max-w-xl text-3xl font-semibold leading-tight tracking-tight md:text-4xl">Step inside.<br />Feel the atmosphere.</h2>
+        <p className="mt-4 max-w-xl text-base leading-7 text-ivory-dim">A game of pool, live sport on the screens and good company in the lounge. A glimpse of life at Tebra Premium Sports Bar.</p>
+        <img src="/photos/lounge-wide.webp" alt="The lounge and screens at Tebra" loading="lazy" className="mt-7 hidden aspect-[16/9] w-full rounded-lg border border-gold/20 object-cover lg:block" />
+      </div>
+      <video controls playsInline preload="none" poster="/photos/tebra-video-poster.jpg" className="mx-auto aspect-[9/16] max-h-[600px] w-full max-w-[338px] rounded-lg border border-gold/20 bg-black" aria-label="Video of guests and the lounge at Tebra Premium Sports Bar">
         <source src="/photos/tebra-atmosphere.mp4" type="video/mp4" />
         Your browser does not support video. <a href="/photos/tebra-atmosphere.mp4">Open the Tebra video.</a>
       </video>
@@ -840,16 +843,16 @@ function Gallery() {
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <header className="mb-8 max-w-2xl">
           <p className="label-eyebrow">THE TEBRA EXPERIENCE</p>
-          <h2 className="mt-3 font-display text-4xl text-ivory md:text-5xl">See the place. Feel the welcome.</h2>
+          <h2 className="mt-3 font-display text-3xl leading-tight text-ivory md:text-4xl">See the place. Feel the welcome.</h2>
           <p className="mt-4 text-lg text-ivory-dim">Daylight comfort, big match moments and good company in Hersonissos.</p>
         </header>
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-5">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5">
           {visible.map((g, i) => (
             <button type="button" key={g.src} onClick={() => setActive(GALLERY.indexOf(g))}
               aria-label={`Open photo: ${g.alt}`}
-              className={`group relative overflow-hidden rounded-xl border border-gold/15 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold ${i === 0 ? "col-span-2 row-span-2" : ""}`}>
+              className="group relative overflow-hidden rounded-xl border border-gold/15 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
               <img src={g.src} alt={g.alt} loading="lazy" width="1600" height="1200"
-                className={`h-full w-full ${g.src === img10.url ? "bg-black object-contain p-3" : "object-cover"} transition-transform duration-500 motion-reduce:transition-none ${g.src === img10.url ? "" : "group-hover:scale-105"} ${i === 0 ? "aspect-square" : "aspect-[4/3]"}`} />
+                className={`h-full w-full ${g.src === img10.url ? "bg-black object-contain p-3" : "object-cover"} transition-transform duration-500 motion-reduce:transition-none ${g.src === img10.url ? "" : "group-hover:scale-105"} aspect-[4/3]`} />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-4 pb-4 pt-12 text-sm font-semibold text-white md:text-base">{g.alt}</span>
             </button>
           ))}
@@ -891,7 +894,7 @@ function Reviews() {
         <header className="mx-auto max-w-2xl text-center">
           <p className="label-eyebrow">Our guests’ experiences</p>
           <a href={getSummary().tripadvisorUrl} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex flex-col gap-2 rounded-lg border border-gold/40 bg-gold/10 px-6 py-5"><span className="text-xl font-semibold text-gold md:text-2xl">#1 of 25 Nightlife in Hersonissos</span><span className="text-sm text-ivory">Tripadvisor · Bars &amp; Clubs · 5.0 / 5</span><span className="text-xs text-ivory-dim">Ranking checked 12 October 2026 · View current ranking ↗</span></a>
-          <h2 className="mt-4 font-display text-3xl text-ivory md:text-5xl">Read them in their own words.</h2>
+          <h2 className="mt-4 font-display text-3xl leading-tight text-ivory md:text-4xl">Read them in their own words.</h2>
           <p className="mt-5 text-ivory-dim">The welcome, the atmosphere and the moments that bring people back. Visit our profiles for the latest reviews and ratings.</p>
         </header>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
@@ -965,8 +968,8 @@ function FAQ() {
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         <FadeUp>
           <p className="label-eyebrow text-center">FAQ</p>
-          <h2 className="mt-4 text-center font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
-            Good to <span className="text-gold-gradient italic">know</span>.
+          <h2 className="mt-4 text-center font-display text-3xl leading-tight text-ivory md:text-4xl">
+            Good to <span className="text-gold-gradient">know</span>.
           </h2>
         </FadeUp>
         <div className="mt-12 divide-y divide-gold/10 border-y border-gold/10">
@@ -999,7 +1002,7 @@ function FAQ() {
 
 function HostStory() {
   return <section id="your-host" aria-labelledby="host-title" className="border-t border-gold/15 bg-[#EEE9DE] py-14 text-[#20251F] md:py-20">
-    <div className="mx-auto grid max-w-5xl items-center gap-9 px-5 md:grid-cols-[0.8fr_1.2fr] md:gap-14 md:px-8">
+    <div className="mx-auto grid max-w-5xl items-center gap-9 px-4 md:grid-cols-[0.8fr_1.2fr] md:gap-14 md:px-8">
       <figure className="mx-auto w-full max-w-sm overflow-hidden rounded-lg border border-[#716044]/20">
         <img src="/photos/zeljko-zac.jpg" alt="Željko, known to Tebra guests as Zac, owner and host" width={755} height={755} loading="lazy" className="block h-auto w-full" />
         <figcaption className="bg-[#20251F] px-5 py-4 text-xs font-semibold uppercase tracking-[0.16em] text-[#E7C77F]">Zac · Founder & host</figcaption>
@@ -1028,8 +1031,8 @@ function FindUs() {
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <FadeUp>
           <p className="label-eyebrow text-center">Find us</p>
-          <h2 className="mt-4 text-center font-display text-3xl leading-tight text-ivory sm:text-4xl md:text-5xl">
-            Come <span className="text-gold-gradient italic">say hello</span>.
+          <h2 className="mt-4 text-center font-display text-3xl leading-tight text-ivory md:text-4xl">
+            Come <span className="text-gold-gradient">say hello</span>.
           </h2>
         </FadeUp>
 
