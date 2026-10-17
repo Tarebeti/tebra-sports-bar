@@ -508,3 +508,20 @@
  .tebra-home .home-header-book a { min-height: 40px; padding: 10px 12px; font-size: 10px; }
 }
 @media (max-width: 420px) { .tebra-home header a[aria-label="Message on WhatsApp"] { display: none; } }
+
+.tebra-home .home-nav-trigger { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--ivory-dim); font-size: 14px; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
+.tebra-home .home-nav-trigger[aria-expanded=true] { color: var(--gold-bright); }
+.tebra-home .home-navigation-panel { position: absolute; inset-inline: 0; top: 100%; display: grid; grid-template-columns: 240px 1fr 1fr; gap: 36px; padding: 32px max(32px,calc((100% - 1216px)/2)); background: var(--surface-raised); border-block: 1px solid var(--gold); box-shadow: 0 18px 30px #0009; max-height: 65svh; overflow-y: auto; }
+.tebra-home .home-navigation-panel > img { width: 100%; height: 190px; object-fit: cover; }
+.tebra-home .home-navigation-panel h2 { font-size: 26px; margin-block: 14px; font-style: italic; }
+.tebra-home .home-navigation-panel p:not(.label-eyebrow) { font-size: 14px; line-height: 1.6; color: var(--ivory-dim); }
+.tebra-home .home-navigation-panel nav { display: flex; flex-direction: column; padding-right: 24px; }
+.tebra-home .home-navigation-panel nav a { min-height: 44px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--gold-bright); }
+.tebra-home .home-panel-close { position: absolute; right: 10px; top: 8px; width: 44px; height: 44px; font-size: 28px; color: var(--gold); }
+@media (max-width: 1023px) {
+ .tebra-home .home-mobile-top-nav .home-nav-trigger { flex: 0 0 auto; font-size: 11px; color: var(--gold); }
+ .tebra-home .home-navigation-panel { grid-template-columns: 100px 1fr; gap: 16px; padding: 24px 16px; }
+ .tebra-home .home-navigation-panel > img { height: 120px; }
+ .tebra-home .home-navigation-panel h2 { font-size: 20px; padding-right: 24px; }
+ .tebra-home .home-navigation-panel nav { grid-column: 1/-1; }
+}
