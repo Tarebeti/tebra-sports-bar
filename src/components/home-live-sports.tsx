@@ -42,11 +42,6 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
   return (
     <section id="live-sports" aria-labelledby="live-sports-title" className="home-sports">
       <div className="home-wrap">
-        <nav className="home-top-actions" aria-label="Explore Tebra">
-          <a href="#live-sports-title">Live sport</a>
-          <a href="#menus">Food &amp; drinks</a>
-          <a href="#sport">Book a table <ArrowUpRight size={16} aria-hidden="true" /></a>
-        </nav>
         <div className="home-sports-heading">
           <div>
             <p className="label-eyebrow"><Tv size={16} aria-hidden="true" /> LIVE SPORT · HERSONISSOS, CRETE</p>
