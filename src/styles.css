@@ -451,7 +451,7 @@
  .tebra-home .home-sports-heading { display: block; }
  .tebra-home .home-sports h1 { font-size: clamp(40px,12vw,58px); }
  .tebra-home .home-sports-intro { margin-top: 18px; font-size: 13px; }
- .tebra-home .home-sports-intro > p { display: inline; }
+ .tebra-home .home-sports-intro > p { display: block; }
  .tebra-home .home-sports-intro .home-text-link { margin-top: 8px; }
  .tebra-home .home-programme-tools { margin-top: 20px; gap: 8px; align-items: end; }
  .tebra-home .home-programme-periods button { padding-inline: 13px; font-size: 12px; }
