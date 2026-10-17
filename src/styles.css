@@ -527,3 +527,26 @@
 }
 
 .tebra-home .home-navigation-panel nav[aria-label="Live Sport options"] { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 20px; align-content: start; }
+
+/* Compact reference proportions for the primary header. */
+.tebra-home > header > div:first-child { height: 70px; max-width: 1440px; padding-inline: 24px; gap: 20px; }
+.tebra-home > header > div:first-child > a > img { width: 38px; height: 38px; }
+.tebra-home > header > div:first-child > a > span > span:first-child { font-size: 30px; }
+.tebra-home > header > div:first-child > a > span > span:last-child { font-size: 10px; margin-top: 5px; }
+.tebra-home > header nav[aria-label="Primary"] { gap: 22px; }
+.tebra-home > header nav[aria-label="Primary"] :is(a,button) { font-size: 12px; letter-spacing: .035em; }
+.tebra-home .home-header-book a { min-height: 50px; padding-inline: 28px; font-size: 12px; }
+.tebra-home :is(#live-sports,#atmosphere,#gallery,#your-host,#find-us,#menus,#food,#drinks,#sport) { scroll-margin-top: 130px; }
+@media (min-width: 1024px) and (max-width: 1199px) {
+ .tebra-home > header > div:first-child { padding-inline: 16px; gap: 12px; }
+ .tebra-home > header nav[aria-label="Primary"] { gap: 12px; }
+ .tebra-home > header nav[aria-label="Primary"] :is(a,button) { font-size: 10px; }
+ .tebra-home .home-header-book a { padding-inline: 16px; font-size: 10px; }
+}
+@media (max-width: 1023px) {
+ .tebra-home > header > div:first-child { height: 66px; padding-inline: 16px; gap: 8px; }
+ .tebra-home > header > div:first-child > a > span > span:first-child { font-size: 27px; }
+ .tebra-home > header > div:first-child > a > span > span:last-child { font-size: 9px; }
+ .tebra-home .home-header-book a { min-height: 42px; padding-inline: 16px; font-size: 10px; }
+ .tebra-home > header button[aria-label="Toggle menu"] { padding: 10px; }
+}
