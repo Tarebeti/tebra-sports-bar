@@ -569,5 +569,4 @@
  .tebra-home .home-mobile-top-nav { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: stretch; overflow-x: auto; overscroll-behavior-x: contain; gap: 24px; padding: 0 16px; border-top: 1px solid var(--border); scrollbar-width: thin; scrollbar-color: var(--gold) transparent; }
  .tebra-home .home-mobile-top-nav > :is(a,button) { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; gap: 5px; min-height: 48px; padding: 10px 0; font: 700 12px "Sora",Helvetica,Arial,sans-serif; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; color: var(--ivory); background: none; border: 0; clip-path: none; }
  .tebra-home .home-mobile-top-nav > .home-inline-book { background: var(--gradient-gold); color: var(--background); padding-inline: 24px; clip-path: polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%); }
- .tebra-home > header .home-header-book { display: none; }
 }
