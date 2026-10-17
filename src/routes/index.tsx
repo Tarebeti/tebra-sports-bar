@@ -210,16 +210,17 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="min-h-screen bg-background text-ivory [&_section[id]]:scroll-mt-20 [&_h1]:font-sans [&_h2]:font-sans [&_h3]:font-sans [&_h1]:font-semibold [&_h2]:font-semibold [&_h3]:font-semibold [&_h2]:tracking-tight">
+    <div className="tebra-home min-h-screen bg-background text-ivory [&_section[id]]:scroll-mt-20 [&_h1]:font-sans [&_h2]:font-sans [&_h3]:font-sans [&_h1]:font-semibold [&_h2]:font-semibold [&_h3]:font-semibold [&_h2]:tracking-tight">
       <Header />
       <main id="top">
         <HomeLiveSports fixtures={VERIFIED_SPORTS_PROGRAMME} requestUrl={whatsappUrl} />
         <FacadePhoto />
         <LoungeStory />
-        <AtmosphereVideo />
         <Reviews />
+        <SportsExperience />
         <CocktailStory />
         <Food />
+        <MenuOverview />
         <Games />
         <Gallery />
         <Sport />
@@ -269,9 +270,7 @@ function Header() {
             {label}
           </span>
           <div className="hidden xl:block">
-            <BtnPrimary href={directionsUrl} target="_blank" rel="noopener">
-              Get Directions
-            </BtnPrimary>
+            <BtnPrimary href="#sport">Request a table ↗</BtnPrimary>
           </div>
           <a
             href={whatsappUrl("Hi Tebra")}
@@ -328,33 +327,45 @@ function Header() {
 
 
 function LoungeStory() {
-  return <section id="lounge" className="border-y border-gold/15 bg-[#EEE9DE] py-14 text-[#20251F] md:py-20">
-    <div className="mx-auto grid max-w-7xl items-center gap-9 px-4 md:grid-cols-[1.25fr_1fr] md:gap-16 md:px-8">
-      <img src="/photos/match-night-guests.jpg" alt="Guests enjoying an evening of football at Tebra" loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover object-bottom" />
-      <div>
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#716044]">LIVE SPORT. TEBRA COMFORT.</p>
-        <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-tight md:text-4xl">The match brings you in.<br />The welcome brings you back.</h2>
-        <p className="mt-5 text-base leading-7 text-[#555C50]">Your team, your friends and a room full of good company. Settle into the lounge, join us around the pool table and make an evening of it.</p>
-        <p className="mt-4 text-base leading-7 text-[#555C50]">Zac and Valentina welcome you to Tebra — your home away from home in Hersonissos.</p>
-        <a href="#sport" className="mt-7 inline-flex min-h-12 items-center rounded-md bg-[#20251F] px-6 text-sm font-semibold text-[#FAF6EC]">Plan your visit ↗</a>
-      </div>
+  return <section id="lounge" className="home-story home-wrap">
+    <div className="home-story-copy">
+      <p className="label-eyebrow">TEBRA · HERSONISSOS, CRETE</p>
+      <h2>The match brings you in.<br />The welcome brings you back.</h2>
+      <p>Your team, your friends and a room full of good company. Settle into the lounge, join us around the pool table and make an evening of it.</p>
+      <p>Zac and Valentina welcome you to Tebra — your home away from home in Hersonissos.</p>
+      <BtnPrimary href="#sport">Plan your visit ↗</BtnPrimary>
     </div>
+    <img src="/photos/match-night-guests.jpg" alt="Guests enjoying an evening of football at Tebra" loading="lazy" className="home-story-photo" />
+  </section>;
+}
+
+function SportsExperience() {
+  return <section className="home-story home-story-reverse home-wrap" aria-labelledby="sports-experience-title">
+    <div className="home-story-copy">
+      <p className="label-eyebrow">THE SPORT. THE SCREENS. THE COMPANY.</p>
+      <h2 id="sports-experience-title">Big match.<br />Your kind of place.</h2>
+      <p>Premier League weekends, European nights and the sporting moments you came to see. Find your event, check the Greek start time and ask us about your table.</p>
+      <p>Tell us your match before you visit. Tebra will confirm the screening and table availability.</p>
+      <BtnPrimary href="/sports-desk">Explore live sport ↗</BtnPrimary>
+    </div>
+    <img src="/photos/screens-lounge.webp" alt="The screens and comfortable lounge seating at Tebra" loading="lazy" className="home-story-photo" />
   </section>;
 }
 
 function CocktailStory() {
-  return <section id="drinks" className="border-t border-gold/15 py-14 md:py-20">
-    <div className="mx-auto max-w-7xl px-4 md:px-8">
-      <header className="mb-8 grid items-end gap-5 md:grid-cols-2">
-        <div><p className="label-eyebrow">AT THE BAR</p><h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">A proper cocktail.<br />Your kind of evening.</h2></div>
-        <p className="max-w-lg text-base leading-7 text-ivory-dim">Cocktails, cold beers, wine and alcohol-free choices. From the first coffee to a drink after the final whistle.</p>
-      </header>
-      <div className="grid gap-5 md:grid-cols-3">
-        <figure className="overflow-hidden rounded-lg border border-gold/15"><img src={img25.url} alt="A signature cocktail at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover" /><figcaption className="p-5 text-lg font-semibold">Cocktails, made for your evening</figcaption></figure>
-        <figure className="overflow-hidden rounded-lg border border-gold/15"><img src={realBarCocktails.url} alt="The Tebra bar with fresh fruit and spirits" loading="lazy" className="aspect-[4/3] w-full object-cover" /><figcaption className="p-5 text-lg font-semibold">A warm welcome at the bar</figcaption></figure>
-        <a href="/active" className="flex min-h-64 flex-col justify-center rounded-lg border border-gold/25 bg-[#1C231D] p-7"><p className="label-eyebrow">TEBRA ACTIVE</p><h3 className="mt-5 text-3xl font-semibold text-ivory">More choice.<br />Same Tebra.</h3><p className="mt-4 text-sm leading-6 text-ivory-dim">Explore our smoothie and protein line.</p><span className="mt-7 text-sm font-semibold text-gold">Discover Active ↗</span></a>
+  return <section id="drinks" className="home-wrap home-offer">
+    <div className="home-story">
+      <div className="home-story-copy">
+        <p className="label-eyebrow">AT THE BAR</p>
+        <h2>A proper cocktail.<br />Your kind of evening.</h2>
+        <p>Cocktails, cold beers, wine and alcohol-free choices. From the first coffee to a drink after the final whistle.</p>
+        <BtnPrimary href={CONFIG.menuUrl} target="_blank" rel="noopener noreferrer">Explore the menu ↗</BtnPrimary>
       </div>
-      <a href={CONFIG.menuUrl} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-12 items-center rounded-md border border-gold/40 px-6 text-sm font-semibold">View the menu ↗</a>
+      <img src={img25.url} alt="Fresh cocktails served at the Tebra bar" loading="lazy" className="home-story-photo" />
+    </div>
+    <div className="home-drinks-strip">
+      <img src={realBarCocktails.url} alt="The Tebra bar with fresh fruit and spirits" loading="lazy" />
+      <a href="/active" className="home-active-link"><span className="label-eyebrow">TEBRA ACTIVE</span><h3>More choice.<br />Same Tebra.</h3><p>Explore our smoothie and protein line.</p><span className="home-text-link">Discover Active ↗</span></a>
     </div>
   </section>;
 }
@@ -399,14 +410,19 @@ function Hero() {
 }
 
 function FacadePhoto() {
-  return <section aria-label="The Tebra facade" className="border-b border-gold/15 bg-[#111311] px-4 py-8 md:px-8 md:py-12"><div className="mx-auto max-w-7xl">
-          <figure className="overflow-hidden rounded-xl border border-[#E7C77F]/20 bg-[#1B1D19] shadow-2xl">
-            <img src={realExteriorNight.url} alt="The illuminated facade and welcoming lounge of Tebra Premium Sports Bar in Hersonissos" width={1368} height={1028} fetchPriority="high" className="block h-auto max-h-[680px] w-full object-cover object-center" />
-            <figcaption className="flex items-center justify-between gap-3 border-t border-[#E7C77F]/15 px-5 py-4">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#E7C77F]">Your home away from home</span>
-              <span className="text-xs text-[#D5D4CD]">Tebra, Crete</span>
-            </figcaption>
-          </figure></div></section>;
+  return <section id="atmosphere" className="home-venue home-wrap" aria-labelledby="venue-title">
+    <div className="home-venue-scene">
+      <img src={realExteriorNight.url} alt="The illuminated facade and welcoming lounge of Tebra Premium Sports Bar in Hersonissos" width={1368} height={1028} loading="lazy" />
+      <div className="home-venue-brand"><p className="label-eyebrow">HERSONISSOS · CRETE</p><h2 id="venue-title">TEBRA</h2><p>Premium Sports Bar</p><a href="#lounge" className="home-text-link">Step inside ↘</a></div>
+    </div>
+    <figure className="home-venue-film">
+      <video controls playsInline preload="none" poster="/photos/tebra-video-poster.jpg" aria-label="Video of guests and the lounge at Tebra Premium Sports Bar">
+        <source src="/photos/tebra-atmosphere.mp4" type="video/mp4" />
+        Your browser does not support video. <a href="/photos/tebra-atmosphere.mp4">Open the Tebra video.</a>
+      </video>
+      <figcaption>A moment at Tebra · Feel the atmosphere</figcaption>
+    </figure>
+  </section>;
 }
 
 function HeroLiveLine() {
@@ -712,43 +728,33 @@ function Games() {
 
 // ---------- Food ----------
 function Food() {
-  return (
-    <section id="food" className="relative border-t border-gold/10 py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <FadeUp>
-            <motion.img
-              initial={{ scale: 1.05 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.4, ease: "easeOut" }}
-              src={FOOD}
-              alt="Pizza served at Tebra Premium Sports Bar"
-              loading="lazy"
-              className="aspect-[4/3] w-full rounded-md object-cover object-center"
-            />
-            <div className="mt-4 grid grid-cols-2 items-start gap-3 sm:gap-4"><figure className="overflow-hidden rounded-md border border-gold/15"><img src="/photos/tebra-breakfast.jpg" alt="Breakfast with omelettes, croissants and bread at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover object-bottom" /><figcaption className="px-3 py-3 text-xs text-ivory-dim sm:px-4 sm:text-sm">Breakfast, with a Tebra welcome.</figcaption></figure><figure className="overflow-hidden rounded-md border border-gold/15"><img src="/photos/zac-breakfast-welcome.jpg" alt="Zac welcoming guests to a breakfast table at Tebra" loading="lazy" className="aspect-[4/3] w-full object-cover object-[center_30%]" /><figcaption className="px-3 py-3 text-xs text-ivory-dim sm:px-4 sm:text-sm">Your breakfast. Your host.</figcaption></figure></div>
-          </FadeUp>
-          <FadeUp delay={0.15}>
-            <p className="label-eyebrow">Food</p>
-            <h2 className="mt-4 font-display text-3xl leading-tight text-ivory md:text-4xl">
-              Good food, <span className="text-gold-gradient">all day</span>.
-            </h2>
-            <p className="mt-5 max-w-md text-ivory-dim">
-              Start with coffee and breakfast. Come back for pizza, bar bites and a drink with your match.
-            </p>
-            <ul className="mt-6 grid grid-cols-2 gap-y-2 text-sm text-ivory-dim">
-              <li className="flex items-center gap-2"><Dot /> Breakfast</li>
-              <li className="flex items-center gap-2"><Dot /> Bar bites</li>
-              <li className="flex items-center gap-2"><Dot /> Sharing plates</li>
-              <li className="flex items-center gap-2"><Dot /> Vegetarian options</li>
-            </ul>
-            <div className="mt-8"><BtnOutline href={CONFIG.menuUrl} target="_blank" rel="noopener noreferrer">View the full menu ↗</BtnOutline></div>
-          </FadeUp>
-        </div>
+  return <section id="food" className="home-wrap home-offer">
+    <div className="home-story home-story-reverse">
+      <div className="home-story-copy">
+        <p className="label-eyebrow">FROM BREAKFAST TO THE FINAL WHISTLE</p>
+        <h2>Good food.<br />Good company.</h2>
+        <p>Start with coffee and breakfast. Come back for pizza, bar bites and a drink with your match.</p>
+        <ul className="home-food-list"><li>Breakfast</li><li>Bar bites</li><li>Sharing plates</li><li>Vegetarian options</li></ul>
+        <BtnPrimary href={CONFIG.menuUrl} target="_blank" rel="noopener noreferrer">View the menu ↗</BtnPrimary>
       </div>
-    </section>
-  );
+      <img src={FOOD} alt="Pizza served at Tebra Premium Sports Bar" loading="lazy" className="home-story-photo" />
+    </div>
+    <div className="home-breakfast-photos">
+      <figure><img src="/photos/tebra-breakfast.jpg" alt="Breakfast with omelettes, croissants and bread at Tebra" loading="lazy" /><figcaption>Breakfast, with a Tebra welcome.</figcaption></figure>
+      <figure><img src="/photos/zac-breakfast-welcome.jpg" alt="Zac welcoming guests to a breakfast table at Tebra" loading="lazy" /><figcaption>Your breakfast. Your host.</figcaption></figure>
+    </div>
+  </section>;
+}
+
+function MenuOverview() {
+  return <section id="menus" className="home-menu home-wrap" aria-labelledby="menus-title">
+    <div><p className="label-eyebrow">EAT &amp; DRINK</p><h2 id="menus-title">Menus at Tebra.</h2><p>Find your favourite. Make an evening of it.</p></div>
+    <div className="home-menu-options">
+      <details open><summary>Food &amp; breakfast <span aria-hidden="true">+</span></summary><p>Breakfast, pizza and bar bites. Browse our full food and drinks menu.</p><a className="home-text-link" href={CONFIG.menuUrl} target="_blank" rel="noopener noreferrer">View full menu ↗</a></details>
+      <details><summary>Cocktails &amp; drinks <span aria-hidden="true">+</span></summary><p>Cocktails, beers, wine, coffee and alcohol-free choices in the full Tebra menu.</p><a className="home-text-link" href={CONFIG.menuUrl} target="_blank" rel="noopener noreferrer">View full menu ↗</a></details>
+      <details><summary>Tebra Active <span aria-hidden="true">+</span></summary><p>Explore our smoothie and protein line.</p><a className="home-text-link" href="/active">Explore Active ↗</a></details>
+    </div>
+  </section>;
 }
 
 function Dot() {
@@ -850,7 +856,7 @@ function Gallery() {
           {visible.map((g, i) => (
             <button type="button" key={g.src} onClick={() => setActive(GALLERY.indexOf(g))}
               aria-label={`Open photo: ${g.alt}`}
-              className="group relative overflow-hidden rounded-xl border border-gold/15 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
+              className="home-gallery-card group relative overflow-hidden rounded-xl border border-gold/15 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
               <img src={g.src} alt={g.alt} loading="lazy" width="1600" height="1200"
                 className={`h-full w-full ${g.src === img10.url ? "bg-black object-contain p-3" : "object-cover"} transition-transform duration-500 motion-reduce:transition-none ${g.src === img10.url ? "" : "group-hover:scale-105"} aspect-[4/3]`} />
               <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-4 pb-4 pt-12 text-sm font-semibold text-white md:text-base">{g.alt}</span>
@@ -898,7 +904,7 @@ function Reviews() {
           <p className="mt-5 text-ivory-dim">The welcome, the atmosphere and the moments that bring people back. Visit our profiles for the latest reviews and ratings.</p>
         </header>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {platforms.map(platform => <a key={platform.name} href={platform.href} target="_blank" rel="noopener" className="deco-frame block bg-surface-raised/70 p-6 transition-colors hover:border-gold/60">
+          {platforms.map(platform => <a key={platform.name} href={platform.href} target="_blank" rel="noopener" className="home-review-link deco-frame block bg-surface-raised/70 p-6 transition-colors hover:border-gold/60">
             <h3 className="text-xl font-semibold text-ivory">{platform.name} ↗</h3>
             <p className="mt-4 text-sm leading-relaxed text-ivory-dim">{platform.description}</p>
           </a>)}
