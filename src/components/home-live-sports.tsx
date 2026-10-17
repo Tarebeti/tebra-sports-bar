@@ -1,8 +1,6 @@
-import venuePhoto from "@/assets/venue/real_exterior_lounge.jpg.asset.json";
-import { ArrowUpRight, CalendarDays, Clock3, MessageCircle, Tv } from "lucide-react";
+import { ArrowUpRight, CalendarDays, Clock3, Tv } from "lucide-react";
 import { useEffect, useState } from "react";
 import { loadProgramme } from "@/lib/programme-feed";
-import { Button } from "@/components/ui/button";
 import { fixtureDate, greekTime, selectFixtures, type VerifiedFixture } from "@/lib/sports-fixtures";
 
 type Props = {
@@ -11,6 +9,7 @@ type Props = {
 };
 
 export function HomeLiveSports({ fixtures, requestUrl }: Props) {
+  const [period, setPeriod] = useState<"today" | "week">("today");
   const [now, setNow] = useState<Date | null>(null);
   useEffect(() => {
     setNow(new Date());
@@ -37,76 +36,37 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
   }, []);
   const selected = now ? selectFixtures(remoteFixtures ?? fixtures, now) : { today: [], upcoming: [] };
 
+  const showToday = period === "today" && selected.today.length > 0;
+  const shown = showToday ? selected.today : [...selected.today, ...selected.upcoming];
+
   return (
-    <section id="live-sports" aria-labelledby="live-sports-title" className="border-y border-gold/30 bg-background">
-      <div className="mx-auto max-w-7xl px-4 py-6 md:px-8 md:py-8">
-        <div className="relative isolate overflow-hidden rounded-xl border border-gold/25 bg-[#111713] px-5 py-7 sm:px-7 sm:py-9">
-          <img src={venuePhoto.url} alt="" aria-hidden="true" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/90 via-black/70 to-black/20" />
-          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row">
-          <div className="min-w-0">
-            <p className="flex items-center gap-2 text-xs font-semibold uppercase text-gold"><Tv className="h-4 w-4 shrink-0" aria-hidden="true" /> Sports Desk</p>
-            <h1 id="live-sports-title" className="mt-2 font-sans text-[34px] font-semibold leading-tight tracking-tight text-ivory sm:text-5xl">Your match.<br /> Your place.</h1>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-ivory-dim">Live sport at Tebra Premium Sports Bar · Hersonissos, Crete</p>
+    <section id="live-sports" aria-labelledby="live-sports-title" className="home-sports">
+      <div className="home-wrap">
+        <div className="home-sports-heading">
+          <div>
+            <p className="label-eyebrow"><Tv size={16} aria-hidden="true" /> LIVE SPORT · HERSONISSOS, CRETE</p>
+            <h1 id="live-sports-title">Your match.<br /><span>Your place.</span></h1>
           </div>
-          <span className="flex shrink-0 items-center gap-1.5 self-start rounded-full border border-white/25 bg-black/40 px-3 py-2 text-xs text-ivory"><Clock3 className="h-4 w-4" aria-hidden="true" /> Greek time</span>
+          <div className="home-sports-intro"><p>Find your match. Check the Greek time.<br />Make it a Tebra evening.</p><a href="/sports-desk" className="home-text-link">Full programme <ArrowUpRight size={18} aria-hidden="true" /></a></div>
+        </div>
+        <div className="home-programme-tools">
+          <div className="home-programme-periods" role="group" aria-label="Programme period">
+            <button type="button" aria-pressed={period === "today"} onClick={() => setPeriod("today")}>Today</button>
+            <button type="button" aria-pressed={period === "week"} onClick={() => setPeriod("week")}>This week</button>
           </div>
+          <span className="home-greek-time"><Clock3 size={16} aria-hidden="true" /> All times in Greece</span>
         </div>
-
-        <p className="mt-3 text-xs leading-relaxed text-ivory-dim">{checked ? `Schedule checked ${checked} · ` : ""}All times in Greece. Contact Tebra to confirm your screening.</p>
-        <div className={`mt-6 grid gap-7 md:gap-8 ${selected.today.length && selected.upcoming.length ? "md:grid-cols-2" : ""}`} aria-busy={!now}>
-          {(!now || selected.today.length > 0 || !selected.upcoming.length) && <FixtureGroup title="Today" fixtures={selected.today} loading={!now} requestUrl={requestUrl} />}
-          <FixtureGroup title="Coming up" fixtures={selected.upcoming} loading={!now} requestUrl={requestUrl} wide={!selected.today.length} />
-        </div>
-
-        <div className="mt-7 grid gap-4 border-t border-gold/20 pt-5 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center">
-          <p className="min-w-0 text-sm leading-relaxed text-ivory-dim">Request your match and table on WhatsApp. Tebra will confirm availability.</p>
-          <div className="grid gap-2 sm:flex sm:items-center">
-            <Button asChild className="h-auto min-h-12 bg-gold-gradient px-5 py-3 font-semibold text-primary-foreground">
-              <a href={requestUrl("Hi Tebra, I would like to request a table for live sport. Please confirm the match and table availability.")} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden="true" /> Request a table</a>
-            </Button>
-            <Button asChild variant="ghost" className="min-h-12 text-gold hover:bg-gold/10 hover:text-gold-bright">
-              <a href="/sports-desk">Full programme <ArrowUpRight aria-hidden="true" /></a>
-            </Button>
-          </div>
-        </div>
+        {!now ? <p className="home-programme-empty" role="status">Checking the programme…</p> : shown.length ? <ul className="home-fixture-grid">
+          {shown.map(fixture => <li key={fixture.id} className="home-fixture">
+            <div className="home-fixture-top"><p>{fixture.competition}</p><time dateTime={fixture.startsAt}>{greekTime(fixture.startsAt)}</time></div>
+            <h2>{fixture.title}</h2>
+            <p className="home-fixture-date"><CalendarDays size={14} aria-hidden="true" /> {fixtureDate(fixture.startsAt)}</p>
+            <div className="home-fixture-actions"><a href={requestUrl(`Hi Tebra, I would like to request a table for ${fixture.title} on ${fixtureDate(fixture.startsAt)} at ${greekTime(fixture.startsAt)} Greek time. Please confirm the screening and table availability.`)} target="_blank" rel="noopener noreferrer" className="home-fixture-request" aria-label={`Request a table for ${fixture.title}`}>Request a table <ArrowUpRight size={15} aria-hidden="true" /></a><a href={fixture.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`Official schedule source for ${fixture.title}`} className="home-fixture-source">Source</a></div>
+          </li>)}
+        </ul> : <p className="home-programme-empty">No upcoming fixtures listed. Ask us about your match.</p>}
+        {now && !showToday && period === "today" && selected.upcoming.length > 0 && <p className="home-programme-note">Today’s listed start times have passed. Here is what’s coming up.</p>}
+        <div className="home-programme-footer"><p>{checked ? `Schedule checked ${checked}. ` : ""}Contact Tebra to confirm your screening and table.</p><a href="/sports-desk" className="home-text-link">All sports &amp; fixtures <ArrowUpRight size={16} aria-hidden="true" /></a></div>
       </div>
     </section>
-  );
-}
-
-function FixtureGroup({ title, fixtures, loading, requestUrl, wide = false }: {
-  wide?: boolean;
-  title: string;
-  fixtures: readonly VerifiedFixture[];
-  loading: boolean;
-  requestUrl: Props["requestUrl"];
-}) {
-  return (
-    <div className="min-w-0">
-      <h3 className="flex items-center gap-2 border-b border-gold/30 pb-3 font-sans text-sm font-semibold uppercase text-ivory"><CalendarDays className="h-4 w-4 text-gold" aria-hidden="true" /> {title}</h3>
-      {fixtures.length ? (
-        <ul className={`mt-3 grid gap-3 ${wide ? "md:grid-cols-2" : ""}`}>
-          {fixtures.map((fixture) => (
-            <li key={fixture.id} className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-3 gap-y-2 rounded-lg border border-gold/20 bg-surface-raised/40 p-3 sm:p-4">
-              <div className="min-w-0">
-                <p className="text-xs leading-relaxed text-ivory-dim">{fixture.competition} · {fixture.sport}</p>
-                <h4 className="mt-1 break-words font-sans text-lg font-semibold leading-snug tracking-tight text-ivory">{fixture.title}</h4>
-                <a href={fixture.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex min-h-8 items-center gap-1 text-xs text-gold underline underline-offset-4">{fixture.sourceName} <ArrowUpRight className="h-3 w-3" aria-hidden="true" /></a>
-              </div>
-              <div className="col-start-2 row-start-1 shrink-0 text-right">
-                <time dateTime={fixture.startsAt} className="block text-2xl font-semibold tabular-nums text-gold-bright">{greekTime(fixture.startsAt)}</time>
-                <span className="mt-1 block text-xs text-ivory-dim">{fixtureDate(fixture.startsAt)}</span>
-              </div>
-              <Button asChild variant="outline" className="col-span-2 min-h-11 w-full border-gold/40 text-ivory hover:bg-gold/10 hover:text-ivory sm:col-start-2 sm:row-start-1 sm:mt-14 sm:w-fit">
-                <a href={requestUrl(`Hi Tebra, I would like to request a table for ${fixture.title} on ${fixtureDate(fixture.startsAt)} at ${greekTime(fixture.startsAt)} Greek time. Please confirm the screening and table availability.`)} target="_blank" rel="noopener noreferrer"><MessageCircle aria-hidden="true" /> Request a table</a>
-              </Button>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="py-5 text-sm leading-relaxed text-ivory-dim">{loading ? "Checking the programme…" : title === "Today" ? "No upcoming fixtures listed for today. Ask us about your match." : "More fixtures will appear once verified against official schedules."}</p>
-      )}
-    </div>
   );
 }
