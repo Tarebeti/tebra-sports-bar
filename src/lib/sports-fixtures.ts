@@ -35,7 +35,7 @@ export function fixtureDate(startsAt: string): string {
 }
 
 export function selectFixtures(fixtures: readonly VerifiedFixture[], now: Date) {
-  // Only offer upcoming starts; a schedule never implies a confirmed screening.
+  // Retain starts for three hours; a schedule never implies a confirmed screening.
   const upcoming = fixtures.filter((fixture) => {
     const start = Date.parse(fixture.startsAt);
     const verification = Date.parse(fixture.verifiedAt);
@@ -43,7 +43,7 @@ export function selectFixtures(fixtures: readonly VerifiedFixture[], now: Date) 
       && verification <= now.getTime()
       && /^https:\/\//.test(fixture.sourceUrl)
       && fixture.sourceName.trim().length > 0
-      && start >= now.getTime();
+      && start + 3 * 60 * 60 * 1000 >= now.getTime();
   }).sort((a, b) => (a.priority ?? 2) - (b.priority ?? 2)
     || Number(!!b.featured) - Number(!!a.featured)
     || Date.parse(a.startsAt) - Date.parse(b.startsAt));
