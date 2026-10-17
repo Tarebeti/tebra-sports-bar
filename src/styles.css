@@ -590,3 +590,24 @@
  .tebra-home .home-mobile-top-nav { gap: 6px; padding-block: 6px; }
  .tebra-home .home-mobile-top-nav :is(a,.home-nav-trigger) { font-size: 10px; padding-inline: 14px; color: var(--background); }
 }
+
+/* Reference navigation: text choices, one prominent booking action. */
+.tebra-home > header nav[aria-label="Primary"] { gap: 26px; }
+.tebra-home > header nav[aria-label="Primary"] :is(a,button),
+.tebra-home .home-mobile-top-nav :is(a,.home-nav-trigger) {
+ background: none; border: 0; border-radius: 0; clip-path: none; box-shadow: none;
+ color: var(--ivory); padding: 10px 0; font-size: 12px; letter-spacing: .04em;
+}
+.tebra-home > header nav[aria-label="Primary"] :is(a,button)[aria-expanded=true],
+.tebra-home .home-mobile-top-nav .home-nav-trigger[aria-expanded=true] { background: none; color: var(--gold-bright); box-shadow: none; }
+.tebra-home > header nav[aria-label="Primary"] :is(a,button):hover { color: var(--gold-bright); }
+.tebra-home .home-nav-trigger span { font-size: 12px; }
+.tebra-home .home-header-book a { min-height: 50px; padding-inline: 30px; background: var(--gradient-gold); color: var(--background); }
+@media (min-width: 1024px) and (max-width: 1199px) {
+ .tebra-home > header nav[aria-label="Primary"] { gap: 12px; }
+ .tebra-home > header nav[aria-label="Primary"] :is(a,button) { font-size: 10px; }
+}
+@media (max-width: 1023px) {
+ .tebra-home .home-mobile-top-nav { display: none; }
+ .tebra-home .home-header-book a { min-height: 42px; padding-inline: 16px; }
+}
