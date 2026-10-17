@@ -525,3 +525,5 @@
  .tebra-home .home-navigation-panel h2 { font-size: 20px; padding-right: 24px; }
  .tebra-home .home-navigation-panel nav { grid-column: 1/-1; }
 }
+
+.tebra-home .home-navigation-panel nav[aria-label="Live Sport options"] { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 20px; align-content: start; }
