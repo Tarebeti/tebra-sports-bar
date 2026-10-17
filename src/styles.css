@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap");
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -610,4 +611,21 @@
 @media (max-width: 1023px) {
  .tebra-home .home-mobile-top-nav { display: none; }
  .tebra-home .home-header-book a { min-height: 42px; padding-inline: 16px; }
+}
+
+/* Sport London reference typography and top-bar spacing. */
+.tebra-home > header nav[aria-label="Primary"] :is(a,button),
+.tebra-home > header .home-header-book a { font-family: "Sora", Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 700; letter-spacing: .045em; line-height: 1.2; }
+.tebra-home > header > div:first-child { height: 70px; max-width: 1440px; }
+.tebra-home > header nav[aria-label="Primary"] { gap: 28px; }
+.tebra-home > header .home-header-book a { min-height: 60px; padding-inline: 32px; }
+@media (min-width: 1024px) and (max-width: 1199px) {
+ .tebra-home > header nav[aria-label="Primary"] { gap: 12px; }
+ .tebra-home > header nav[aria-label="Primary"] :is(a,button) { font-size: 10px; }
+ .tebra-home > header .home-header-book a { padding-inline: 18px; font-size: 11px; }
+}
+@media (max-width: 1023px) {
+ .tebra-home > header > div:first-child { height: 66px; }
+ .tebra-home > header .home-header-book a { min-height: 44px; font-size: 10px; padding-inline: 16px; }
+ .tebra-home #mobile-navigation :is(a,button) { font-family: "Sora",Helvetica,Arial,sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
 }
