@@ -43,8 +43,8 @@
   --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --gradient-gold: linear-gradient(135deg, #ff6650, #e71b2d);
-  --gradient-gold-soft: linear-gradient(135deg, rgb(85 241 249 / .15), rgb(51 185 255 / .15));
+  --gradient-gold: linear-gradient(135deg, oklch(0.74 0.13 82) 0%, oklch(0.88 0.11 92) 100%);
+  --gradient-gold-soft: linear-gradient(135deg, oklch(0.74 0.13 82 / 0.15) 0%, oklch(0.88 0.11 92 / 0.15) 100%);
   --shadow-lux: 0 20px 60px -20px oklch(0 0 0 / 0.7), 0 0 0 1px oklch(0.74 0.13 82 / 0.12);
   --shadow-gold-glow: 0 8px 40px -10px oklch(0.74 0.13 82 / 0.35);
 }
@@ -53,41 +53,41 @@
   --radius: 0.5rem;
 
   /* Base surfaces */
-  --background: #080c0f;
-  --foreground: #ffffff;
-  --surface: #122430;
-  --surface-raised: #1c3343;
+  --background: oklch(0.12 0.005 60);       /* #0B0B0C */
+  --foreground: oklch(0.95 0.015 85);       /* ivory */
+  --surface: oklch(0.12 0.005 60);
+  --surface-raised: oklch(0.17 0.006 60);   /* #141416 */
 
-  --card: #1c3343;
-  --card-foreground: #ffffff;
-  --popover: #122430;
-  --popover-foreground: #ffffff;
+  --card: oklch(0.17 0.006 60);
+  --card-foreground: oklch(0.95 0.015 85);
+  --popover: oklch(0.17 0.006 60);
+  --popover-foreground: oklch(0.95 0.015 85);
 
   /* Champagne gold */
-  --gold: #55f1f9;
-  --gold-bright: #55f1f9;
-  --gold-deep: #067c93;
-  --amber-glow: #067c93;
+  --gold: oklch(0.78 0.12 85);              /* #C9A24B midpoint */
+  --gold-bright: oklch(0.88 0.11 92);       /* #F0D98C */
+  --gold-deep: oklch(0.55 0.09 70);         /* #8A6A2F warm amber glow */
+  --amber-glow: oklch(0.55 0.09 70);
 
   /* Text */
-  --ivory: #ffffff;
-  --ivory-dim: #dce6ed;
+  --ivory: oklch(0.96 0.015 85);            /* #F7F3EA */
+  --ivory-dim: oklch(0.88 0.012 85);        /* brighter for mobile readability */
 
   /* Semantic */
-  --primary: #ff6650;
-  --primary-foreground: #080c0f;
-  --secondary: #26455c;
-  --secondary-foreground: #ffffff;
-  --muted: #26455c;
-  --muted-foreground: #c1d1dc;
-  --accent: #55f1f9;
-  --accent-foreground: #080c0f;
+  --primary: oklch(0.78 0.12 85);
+  --primary-foreground: oklch(0.12 0.005 60);
+  --secondary: oklch(0.22 0.006 60);
+  --secondary-foreground: oklch(0.95 0.015 85);
+  --muted: oklch(0.22 0.006 60);
+  --muted-foreground: oklch(0.72 0.012 85);
+  --accent: oklch(0.78 0.12 85);
+  --accent-foreground: oklch(0.12 0.005 60);
   --destructive: oklch(0.6 0.2 25);
   --destructive-foreground: oklch(0.98 0 0);
 
-  --border: rgb(255 255 255 / 0.16);
-  --input: rgb(255 255 255 / 0.24);
-  --ring: #55f1f9;
+  --border: oklch(0.78 0.12 85 / 0.15);
+  --input: oklch(0.78 0.12 85 / 0.2);
+  --ring: oklch(0.78 0.12 85 / 0.5);
 
   --open: oklch(0.6 0.09 155);              /* #3E7C57 */
 }
@@ -107,7 +107,9 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
-    background-image: linear-gradient(135deg, #067c93 0%, #26455c 36%, #080c0f 85%);
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% 0%, oklch(0.55 0.09 70 / 0.18), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, oklch(0.78 0.12 85 / 0.06), transparent 60%);
     background-attachment: fixed;
   }
 
@@ -129,11 +131,11 @@
    with background-clip: text. */
 @utility text-gold-gradient {
   /* 1. Solid, high-contrast fallback color (visible everywhere) */
-  color: #55f1f9;
+  color: #F0D98C;
   /* 2. Subtle glow so letters always pop against dark backgrounds */
-  text-shadow: 0 2px 12px rgba(85, 241, 249, 0.15);
-  background: #55f1f9;
-  background-image: linear-gradient(135deg, #55f1f9 0%, #55f1f9 50%, #33b9ff 100%);
+  text-shadow: 0 2px 12px rgba(201, 162, 75, 0.35);
+  background: #F0D98C;
+  background-image: linear-gradient(135deg, #C9A24B 0%, #F0D98C 50%, #E8C572 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -163,7 +165,7 @@
 
 @utility gold-hairline {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgb(85 241 249 / .6), transparent);
+  background: linear-gradient(90deg, transparent, oklch(0.78 0.12 85 / 0.6), transparent);
 }
 
 @utility grain-overlay {
@@ -183,7 +185,7 @@
 
 @utility deco-frame {
   position: relative;
-  border: 1px solid rgb(255 255 255 / .2);
+  border: 1px solid oklch(0.78 0.12 85 / 0.22);
   border-radius: 8px;
 }
 @utility deco-frame {
