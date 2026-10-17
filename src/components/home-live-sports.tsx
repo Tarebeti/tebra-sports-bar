@@ -39,17 +39,17 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
 
   return (
     <section id="live-sports" aria-labelledby="live-sports-title" className="border-y border-gold/30 bg-background">
-      <div className="mx-auto max-w-6xl px-4 py-9 md:px-8 md:py-12">
+      <div className="mx-auto max-w-7xl px-4 py-6 md:px-8 md:py-8">
         <div className="relative isolate overflow-hidden rounded-xl border border-gold/25 bg-[#111713] px-5 py-7 sm:px-7 sm:py-9">
           <img src={venuePhoto.url} alt="" aria-hidden="true" fetchPriority="high" className="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-black/90 via-black/70 to-black/20" />
-          <div className="flex items-start justify-between gap-4">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row">
           <div className="min-w-0">
             <p className="flex items-center gap-2 text-xs font-semibold uppercase text-gold"><Tv className="h-4 w-4 shrink-0" aria-hidden="true" /> Sports Desk</p>
-            <h1 id="live-sports-title" className="mt-2 font-sans text-3xl font-semibold leading-tight tracking-tight text-ivory sm:text-5xl">Your match.<br className="hidden sm:block" /> Your place.</h1>
+            <h1 id="live-sports-title" className="mt-2 font-sans text-[34px] font-semibold leading-tight tracking-tight text-ivory sm:text-5xl">Your match.<br /> Your place.</h1>
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-ivory-dim">Live sport at Tebra Premium Sports Bar · Hersonissos, Crete</p>
           </div>
-          <span className="flex shrink-0 items-center gap-1.5 rounded-full border border-white/25 bg-black/40 px-3 py-2 text-xs text-ivory"><Clock3 className="h-4 w-4" aria-hidden="true" /> Greek time</span>
+          <span className="flex shrink-0 items-center gap-1.5 self-start rounded-full border border-white/25 bg-black/40 px-3 py-2 text-xs text-ivory"><Clock3 className="h-4 w-4" aria-hidden="true" /> Greek time</span>
           </div>
         </div>
 
