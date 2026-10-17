@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import sportsDesk from "../content/sports-desk.html?raw";
 import programmeLoader from "../content/programme-loader.js?raw";
+const sportSelection = `(function(){const chosen=new URLSearchParams(location.search).get('sport');const allowed=['Football','F1','Golf','Rugby','Tennis','Basketball','Fight'];if(!allowed.includes(chosen))return;const button=Array.from(document.querySelectorAll('.sport-filters button')).find(b=>(b.getAttribute('onclick')||'').includes("'" + chosen + "'"));if(button&&typeof filterSport==='function')filterSport(chosen,button);})();`;
 const title = "TEBRA Sports Desk | Hersonissos, Crete";
 const description = "Explore the Tebra sports programme, sports news and practical visitor guide. Times in Greece. Contact Tebra to confirm your match and table.";
 const image = "https://tebrabar.com/__l5e/assets-v1/34e67f05-c289-4244-a782-8d562f0baaa7/os_bar_17.jpg";
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/sports-desk")({
   }),
   server: {
     handlers: {
-      GET: () => new Response(sportsDesk.replace("</html>", `<script>${programmeLoader}</script></html>`).replace("</title>", `</title>${socialMeta}`), {
+      GET: () => new Response(sportsDesk.replace("</html>", `<script>${programmeLoader}</script><script>${sportSelection}</script></html>`).replace("</title>", `</title>${socialMeta}`), {
         headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=300" },
       }),
     },
