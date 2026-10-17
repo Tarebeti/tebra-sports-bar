@@ -491,3 +491,11 @@
 .tebra-home .home-menu details p { margin-block: 18px 8px; color: var(--ivory-dim); font-size: 14px; line-height: 1.7; }
 .tebra-home .home-menu summary:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 5px; }
 @media (max-width: 640px) { .tebra-home .home-menu { grid-template-columns: 1fr; gap: 24px; padding-block: 36px; } }
+
+/* Primary choices stay visible above the homepage headline on every screen. */
+.tebra-home .home-top-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 30px; }
+.tebra-home .home-top-actions a { display: flex; align-items: center; justify-content: center; gap: 5px; min-height: 48px; padding: 12px 8px; border: 1px solid var(--gold); color: var(--gold); font-size: 13px; font-weight: 800; text-transform: uppercase; text-align: center; text-decoration: none; }
+.tebra-home .home-top-actions a:last-child { background: var(--gold); color: var(--background); }
+.tebra-home .home-top-actions a:hover { background: var(--gold-bright); color: var(--background); }
+.tebra-home .home-top-actions a:focus-visible { outline: 2px solid var(--ivory); outline-offset: 3px; }
+@media (max-width: 640px) { .tebra-home .home-top-actions { gap: 6px; margin-bottom: 24px; } .tebra-home .home-top-actions a { font-size: 11px; padding-inline: 5px; } .tebra-home .home-top-actions svg { width: 13px; flex-shrink: 0; } }
