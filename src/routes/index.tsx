@@ -238,6 +238,16 @@ function Home() {
 // ---------- Header ----------
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openPanel, setOpenPanel] = useState<string | null>(null);
+  const panels = {
+    "The Bar": { image: realExteriorNight.url, title: "Your place in Hersonissos.", copy: "Step inside Tebra. Meet your hosts, see the lounge and plan your visit.", links: [{href:"#atmosphere",label:"Step inside"},{href:"#gallery",label:"Photo gallery"},{href:"#your-host",label:"Meet Zac"},{href:"#find-us",label:"Find us"}] },
+    "Food & Drinks": { image: HERO_COCKTAIL, title: "From breakfast to the final whistle.", copy: "Explore our food, cocktails and the Tebra Active range.", links: [{href:"#food",label:"Food & breakfast"},{href:"#drinks",label:"Cocktails & drinks"},{href:CONFIG.menuUrl,label:"Full menu"},{href:"/active",label:"Tebra Active"}] },
+    "Live Sport": { image: "/photos/screens-lounge.webp", title: "Your match. Your place.", copy: "Browse the programme in Greek time. Ask Tebra to confirm your screening and table.", links: [{href:"#live-sports",label:"Today's highlights"},{href:"/sports-desk",label:"Full sports programme"},{href:"#sport",label:"Request your match"}] },
+  };
+  const panel = openPanel ? panels[openPanel as keyof typeof panels] : null;
+  function navItem(n: {href: string; label: string}) {
+    return n.label in panels ? <button key={n.label} type="button" aria-expanded={openPanel === n.label} aria-controls="home-navigation-panel" onClick={() => setOpenPanel(openPanel === n.label ? null : n.label)} className="home-nav-trigger">{n.label} <span aria-hidden="true">⌄</span></button> : <a key={n.label} href={n.href} onClick={() => setOpenPanel(null)} className="link-sweep text-sm text-ivory-dim hover:text-ivory">{n.label}</a>;
+  }
   const now = useAthensNow();
   const { isOpen, hour } = getOpenState(now);
   const label = isOpen ? "Open now" : hour < CONFIG.hoursLocal.open ? "Opens at 11:00" : "Opens tomorrow 11:00";
@@ -251,11 +261,7 @@ function Header() {
         </a>
 
         <nav className="hidden items-center gap-3 xl:gap-5 lg:flex" aria-label="Primary">
-          {NAV.map((n) => (
-            <a key={n.href} href={n.href} className="link-sweep text-sm text-ivory-dim hover:text-ivory">
-              {n.label}
-            </a>
-          ))}
+          {NAV.map(navItem)}
           <Link to="/active" className="link-sweep text-xs font-semibold text-gold">
             TEBRA ACTIVE
           </Link>
@@ -297,9 +303,15 @@ function Header() {
       </div>
 
       <nav className="home-mobile-top-nav" aria-label="Quick navigation">
-        {NAV.map(n => <a key={n.label} href={n.href}>{n.label}</a>)}
+        {NAV.map(navItem)}
         <a href="/active">Tebra Active</a>
       </nav>
+      {panel && <div id="home-navigation-panel" className="home-navigation-panel" onKeyDown={e => { if (e.key === "Escape") setOpenPanel(null); }}>
+        <img src={panel.image} alt="" />
+        <div><p className="label-eyebrow">{openPanel}</p><h2>{panel.title}</h2><p>{panel.copy}</p></div>
+        <nav aria-label={openPanel + " options"}>{panel.links.map(link => <a key={link.label} href={link.href} onClick={() => setOpenPanel(null)}>{link.label} ↗</a>)}</nav>
+        <button type="button" className="home-panel-close" aria-label="Close navigation panel" onClick={() => setOpenPanel(null)}>×</button>
+      </div>}
       {menuOpen && (
         <div className="border-t border-gold/10 bg-background lg:hidden">
           <nav id="mobile-navigation" aria-label="Mobile navigation" className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4">
