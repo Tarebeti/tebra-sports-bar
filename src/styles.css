@@ -499,3 +499,12 @@
 .tebra-home .home-top-actions a:hover { background: var(--gold-bright); color: var(--background); }
 .tebra-home .home-top-actions a:focus-visible { outline: 2px solid var(--ivory); outline-offset: 3px; }
 @media (max-width: 640px) { .tebra-home .home-top-actions { gap: 6px; margin-bottom: 24px; } .tebra-home .home-top-actions a { font-size: 11px; padding-inline: 5px; } .tebra-home .home-top-actions svg { width: 13px; flex-shrink: 0; } }
+
+.tebra-home .home-mobile-top-nav { display: none; }
+.tebra-home .home-header-book a { white-space: nowrap; }
+@media (max-width: 1023px) {
+ .tebra-home .home-mobile-top-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--border); }
+ .tebra-home .home-mobile-top-nav a { display: flex; min-height: 44px; align-items: center; justify-content: center; padding: 8px 4px; color: var(--gold); font-size: 10px; font-weight: 800; text-transform: uppercase; text-align: center; border-bottom: 1px solid var(--border); }
+ .tebra-home .home-header-book a { min-height: 40px; padding: 10px 12px; font-size: 10px; }
+}
+@media (max-width: 420px) { .tebra-home header a[aria-label="Message on WhatsApp"] { display: none; } }
