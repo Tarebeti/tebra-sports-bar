@@ -569,3 +569,24 @@
  .tebra-home .home-match-hero .home-sports-intro .home-text-link { margin-top: 6px; }
  .tebra-home .home-film-control { right: 12px; top: 12px; }
 }
+
+/* Shared gold action treatment, matching the table-booking button. */
+.tebra-home :is(.home-nav-trigger,nav[aria-label="Primary"] > a,.home-mobile-top-nav > a,.home-text-link,.home-fixture-request,.home-programme-periods button,.home-film-control) {
+ display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 12px 18px;
+ background: var(--gradient-gold); color: var(--background); border: 0; border-radius: 0;
+ clip-path: polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
+ font-weight: 800; text-decoration: none; text-shadow: none;
+}
+.tebra-home :is(.home-nav-trigger,nav[aria-label="Primary"] > a,.home-mobile-top-nav > a)[aria-expanded=true] { background: var(--gold-bright); color: var(--background); box-shadow: inset 0 -3px var(--gold-deep); }
+.tebra-home > header nav[aria-label="Primary"] { gap: 5px; }
+.tebra-home > header nav[aria-label="Primary"] :is(a,button) { font-size: 10px; padding-inline: 12px; letter-spacing: 0; }
+.tebra-home .home-programme-periods { gap: 8px; padding-bottom: 8px; }
+.tebra-home .home-programme-periods button[aria-pressed=true] { color: var(--background); background: var(--gold-bright); box-shadow: inset 0 -4px var(--gold-deep); }
+.tebra-home .home-programme-periods button[aria-pressed=false] { background: var(--gold-deep); color: var(--ivory); }
+.tebra-home .home-fixture-request { font-size: 10px; padding-inline: 12px; }
+.tebra-home .home-match-film { filter: brightness(.82) contrast(1.18) saturate(1.14); object-position: center 58%; }
+.tebra-home .home-match-shade { background: linear-gradient(0deg,rgba(0,0,0,.82),rgba(0,0,0,.04) 90%),linear-gradient(90deg,rgba(0,0,0,.3),transparent); }
+@media (max-width: 1023px) {
+ .tebra-home .home-mobile-top-nav { gap: 6px; padding-block: 6px; }
+ .tebra-home .home-mobile-top-nav :is(a,.home-nav-trigger) { font-size: 10px; padding-inline: 14px; color: var(--background); }
+}
