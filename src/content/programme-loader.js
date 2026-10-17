@@ -10,7 +10,7 @@ async function refreshProgrammeFeed(){
     if(feed.replacesCompetitions.some(c=>!safeText(c))||feed.events.some(e=>!safeText(e.title)||!safeText(e.competition)||!safeText(e.sport)||!/^[-a-zA-Z0-9]+$/.test(e.id)||!safeDate(e.date)||!safeDate(e.verified)||!/^\d{2}:\d{2}$/.test(e.time)||!Number.isFinite(Date.parse(e.start))||!/^https:\/\/[^<>"'\\`\s]+$/.test(e.source)||!['confirmed','unconfirmed'].includes(e.screening)||!Number.isFinite(e.priority)))throw new Error('Invalid event');
     for(let i=events.length-1;i>=0;i--)if(feed.replacesCompetitions.includes(events[i].competition))events.splice(i,1);
     for(const e of feed.events){const i=events.findIndex(x=>x.id===e.id);if(i>=0)events[i]=e;else events.push(e);}
-    for(let i=events.length-1;i>=0;i--){const start=Date.parse(events[i].start);if(Number.isFinite(start)&&start<Date.now())events.splice(i,1);}
+    for(let i=events.length-1;i>=0;i--){const start=Date.parse(events[i].start);if(Number.isFinite(start)&&start+3*60*60*1000<Date.now())events.splice(i,1);}
     events.sort((a,b)=>a.priority-b.priority||Date.parse(a.start)-Date.parse(b.start));
     render();
     let note=document.getElementById('programme-feed-status');
