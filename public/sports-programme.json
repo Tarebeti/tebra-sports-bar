@@ -1618,6 +1618,34 @@
       "source": "https://www.premierleague.com/en/news/4675097",
       "priority": 1,
       "featured": false
+    },
+    {
+      "id": "f1-2026-us-qualifying",
+      "title": "United States GP — Qualifying",
+      "competition": "Formula 1",
+      "sport": "Motorsport",
+      "date": "2026-10-25",
+      "time": "00:00",
+      "start": "2026-10-25T00:00:00+03:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-18",
+      "source": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm",
+      "priority": 1,
+      "featured": true
+    },
+    {
+      "id": "f1-2026-us-race",
+      "title": "United States GP — Race",
+      "competition": "Formula 1",
+      "sport": "Motorsport",
+      "date": "2026-10-25",
+      "time": "22:00",
+      "start": "2026-10-25T22:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-18",
+      "source": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm",
+      "priority": 1,
+      "featured": true
     }
   ],
   "verificationTimezone": "UTC"
