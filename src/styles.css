@@ -564,9 +564,14 @@
  .tebra-home .home-film-control { right: 12px; top: 12px; }
 }
 
-/* One complete primary row on phones, with booking in its final position. */
+/* Keep all six mobile navigation entries visible in one row. */
 @media (max-width:1023px) {
- .tebra-home .home-mobile-top-nav { display: flex; flex-direction: row; flex-wrap: nowrap; align-items: stretch; overflow-x: auto; overscroll-behavior-x: contain; gap: 24px; padding: 0 16px; border-top: 1px solid var(--border); scrollbar-width: thin; scrollbar-color: var(--gold) transparent; }
- .tebra-home .home-mobile-top-nav > :is(a,button) { display: inline-flex; flex: 0 0 auto; align-items: center; justify-content: center; gap: 5px; min-height: 48px; padding: 10px 0; font: 700 12px "Sora",Helvetica,Arial,sans-serif; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; color: var(--ivory); background: none; border: 0; clip-path: none; }
+ .tebra-home .home-mobile-top-nav { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); align-items: stretch; overflow: visible; gap: 0; padding: 0 6px; border-top: 1px solid var(--border); }
+ .tebra-home .home-mobile-top-nav > :is(a,button) { display: flex; min-width: 0; align-items: center; justify-content: center; gap: 2px; min-height: 52px; padding: 8px 3px; font: 700 clamp(8px,2.3vw,12px)/1.3 "Sora",Helvetica,Arial,sans-serif; letter-spacing: 0; text-transform: uppercase; white-space: normal; overflow-wrap: normal; text-align: center; color: var(--ivory); background: none; border: 0; clip-path: none; }
  .tebra-home .home-mobile-top-nav > .home-inline-book { background: var(--gradient-gold); color: var(--background); padding-inline: 24px; clip-path: polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%); }
+}
+
+/* Phone actions remain in the header and page; do not cover fixtures. */
+@media (max-width:767px) {
+ .tebra-home > .pb-safe.fixed { display: none; }
 }
