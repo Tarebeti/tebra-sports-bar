@@ -506,10 +506,10 @@
 .tebra-home > header > div:first-child > a > img { width: 38px; height: 38px; }
 .tebra-home > header > div:first-child > a > span > span:first-child { font-size: 30px; }
 .tebra-home > header > div:first-child > a > span > span:last-child { font-size: 10px; margin-top: 5px; }
-.tebra-home > header nav[aria-label="Primary"] { gap: 26px; }
-.tebra-home > header nav[aria-label="Primary"] :is(a,button),.tebra-home .home-nav-trigger { display: inline-flex; align-items: center; gap: 5px; padding: 10px 0; min-height: 44px; background: none; color: var(--ivory); border: 0; clip-path: none; font-family: "Sora",Helvetica,Arial,sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.tebra-home > header nav[aria-label="Primary"] { gap: 24px; }
+.tebra-home > header nav[aria-label="Primary"] :is(a,button),.tebra-home .home-nav-trigger { display: inline-flex; align-items: center; gap: 5px; padding: 0; min-height: 70px; background: none; color: var(--ivory); border: 0; clip-path: none; font-family: "Sora",Helvetica,Arial,sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
 .tebra-home .home-nav-trigger[aria-expanded=true] { color: var(--gold-bright); }
-.tebra-home .home-header-book a { min-height: 60px; padding-inline: 30px; font: 700 13px "Sora",Helvetica,Arial,sans-serif; white-space: nowrap; }
+.tebra-home .home-header-book a { width: 211px; min-height: 60px; padding-inline: 24px; justify-content: center; font: 700 16px "Sora",Helvetica,Arial,sans-serif; white-space: nowrap; }
 .tebra-home .home-mobile-top-nav { display: none; }
 .tebra-home .home-navigation-panel { position: absolute; inset-inline: 0; top: 100%; display: grid; grid-template-columns: 240px 1fr 1fr; gap: 36px; padding: 32px max(32px,calc((100% - 1200px)/2)); background: var(--surface-raised); border-block: 1px solid var(--gold); box-shadow: 0 18px 30px #0009; max-height: 65svh; overflow-y: auto; }
 .tebra-home .home-navigation-panel > img { width: 100%; height: 190px; object-fit: cover; }
@@ -532,10 +532,10 @@
 .tebra-home .home-fixture h2 { font-size: 19px; line-height: 1.2; }
 .tebra-home .home-venue { padding-block: 40px; }
 .tebra-home :is(#live-sports,#atmosphere,#gallery,#your-host,#find-us,#menus,#food,#drinks,#sport) { scroll-margin-top: 90px; }
-@media (min-width:1024px) and (max-width:1199px) {
+@media (min-width:1024px) and (max-width:1279px) {
  .tebra-home > header nav[aria-label="Primary"] { gap: 10px; }
  .tebra-home > header nav[aria-label="Primary"] :is(a,button) { font-size: 10px; }
- .tebra-home .home-header-book a { font-size: 10px; padding-inline: 18px; }
+ .tebra-home .home-header-book a { width: 170px; font-size: 13px; padding-inline: 18px; }
 }
 @media (max-width:1023px) {
  .tebra-home .home-wrap { width: calc(100% - 64px); }
@@ -543,7 +543,7 @@
  .tebra-home > header > div:first-child { height: 66px; padding-inline: 16px; gap: 8px; }
  .tebra-home > header > div:first-child > a > span > span:first-child { font-size: 27px; }
  .tebra-home > header > div:first-child > a > span > span:last-child { font-size: 9px; }
- .tebra-home .home-header-book a { min-height: 44px; font-size: 10px; padding-inline: 16px; }
+ .tebra-home .home-header-book a { width: auto; min-height: 44px; font-size: 12px; padding-inline: 16px; }
  .tebra-home .home-navigation-panel { grid-template-columns: 100px 1fr; gap: 16px; padding: 24px 16px; }
  .tebra-home .home-navigation-panel > img { height: 120px; }
  .tebra-home .home-navigation-panel h2 { font-size: 20px; padding-right: 24px; }
