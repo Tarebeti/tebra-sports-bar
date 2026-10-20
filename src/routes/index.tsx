@@ -242,7 +242,7 @@ function Header() {
   const panels = {
     "The Bar": { image: realExteriorNight.url, title: "Your place in Hersonissos.", copy: "Step inside Tebra. Meet your hosts, see the lounge and plan your visit.", links: [{href:"#atmosphere",label:"Step inside"},{href:"#gallery",label:"Photo gallery"},{href:"#your-host",label:"Meet Zac"},{href:"#find-us",label:"Find us"}] },
     "Food & Drinks": { image: HERO_COCKTAIL, title: "From breakfast to the final whistle.", copy: "Explore our food, cocktails and the Tebra Active range.", links: [{href:"#food",label:"Food & breakfast"},{href:"#drinks",label:"Cocktails & drinks"},{href:CONFIG.menuUrl,label:"Full menu"},{href:"/active",label:"Tebra Active"}] },
-    "Live Sport": { image: "/photos/screens-lounge.webp", title: "Your match. Your place.", copy: "Browse the programme in Greek time. Ask Tebra to confirm your screening and table.", links: [{href:"/sports-desk?sport=Football",label:"Football"},{href:"/sports-desk?sport=F1",label:"Formula One"},{href:"/sports-desk?sport=Tennis",label:"Tennis"},{href:"/sports-desk?sport=Fight",label:"Boxing & UFC"},{href:"/sports-desk?sport=Basketball",label:"Basketball"},{href:"/sports-desk?sport=Rugby",label:"Rugby"},{href:"/sports-desk?sport=Golf",label:"Golf"},{href:"/sports-desk",label:"Full sports programme"}] },
+    "Live Sport": { image: "/photos/match-night-guests.jpg", title: "Your match. Your place.", copy: "Browse the programme in Greek time. Ask Tebra to confirm your screening and table.", links: [{href:"/sports-desk?sport=Football",label:"Football"},{href:"/sports-desk?sport=F1",label:"Formula One"},{href:"/sports-desk?sport=Tennis",label:"Tennis"},{href:"/sports-desk?sport=Fight",label:"Boxing & UFC"},{href:"/sports-desk?sport=Basketball",label:"Basketball"},{href:"/sports-desk?sport=Rugby",label:"Rugby"},{href:"/sports-desk?sport=Golf",label:"Golf"},{href:"/sports-desk",label:"Full sports programme"}] },
   };
   const panel = openPanel ? panels[openPanel as keyof typeof panels] : null;
   function navItem(n: {href: string; label: string}) {
@@ -365,7 +365,7 @@ function SportsExperience() {
       <p>Tell us your match before you visit. Tebra will confirm the screening and table availability.</p>
       <BtnPrimary href="/sports-desk">Explore live sport ↗</BtnPrimary>
     </div>
-    <img src="/photos/screens-lounge.webp" alt="The screens and comfortable lounge seating at Tebra" loading="lazy" className="home-story-photo" />
+    <img src="/photos/match-night-guests.jpg" alt="Guests enjoying a football evening together at Tebra" loading="lazy" className="home-story-photo" />
   </section>;
 }
 
@@ -1273,4 +1273,5 @@ function IconGlobe() {
     </svg>
   );
 }
+
 
