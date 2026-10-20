@@ -8,6 +8,22 @@ type Props = {
   requestUrl: (message: string) => string;
 };
 
+const LEAGUE_OFFERS = [
+  { name: "Premier League", sport: "Football", group: "ENGLISH FOOTBALL" },
+  { name: "Champions League", sport: "Football", group: "EUROPEAN NIGHTS" },
+  { name: "Europa League", sport: "Football", group: "EUROPEAN NIGHTS" },
+  { name: "Conference League", sport: "Football", group: "EUROPEAN NIGHTS" },
+  { name: "La Liga", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Serie A", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Bundesliga", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Ligue 1", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Scottish Premiership", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Formula 1", sport: "F1", group: "MOTORSPORT" },
+  { name: "NBA & EuroLeague", sport: "Basketball", group: "BASKETBALL" },
+  { name: "UFC & Boxing", sport: "Fight", group: "FIGHT NIGHTS" },
+  { name: "Tennis", sport: "Tennis", group: "TOUR EVENTS" },
+];
+
 export function HomeLiveSports({ fixtures, requestUrl }: Props) {
   const film = useRef<HTMLVideoElement>(null);
   const [filmPaused, setFilmPaused] = useState(true);
@@ -45,7 +61,6 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
     return () => { controller.abort(); clearInterval(timer); };
   }, []);
   const selected = now ? selectFixtures(remoteFixtures ?? fixtures, now) : { today: [], upcoming: [] };
-
   const showToday = period === "today" && selected.today.length > 0;
   const shown = showToday ? selected.today : [...selected.today, ...selected.upcoming];
 
@@ -64,6 +79,19 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
           </div>
           <div className="home-sports-intro"><p>Find your match. Check the Greek time.<br />Make it a Tebra evening.</p><a href="/sports-desk" className="home-text-link">Full programme <ArrowUpRight size={18} aria-hidden="true" /></a></div>
         </div>
+
+        <div className="home-league-offer" aria-labelledby="home-league-title">
+          <div className="home-league-heading">
+            <div><p className="label-eyebrow">WHAT CAN YOU WATCH?</p><h2 id="home-league-title">Choose your league.</h2><p>Explore the competitions we follow at Tebra.</p></div>
+            <a href="/sports-desk" className="home-text-link">Full sports desk <ArrowUpRight size={16} aria-hidden="true" /></a>
+          </div>
+          <div className="home-league-grid">
+            {LEAGUE_OFFERS.map(league => <a key={league.name} href={`/sports-desk?sport=${encodeURIComponent(league.sport)}`} className="home-league-card">
+              <span>{league.group}</span><strong>{league.name}</strong><span className="home-league-arrow" aria-hidden="true">↗</span>
+            </a>)}
+          </div>
+        </div>
+
         <div className="home-programme-tools">
           <div className="home-programme-periods" role="group" aria-label="Programme period">
             <button type="button" aria-pressed={period === "today"} onClick={() => setPeriod("today")}>Today</button>
