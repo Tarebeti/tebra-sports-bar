@@ -726,3 +726,46 @@
     inset: auto 8px 8px auto !important;
   }
 }
+
+
+/* Repair pass: compact video control and consistently straight homepage controls. */
+.tebra-home .home-film-control {
+  width: auto !important;
+  min-width: 0 !important;
+  max-width: 118px !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  min-height: 28px !important;
+  padding: 6px 9px !important;
+  inset: 10px 10px auto auto !important;
+  border-radius: 4px !important;
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  white-space: nowrap;
+  transform: none !important;
+  clip-path: none !important;
+}
+.tebra-home :is(button, a, [role="button"]) {
+  transform: none !important;
+  rotate: none !important;
+  skew: none !important;
+  clip-path: none !important;
+  -webkit-clip-path: none !important;
+}
+.tebra-home .home-text-link,
+.tebra-home .home-fixture-request,
+.tebra-home .home-fixture-source,
+.tebra-home .home-league-card,
+.tebra-home .home-programme-periods button {
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+@media (max-width: 640px) {
+  .tebra-home .home-film-control {
+    max-width: 104px !important;
+    min-height: 26px !important;
+    padding: 5px 7px !important;
+    inset: 8px 8px auto auto !important;
+    font-size: 9px !important;
+  }
+}
