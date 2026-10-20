@@ -365,7 +365,7 @@ function SportsExperience() {
       <p>Tell us your match before you visit. Tebra will confirm the screening and table availability.</p>
       <BtnPrimary href="/sports-desk">Explore live sport ↗</BtnPrimary>
     </div>
-    <img src="/photos/screens-lounge.webp" alt="The screens and comfortable lounge seating at Tebra" loading="lazy" className="home-story-photo" />
+    <img src={realWorldCup.url} alt="Football fans watching the World Cup at Tebra" loading="lazy" className="home-story-photo" />
   </section>;
 }
 
