@@ -622,3 +622,131 @@
 .tebra-home .home-league-empty { color:var(--ivory-dim); font-size:11px; line-height:1.5; }
 .tebra-home .home-league-more { margin-top:auto; padding-top:10px; border-top:1px solid var(--border); }
 .tebra-home .home-league-arrow { display:none; }
+
+
+/* TEBRA homepage refinement: compact league choices, put today's fixtures first. */
+.tebra-home .home-sports-heading.home-match-hero {
+  min-height: 360px;
+  padding: 36px 40px 30px;
+}
+.tebra-home .home-sports > .home-wrap > :not(.home-sports-heading) {
+  width: 100%;
+}
+.tebra-home .home-league-offer {
+  padding: 18px 0 12px;
+}
+.tebra-home .home-league-heading {
+  margin-bottom: 12px;
+}
+.tebra-home .home-league-heading h2 {
+  font-size: clamp(22px, 2.5vw, 30px);
+}
+.tebra-home .home-league-heading p:not(.label-eyebrow) {
+  font-size: 12px;
+}
+.tebra-home .home-league-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+.tebra-home .home-league-card {
+  min-height: 54px;
+  justify-content: center;
+  gap: 4px;
+  padding: 9px 26px 9px 11px;
+  border-radius: 5px;
+}
+.tebra-home .home-league-card > span:first-child {
+  font-size: 8px;
+  letter-spacing: .08em;
+}
+.tebra-home .home-league-card strong {
+  font-size: 12px;
+  line-height: 1.2;
+}
+.tebra-home .home-league-arrow {
+  right: 8px;
+  top: 8px;
+  font-size: 13px;
+}
+.tebra-home .home-league-matches {
+  gap: 5px;
+  margin-top: 5px;
+}
+.tebra-home .home-league-matches li {
+  gap: 3px;
+  padding-top: 6px;
+}
+.tebra-home .home-league-matches li > span {
+  font-size: 11px;
+}
+.tebra-home .home-league-matches time {
+  font-size: 9px;
+}
+.tebra-home .home-programme-tools {
+  margin-top: 20px;
+  margin-bottom: 12px;
+}
+.tebra-home .home-programme-periods button {
+  min-height: 40px;
+  padding: 9px 14px;
+  font-size: 11px;
+}
+.tebra-home .home-fixture-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.tebra-home .home-fixture {
+  padding: 14px;
+  border-top-width: 2px;
+}
+.tebra-home .home-fixture-top time {
+  font-size: 20px;
+}
+.tebra-home .home-fixture h2 {
+  margin-block: 13px 10px;
+  font-size: 16px;
+}
+.tebra-home .home-fixture-request,
+.tebra-home .home-fixture-source {
+  min-height: 30px;
+  font-size: 10px;
+}
+@media (max-width: 900px) {
+  .tebra-home .home-league-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .tebra-home .home-fixture-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tebra-home .home-sports-heading.home-match-hero { min-height: 320px; padding: 30px 24px 24px; }
+}
+@media (max-width: 600px) {
+  .tebra-home .home-wrap { width: calc(100% - 28px); }
+  .tebra-home .home-sports > .home-wrap { width: calc(100% - 28px); }
+  .tebra-home .home-sports-heading.home-match-hero {
+    min-height: 280px;
+    padding: 24px 18px 20px;
+    align-items: end;
+    flex-direction: column;
+    justify-content: end;
+    gap: 12px;
+  }
+  .tebra-home .home-match-hero h1 { font-size: clamp(34px, 10vw, 46px); }
+  .tebra-home .home-match-hero .home-sports-intro { max-width: none; font-size: 12px; }
+  .tebra-home .home-film-control { right: 10px; top: 10px; min-height: 34px; padding: 7px 9px; font-size: 9px; }
+  .tebra-home .home-league-offer { padding: 16px 0 10px; }
+  .tebra-home .home-league-heading { align-items: flex-start; flex-direction: row; gap: 8px; }
+  .tebra-home .home-league-heading h2 { font-size: 21px; }
+  .tebra-home .home-league-heading p:not(.label-eyebrow) { font-size: 11px; }
+  .tebra-home .home-league-heading > .home-text-link { min-height: 34px; font-size: 9px; white-space: nowrap; }
+  .tebra-home .home-league-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  .tebra-home .home-league-card { min-height: 48px; padding: 8px 23px 8px 9px; gap: 3px; }
+  .tebra-home .home-league-card strong { font-size: 11px; }
+  .tebra-home .home-league-card > span:first-child { font-size: 7px; }
+  .tebra-home .home-league-arrow { right: 7px; top: 7px; font-size: 12px; }
+  .tebra-home .home-programme-tools { margin-top: 16px; gap: 8px; }
+  .tebra-home .home-programme-periods button { min-height: 36px; padding: 7px 10px; font-size: 10px; }
+  .tebra-home .home-greek-time { font-size: 10px; }
+  .tebra-home .home-fixture-grid { grid-template-columns: 1fr; gap: 8px; }
+  .tebra-home .home-fixture { padding: 12px; }
+  .tebra-home .home-fixture-top time { font-size: 19px; }
+  .tebra-home .home-fixture h2 { margin-block: 10px 8px; font-size: 15px; }
+  .tebra-home .home-fixture-actions { margin-top: 10px; }
+  .tebra-home .home-programme-footer { align-items: flex-start; flex-direction: column; gap: 8px; }
+}
