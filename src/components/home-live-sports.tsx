@@ -97,7 +97,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
             {FEATURED_COMPETITIONS.map(league => <a key={league.name} href="/sports-desk?sport=Football" className="home-league-card">
               <span>{league.group}</span><strong>{league.name}</strong><span className="home-league-arrow" aria-hidden="true">↗</span>
             </a>)}
-            <button type="button" className="home-league-card home-leagues-toggle" aria-expanded={showCountryLeagues} aria-controls="home-country-leagues" onClick={() => setShowCountryLeagues(!showCountryLeagues)}>
+            <button type="button" className="home-league-card home-leagues-toggle" style={{ appearance: "none", font: "inherit", color: "inherit", cursor: "pointer", textAlign: "left" }} aria-expanded={showCountryLeagues} aria-controls="home-country-leagues" onClick={() => setShowCountryLeagues(!showCountryLeagues)}>
               <span>ALL COUNTRIES</span><strong>LIGES</strong><span className="home-league-arrow" aria-hidden="true">{showCountryLeagues ? "−" : "+"}</span>
             </button>
           </div>
