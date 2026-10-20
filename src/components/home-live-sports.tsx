@@ -10,7 +10,7 @@ type Props = {
 
 const FEATURED_COMPETITIONS = [
   { name: "Premier League", group: "ENGLAND", competition: "Premier League" },
-  { name: "La Liga", group: "SPAIN", competition: "La Liga" },
+  { name: "Spain", group: "SPAIN", competition: "La Liga" },
   { name: "Europa League", group: "EUROPE", competition: "Europa League" },
 ];
 
@@ -24,7 +24,7 @@ const COUNTRY_LEAGUES = [
   { name: "Scotland · Premiership", country: "SCOTLAND", competition: "Scottish Premiership" },
   { name: "Netherlands · Eredivisie", country: "NETHERLANDS", competition: "Eredivisie" },
   { name: "Portugal · Primeira Liga", country: "PORTUGAL", competition: "Primeira Liga" },
-  { name: "Brazil · Brazilian football", country: "BRAZIL", competition: "Brazilian football" },
+  { name: "Brazil · Serie A", country: "BRAZIL", competition: "Brazil Serie A" },
 ];
 
 const EXTRA_SPORTS = [
