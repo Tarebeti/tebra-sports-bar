@@ -611,3 +611,14 @@
  .tebra-home .home-league-card strong { font-size:14px; }
  .tebra-home .home-league-card > span:first-child { font-size:8px; }
 }
+
+.tebra-home .home-league-card { display:flex; flex-direction:column; align-items:stretch; gap:10px; }
+.tebra-home .home-league-card strong { padding-right:8px; }
+.tebra-home .home-league-matches { list-style:none; display:flex; flex-direction:column; gap:10px; padding:0; margin:2px 0 0; }
+.tebra-home .home-league-matches li { display:flex; flex-direction:column; gap:5px; padding-top:9px; border-top:1px solid var(--border); }
+.tebra-home .home-league-matches li > span { color:var(--ivory); font-size:12px; line-height:1.4; font-weight:700; }
+.tebra-home .home-league-matches time { color:var(--ivory-dim); font-size:10px; }
+.tebra-home .home-league-matches a,.tebra-home .home-league-more { display:inline-flex; align-items:center; gap:5px; width:fit-content; color:var(--gold-bright); font-size:10px; font-weight:800; text-transform:uppercase; text-decoration:none; margin-top:3px; }
+.tebra-home .home-league-empty { color:var(--ivory-dim); font-size:11px; line-height:1.5; }
+.tebra-home .home-league-more { margin-top:auto; padding-top:10px; border-top:1px solid var(--border); }
+.tebra-home .home-league-arrow { display:none; }
