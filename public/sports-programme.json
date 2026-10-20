@@ -1716,6 +1716,34 @@
       "source": "https://wbcboxing.com/en/donde-ver-foster-vs-navarrete/",
       "priority": 3,
       "featured": false
+    },
+    {
+      "id": "nba-2026-10-24-boston-celtics-vs-new-york-knicks",
+      "title": "Boston Celtics vs New York Knicks",
+      "competition": "NBA",
+      "sport": "Basketball",
+      "date": "2026-10-24",
+      "time": "02:00",
+      "start": "2026-10-24T02:00:00+03:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-20",
+      "source": "https://pr.nba.com/2026-27-nba-regular-season-schedule",
+      "priority": 3,
+      "featured": false
+    },
+    {
+      "id": "nba-2026-10-24-san-antonio-spurs-vs-houston-rockets",
+      "title": "San Antonio Spurs vs Houston Rockets",
+      "competition": "NBA",
+      "sport": "Basketball",
+      "date": "2026-10-24",
+      "time": "04:30",
+      "start": "2026-10-24T04:30:00+03:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-20",
+      "source": "https://pr.nba.com/2026-27-nba-regular-season-schedule",
+      "priority": 3,
+      "featured": false
     }
   ],
   "verificationTimezone": "UTC"
