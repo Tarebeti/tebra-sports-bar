@@ -96,7 +96,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
           </div>
 
           <div className="home-league-grid home-featured-competitions">
-            {FEATURED_COMPETITIONS.map(league => <a key={league.name} href="/sports-desk?sport=Football" className="home-league-card">
+            {FEATURED_COMPETITIONS.map(league => <a key={league.name} href={`/sports-desk?sport=Football&competition=${encodeURIComponent(league.competition)}`} className="home-league-card">
               <span>{league.group}</span><strong>{league.name}</strong><span className="home-league-arrow" aria-hidden="true">↗</span>
             </a>)}
             <button type="button" className="home-league-card home-leagues-toggle" style={{ appearance: "none", font: "inherit", color: "inherit", cursor: "pointer", textAlign: "left" }} aria-expanded={showCountryLeagues} aria-controls="home-country-leagues" onClick={() => setShowCountryLeagues(!showCountryLeagues)}>
@@ -107,7 +107,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
           {showCountryLeagues && <div id="home-country-leagues" className="home-country-leagues">
             <p className="label-eyebrow">LEAGUES BY COUNTRY</p>
             <div className="home-league-grid">
-              {COUNTRY_LEAGUES.map(league => <a key={league.name} href="/sports-desk?sport=Football" className="home-league-card">
+              {COUNTRY_LEAGUES.map(league => <a key={league.name} href={`/sports-desk?sport=Football&competition=${encodeURIComponent(league.competition)}`} className="home-league-card">
                 <span>{league.country}</span><strong>{league.name.split(" · ")[1]}</strong><span className="home-league-arrow" aria-hidden="true">↗</span>
               </a>)}
             </div>
