@@ -8,27 +8,32 @@ type Props = {
   requestUrl: (message: string) => string;
 };
 
-const LEAGUE_OFFERS = [
-  { name: "Premier League", sport: "Football", group: "ENGLISH FOOTBALL" },
-  { name: "Champions League", sport: "Football", group: "EUROPEAN NIGHTS" },
-  { name: "Europa League", sport: "Football", group: "EUROPEAN NIGHTS" },
-  { name: "Conference League", sport: "Football", group: "EUROPEAN NIGHTS" },
-  { name: "La Liga", sport: "Football", group: "EUROPEAN FOOTBALL" },
-  { name: "Serie A", sport: "Football", group: "EUROPEAN FOOTBALL" },
-  { name: "Bundesliga", sport: "Football", group: "EUROPEAN FOOTBALL" },
-  { name: "Ligue 1", sport: "Football", group: "EUROPEAN FOOTBALL" },
-  { name: "Scottish Premiership", sport: "Football", group: "EUROPEAN FOOTBALL" },
-  { name: "Eredivisie", sport: "Football", group: "EUROPEAN FOOTBALL" },
-  { name: "Championship", sport: "Football", group: "ENGLISH FOOTBALL" },
-  { name: "Formula 1", sport: "F1", group: "MOTORSPORT" },
-  { name: "NBA & EuroLeague", sport: "Basketball", group: "BASKETBALL" },
-  { name: "UFC & Boxing", sport: "Fight", group: "FIGHT NIGHTS" },
-  { name: "Tennis", sport: "Tennis", group: "TOUR EVENTS" },
+const FEATURED_COMPETITIONS = [
+  { name: "Premier League", group: "ENGLAND" },
+  { name: "Champions League", group: "EUROPE" },
+  { name: "Europa League", group: "EUROPE" },
+];
+
+const COUNTRY_LEAGUES = [
+  { name: "England · Championship", country: "ENGLAND" },
+  { name: "Spain · La Liga", country: "SPAIN" },
+  { name: "Italy · Serie A", country: "ITALY" },
+  { name: "Germany · Bundesliga", country: "GERMANY" },
+  { name: "France · Ligue 1", country: "FRANCE" },
+  { name: "Scotland · Premiership", country: "SCOTLAND" },
+  { name: "Netherlands · Eredivisie", country: "NETHERLANDS" },
+];
+
+const EXTRA_SPORTS = [
+  { name: "PRO BOX PLUS", sport: "Fight", group: "BOXING" },
+  { name: "UFC PLUS", sport: "Fight", group: "MMA" },
+  { name: "F1", sport: "F1", group: "MOTORSPORT" },
 ];
 
 export function HomeLiveSports({ fixtures, requestUrl }: Props) {
   const film = useRef<HTMLVideoElement>(null);
   const [filmPaused, setFilmPaused] = useState(true);
+  const [showCountryLeagues, setShowCountryLeagues] = useState(false);
   useEffect(() => {
     const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
     setFilmPaused(preference.matches);
@@ -84,12 +89,31 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
 
         <div className="home-league-offer" aria-labelledby="home-league-title">
           <div className="home-league-heading">
-            <div><p className="label-eyebrow">WHAT CAN YOU WATCH?</p><h2 id="home-league-title">Choose your league.</h2><p>Explore the competitions we follow at Tebra.</p></div>
+            <div><p className="label-eyebrow">WHAT CAN YOU WATCH?</p><h2 id="home-league-title">Choose your competition.</h2><p>Three featured competitions, with every other country grouped under Leagues.</p></div>
             <a href="/sports-desk" className="home-text-link">Full sports desk <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
-          <div className="home-league-grid">
-            {LEAGUE_OFFERS.map(league => <a key={league.name} href={`/sports-desk?sport=${encodeURIComponent(league.sport)}`} className="home-league-card">
+
+          <div className="home-league-grid home-featured-competitions">
+            {FEATURED_COMPETITIONS.map(league => <a key={league.name} href="/sports-desk?sport=Football" className="home-league-card">
               <span>{league.group}</span><strong>{league.name}</strong><span className="home-league-arrow" aria-hidden="true">↗</span>
+            </a>)}
+            <button type="button" className="home-league-card home-leagues-toggle" aria-expanded={showCountryLeagues} aria-controls="home-country-leagues" onClick={() => setShowCountryLeagues(!showCountryLeagues)}>
+              <span>ALL COUNTRIES</span><strong>LIGES</strong><span className="home-league-arrow" aria-hidden="true">{showCountryLeagues ? "−" : "+"}</span>
+            </button>
+          </div>
+
+          {showCountryLeagues && <div id="home-country-leagues" className="home-country-leagues">
+            <p className="label-eyebrow">LEAGUES BY COUNTRY</p>
+            <div className="home-league-grid">
+              {COUNTRY_LEAGUES.map(league => <a key={league.name} href="/sports-desk?sport=Football" className="home-league-card">
+                <span>{league.country}</span><strong>{league.name.split(" · ")[1]}</strong><span className="home-league-arrow" aria-hidden="true">↗</span>
+              </a>)}
+            </div>
+          </div>}
+
+          <div className="home-league-grid home-extra-sports">
+            {EXTRA_SPORTS.map(item => <a key={item.name} href={`/sports-desk?sport=${encodeURIComponent(item.sport)}`} className="home-league-card">
+              <span>{item.group}</span><strong>{item.name}</strong><span className="home-league-arrow" aria-hidden="true">↗</span>
             </a>)}
           </div>
         </div>
