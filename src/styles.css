@@ -786,3 +786,42 @@
   .tebra-home .home-fixture h2 { font-size: 20px; }
   .tebra-home .home-fixture-top time { font-size: 21px; }
 }
+
+
+/* Owner-requested control cleanup: straight, compact, readable buttons. */
+.tebra-home button,
+.tebra-home [role="button"],
+.tebra-home a[class*="rounded"],
+.tebra-home .home-league-card,
+.tebra-home .home-film-control,
+.tebra-home .home-programme-periods button,
+.tebra-home .pb-safe.fixed > a {
+  transform: none !important;
+  clip-path: none !important;
+  border-radius: 6px !important;
+  box-sizing: border-box;
+}
+.tebra-home .home-film-control {
+  max-width: calc(100% - 20px);
+  min-height: 34px !important;
+  padding: 7px 10px !important;
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+}
+.tebra-home .home-league-card {
+  min-height: 48px !important;
+  padding: 9px 12px !important;
+}
+.tebra-home .pb-safe.fixed > a {
+  min-height: 40px !important;
+  padding: 5px 4px !important;
+  font-size: 9px !important;
+  white-space: normal;
+}
+@media (max-width: 600px) {
+  .tebra-home .home-film-control {
+    right: 10px !important;
+    top: 10px !important;
+    max-width: calc(100% - 20px);
+  }
+}
