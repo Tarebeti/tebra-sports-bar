@@ -9,25 +9,27 @@ type Props = {
 };
 
 const FEATURED_COMPETITIONS = [
-  { name: "Premier League", group: "ENGLAND" },
-  { name: "Champions League", group: "EUROPE" },
-  { name: "Europa League", group: "EUROPE" },
+  { name: "Premier League", group: "ENGLAND", competition: "Premier League" },
+  { name: "Champions League", group: "EUROPE", competition: "Champions League" },
+  { name: "Europa League", group: "EUROPE", competition: "Europa League" },
 ];
 
 const COUNTRY_LEAGUES = [
-  { name: "England · Championship", country: "ENGLAND" },
-  { name: "Spain · La Liga", country: "SPAIN" },
-  { name: "Italy · Serie A", country: "ITALY" },
-  { name: "Germany · Bundesliga", country: "GERMANY" },
-  { name: "France · Ligue 1", country: "FRANCE" },
-  { name: "Scotland · Premiership", country: "SCOTLAND" },
-  { name: "Netherlands · Eredivisie", country: "NETHERLANDS" },
+  { name: "England · Championship", country: "ENGLAND", competition: "Championship" },
+  { name: "Spain · La Liga", country: "SPAIN", competition: "La Liga" },
+  { name: "Italy · Serie A", country: "ITALY", competition: "Serie A" },
+  { name: "Germany · Bundesliga", country: "GERMANY", competition: "Bundesliga" },
+  { name: "France · Ligue 1", country: "FRANCE", competition: "Ligue 1" },
+  { name: "Scotland · Premiership", country: "SCOTLAND", competition: "Scottish Premiership" },
+  { name: "Netherlands · Eredivisie", country: "NETHERLANDS", competition: "Eredivisie" },
+  { name: "Portugal · Primeira Liga", country: "PORTUGAL", competition: "Primeira Liga" },
+  { name: "Brazil · Brazilian football", country: "BRAZIL", competition: "Brazilian football" },
 ];
 
 const EXTRA_SPORTS = [
-  { name: "PRO BOX PLUS", sport: "Fight", group: "BOXING" },
-  { name: "UFX PLUS", sport: "Fight", group: "MMA" },
-  { name: "F1", sport: "F1", group: "MOTORSPORT" },
+  { name: "PRO BOX PLUS", sport: "Fight", group: "BOXING", competition: "Boxing" },
+  { name: "UFX PLUS", sport: "Fight", group: "MMA", competition: "UFC" },
+  { name: "F1", sport: "F1", group: "MOTORSPORT", competition: "Formula 1" },
 ];
 
 export function HomeLiveSports({ fixtures, requestUrl }: Props) {
@@ -75,7 +77,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
     <section id="live-sports" aria-labelledby="live-sports-title" className="home-sports">
       <div className="home-wrap">
         <div className="home-sports-heading home-match-hero">
-          <video ref={film} className="home-match-film" muted loop playsInline preload="metadata" poster="/photos/tebra-video-poster.jpg" aria-hidden="true">
+          <video ref={film} className="home-match-film" muted loop playsInline preload="metadata" poster="/photos/lounge-match-guests.jpg" aria-hidden="true">
             <source src="/photos/tebra-atmosphere.mp4" type="video/mp4" />
           </video>
           <div className="home-match-shade" aria-hidden="true" />
@@ -112,7 +114,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
           </div>}
 
           <div className="home-league-grid home-extra-sports">
-            {EXTRA_SPORTS.map(item => <a key={item.name} href={`/sports-desk?sport=${encodeURIComponent(item.sport)}`} className="home-league-card">
+            {EXTRA_SPORTS.map(item => <a key={item.name} href={`/sports-desk?sport=${encodeURIComponent(item.sport)}&competition=${encodeURIComponent(item.competition)}`} className="home-league-card">
               <span>{item.group}</span><strong>{item.name}</strong><span className="home-league-arrow" aria-hidden="true">↗</span>
             </a>)}
           </div>
