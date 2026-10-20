@@ -493,101 +493,67 @@
 @media (max-width: 640px) { .tebra-home .home-menu { grid-template-columns: 1fr; gap: 24px; padding-block: 36px; } }
 
 
-/* One consistent reference layout; Tebra content and original palette. */
-.tebra-home { font-family: "Sora",Helvetica,Arial,sans-serif; }
-.tebra-home .home-wrap { width: min(1200px,calc(100% - 160px)); }
-.tebra-home h1,.tebra-home h2,.tebra-home h3 { font-family: "Sora",Helvetica,Arial,sans-serif; font-weight: 700; letter-spacing: -.025em; }
-.tebra-home .home-story { gap: 80px; padding-block: 40px; }
-.tebra-home .home-story-copy h2,.tebra-home .home-menu h2 { font-size: 30px; line-height: 33px; margin-top: 0; }
-.tebra-home .home-story-copy > p:not(.label-eyebrow) { font-size: 16px; line-height: 1.5; margin-top: 24px; }
-.tebra-home .home-story-photo { aspect-ratio: 4/3; }
-.tebra-home .home-text-link { background: var(--gold); color: var(--background); border: 0; border-radius: 0; min-height: 50px; padding: 14px 24px; clip-path: polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%); font-size: 12px; font-weight: 700; }
-.tebra-home > header > div:first-child { height: 70px; max-width: 1440px; padding-inline: 24px; gap: 24px; }
-.tebra-home > header > div:first-child > a > img { width: 38px; height: 38px; }
-.tebra-home > header > div:first-child > a > span > span:first-child { font-size: 30px; }
-.tebra-home > header > div:first-child > a > span > span:last-child { font-size: 10px; margin-top: 5px; }
-.tebra-home > header nav[aria-label="Primary"] { gap: 24px; }
-.tebra-home > header nav[aria-label="Primary"] :is(a,button),.tebra-home .home-nav-trigger { display: inline-flex; align-items: center; gap: 5px; padding: 0; min-height: 70px; background: none; color: var(--ivory); border: 0; clip-path: none; font-family: "Sora",Helvetica,Arial,sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
-.tebra-home .home-nav-trigger[aria-expanded=true] { color: var(--gold-bright); }
-.tebra-home .home-header-book a { width: 211px; min-height: 60px; padding-inline: 24px; justify-content: center; font: 700 16px "Sora",Helvetica,Arial,sans-serif; white-space: nowrap; }
+/* Compact Tebra layout: clear programme, consistent controls, no oversized hero. */
+.tebra-home { font-family: var(--font-sans); }
+.tebra-home .home-wrap { width: min(1200px,calc(100% - 48px)); }
+.tebra-home h1,.tebra-home h2,.tebra-home h3 { font-style: normal; }
+.tebra-home .home-sports-heading.home-match-hero { display: block; min-height: 0; padding: 0; }
+.tebra-home .home-sports { padding-top: 28px; }
+.tebra-home .home-sports h1 { font-size: clamp(32px,4vw,48px); font-style: normal; line-height: 1.12; }
+.tebra-home .home-sports-intro { margin-top: 16px; }
+.tebra-home .home-sports-intro p { line-height: 1.6; }
+.tebra-home .home-text-link,
+.tebra-home :is(a,button).bg-gold-gradient { clip-path: none; border-radius: 6px; background: var(--gold); color: var(--background); border: 1px solid var(--gold); min-height: 44px; padding: 12px 20px; font-size: 12px; line-height: 1.4; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; }
+.tebra-home .home-story-copy h2,.tebra-home .home-menu h2 { font-style: normal; }
+.tebra-home .home-fixture { border: 1px solid var(--border); border-top: 3px solid var(--gold); border-radius: 6px; }
+.tebra-home .home-fixture h2 { font-size: 20px; line-height: 1.25; }
+.tebra-home .home-venue { grid-template-columns: minmax(0,1fr) 250px; gap: 20px; }
+.tebra-home .home-venue-scene { min-height: 360px; border-radius: 8px; }
+.tebra-home .home-venue-brand { clip-path: none; width: auto; max-width: 85%; padding: 20px 24px; background: #0b0b0cf0; border-radius: 0 6px 0 0; }
+.tebra-home .home-venue-brand h2 { font-size: 44px; margin-top: 8px; }
+.tebra-home .home-venue-film { border-radius: 8px; overflow: hidden; }
+.tebra-home .home-story { gap: 40px; padding-block: 36px; }
+.tebra-home .home-story-photo,.tebra-home .home-gallery-card { border-radius: 8px; }
 .tebra-home .home-mobile-top-nav { display: none; }
-.tebra-home .home-navigation-panel { position: absolute; inset-inline: 0; top: 100%; display: grid; grid-template-columns: 240px 1fr 1fr; gap: 36px; padding: 32px max(32px,calc((100% - 1200px)/2)); background: var(--surface-raised); border-block: 1px solid var(--gold); box-shadow: 0 18px 30px #0009; max-height: 65svh; overflow-y: auto; }
-.tebra-home .home-navigation-panel > img { width: 100%; height: 190px; object-fit: cover; }
-.tebra-home .home-navigation-panel h2 { font-size: 26px; line-height: 1.1; margin-block: 14px; font-style: italic; }
-.tebra-home .home-navigation-panel p:not(.label-eyebrow) { font-size: 14px; line-height: 1.6; color: var(--ivory-dim); }
-.tebra-home .home-navigation-panel nav { display: flex; flex-direction: column; padding-right: 24px; }
-.tebra-home .home-navigation-panel nav a { min-height: 44px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--ivory); }
-.tebra-home .home-navigation-panel nav[aria-label="Live Sport options"] { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 20px; align-content: start; }
-.tebra-home .home-panel-close { position: absolute; right: 10px; top: 8px; width: 44px; height: 44px; font-size: 28px; color: var(--gold); }
-.tebra-home .home-sports { padding-top: 0; }
-.tebra-home .home-sports > .home-wrap { width: min(1408px,calc(100% - 32px)); }
-.tebra-home .home-sports-heading.home-match-hero { position: relative; isolation: isolate; overflow: hidden; min-height: 520px; padding: 50px 64px 40px; align-items: end; border-bottom: 0; }
-.tebra-home .home-match-film { position: absolute; inset: 0; z-index: -3; width: 100%; height: 100%; object-fit: cover; object-position: center 53%; filter: brightness(.88) contrast(1.08) saturate(1.08); }
-.tebra-home .home-match-shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(0deg,#000c,transparent 90%),linear-gradient(90deg,#0005,transparent); }
-.tebra-home .home-match-hero h1 { font-size: clamp(42px,5vw,68px); line-height: 1.02; font-style: italic; text-shadow: 0 2px 20px #0008; }
-.tebra-home .home-match-hero .home-sports-intro { max-width: 280px; color: var(--ivory); font-size: 14px; }
-.tebra-home .home-film-control { position: absolute; right: 18px; top: 18px; min-height: 44px; padding: 10px 14px; background: #0008; border: 1px solid #ffffff66; color: white; font-size: 10px; text-transform: uppercase; }
-.tebra-home .home-sports > .home-wrap > :not(.home-sports-heading) { width: calc(100% - 128px); margin-inline: auto; }
-.tebra-home .home-programme-tools { margin-top: 32px; }
-.tebra-home .home-fixture h2 { font-size: 19px; line-height: 1.2; }
-.tebra-home .home-venue { padding-block: 40px; }
-.tebra-home :is(#live-sports,#atmosphere,#gallery,#your-host,#find-us,#menus,#food,#drinks,#sport) { scroll-margin-top: 90px; }
+.tebra-home .home-nav-trigger { display: inline-flex; align-items: center; gap: 5px; min-height: 44px; font-size: 12px; color: var(--ivory); }
+.tebra-home .home-navigation-panel { position: absolute; inset-inline: 0; top: 100%; display: grid; grid-template-columns: 200px 1fr 1fr; gap: 28px; padding: 24px max(24px,calc((100% - 1200px)/2)); background: var(--surface-raised); border-bottom: 1px solid var(--gold); max-height: 65svh; overflow-y: auto; box-shadow: 0 16px 32px #0008; }
+.tebra-home .home-navigation-panel > img { width: 100%; height: 150px; object-fit: cover; border-radius: 6px; }
+.tebra-home .home-navigation-panel h2 { font-size: 24px; margin-block: 12px; }
+.tebra-home .home-navigation-panel p { font-size: 14px; line-height: 1.6; }
+.tebra-home .home-navigation-panel nav { display: flex; flex-direction: column; }
+.tebra-home .home-navigation-panel nav a { min-height: 44px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+.tebra-home .home-panel-close { position: absolute; right: 8px; top: 4px; width: 44px; height: 44px; font-size: 28px; }
+.tebra-home :is(#live-sports,#atmosphere,#gallery,#your-host,#find-us,#menus,#food,#drinks,#sport) { scroll-margin-top: 160px; }
 @media (min-width:1024px) and (max-width:1279px) {
- .tebra-home > header nav[aria-label="Primary"] { gap: 10px; }
- .tebra-home > header nav[aria-label="Primary"] :is(a,button) { font-size: 10px; }
- .tebra-home .home-header-book a { width: 170px; font-size: 13px; padding-inline: 18px; }
+ .tebra-home > header nav[aria-label="Primary"] { gap: 8px; }
+ .tebra-home > header nav[aria-label="Primary"] :is(a,button) { font-size: 11px; }
+ .tebra-home .home-header-book a { padding-inline: 14px; font-size: 11px; }
 }
 @media (max-width:1023px) {
- .tebra-home .home-wrap { width: calc(100% - 64px); }
- .tebra-home .home-story { gap: 32px; }
- .tebra-home > header > div:first-child { height: 66px; padding-inline: 16px; gap: 8px; }
- .tebra-home > header > div:first-child > a > span > span:first-child { font-size: 27px; }
- .tebra-home > header > div:first-child > a > span > span:last-child { font-size: 9px; }
- .tebra-home .home-header-book a { width: auto; min-height: 44px; font-size: 12px; padding-inline: 16px; }
+ .tebra-home .home-mobile-top-nav { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 6px; padding: 8px 16px; border-top: 1px solid var(--border); }
+ .tebra-home .home-mobile-top-nav > :is(a,button) { display: flex; align-items: center; justify-content: center; gap: 4px; min-width: 0; min-height: 44px; padding: 8px 5px; border: 1px solid var(--border); border-radius: 5px; background: var(--surface-raised); color: var(--ivory); text-align: center; font: 600 11px/1.3 var(--font-sans); text-transform: uppercase; overflow-wrap: anywhere; }
  .tebra-home .home-navigation-panel { grid-template-columns: 100px 1fr; gap: 16px; padding: 24px 16px; }
- .tebra-home .home-navigation-panel > img { height: 120px; }
- .tebra-home .home-navigation-panel h2 { font-size: 20px; padding-right: 24px; }
+ .tebra-home .home-navigation-panel > img { height: 100px; }
  .tebra-home .home-navigation-panel nav { grid-column: 1/-1; }
+ .tebra-home #mobile-navigation > a { min-height: 44px; }
 }
 @media (max-width:640px) {
  .tebra-home .home-wrap { width: calc(100% - 32px); }
- .tebra-home .home-story { padding-block: 28px; gap: 24px; }
- .tebra-home .home-story-copy h2,.tebra-home .home-menu h2 { font-size: 26px; line-height: 1.1; }
- .tebra-home .home-story-copy > p:not(.label-eyebrow) { font-size: 14px; line-height: 1.6; margin-top: 18px; }
- .tebra-home .home-sports > .home-wrap { width: calc(100% - 24px); }
- .tebra-home .home-sports-heading.home-match-hero { min-height: 360px; display: flex; flex-direction: column; justify-content: end; align-items: start; gap: 16px; padding: 64px 20px 24px; }
- .tebra-home .home-match-hero h1 { font-size: clamp(36px,10vw,52px); }
- .tebra-home .home-match-hero .label-eyebrow { font-size: 8px; letter-spacing: .08em; }
- .tebra-home .home-match-hero .home-sports-intro { margin: 0; font-size: 12px; line-height: 1.5; }
- .tebra-home .home-sports > .home-wrap > :not(.home-sports-heading) { width: calc(100% - 8px); }
- .tebra-home header a[aria-label="Message on WhatsApp"] { display: none; }
- .tebra-home .home-film-control { right: 12px; top: 12px; }
-}
-
-/* Reference mobile structure: Explore menu plus a readable quick-link rail. */
-@media (max-width:1023px) {
- .tebra-home .home-mobile-top-nav { display: flex; align-items: stretch; gap: 20px; overflow-x: auto; padding: 0 16px; border-top: 1px solid var(--border); background: var(--surface-raised); scrollbar-width: none; }
- .tebra-home .home-mobile-top-nav::-webkit-scrollbar { display: none; }
- .tebra-home .home-mobile-top-nav > :is(a,button) { display: inline-flex; flex: 0 0 auto; align-items: center; gap: 4px; min-height: 44px; padding: 10px 0; font: 700 12px/1.4 "Sora",Helvetica,Arial,sans-serif; letter-spacing: .02em; text-transform: uppercase; white-space: nowrap; color: var(--ivory); background: none; border: 0; clip-path: none; }
- .tebra-home .home-mobile-top-nav > :nth-child(1) { order: 1; }
- .tebra-home .home-mobile-top-nav > :nth-child(2) { order: 3; }
- .tebra-home .home-mobile-top-nav > :nth-child(3) { order: 2; }
- .tebra-home .home-mobile-top-nav > :nth-child(4), .tebra-home .home-mobile-top-nav > :nth-child(5) { display: none; }
- .tebra-home .home-mobile-top-nav > :nth-child(6) { order: 4; }
- .tebra-home > header button[aria-controls="mobile-navigation"] { display: inline-flex; align-items: center; gap: 8px; padding: 10px 0 10px 8px; border: 0; background: none; border-radius: 0; }
- .tebra-home > header button[aria-controls="mobile-navigation"]::before { content: "Explore"; font: 600 12px/1 "Sora",Helvetica,Arial,sans-serif; }
- .tebra-home #mobile-navigation { gap: 0; padding: 12px 16px 20px; }
- .tebra-home #mobile-navigation > a { min-height: 48px; padding: 14px 0; border-radius: 0; border-bottom: 1px solid var(--border); font-size: 16px; line-height: 1.3; }
-}
-@media (max-width:380px) {
- .tebra-home > header > div:first-child { padding-inline: 12px; gap: 6px; }
- .tebra-home > header > div:first-child > a > span > span:first-child { font-size: 24px; }
- .tebra-home > header > div:first-child > a > span > span:last-child { font-size: 8px; }
- .tebra-home .home-header-book a { padding-inline: 12px; font-size: 10px; }
- .tebra-home > header button[aria-controls="mobile-navigation"]::before { font-size: 10px; }
-}
-
-/* Phone actions remain in the header and page; do not cover fixtures. */
-@media (max-width:767px) {
+ .tebra-home .home-sports { padding-top: 20px; }
+ .tebra-home .home-sports h1 { font-size: 34px; }
+ .tebra-home .home-sports .label-eyebrow { font-size: 9px; letter-spacing: .08em; }
+ .tebra-home .home-sports-intro { font-size: 14px; }
+ .tebra-home .home-programme-tools { margin-top: 20px; }
+ .tebra-home .home-fixture h2 { font-size: 21px; }
+ .tebra-home .home-venue { grid-template-columns: 1fr; }
+ .tebra-home .home-venue-scene { min-height: 290px; }
+ .tebra-home .home-venue-film { width: min(100%,320px); }
+ .tebra-home .home-story { gap: 24px; padding-block: 28px; }
+ .tebra-home .home-story-copy h2 { font-size: 28px; }
+ .tebra-home > header > div:first-child { gap: 8px; height: 72px; }
+ .tebra-home > header > div:first-child > a > span > span:first-child { font-size: 27px; }
+ .tebra-home > header > div:first-child > a > span > span:last-child { font-size: 9px; }
+ .tebra-home .home-header-book a { font-size: 11px; padding: 10px 12px; }
  .tebra-home > .pb-safe.fixed { display: none; }
 }
+
