@@ -591,3 +591,23 @@
 @media (max-width:767px) {
  .tebra-home > .pb-safe.fixed { display: none; }
 }
+
+
+/* Homepage league offer: restore the competition choices above today's fixtures. */
+.tebra-home .home-league-offer { padding: 28px 0 18px; border-bottom: 1px solid rgba(201,162,75,.18); }
+.tebra-home .home-league-heading { display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:18px; }
+.tebra-home .home-league-heading h2 { margin-top:8px; font-size:clamp(25px,4vw,36px); line-height:1.1; color:var(--ivory); }
+.tebra-home .home-league-heading p:not(.label-eyebrow) { margin-top:8px; color:var(--ivory-dim); font-size:14px; }
+.tebra-home .home-league-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.tebra-home .home-league-card { position:relative; display:flex; min-height:92px; flex-direction:column; justify-content:center; gap:8px; padding:15px 34px 15px 15px; border:1px solid var(--border); border-radius:10px; background:rgba(255,255,255,.025); text-decoration:none; transition:border-color .2s,background .2s; }
+.tebra-home .home-league-card:hover,.tebra-home .home-league-card:focus-visible { border-color:rgba(201,162,75,.75); background:rgba(201,162,75,.08); }
+.tebra-home .home-league-card > span:first-child { color:var(--gold); font-size:9px; font-weight:800; letter-spacing:.13em; line-height:1.2; }
+.tebra-home .home-league-card strong { color:var(--ivory); font-size:15px; line-height:1.25; }
+.tebra-home .home-league-arrow { position:absolute; right:13px; top:15px; color:var(--gold); font-size:17px; }
+@media(max-width:600px) {
+ .tebra-home .home-league-heading { align-items:flex-start; flex-direction:column; gap:10px; }
+ .tebra-home .home-league-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+ .tebra-home .home-league-card { min-height:86px; padding:13px 25px 13px 12px; }
+ .tebra-home .home-league-card strong { font-size:14px; }
+ .tebra-home .home-league-card > span:first-child { font-size:8px; }
+}
