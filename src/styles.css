@@ -707,3 +707,22 @@
     width: calc(100% - 8px);
   }
 }
+
+
+/* Keep the oversized hero/film control small enough not to cover the venue facade. */
+.tebra-home .home-film-control {
+  width: clamp(112px, 17vw, 190px) !important;
+  max-width: 22% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  inset: auto 16px 16px auto !important;
+  transform: none !important;
+  clip-path: none !important;
+}
+@media (max-width: 640px) {
+  .tebra-home .home-film-control {
+    width: 104px !important;
+    max-width: 30% !important;
+    inset: auto 8px 8px auto !important;
+  }
+}
