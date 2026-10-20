@@ -26,7 +26,7 @@ const COUNTRY_LEAGUES = [
 
 const EXTRA_SPORTS = [
   { name: "PRO BOX PLUS", sport: "Fight", group: "BOXING" },
-  { name: "UFC PLUS", sport: "Fight", group: "MMA" },
+  { name: "UFX PLUS", sport: "Fight", group: "MMA" },
   { name: "F1", sport: "F1", group: "MOTORSPORT" },
 ];
 
