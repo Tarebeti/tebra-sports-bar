@@ -1256,6 +1256,20 @@
       "featured": false
     },
     {
+      "id": "boxing-2026-10-24-smith-puello-main-card",
+      "title": "Dalton Smith vs Alberto Puello — Main card",
+      "competition": "Boxing",
+      "sport": "Fight",
+      "date": "2026-10-24",
+      "time": "21:00",
+      "start": "2026-10-24T21:00:00+03:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-20",
+      "source": "https://wbcboxing.com/en/where-to-watch-smith-vs-puello/",
+      "priority": 2,
+      "featured": false
+    },
+    {
       "id": "ufc-2026-10-24-ufc-333-volkanovski-vs-evloev-main-card",
       "title": "UFC 333: Volkanovski vs Evloev — Main card",
       "competition": "UFC",
