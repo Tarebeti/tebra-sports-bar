@@ -18,6 +18,8 @@ const LEAGUE_OFFERS = [
   { name: "Bundesliga", sport: "Football", group: "EUROPEAN FOOTBALL", competitions: ["Bundesliga"] },
   { name: "Ligue 1", sport: "Football", group: "EUROPEAN FOOTBALL", competitions: ["Ligue 1"] },
   { name: "Scottish Premiership", sport: "Football", group: "EUROPEAN FOOTBALL", competitions: ["Scottish Premiership"] },
+  { name: "Eredivisie", sport: "Football", group: "EUROPEAN FOOTBALL", competitions: ["Eredivisie"] },
+  { name: "Championship", sport: "Football", group: "ENGLISH FOOTBALL", competitions: ["Championship"] },
   { name: "Formula 1", sport: "F1", group: "MOTORSPORT", competitions: ["Formula 1"] },
   { name: "NBA & EuroLeague", sport: "Basketball", group: "BASKETBALL", competitions: ["NBA", "EuroLeague"] },
   { name: "UFC & Boxing", sport: "Fight", group: "FIGHT NIGHTS", competitions: ["UFC", "Boxing"] },
