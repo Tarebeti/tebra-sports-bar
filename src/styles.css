@@ -694,3 +694,16 @@
   .tebra-home .home-fixture h2 { margin-block: 10px 8px; font-size: 20px; }
   .tebra-home .home-fixture-top time { font-size: 21px; }
 }
+
+
+/* Keep the sports programme aligned to the same content grid as the hero. */
+.tebra-home .home-sports > .home-wrap > :not(.home-sports-heading) {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+@media (max-width: 600px) {
+  .tebra-home .home-sports > .home-wrap > :not(.home-sports-heading) {
+    width: calc(100% - 8px);
+  }
+}
