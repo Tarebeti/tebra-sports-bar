@@ -1702,6 +1702,20 @@
       "source": "https://www.formula1.com/en/latest/article/formula-1-msc-cruises-united-states-grand-prix-2026.2u6li2pzNhPzL3TSYaagrm",
       "priority": 3,
       "featured": false
+    },
+    {
+      "id": "boxing-2026-10-25-navarrete-foster-main-card",
+      "title": "Emanuel Navarrete vs O’Shaquie Foster — Main card",
+      "competition": "Boxing",
+      "sport": "Fight",
+      "date": "2026-10-25",
+      "time": "03:00",
+      "start": "2026-10-25T03:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-20",
+      "source": "https://wbcboxing.com/en/donde-ver-foster-vs-navarrete/",
+      "priority": 3,
+      "featured": false
     }
   ],
   "verificationTimezone": "UTC"
