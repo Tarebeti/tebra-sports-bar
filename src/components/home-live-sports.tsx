@@ -1,5 +1,5 @@
 import { ArrowUpRight, CalendarDays, Clock3, Tv } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { loadProgramme } from "@/lib/programme-feed";
 import { fixtureDate, greekTime, selectFixtures, type VerifiedFixture } from "@/lib/sports-fixtures";
 
@@ -9,16 +9,6 @@ type Props = {
 };
 
 export function HomeLiveSports({ fixtures, requestUrl }: Props) {
-  const film = useRef<HTMLVideoElement>(null);
-  const [filmPaused, setFilmPaused] = useState(true);
-  useEffect(() => {
-    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setFilmPaused(preference.matches);
-  }, []);
-  useEffect(() => {
-    if (filmPaused) film.current?.pause();
-    else film.current?.play().catch(() => setFilmPaused(true));
-  }, [filmPaused]);
   const [period, setPeriod] = useState<"today" | "week">("today");
   const [now, setNow] = useState<Date | null>(null);
   useEffect(() => {
@@ -53,11 +43,6 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
     <section id="live-sports" aria-labelledby="live-sports-title" className="home-sports">
       <div className="home-wrap">
         <div className="home-sports-heading home-match-hero">
-          <video ref={film} className="home-match-film" muted loop playsInline preload="metadata" poster="/photos/tebra-video-poster.jpg" aria-hidden="true">
-            <source src="/photos/tebra-atmosphere.mp4" type="video/mp4" />
-          </video>
-          <div className="home-match-shade" aria-hidden="true" />
-          <button type="button" className="home-film-control" onClick={() => setFilmPaused(!filmPaused)} aria-label={filmPaused ? "Play atmosphere video" : "Pause atmosphere video"}>{filmPaused ? "Play video ▷" : "Pause video Ⅱ"}</button>
           <div>
             <p className="label-eyebrow"><Tv size={16} aria-hidden="true" /> LIVE SPORT · HERSONISSOS, CRETE</p>
             <h1 id="live-sports-title">Your match.<br /><span>Your place.</span></h1>
@@ -85,3 +70,4 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
     </section>
   );
 }
+
