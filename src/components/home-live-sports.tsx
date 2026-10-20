@@ -9,21 +9,21 @@ type Props = {
 };
 
 const LEAGUE_OFFERS = [
-  { name: "Premier League", sport: "Football", group: "ENGLISH FOOTBALL", competitions: ["Premier League"] },
-  { name: "Champions League", sport: "Football", group: "EUROPEAN NIGHTS", competitions: ["Champions League"] },
-  { name: "Europa League", sport: "Football", group: "EUROPEAN NIGHTS", competitions: ["Europa League"] },
-  { name: "Conference League", sport: "Football", group: "EUROPEAN NIGHTS", competitions: ["Conference League"] },
-  { name: "La Liga", sport: "Football", group: "EUROPEAN FOOTBALL", competitions: ["La Liga"] },
-  { name: "Serie A", sport: "Football", group: "EUROPEAN FOOTBALL", competitions: ["Serie A", "Brazil Serie A"] },
-  { name: "Bundesliga", sport: "Football", group: "EUROPEAN FOOTBALL", competitions: ["Bundesliga"] },
-  { name: "Ligue 1", sport: "Football", group: "EUROPEAN FOOTBALL", competitions: ["Ligue 1"] },
-  { name: "Scottish Premiership", sport: "Football", group: "EUROPEAN FOOTBALL", competitions: ["Scottish Premiership"] },
-  { name: "Eredivisie", sport: "Football", group: "EUROPEAN FOOTBALL", competitions: ["Eredivisie"] },
-  { name: "Championship", sport: "Football", group: "ENGLISH FOOTBALL", competitions: ["Championship"] },
-  { name: "Formula 1", sport: "F1", group: "MOTORSPORT", competitions: ["Formula 1"] },
-  { name: "NBA & EuroLeague", sport: "Basketball", group: "BASKETBALL", competitions: ["NBA", "EuroLeague"] },
-  { name: "UFC & Boxing", sport: "Fight", group: "FIGHT NIGHTS", competitions: ["UFC", "Boxing"] },
-  { name: "Tennis", sport: "Tennis", group: "TOUR EVENTS", competitions: ["ATP Masters 1000"] },
+  { name: "Premier League", sport: "Football", group: "ENGLISH FOOTBALL" },
+  { name: "Champions League", sport: "Football", group: "EUROPEAN NIGHTS" },
+  { name: "Europa League", sport: "Football", group: "EUROPEAN NIGHTS" },
+  { name: "Conference League", sport: "Football", group: "EUROPEAN NIGHTS" },
+  { name: "La Liga", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Serie A", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Bundesliga", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Ligue 1", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Scottish Premiership", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Eredivisie", sport: "Football", group: "EUROPEAN FOOTBALL" },
+  { name: "Championship", sport: "Football", group: "ENGLISH FOOTBALL" },
+  { name: "Formula 1", sport: "F1", group: "MOTORSPORT" },
+  { name: "NBA & EuroLeague", sport: "Basketball", group: "BASKETBALL" },
+  { name: "UFC & Boxing", sport: "Fight", group: "FIGHT NIGHTS" },
+  { name: "Tennis", sport: "Tennis", group: "TOUR EVENTS" },
 ];
 
 export function HomeLiveSports({ fixtures, requestUrl }: Props) {
@@ -62,19 +62,9 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
     const timer = setInterval(refresh, 300_000);
     return () => { controller.abort(); clearInterval(timer); };
   }, []);
-  const programme = remoteFixtures ?? fixtures;
-  const selected = now ? selectFixtures(programme, now) : { today: [], upcoming: [] };
+  const selected = now ? selectFixtures(remoteFixtures ?? fixtures, now) : { today: [], upcoming: [] };
   const showToday = period === "today" && selected.today.length > 0;
   const shown = showToday ? selected.today : [...selected.today, ...selected.upcoming];
-  const leagueFixtures = now ? programme.filter(fixture => {
-    const start = Date.parse(fixture.startsAt);
-    const verified = Date.parse(fixture.verifiedAt);
-    return Number.isFinite(start) && Number.isFinite(verified)
-      && verified <= now.getTime()
-      && /^https:\/\//.test(fixture.sourceUrl)
-      && start + 3 * 60 * 60 * 1000 >= now.getTime()
-      && start <= now.getTime() + 7 * 24 * 60 * 60 * 1000;
-  }).sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt)) : [];
 
   return (
     <section id="live-sports" aria-labelledby="live-sports-title" className="home-sports">
@@ -98,17 +88,9 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
             <a href="/sports-desk" className="home-text-link">Full sports desk <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
           <div className="home-league-grid">
-            {LEAGUE_OFFERS.map(league => {
-              const matches = leagueFixtures.filter(fixture => (league.competitions ?? [league.name]).includes(fixture.competition)).slice(0, 3);
-              return <article key={league.name} className="home-league-card">
-                <span>{league.group}</span><strong>{league.name}</strong>
-                {matches.length ? <ul className="home-league-matches">{matches.map(fixture => <li key={fixture.id}>
-                  <span>{fixture.title}</span><time dateTime={fixture.startsAt}>{fixtureDate(fixture.startsAt)} · {greekTime(fixture.startsAt)}</time>
-                  <a href={requestUrl(`Hi Tebra, please confirm if you will screen ${fixture.title} on ${fixtureDate(fixture.startsAt)} at ${greekTime(fixture.startsAt)} Greek time.`)} target="_blank" rel="noopener noreferrer">Ask about screening <ArrowUpRight size={13} aria-hidden="true" /></a>
-                </li>)}</ul> : <p className="home-league-empty">No fixtures listed for the next 7 days.</p>}
-                <a className="home-league-more" href={`/sports-desk?sport=${encodeURIComponent(league.sport)}`}>Full schedule <ArrowUpRight size={14} aria-hidden="true" /></a>
-              </article>;
-            })}
+            {LEAGUE_OFFERS.map(league => <a key={league.name} href={`/sports-desk?sport=${encodeURIComponent(league.sport)}`} className="home-league-card">
+              <span>{league.group}</span><strong>{league.name}</strong><span className="home-league-arrow" aria-hidden="true">↗</span>
+            </a>)}
           </div>
         </div>
 
