@@ -622,3 +622,75 @@
 .tebra-home .home-league-empty { color:var(--ivory-dim); font-size:11px; line-height:1.5; }
 .tebra-home .home-league-more { margin-top:auto; padding-top:10px; border-top:1px solid var(--border); }
 .tebra-home .home-league-arrow { display:none; }
+
+
+/* Owner-approved homepage cleanup: clear competition hierarchy and readable fixtures. */
+.tebra-home .home-sports-heading.home-match-hero {
+  min-height: 340px;
+  padding: 34px 38px 28px;
+}
+.tebra-home .home-film-control {
+  top: 12px;
+  right: 12px;
+  max-width: calc(100% - 24px);
+  min-height: 30px;
+  padding: 6px 9px;
+  border-radius: 4px;
+  font-size: 10px;
+  line-height: 1.2;
+}
+.tebra-home .home-league-offer { padding: 22px 0 16px; }
+.tebra-home .home-league-heading { margin-bottom: 14px; }
+.tebra-home .home-league-grid.home-featured-competitions { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.tebra-home .home-league-grid.home-country-leagues,
+.tebra-home .home-country-leagues .home-league-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.tebra-home .home-league-card {
+  min-height: 64px;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 12px;
+  border-radius: 5px;
+}
+.tebra-home .home-league-card > span:first-child { font-size: 8px; line-height: 1.2; letter-spacing: .08em; }
+.tebra-home .home-league-card strong { font-size: 13px; line-height: 1.25; }
+.tebra-home .home-league-arrow { display: none; }
+.tebra-home .home-extra-sports { margin-top: 8px; }
+.tebra-home .home-fixture-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.tebra-home .home-fixture { padding: 15px; border-radius: 5px; }
+.tebra-home .home-fixture h2 { margin-block: 12px 9px; font-size: 22px; line-height: 1.3; font-weight: 700; }
+.tebra-home .home-fixture-top p { font-size: 13px; line-height: 1.4; }
+.tebra-home .home-fixture-top time { font-size: 22px; }
+.tebra-home .home-programme-periods button,
+.tebra-home button,
+.tebra-home [role="button"],
+.tebra-home a[class*="rounded"] {
+  transform: none;
+  clip-path: none;
+  box-sizing: border-box;
+}
+@media (max-width: 900px) {
+  .tebra-home .home-fixture-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tebra-home .home-sports-heading.home-match-hero { min-height: 310px; padding: 28px 24px 22px; }
+}
+@media (max-width: 600px) {
+  .tebra-home .home-wrap,
+  .tebra-home .home-sports > .home-wrap { width: calc(100% - 28px); }
+  .tebra-home .home-sports-heading.home-match-hero {
+    min-height: 260px;
+    padding: 22px 16px 18px;
+    gap: 12px;
+  }
+  .tebra-home .home-match-hero h1 { font-size: clamp(34px, 9vw, 44px); }
+  .tebra-home .home-match-hero .home-sports-intro { max-width: none; font-size: 12px; }
+  .tebra-home .home-film-control { top: 8px; right: 8px; min-height: 28px; padding: 5px 7px; font-size: 9px; }
+  .tebra-home .home-league-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .tebra-home .home-league-grid.home-featured-competitions { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .tebra-home .home-country-leagues .home-league-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; }
+  .tebra-home .home-league-card { min-height: 54px; padding: 9px 10px; gap: 4px; }
+  .tebra-home .home-league-card strong { font-size: 12px; }
+  .tebra-home .home-league-card > span:first-child { font-size: 7px; }
+  .tebra-home .home-fixture-grid { grid-template-columns: 1fr; gap: 8px; }
+  .tebra-home .home-fixture { padding: 13px; }
+  .tebra-home .home-fixture h2 { margin-block: 10px 8px; font-size: 20px; }
+  .tebra-home .home-fixture-top time { font-size: 21px; }
+}
