@@ -1136,6 +1136,12 @@ function Footer() {
         <p className="text-xs uppercase tracking-[0.2em] text-ivory-dim">
           &copy; {new Date().getFullYear()} Tebra Sports Bar, Hersonissos, Crete
         </p>
+        <p className="text-[11px] text-ivory-dim/70">
+          Website and SEO by{" "}
+          <a href="https://lorenzodegraaff.nl/" target="_blank" rel="noopener" className="underline-offset-2 hover:text-gold hover:underline">
+            Lorenzo de Graaff
+          </a>
+        </p>
       </div>
     </footer>
   );

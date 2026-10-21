@@ -124,6 +124,7 @@ function ActiveFooter() {
       <p>TEBRA PREMIUM BAR</p>
       <Link to="/">Return to Tebra</Link>
       <small>© {new Date().getFullYear()} TEBRA Sports Bar, Hersonissos, Crete</small>
+      <small style={{ opacity: 0.7 }}>Website and SEO by <a href="https://lorenzodegraaff.nl/" target="_blank" rel="noopener">Lorenzo de Graaff</a></small>
     </footer>
   );
 }
