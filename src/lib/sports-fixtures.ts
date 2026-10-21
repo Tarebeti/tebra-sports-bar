@@ -34,9 +34,10 @@ export function fixtureDate(startsAt: string): string {
   }).format(new Date(startsAt));
 }
 
-export function selectFixtures(fixtures: readonly VerifiedFixture[], now: Date) {
+/** Fixtures with verification evidence that have not finished, best first. */
+export function eligibleFixtures(fixtures: readonly VerifiedFixture[], now: Date) {
   // Retain starts for three hours; a schedule never implies a confirmed screening.
-  const upcoming = fixtures.filter((fixture) => {
+  return fixtures.filter((fixture) => {
     const start = Date.parse(fixture.startsAt);
     const verification = Date.parse(fixture.verifiedAt);
     return Number.isFinite(start) && Number.isFinite(verification)
@@ -47,9 +48,39 @@ export function selectFixtures(fixtures: readonly VerifiedFixture[], now: Date) 
   }).sort((a, b) => (a.priority ?? 2) - (b.priority ?? 2)
     || Number(!!b.featured) - Number(!!a.featured)
     || Date.parse(a.startsAt) - Date.parse(b.startsAt));
+}
+
+export function selectFixtures(fixtures: readonly VerifiedFixture[], now: Date) {
+  const upcoming = eligibleFixtures(fixtures, now);
   const today = greekDate(now);
   return {
     today: upcoming.filter((fixture) => greekDate(new Date(fixture.startsAt)) === today).slice(0, 4),
     upcoming: upcoming.filter((fixture) => greekDate(new Date(fixture.startsAt)) !== today).slice(0, 4),
   };
+}
+
+/** Premier League stands alone; every other European football competition is grouped together. */
+export type FixtureGroup = "premier" | "europe" | "more";
+const NON_EUROPEAN_FOOTBALL = new Set(["Brazil Serie A", "MLS", "Copa Libertadores"]);
+
+export function fixtureGroup(fixture: Pick<VerifiedFixture, "sport" | "competition">): FixtureGroup {
+  if (fixture.competition === "Premier League") return "premier";
+  if (fixture.sport === "Football" && !NON_EUROPEAN_FOOTBALL.has(fixture.competition)) return "europe";
+  return "more";
+}
+
+/** Best fixtures per group for today or the coming week, shown in kick-off order. */
+export function groupFixtures(fixtures: readonly VerifiedFixture[], now: Date, period: "today" | "week", limit = 3) {
+  const today = greekDate(now);
+  const pool = eligibleFixtures(fixtures, now)
+    .filter((fixture) => period === "week" || greekDate(new Date(fixture.startsAt)) === today);
+  const pick = (group: FixtureGroup) => pool.filter((fixture) => fixtureGroup(fixture) === group)
+    .slice(0, limit)
+    .sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt));
+  return { premier: pick("premier"), europe: pick("europe"), more: pick("more") };
+}
+
+/** Feed titles use spaced dashes ("GP — Race"); visible copy avoids dashes. */
+export function displayTitle(title: string): string {
+  return title.replace(/\s+[—–-]\s+/g, ": ");
 }
