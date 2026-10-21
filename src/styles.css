@@ -769,3 +769,27 @@
     font-size: 9px !important;
   }
 }
+
+
+/* Final focused fix: keep the venue photo visible by shrinking the overlaid facade panel. */
+.tebra-home .home-venue-brand {
+  width: min(300px, 68%) !important;
+  padding: 18px 22px 16px 18px !important;
+  clip-path: none !important;
+}
+.tebra-home .home-venue-brand h2 {
+  margin-top: 8px !important;
+  font-size: clamp(34px, 4vw, 54px) !important;
+}
+.tebra-home .home-venue-brand .home-text-link {
+  margin-top: 8px !important;
+}
+@media (max-width: 640px) {
+  .tebra-home .home-venue-brand {
+    width: min(250px, 76%) !important;
+    padding: 14px 16px 12px 14px !important;
+  }
+  .tebra-home .home-venue-brand h2 {
+    font-size: 38px !important;
+  }
+}
