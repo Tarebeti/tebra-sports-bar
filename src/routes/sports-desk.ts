@@ -58,7 +58,7 @@ export const Route = createFileRoute("/sports-desk")({
           .replace("</html>", `<script>${programmeLoader}</script><script>${sportSelection}</script></html>`)
           .replace("</title>", `</title>${socialMeta}`);
         return new Response(html, {
-          headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "public, max-age=300" },
+          headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store, max-age=0, must-revalidate" },
         });
       },
     },
