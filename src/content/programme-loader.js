@@ -26,6 +26,30 @@ async function refreshProgrammeFeed(){
     for(let i=events.length-1;i>=0;i--){const start=Date.parse(events[i].start);if(Number.isFinite(start)&&start+3*60*60*1000<Date.now())events.splice(i,1);}
     events.sort((a,b)=>a.priority-b.priority||Date.parse(a.start)-Date.parse(b.start));
     render();
+    // Refresh the promotional fixture from the same feed as the programme.
+    const hero=document.querySelector('.hero.compact-hero .feature');
+    if(hero){
+      const upcoming=feed.events.filter(e=>Date.parse(e.start)>=Date.now())
+        .sort((a,b)=>Date.parse(a.start)-Date.parse(b.start));
+      const day=upcoming[0]?.date;
+      const candidates=upcoming.filter(e=>e.date===day)
+        .sort((a,b)=>a.priority-b.priority||Date.parse(a.start)-Date.parse(b.start));
+      const next=candidates[0];
+      hero.replaceChildren();
+      const add=(tag,className,value)=>{const node=document.createElement(tag);node.className=className;node.textContent=value;hero.append(node);return node;};
+      add('div','eyebrow',next?'NEXT FEATURED FIXTURE · '+next.competition.toUpperCase():'TEBRA SPORTS DESK');
+      if(next){
+        const date=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Athens',weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date(next.start)).toUpperCase();
+        add('p','event-date',date);
+        add('h2','',next.title);
+        add('div','time',next.time+' • Greek local time');
+        add('p','',next.screening==='confirmed'?'Tebra screening confirmed':'Contact Tebra to confirm screening');
+        const button=add('button','gold','REQUEST A TABLE ↗');
+        button.style.marginTop='24px';
+        button.addEventListener('click',()=>book(next.title+' • '+date+' • '+next.time+' Greece'));
+      }else add('h2','','Find your next match');
+    }
+
     let note=document.getElementById('programme-feed-status');
     if(!note){note=document.createElement('p');note.id='programme-feed-status';note.className='status';document.getElementById('list').before(note);}
     note.textContent='Programme checked '+feed.checked+' · All times in Greece · Ask Tebra to confirm screening.';
