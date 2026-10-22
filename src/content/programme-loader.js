@@ -32,7 +32,17 @@ async function refreshProgrammeFeed(){
     for(const notice of document.querySelectorAll('.notice')){
       if(notice.textContent.trim().startsWith('Programme checked '))notice.textContent=note.textContent+' Table requests open WhatsApp; reservations require Tebra’s reply.';
     }
-  }catch(error){/* Preserve the last verified programme when the network fails. */}
+  }catch(error){
+    // Never leave an old fixture list on screen when the live programme cannot be verified.
+    events.splice(0,events.length);
+    render();
+    let note=document.getElementById('programme-feed-status');
+    if(!note){note=document.createElement('p');note.id='programme-feed-status';note.className='status';document.getElementById('list').before(note);}
+    note.textContent='Live programme temporarily unavailable. Please check back shortly or contact Tebra to confirm today’s matches.';
+    for(const notice of document.querySelectorAll('.notice')){
+      if(notice.textContent.trim().startsWith('Programme checked '))notice.textContent=note.textContent+' Table requests open WhatsApp; reservations require Tebra’s reply.';
+    }
+  }
 }
 refreshProgrammeFeed();
 setInterval(refreshProgrammeFeed,300000);
