@@ -25,7 +25,7 @@
     "League Two",
     "WTA 500 Ningbo Open",
     "WTA 250 Kinoshita Group Japan Open",
-    "Carabao Cup"
+    "EFL Cup"
   ],
   "events": [
     {
@@ -311,7 +311,7 @@
     {
       "id": "carabao-cup-2026-10-27-fleetwood-town-vs-arsenal",
       "title": "Fleetwood Town vs Arsenal",
-      "competition": "Carabao Cup",
+      "competition": "EFL Cup",
       "sport": "Football",
       "date": "2026-10-27",
       "time": "22:00",
@@ -325,7 +325,7 @@
     {
       "id": "carabao-cup-2026-10-28-manchester-city-vs-brighton",
       "title": "Manchester City vs Brighton",
-      "competition": "Carabao Cup",
+      "competition": "EFL Cup",
       "sport": "Football",
       "date": "2026-10-28",
       "time": "21:30",
@@ -339,7 +339,7 @@
     {
       "id": "carabao-cup-2026-10-28-liverpool-vs-chelsea",
       "title": "Liverpool vs Chelsea",
-      "competition": "Carabao Cup",
+      "competition": "EFL Cup",
       "sport": "Football",
       "date": "2026-10-28",
       "time": "22:00",
@@ -997,7 +997,7 @@
     {
       "id": "carabao-cup-2026-10-27-bradford-city-vs-peterborough-united",
       "title": "Bradford City vs Peterborough United",
-      "competition": "Carabao Cup",
+      "competition": "EFL Cup",
       "sport": "Football",
       "date": "2026-10-27",
       "time": "21:45",
@@ -1039,7 +1039,7 @@
     {
       "id": "carabao-cup-2026-10-28-bournemouth-vs-aston-villa",
       "title": "Bournemouth vs Aston Villa",
-      "competition": "Carabao Cup",
+      "competition": "EFL Cup",
       "sport": "Football",
       "date": "2026-10-28",
       "time": "21:45",
@@ -1053,7 +1053,7 @@
     {
       "id": "carabao-cup-2026-10-28-fulham-vs-crystal-palace",
       "title": "Fulham vs Crystal Palace",
-      "competition": "Carabao Cup",
+      "competition": "EFL Cup",
       "sport": "Football",
       "date": "2026-10-28",
       "time": "21:45",
@@ -1067,7 +1067,7 @@
     {
       "id": "carabao-cup-2026-10-28-sunderland-vs-brentford",
       "title": "Sunderland vs Brentford",
-      "competition": "Carabao Cup",
+      "competition": "EFL Cup",
       "sport": "Football",
       "date": "2026-10-28",
       "time": "21:45",
@@ -1095,7 +1095,7 @@
     {
       "id": "carabao-cup-2026-10-29-everton-vs-newcastle-united",
       "title": "Everton vs Newcastle United",
-      "competition": "Carabao Cup",
+      "competition": "EFL Cup",
       "sport": "Football",
       "date": "2026-10-29",
       "time": "21:45",
