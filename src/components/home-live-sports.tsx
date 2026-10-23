@@ -10,13 +10,13 @@ type Props = {
 
 const FEATURED_COMPETITIONS = [
   { name: "Premier League", group: "ENGLAND", competition: "Premier League" },
-  { name: "Spain", group: "SPAIN", competition: "La Liga" },
+  { name: "Champions League", group: "EUROPE", competition: "Champions League" },
   { name: "Europa League", group: "EUROPE", competition: "Europa League" },
 ];
 
 const COUNTRY_LEAGUES = [
   { name: "England · Championship", country: "ENGLAND", competition: "Championship" },
-  { name: "Europe · Champions League", country: "EUROPE", competition: "Champions League" },
+  { name: "Spain · La Liga", country: "SPAIN", competition: "La Liga" },
   { name: "Italy · Serie A", country: "ITALY", competition: "Serie A" },
   { name: "Germany · Bundesliga", country: "GERMANY", competition: "Bundesliga" },
   { name: "France · Ligue 1", country: "FRANCE", competition: "Ligue 1" },
@@ -28,8 +28,8 @@ const COUNTRY_LEAGUES = [
 ];
 
 const EXTRA_SPORTS = [
-  { name: "PRO BOX PLUS", sport: "Fight", group: "BOXING", competition: "Boxing" },
-  { name: "UFX PLUS", sport: "Fight", group: "MMA", competition: "UFC" },
+  { name: "PRO BOXING", sport: "Fight", group: "BOXING", competition: "Boxing" },
+  { name: "UFC", sport: "Fight", group: "MMA", competition: "UFC" },
   { name: "F1", sport: "F1", group: "MOTORSPORT", competition: "Formula 1" },
 ];
 
@@ -92,7 +92,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
 
         <div className="home-league-offer" aria-labelledby="home-league-title">
           <div className="home-league-heading">
-            <div><p className="label-eyebrow">WHAT CAN YOU WATCH?</p><h2 id="home-league-title">Choose your competition.</h2><p>Premier League, Spain and Europa League are shown separately. Other leagues and European cups are grouped under Lige.</p></div>
+            <div><p className="label-eyebrow">WHAT CAN YOU WATCH?</p><h2 id="home-league-title">Choose your competition.</h2><p>Find your competition and check the programme in Greek time.</p></div>
             <a href="/sports-desk" className="home-text-link">Full sports desk <ArrowUpRight size={16} aria-hidden="true" /></a>
           </div>
 
@@ -101,7 +101,7 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
               <span>{league.group}</span><strong>{league.name}</strong><span className="home-league-arrow" aria-hidden="true">↗</span>
             </a>)}
             <button type="button" className="home-league-card home-leagues-toggle" style={{ appearance: "none", font: "inherit", color: "inherit", cursor: "pointer", textAlign: "left" }} aria-expanded={showCountryLeagues} aria-controls="home-country-leagues" onClick={() => setShowCountryLeagues(!showCountryLeagues)}>
-              <span>ALL COUNTRIES</span><strong>LIGE</strong><span className="home-league-arrow" aria-hidden="true">{showCountryLeagues ? "−" : "+"}</span>
+              <span>ALL COUNTRIES</span><strong>ALL LEAGUES</strong><span className="home-league-arrow" aria-hidden="true">{showCountryLeagues ? "−" : "+"}</span>
             </button>
           </div>
 
