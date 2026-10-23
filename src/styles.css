@@ -774,8 +774,8 @@
 /* Compact facade caption: keep the entrance visible and the action easy to tap. */
 .tebra-home .home-venue-brand {
   box-sizing: border-box;
-  width: min(260px, 65%) !important;
-  padding: 12px 16px !important;
+  width: min(220px, 60%) !important;
+  padding: 10px 12px !important;
   border-top-width: 2px;
   clip-path: none !important;
 }
@@ -786,7 +786,7 @@
 }
 .tebra-home .home-venue-brand h2 {
   margin-top: 4px !important;
-  font-size: 32px !important;
+  font-size: 28px !important;
   line-height: 1.1;
 }
 .tebra-home .home-venue-brand > p:not(.label-eyebrow) {
@@ -795,18 +795,18 @@
   line-height: 1.4;
 }
 .tebra-home .home-venue-brand .home-text-link {
-  margin-top: 8px !important;
-  min-height: 44px;
-  padding: 8px 12px;
+  margin-top: 5px !important;
+  min-height: 36px;
+  padding: 7px 10px;
   font-size: 10px;
   line-height: 1.2;
 }
 @media (max-width: 640px) {
   .tebra-home .home-venue-brand {
-    width: min(210px, 65%) !important;
-    padding: 10px 12px !important;
+    width: min(175px, 55%) !important;
+    padding: 8px 10px !important;
   }
   .tebra-home .home-venue-brand h2 {
-    font-size: 28px !important;
+    font-size: 24px !important;
   }
 }
