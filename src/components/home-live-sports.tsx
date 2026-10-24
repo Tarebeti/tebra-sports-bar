@@ -121,6 +121,11 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
           </div>
         </div>
 
+        {now && new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Athens", year: "numeric", month: "2-digit", day: "2-digit" }).format(now) === "2026-10-24" && <figure style={{ margin: "24px auto", maxWidth: "520px" }}>
+          <img src="/photos/tebra-sports-2026-10-24.webp" alt="Tebra sports programme for Saturday 24 October 2026: Aston Villa vs Manchester City 14:30, Arsenal vs Everton 17:00, Chelsea vs Tottenham 19:30, Dortmund vs Frankfurt 19:30, UFC 333 main card 21:00. All times in Greece." width={1024} height={1536} loading="lazy" style={{ display: "block", width: "100%", height: "auto", borderRadius: "12px", border: "1px solid rgba(206,172,101,.4)" }} />
+          <figcaption style={{ textAlign: "center", fontSize: "12px", marginTop: "10px", opacity: .75 }}>Saturday 24 October · All times in Greece · Ask Tebra to confirm screening.</figcaption>
+        </figure>}
+
         <div className="home-programme-tools">
           <div className="home-programme-periods" role="group" aria-label="Programme period">
             <button type="button" aria-pressed={period === "today"} onClick={() => setPeriod("today")}>Today</button>
