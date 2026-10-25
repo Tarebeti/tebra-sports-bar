@@ -895,6 +895,34 @@
       "source": "https://www.nba.com/games?date=2026-10-29",
       "priority": 3,
       "featured": false
+    },
+    {
+      "id": "pl-2026-11-01-liverpool-vs-arsenal",
+      "title": "Liverpool vs Arsenal",
+      "competition": "Premier League",
+      "sport": "Football",
+      "date": "2026-11-01",
+      "time": "18:30",
+      "start": "2026-11-01T18:30:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-25",
+      "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
+      "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "pl-2026-11-02-newcastle-united-vs-everton",
+      "title": "Newcastle United vs Everton",
+      "competition": "Premier League",
+      "sport": "Football",
+      "date": "2026-11-02",
+      "time": "22:00",
+      "start": "2026-11-02T22:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-25",
+      "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
+      "priority": 1,
+      "featured": false
     }
   ],
   "verificationTimezone": "UTC"
