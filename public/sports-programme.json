@@ -101,6 +101,20 @@
       "featured": false
     },
     {
+      "id": "greek-cup-2026-10-28-paok-aek",
+      "title": "PAOK vs AEK",
+      "competition": "Greek Cup",
+      "sport": "Football",
+      "date": "2026-10-28",
+      "time": "20:30",
+      "start": "2026-10-28T20:30:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-26",
+      "source": "https://www.epo.gr/el/competition/5/stage/1436/group/2102/matches",
+      "priority": 1,
+      "featured": false
+    },
+    {
       "id": "carabao-cup-2026-10-28-manchester-city-vs-brighton",
       "title": "Manchester City vs Brighton",
       "competition": "EFL Cup",
