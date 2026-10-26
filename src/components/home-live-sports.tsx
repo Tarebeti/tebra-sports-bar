@@ -15,6 +15,7 @@ const FEATURED_COMPETITIONS = [
 ];
 
 const COUNTRY_LEAGUES = [
+  { name: "Greece · Super League", country: "GREECE", competition: "Greek Super League" },
   { name: "England · Championship", country: "ENGLAND", competition: "Championship" },
   { name: "Spain · La Liga", country: "SPAIN", competition: "La Liga" },
   { name: "Italy · Serie A", country: "ITALY", competition: "Serie A" },
