@@ -1,7 +1,7 @@
 import { ArrowUpRight, CalendarDays, Clock3, Tv } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { loadProgramme } from "@/lib/programme-feed";
-import { fixtureDate, greekTime, selectFixtures, type VerifiedFixture } from "@/lib/sports-fixtures";
+import { eligibleFixtures, fixtureDate, greekTime, selectFixtures, type VerifiedFixture } from "@/lib/sports-fixtures";
 
 type Props = {
   fixtures: readonly VerifiedFixture[];
@@ -15,6 +15,7 @@ const FEATURED_COMPETITIONS = [
 ];
 
 const COUNTRY_LEAGUES = [
+  { name: "Greece · Greek Cup", country: "GREECE", competition: "Greek Cup" },
   { name: "Greece · Super League", country: "GREECE", competition: "Greek Super League" },
   { name: "England · Championship", country: "ENGLAND", competition: "Championship" },
   { name: "Spain · La Liga", country: "SPAIN", competition: "La Liga" },
@@ -74,6 +75,8 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
   const selected = now ? selectFixtures(remoteFixtures ?? fixtures, now) : { today: [], upcoming: [] };
   const showToday = period === "today" && selected.today.length > 0;
   const shown = showToday ? selected.today : [...selected.today, ...selected.upcoming];
+
+  const greekFixtures = now ? eligibleFixtures(remoteFixtures ?? fixtures, now).filter(fixture => ["Greek Super League", "Greek Cup"].includes(fixture.competition) && Date.parse(fixture.startsAt) <= now.getTime() + 7 * 86400000) : [];
 
   return (
     <section id="live-sports" aria-labelledby="live-sports-title" className="home-sports">
@@ -143,6 +146,19 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
           </li>)}
         </ul> : <p className="home-programme-empty">No upcoming fixtures listed. Ask us about your match.</p>}
         {now && !showToday && period === "today" && selected.upcoming.length > 0 && <p className="home-programme-note">Today’s listed start times have passed. Here is what’s coming up.</p>}
+
+        {greekFixtures.length > 0 && <div aria-labelledby="home-greek-football-title" style={{ marginTop: "32px" }}>
+          <p className="label-eyebrow">GREEK FOOTBALL</p>
+          <h2 id="home-greek-football-title">Super League &amp; Greek Cup</h2>
+          <ul className="home-fixture-grid">
+            {greekFixtures.map(fixture => <li key={fixture.id} className="home-fixture">
+              <div className="home-fixture-top"><p>{fixture.competition}</p><time dateTime={fixture.startsAt}>{greekTime(fixture.startsAt)}</time></div>
+              <h2>{fixture.title}</h2>
+              <p className="home-fixture-date">{fixtureDate(fixture.startsAt)}</p>
+              <div className="home-fixture-actions"><a href={requestUrl(`Hi Tebra, I would like to request a table for ${fixture.title} on ${fixtureDate(fixture.startsAt)} at ${greekTime(fixture.startsAt)} Greek time. Please confirm the screening and table availability.`)} target="_blank" rel="noopener noreferrer" className="home-fixture-request">Request a table ↗</a><a href={fixture.sourceUrl} target="_blank" rel="noopener noreferrer" className="home-fixture-source">Source</a></div>
+            </li>)}
+          </ul>
+        </div>}
         <div className="home-programme-footer"><p>{checked ? `Schedule checked ${checked}. ` : ""}Contact Tebra to confirm your screening and table.</p><a href="/sports-desk" className="home-text-link">All sports &amp; fixtures <ArrowUpRight size={16} aria-hidden="true" /></a></div>
       </div>
     </section>
