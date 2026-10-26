@@ -26,7 +26,8 @@
     "WTA 500 Ningbo Open",
     "WTA 250 Kinoshita Group Japan Open",
     "EFL Cup",
-    "Greek Super League"
+    "Greek Super League",
+    "Greek Cup"
   ],
   "events": [
     {
@@ -82,6 +83,20 @@
       "screening": "unconfirmed",
       "verified": "2026-10-24",
       "source": "https://www.efl.com/news/2026/september/18/carabao-cup-round-four-schedule-confirmed/",
+      "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "greek-cup-2026-10-28-panathinaikos-aris",
+      "title": "Panathinaikos vs Aris",
+      "competition": "Greek Cup",
+      "sport": "Football",
+      "date": "2026-10-28",
+      "time": "17:30",
+      "start": "2026-10-28T17:30:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-26",
+      "source": "https://www.pao.gr/en/the-matches/fixtures/",
       "priority": 1,
       "featured": false
     },
