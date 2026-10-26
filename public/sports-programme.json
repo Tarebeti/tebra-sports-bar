@@ -25,7 +25,8 @@
     "League Two",
     "WTA 500 Ningbo Open",
     "WTA 250 Kinoshita Group Japan Open",
-    "EFL Cup"
+    "EFL Cup",
+    "Greek Super League"
   ],
   "events": [
     {
@@ -183,6 +184,20 @@
       "featured": false
     },
     {
+      "id": "greek-super-league-2026-10-31-kifisia-vs-olympiacos",
+      "title": "Kifisia vs Olympiacos",
+      "competition": "Greek Super League",
+      "sport": "Football",
+      "date": "2026-10-31",
+      "time": "19:00",
+      "start": "2026-10-31T19:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-26",
+      "source": "https://www.olympiacos.org/es/vathmologies/super-league/",
+      "priority": 1,
+      "featured": false
+    },
+    {
       "id": "pl-2026-10-31-tottenham-hotspur-vs-crystal-palace",
       "title": "Tottenham Hotspur vs Crystal Palace",
       "competition": "Premier League",
@@ -235,6 +250,34 @@
       "screening": "unconfirmed",
       "verified": "2026-10-25",
       "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
+      "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "greek-super-league-2026-11-01-panathinaikos-vs-aek",
+      "title": "Panathinaikos vs AEK",
+      "competition": "Greek Super League",
+      "sport": "Football",
+      "date": "2026-11-01",
+      "time": "19:00",
+      "start": "2026-11-01T19:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-26",
+      "source": "https://www.pao.gr/en/the-matches/fixtures/",
+      "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "greek-super-league-2026-11-01-paok-vs-asteras-aktor",
+      "title": "PAOK vs Asteras AKTOR",
+      "competition": "Greek Super League",
+      "sport": "Football",
+      "date": "2026-11-01",
+      "time": "19:00",
+      "start": "2026-11-01T19:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-26",
+      "source": "https://www.paokfc.gr/en/match-centre/2026-2027-en/en-first-team-nchc/fixtures/",
       "priority": 1,
       "featured": false
     },
