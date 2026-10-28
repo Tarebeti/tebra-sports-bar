@@ -771,6 +771,20 @@
       "source": "https://www.nba.com/games?date=2026-10-29",
       "priority": 3,
       "featured": false
+    },
+    {
+      "id": "boxing-2026-10-31-canelo-alvarez-christian-mbilli",
+      "title": "Canelo Alvarez vs Christian Mbilli — PPV programme start",
+      "competition": "Boxing",
+      "sport": "Fight",
+      "date": "2026-10-31",
+      "time": "18:30",
+      "start": "2026-10-31T18:30:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-28",
+      "source": "https://www.dazn.com/en-US/help/articles/40096415192093-canelo-alvarez-vs-christian-mbilli-ppv-faqs",
+      "priority": 1,
+      "featured": false
     }
   ],
   "verificationTimezone": "UTC"
