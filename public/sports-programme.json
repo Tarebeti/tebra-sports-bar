@@ -260,10 +260,10 @@
       "competition": "Greek Super League",
       "sport": "Football",
       "date": "2026-11-01",
-      "time": "19:00",
-      "start": "2026-11-01T19:00:00+02:00",
+      "time": "19:30",
+      "start": "2026-11-01T19:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-26",
+      "verified": "2026-10-28",
       "source": "https://www.pao.gr/en/the-matches/fixtures/",
       "priority": 1,
       "featured": false
