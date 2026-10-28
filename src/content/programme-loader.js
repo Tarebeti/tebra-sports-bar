@@ -15,12 +15,25 @@ async function refreshProgrammeFeed(){
       'Eredivisie':'Football','La Liga':'Football','Ligue 1':'Football','Serie A':'Football',
       'Brazil Serie A':'Football','Championship':'Football','Formula 1':'F1',
       'EuroLeague':'Basketball','NBA':'Basketball','UFC':'Fight','Boxing':'Fight',
-      'ATP Masters 1000':'Tennis'
+      'ATP Masters 1000':'Tennis','WTA 500 Ningbo Open':'Tennis',
+      'WTA 250 Kinoshita Group Japan Open':'Tennis','Greek Super League':'Football','Greek Cup':'Football'
     };
     for(const name of feed.replacesCompetitions){
       if(!competitionCatalogue.some(c=>c.name===name))competitionCatalogue.push({name,sport:competitionSports[name]||'Football'});
     }
     for(const e of feed.events)if(!competitionCatalogue.some(c=>c.name===e.competition))competitionCatalogue.push({name:e.competition,sport:e.sport});
+    // Both league controls must share the same options before chooseLeague assigns a value.
+    const competitionSelect=document.getElementById('competition');
+    if(competitionSelect){
+      for(const entry of competitionCatalogue){
+        if(competitionSports[entry.name])entry.sport=competitionSports[entry.name];
+        if(!Array.from(competitionSelect.options).some(option=>option.value===entry.name)){
+          const option=document.createElement('option');
+          option.value=entry.name;option.textContent=entry.name;
+          competitionSelect.append(option);
+        }
+      }
+    }
     for(let i=events.length-1;i>=0;i--)if(feed.replacesCompetitions.includes(events[i].competition))events.splice(i,1);
     for(const e of feed.events){const i=events.findIndex(x=>x.id===e.id);if(i>=0)events[i]=e;else events.push(e);}
     for(let i=events.length-1;i>=0;i--){const start=Date.parse(events[i].start);if(Number.isFinite(start)&&start+3*60*60*1000<Date.now())events.splice(i,1);}
