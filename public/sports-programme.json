@@ -1,6 +1,6 @@
 {
   "timezone": "Europe/Athens",
-  "checked": "2026-10-30",
+  "checked": "2026-10-31",
   "coverageThrough": "2026-11-04",
   "replacesCompetitions": [
     "Premier League",
@@ -31,48 +31,6 @@
   ],
   "events": [
     {
-      "id": "euroleague-2026-10-30-olympiacos-vs-armani-milan",
-      "title": "Olympiacos vs Armani Milan",
-      "competition": "EuroLeague",
-      "sport": "Basketball",
-      "date": "2026-10-30",
-      "time": "21:15",
-      "start": "2026-10-30T21:15:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-25",
-      "source": "https://www.olympiacosbc.gr/en/games/euroleague/schedule/2026.html",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "bundesliga-2026-10-30-sv-elversberg-vs-mainz-05",
-      "title": "SV Elversberg vs Mainz 05",
-      "competition": "Bundesliga",
-      "sport": "Football",
-      "date": "2026-10-30",
-      "time": "21:30",
-      "start": "2026-10-30T21:30:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-30",
-      "source": "https://products.bundesliga.com/fixtures",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "championship-2026-10-30-sheffield-united-vs-wrexham",
-      "title": "Sheffield United vs Wrexham",
-      "competition": "Championship",
-      "sport": "Football",
-      "date": "2026-10-30",
-      "time": "22:00",
-      "start": "2026-10-30T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-30",
-      "source": "https://www.efl.com/news/2026/july/30/see-the-latest-sky-sports-tv-selections/",
-      "priority": 0,
-      "featured": true
-    },
-    {
       "id": "pl-2026-10-31-chelsea-vs-manchester-united",
       "title": "Chelsea vs Manchester United",
       "competition": "Premier League",
@@ -81,10 +39,38 @@
       "time": "14:30",
       "start": "2026-10-31T14:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-28",
+      "verified": "2026-10-31",
       "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november/",
-      "priority": 1,
-      "featured": false
+      "priority": 0,
+      "featured": true
+    },
+    {
+      "id": "pl-2026-10-31-manchester-city-vs-brighton",
+      "title": "Manchester City vs Brighton",
+      "competition": "Premier League",
+      "sport": "Football",
+      "date": "2026-10-31",
+      "time": "17:00",
+      "start": "2026-10-31T17:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-31",
+      "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november/",
+      "priority": 0,
+      "featured": true
+    },
+    {
+      "id": "pl-2026-10-31-tottenham-hotspur-vs-crystal-palace",
+      "title": "Tottenham Hotspur vs Crystal Palace",
+      "competition": "Premier League",
+      "sport": "Football",
+      "date": "2026-10-31",
+      "time": "19:30",
+      "start": "2026-10-31T19:30:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-10-31",
+      "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november/",
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "pl-2026-10-31-bournemouth-vs-leeds-united",
@@ -95,7 +81,7 @@
       "time": "17:00",
       "start": "2026-10-31T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-28",
+      "verified": "2026-10-31",
       "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november/",
       "priority": 1,
       "featured": false
@@ -109,7 +95,7 @@
       "time": "17:00",
       "start": "2026-10-31T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-28",
+      "verified": "2026-10-31",
       "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november/",
       "priority": 1,
       "featured": false
@@ -123,7 +109,7 @@
       "time": "17:00",
       "start": "2026-10-31T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-28",
+      "verified": "2026-10-31",
       "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november/",
       "priority": 1,
       "featured": false
@@ -137,21 +123,7 @@
       "time": "17:00",
       "start": "2026-10-31T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-28",
-      "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november/",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "pl-2026-10-31-manchester-city-vs-brighton",
-      "title": "Manchester City vs Brighton",
-      "competition": "Premier League",
-      "sport": "Football",
-      "date": "2026-10-31",
-      "time": "17:00",
-      "start": "2026-10-31T17:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-28",
+      "verified": "2026-10-31",
       "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november/",
       "priority": 1,
       "featured": false
@@ -193,22 +165,8 @@
       "time": "19:30",
       "start": "2026-10-31T19:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-30",
+      "verified": "2026-10-31",
       "source": "https://products.bundesliga.com/fixtures",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "pl-2026-10-31-tottenham-hotspur-vs-crystal-palace",
-      "title": "Tottenham Hotspur vs Crystal Palace",
-      "competition": "Premier League",
-      "sport": "Football",
-      "date": "2026-10-31",
-      "time": "19:30",
-      "start": "2026-10-31T19:30:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-28",
-      "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november/",
       "priority": 1,
       "featured": false
     },
@@ -221,7 +179,7 @@
       "time": "22:00",
       "start": "2026-10-31T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-28",
+      "verified": "2026-10-31",
       "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november/",
       "priority": 1,
       "featured": false
@@ -249,7 +207,7 @@
       "time": "18:30",
       "start": "2026-11-01T18:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-28",
+      "verified": "2026-10-31",
       "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
       "priority": 1,
       "featured": false
@@ -305,7 +263,7 @@
       "time": "22:00",
       "start": "2026-11-02T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-28",
+      "verified": "2026-10-31",
       "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
       "priority": 1,
       "featured": false
@@ -563,34 +521,6 @@
       "featured": false
     },
     {
-      "id": "f1-mexico-2026-p1",
-      "title": "Mexico City GP — Practice 1",
-      "competition": "Formula 1",
-      "sport": "F1",
-      "date": "2026-10-30",
-      "time": "20:30",
-      "start": "2026-10-30T20:30:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-30",
-      "source": "https://www.formula1.com/en/racing/2026/mexico",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "f1-mexico-2026-p2",
-      "title": "Mexico City GP — Practice 2",
-      "competition": "Formula 1",
-      "sport": "F1",
-      "date": "2026-10-31",
-      "time": "00:00",
-      "start": "2026-10-31T00:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-30",
-      "source": "https://www.formula1.com/en/racing/2026/mexico",
-      "priority": 2,
-      "featured": false
-    },
-    {
       "id": "bundesliga-2026-10-31-augsburg-vs-freiburg",
       "title": "Augsburg vs Freiburg",
       "competition": "Bundesliga",
@@ -599,7 +529,7 @@
       "time": "16:30",
       "start": "2026-10-31T16:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-30",
+      "verified": "2026-10-31",
       "source": "https://products.bundesliga.com/fixtures",
       "priority": 2,
       "featured": false
@@ -613,7 +543,7 @@
       "time": "16:30",
       "start": "2026-10-31T16:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-30",
+      "verified": "2026-10-31",
       "source": "https://products.bundesliga.com/fixtures",
       "priority": 2,
       "featured": false
@@ -627,7 +557,7 @@
       "time": "16:30",
       "start": "2026-10-31T16:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-30",
+      "verified": "2026-10-31",
       "source": "https://products.bundesliga.com/fixtures",
       "priority": 2,
       "featured": false
@@ -641,7 +571,7 @@
       "time": "16:30",
       "start": "2026-10-31T16:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-30",
+      "verified": "2026-10-31",
       "source": "https://products.bundesliga.com/fixtures",
       "priority": 2,
       "featured": false
@@ -655,7 +585,7 @@
       "time": "16:30",
       "start": "2026-10-31T16:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-30",
+      "verified": "2026-10-31",
       "source": "https://products.bundesliga.com/fixtures",
       "priority": 2,
       "featured": false
@@ -697,7 +627,7 @@
       "time": "16:30",
       "start": "2026-11-01T16:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-30",
+      "verified": "2026-10-31",
       "source": "https://products.bundesliga.com/fixtures",
       "priority": 2,
       "featured": false
@@ -711,7 +641,7 @@
       "time": "18:30",
       "start": "2026-11-01T18:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-30",
+      "verified": "2026-10-31",
       "source": "https://products.bundesliga.com/fixtures",
       "priority": 2,
       "featured": false
