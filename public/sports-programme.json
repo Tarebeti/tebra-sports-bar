@@ -1,6 +1,6 @@
 {
   "timezone": "Europe/Athens",
-  "checked": "2026-11-01",
+  "checked": "2026-11-02",
   "coverageThrough": "2026-11-04",
   "replacesCompetitions": [
     "Premier League",
@@ -31,62 +31,6 @@
   ],
   "events": [
     {
-      "id": "pl-2026-11-01-liverpool-vs-arsenal",
-      "title": "Liverpool vs Arsenal",
-      "competition": "Premier League",
-      "sport": "Football",
-      "date": "2026-11-01",
-      "time": "18:30",
-      "start": "2026-11-01T18:30:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-01",
-      "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "greek-super-league-2026-11-01-panathinaikos-vs-aek",
-      "title": "Panathinaikos vs AEK",
-      "competition": "Greek Super League",
-      "sport": "Football",
-      "date": "2026-11-01",
-      "time": "19:30",
-      "start": "2026-11-01T19:30:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-01",
-      "source": "https://www.pao.gr/en/the-matches/fixtures/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "f1-mexico-2026-race",
-      "title": "Mexico City GP — Race",
-      "competition": "Formula 1",
-      "sport": "F1",
-      "date": "2026-11-01",
-      "time": "22:00",
-      "start": "2026-11-01T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-01",
-      "source": "https://www.formula1.com/en/racing/2026/mexico",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "greek-super-league-2026-11-01-paok-vs-asteras-aktor",
-      "title": "PAOK vs Asteras AKTOR",
-      "competition": "Greek Super League",
-      "sport": "Football",
-      "date": "2026-11-01",
-      "time": "19:00",
-      "start": "2026-11-01T19:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-26",
-      "source": "https://www.paokfc.gr/en/match-centre/2026-2027-en/en-first-team-nchc/fixtures/",
-      "priority": 1,
-      "featured": false
-    },
-    {
       "id": "pl-2026-11-02-newcastle-united-vs-everton",
       "title": "Newcastle United vs Everton",
       "competition": "Premier League",
@@ -95,10 +39,10 @@
       "time": "22:00",
       "start": "2026-11-02T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-01",
+      "verified": "2026-11-02",
       "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
-      "priority": 1,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "ucl-2026-11-03-galatasaray-vs-stuttgart",
@@ -350,34 +294,6 @@
       "verified": "2026-10-29",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "bundesliga-2026-11-01-union-berlin-vs-cologne",
-      "title": "Union Berlin vs Cologne",
-      "competition": "Bundesliga",
-      "sport": "Football",
-      "date": "2026-11-01",
-      "time": "16:30",
-      "start": "2026-11-01T16:30:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-31",
-      "source": "https://products.bundesliga.com/fixtures",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "bundesliga-2026-11-01-eintracht-frankfurt-vs-hamburger-sv",
-      "title": "Eintracht Frankfurt vs Hamburger SV",
-      "competition": "Bundesliga",
-      "sport": "Football",
-      "date": "2026-11-01",
-      "time": "18:30",
-      "start": "2026-11-01T18:30:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-31",
-      "source": "https://products.bundesliga.com/fixtures",
-      "priority": 2,
       "featured": false
     }
   ],
