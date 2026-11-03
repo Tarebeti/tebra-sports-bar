@@ -81,6 +81,7 @@ const CONFIG = {
   menuUrl: menuPdf.url,
   coords: { lat: 35.31635468, lng: 25.387603686 },
   hoursLocal: { open: 11, close: 24 },
+  seasonClosed: true,
 };
 
 const NAV = [
@@ -121,7 +122,7 @@ function getOpenState(now: Date) {
   const mins = hour * 60 + minute;
   const openMins = CONFIG.hoursLocal.open * 60;
   const closeMins = CONFIG.hoursLocal.close * 60;
-  const isOpen = mins >= openMins && mins < closeMins;
+  const isOpen = !CONFIG.seasonClosed && mins >= openMins && mins < closeMins;
   return { isOpen, hour, minute };
 }
 
@@ -197,7 +198,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Tebra | Cocktail & Sports Bar in Hersonissos, Crete" },
-      { name: "description", content: "Cocktails, live sport, pool, darts and food at Tebra Sports Bar in Hersonissos, Crete. Open daily." },
+      { name: "description", content: "Cocktails, live sport, pool, darts and food at Tebra Sports Bar in Hersonissos, Crete. The bar is closed for the season; the Sports Desk stays updated." },
       { property: "og:title", content: "Tebra | Cocktail & Sports Bar in Hersonissos, Crete" },
       { property: "og:description", content: "Cocktails, live sport, pool, darts and food at Tebra Sports Bar in Hersonissos, Crete." },
       { property: "og:type", content: "website" },
@@ -250,7 +251,7 @@ function Header() {
   }
   const now = useAthensNow();
   const { isOpen, hour } = getOpenState(now);
-  const label = isOpen ? "Open now" : hour < CONFIG.hoursLocal.open ? "Opens at 11:00" : "Opens tomorrow 11:00";
+  const label = CONFIG.seasonClosed ? "Closed for the season" : isOpen ? "Open now" : hour < CONFIG.hoursLocal.open ? "Opens at 11:00" : "Opens tomorrow 11:00";
 
   return (
     <header className="sticky top-0 z-40 border-b border-gold/10 bg-background/85 backdrop-blur-md">
@@ -461,7 +462,7 @@ function HeroLiveLine() {
   }
   return (
     <p className="mt-6 text-xs uppercase tracking-[0.24em] text-ivory">
-      Open daily, 11:00 til late
+      {CONFIG.seasonClosed ? "Closed for the season. Sports Desk stays updated." : "Open daily, 11:00 til late"}
     </p>
   );
 }
@@ -983,7 +984,7 @@ function FAQ() {
     { q: "Can I reserve a table for a big match?", a: "Message us on WhatsApp with the match, date and party size. Your request becomes a reservation once our team confirms screening and availability." },
     { q: "What games are there?", a: "A pool table and darts, and a relaxed space to settle in." },
     { q: "Does Tebra serve food?", a: "Yes, breakfast, snacks and bar food throughout the day." },
-    { q: "What are the opening hours?", a: "Open daily from 11:00 until late." },
+    { q: "What are the opening hours?", a: "The bar is closed for the season. Our Sports Desk continues to provide the latest sports schedule in Greek time. Follow our social pages for reopening news." },
   ];
   const [open, setOpen] = useState<number | null>(0);
   return (
@@ -1085,7 +1086,7 @@ function FindUs() {
                 <ul className="mt-6 space-y-2 text-sm text-ivory-dim">
                   <li className="flex items-center gap-3">
                     <IconClock className="h-4 w-4 text-gold" />
-                    Open daily, 11:00 til late
+                    {CONFIG.seasonClosed ? "Closed for the season. Sports Desk stays updated." : "Open daily, 11:00 til late"}
                   </li>
                   <li className="flex items-center gap-3">
                     <IconPhone className="h-4 w-4 text-gold" />
