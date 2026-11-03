@@ -1081,6 +1081,20 @@
       "featured": false
     },
     {
+      "id": "ligue-1-2026-11-06-toulouse-vs-strasbourg",
+      "title": "Toulouse vs Strasbourg",
+      "competition": "Ligue 1",
+      "sport": "Football",
+      "date": "2026-11-06",
+      "time": "21:45",
+      "start": "2026-11-06T21:45:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://ligue1.com/fr/articles/l1_article_5839-",
+      "priority": 2,
+      "featured": false
+    },
+    {
       "id": "bundesliga-2026-11-07-borussia-dortmund-vs-elversberg",
       "title": "Borussia Dortmund vs Elversberg",
       "competition": "Bundesliga",
@@ -1151,6 +1165,20 @@
       "featured": false
     },
     {
+      "id": "ligue-1-2026-11-07-auxerre-vs-paris-fc",
+      "title": "Auxerre vs Paris FC",
+      "competition": "Ligue 1",
+      "sport": "Football",
+      "date": "2026-11-07",
+      "time": "18:15",
+      "start": "2026-11-07T18:15:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://ligue1.com/fr/articles/l1_article_5839-",
+      "priority": 2,
+      "featured": false
+    },
+    {
       "id": "bundesliga-2026-11-07-stuttgart-vs-werder-bremen",
       "title": "Stuttgart vs Werder Bremen",
       "competition": "Bundesliga",
@@ -1175,6 +1203,20 @@
       "screening": "unconfirmed",
       "verified": "2026-11-03",
       "source": "https://eredivisie.b-cdn.net/production/Programma-najaar-VriendenLoterij-Eredivisie_2026-09-08-102542_akvd.pdf",
+      "priority": 2,
+      "featured": false
+    },
+    {
+      "id": "ligue-1-2026-11-07-paris-saint-germain-vs-troyes",
+      "title": "Paris Saint-Germain vs Troyes",
+      "competition": "Ligue 1",
+      "sport": "Football",
+      "date": "2026-11-07",
+      "time": "21:45",
+      "start": "2026-11-07T21:45:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://ligue1.com/fr/articles/l1_article_5839-",
       "priority": 2,
       "featured": false
     },
@@ -1249,6 +1291,20 @@
       "featured": false
     },
     {
+      "id": "ligue-1-2026-11-08-rennes-vs-lille",
+      "title": "Rennes vs Lille",
+      "competition": "Ligue 1",
+      "sport": "Football",
+      "date": "2026-11-08",
+      "time": "16:00",
+      "start": "2026-11-08T16:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://ligue1.com/fr/articles/l1_article_5839-",
+      "priority": 2,
+      "featured": false
+    },
+    {
       "id": "bundesliga-2026-11-08-cologne-vs-bayer-leverkusen",
       "title": "Cologne vs Bayer Leverkusen",
       "competition": "Bundesliga",
@@ -1305,6 +1361,62 @@
       "featured": false
     },
     {
+      "id": "ligue-1-2026-11-08-brest-vs-lyon",
+      "title": "Brest vs Lyon",
+      "competition": "Ligue 1",
+      "sport": "Football",
+      "date": "2026-11-08",
+      "time": "18:15",
+      "start": "2026-11-08T18:15:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://ligue1.com/fr/articles/l1_article_5839-",
+      "priority": 2,
+      "featured": false
+    },
+    {
+      "id": "ligue-1-2026-11-08-le-mans-vs-monaco",
+      "title": "Le Mans vs Monaco",
+      "competition": "Ligue 1",
+      "sport": "Football",
+      "date": "2026-11-08",
+      "time": "18:15",
+      "start": "2026-11-08T18:15:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://ligue1.com/fr/articles/l1_article_5839-",
+      "priority": 2,
+      "featured": false
+    },
+    {
+      "id": "ligue-1-2026-11-08-angers-vs-nice",
+      "title": "Angers vs Nice",
+      "competition": "Ligue 1",
+      "sport": "Football",
+      "date": "2026-11-08",
+      "time": "18:15",
+      "start": "2026-11-08T18:15:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://ligue1.com/fr/articles/l1_article_5839-",
+      "priority": 2,
+      "featured": false
+    },
+    {
+      "id": "ligue-1-2026-11-08-le-havre-vs-lorient",
+      "title": "Le Havre vs Lorient",
+      "competition": "Ligue 1",
+      "sport": "Football",
+      "date": "2026-11-08",
+      "time": "18:15",
+      "start": "2026-11-08T18:15:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://ligue1.com/fr/articles/l1_article_5839-",
+      "priority": 2,
+      "featured": false
+    },
+    {
       "id": "bundesliga-2026-11-08-freiburg-vs-union-berlin",
       "title": "Freiburg vs Union Berlin",
       "competition": "Bundesliga",
@@ -1357,6 +1469,20 @@
       "screening": "unconfirmed",
       "verified": "2026-11-03",
       "source": "https://www.juventus.com/en/news/articles/kick-off-dates-and-times-of-serie-a-matchdays-6-12-03-09-26?appview=true",
+      "priority": 2,
+      "featured": false
+    },
+    {
+      "id": "ligue-1-2026-11-08-lens-vs-marseille",
+      "title": "Lens vs Marseille",
+      "competition": "Ligue 1",
+      "sport": "Football",
+      "date": "2026-11-08",
+      "time": "21:45",
+      "start": "2026-11-08T21:45:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://ligue1.com/fr/articles/l1_article_5839-",
       "priority": 2,
       "featured": false
     },
