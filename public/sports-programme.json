@@ -1,6 +1,6 @@
 {
   "timezone": "Europe/Athens",
-  "checked": "2026-11-02",
+  "checked": "2026-11-03",
   "coverageThrough": "2026-11-04",
   "replacesCompetitions": [
     "Premier League",
@@ -31,16 +31,44 @@
   ],
   "events": [
     {
-      "id": "pl-2026-11-02-newcastle-united-vs-everton",
-      "title": "Newcastle United vs Everton",
-      "competition": "Premier League",
+      "id": "ucl-2026-11-03-atletico-madrid-vs-bayern-munich",
+      "title": "Atletico Madrid vs Bayern Munich",
+      "competition": "Champions League",
       "sport": "Football",
-      "date": "2026-11-02",
+      "date": "2026-11-03",
       "time": "22:00",
-      "start": "2026-11-02T22:00:00+02:00",
+      "start": "2026-11-03T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-02",
-      "source": "https://www.premierleague.com/en/news/4688862/fixture-amendments-for-premier-league-matches-in-october-and-november",
+      "verified": "2026-11-03",
+      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
+      "priority": 0,
+      "featured": true
+    },
+    {
+      "id": "ucl-2026-11-03-barcelona-vs-aston-villa",
+      "title": "Barcelona vs Aston Villa",
+      "competition": "Champions League",
+      "sport": "Football",
+      "date": "2026-11-03",
+      "time": "22:00",
+      "start": "2026-11-03T22:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
+      "priority": 0,
+      "featured": true
+    },
+    {
+      "id": "ucl-2026-11-03-manchester-united-vs-roma",
+      "title": "Manchester United vs Roma",
+      "competition": "Champions League",
+      "sport": "Football",
+      "date": "2026-11-03",
+      "time": "22:00",
+      "start": "2026-11-03T22:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-03",
+      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 0,
       "featured": true
     },
@@ -53,7 +81,7 @@
       "time": "19:45",
       "start": "2026-11-03T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -67,35 +95,7 @@
       "time": "19:45",
       "start": "2026-11-03T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "ucl-2026-11-03-atletico-madrid-vs-bayern-munich",
-      "title": "Atletico Madrid vs Bayern Munich",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-03",
-      "time": "22:00",
-      "start": "2026-11-03T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-29",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "ucl-2026-11-03-barcelona-vs-aston-villa",
-      "title": "Barcelona vs Aston Villa",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-03",
-      "time": "22:00",
-      "start": "2026-11-03T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -109,7 +109,7 @@
       "time": "22:00",
       "start": "2026-11-03T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -123,7 +123,7 @@
       "time": "22:00",
       "start": "2026-11-03T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -137,21 +137,7 @@
       "time": "22:00",
       "start": "2026-11-03T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "ucl-2026-11-03-manchester-united-vs-roma",
-      "title": "Manchester United vs Roma",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-03",
-      "time": "22:00",
-      "start": "2026-11-03T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -165,7 +151,7 @@
       "time": "22:00",
       "start": "2026-11-03T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -179,7 +165,7 @@
       "time": "19:45",
       "start": "2026-11-04T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -193,7 +179,7 @@
       "time": "19:45",
       "start": "2026-11-04T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -207,7 +193,7 @@
       "time": "22:00",
       "start": "2026-11-04T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -221,7 +207,7 @@
       "time": "22:00",
       "start": "2026-11-04T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -235,7 +221,7 @@
       "time": "22:00",
       "start": "2026-11-04T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -249,7 +235,7 @@
       "time": "22:00",
       "start": "2026-11-04T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -263,7 +249,7 @@
       "time": "22:00",
       "start": "2026-11-04T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -277,7 +263,7 @@
       "time": "22:00",
       "start": "2026-11-04T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
@@ -291,7 +277,7 @@
       "time": "22:00",
       "start": "2026-11-04T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-10-29",
+      "verified": "2026-11-03",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
       "priority": 1,
       "featured": false
