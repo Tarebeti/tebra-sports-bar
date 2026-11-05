@@ -1,6 +1,6 @@
 {
   "timezone": "Europe/Athens",
-  "checked": "2026-11-04",
+  "checked": "2026-11-05",
   "coverageThrough": "2026-11-10",
   "replacesCompetitions": [
     "Premier League",
@@ -31,144 +31,46 @@
   ],
   "events": [
     {
-      "id": "ucl-2026-11-04-aek-athens-vs-real-madrid",
-      "title": "AEK Athens vs Real Madrid",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-04",
-      "time": "19:45",
-      "start": "2026-11-04T19:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "ucl-2026-11-04-fenerbahce-vs-liverpool",
-      "title": "Fenerbahce vs Liverpool",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-04",
-      "time": "19:45",
-      "start": "2026-11-04T19:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "ucl-2026-11-04-rb-leipzig-vs-manchester-city",
-      "title": "RB Leipzig vs Manchester City",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-04",
-      "time": "22:00",
-      "start": "2026-11-04T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "europa-league-2026-11-04-rennes-vs-olympiacos",
-      "title": "Rennes vs Olympiacos",
+      "id": "europa-league-2026-11-05-crystal-palace-vs-hoffenheim",
+      "title": "Crystal Palace vs Hoffenheim",
       "competition": "Europa League",
       "sport": "Football",
-      "date": "2026-11-04",
-      "time": "17:30",
-      "start": "2026-11-04T17:30:00+02:00",
+      "date": "2026-11-05",
+      "time": "19:45",
+      "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
-      "priority": 1,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
-      "id": "ucl-2026-11-04-borussia-dortmund-vs-real-betis",
-      "title": "Borussia Dortmund vs Real Betis",
-      "competition": "Champions League",
+      "id": "europa-league-2026-11-05-sparta-praha-vs-bournemouth",
+      "title": "Sparta Praha vs Bournemouth",
+      "competition": "Europa League",
       "sport": "Football",
-      "date": "2026-11-04",
-      "time": "22:00",
-      "start": "2026-11-04T22:00:00+02:00",
+      "date": "2026-11-05",
+      "time": "19:45",
+      "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 1,
-      "featured": false
+      "verified": "2026-11-05",
+      "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
+      "priority": 0,
+      "featured": true
     },
     {
-      "id": "ucl-2026-11-04-lens-vs-como",
-      "title": "Lens vs Como",
-      "competition": "Champions League",
+      "id": "conference-league-2026-11-05-panathinaikos-vs-cska-sofia",
+      "title": "Panathinaikos vs CSKA Sofia",
+      "competition": "Conference League",
       "sport": "Football",
-      "date": "2026-11-04",
+      "date": "2026-11-05",
       "time": "22:00",
-      "start": "2026-11-04T22:00:00+02:00",
+      "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "ucl-2026-11-04-porto-vs-napoli",
-      "title": "Porto vs Napoli",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-04",
-      "time": "22:00",
-      "start": "2026-11-04T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "ucl-2026-11-04-psv-eindhoven-vs-club-brugge",
-      "title": "PSV Eindhoven vs Club Brugge",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-04",
-      "time": "22:00",
-      "start": "2026-11-04T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "ucl-2026-11-04-slavia-praha-vs-arsenal",
-      "title": "Slavia Praha vs Arsenal",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-04",
-      "time": "22:00",
-      "start": "2026-11-04T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "ucl-2026-11-04-viking-vs-sabah",
-      "title": "Viking vs Sabah",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-04",
-      "time": "22:00",
-      "start": "2026-11-04T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--202627-champions-league-all-the-league-phase-fixtures-and-results/",
-      "priority": 1,
-      "featured": false
+      "verified": "2026-11-05",
+      "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "europa-league-2026-11-05-anderlecht-vs-salzburg",
@@ -179,21 +81,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "europa-league-2026-11-05-crystal-palace-vs-hoffenheim",
-      "title": "Crystal Palace vs Hoffenheim",
-      "competition": "Europa League",
-      "sport": "Football",
-      "date": "2026-11-05",
-      "time": "19:45",
-      "start": "2026-11-05T19:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -207,7 +95,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -221,7 +109,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -235,7 +123,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -249,7 +137,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -263,21 +151,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "europa-league-2026-11-05-sparta-praha-vs-bournemouth",
-      "title": "Sparta Praha vs Bournemouth",
-      "competition": "Europa League",
-      "sport": "Football",
-      "date": "2026-11-05",
-      "time": "19:45",
-      "start": "2026-11-05T19:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -291,7 +165,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -305,7 +179,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -319,7 +193,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -333,7 +207,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -347,7 +221,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -361,7 +235,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -375,7 +249,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -389,7 +263,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -403,7 +277,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaeuropaleague/news/02aa-21f10ec08a8c-d0499acdffe2-1000--europa-league-matchday-4-briefing-five-sides-look-to-main/",
       "priority": 1,
       "featured": false
@@ -417,7 +291,7 @@
       "time": "17:30",
       "start": "2026-11-06T17:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.formula1.com/en/racing/2026/brazil",
       "priority": 1,
       "featured": false
@@ -431,7 +305,7 @@
       "time": "21:00",
       "start": "2026-11-06T21:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.formula1.com/en/racing/2026/brazil",
       "priority": 1,
       "featured": false
@@ -445,7 +319,7 @@
       "time": "22:00",
       "start": "2026-11-06T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -459,7 +333,7 @@
       "time": "14:30",
       "start": "2026-11-07T14:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -473,7 +347,7 @@
       "time": "16:30",
       "start": "2026-11-07T16:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.formula1.com/en/racing/2026/brazil",
       "priority": 1,
       "featured": false
@@ -487,7 +361,7 @@
       "time": "17:00",
       "start": "2026-11-07T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -501,7 +375,7 @@
       "time": "17:00",
       "start": "2026-11-07T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -515,7 +389,7 @@
       "time": "19:30",
       "start": "2026-11-07T19:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -529,7 +403,7 @@
       "time": "20:00",
       "start": "2026-11-07T20:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.formula1.com/en/racing/2026/brazil",
       "priority": 1,
       "featured": false
@@ -571,7 +445,7 @@
       "time": "16:00",
       "start": "2026-11-08T16:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -585,7 +459,7 @@
       "time": "16:00",
       "start": "2026-11-08T16:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -599,7 +473,7 @@
       "time": "16:00",
       "start": "2026-11-08T16:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -613,7 +487,7 @@
       "time": "16:00",
       "start": "2026-11-08T16:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -641,7 +515,7 @@
       "time": "18:30",
       "start": "2026-11-08T18:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -655,7 +529,7 @@
       "time": "19:00",
       "start": "2026-11-08T19:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.formula1.com/en/racing/2026/brazil",
       "priority": 1,
       "featured": false
@@ -683,7 +557,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -697,7 +571,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -711,7 +585,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -725,7 +599,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -739,7 +613,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -753,7 +627,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -767,7 +641,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -781,7 +655,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -795,7 +669,7 @@
       "time": "19:45",
       "start": "2026-11-05T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -809,7 +683,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -823,7 +697,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -837,7 +711,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -851,21 +725,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
-      "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "conference-league-2026-11-05-panathinaikos-vs-cska-sofia",
-      "title": "Panathinaikos vs CSKA Sofia",
-      "competition": "Conference League",
-      "sport": "Football",
-      "date": "2026-11-05",
-      "time": "22:00",
-      "start": "2026-11-05T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -879,7 +739,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -893,7 +753,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -907,7 +767,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
@@ -921,7 +781,7 @@
       "time": "22:00",
       "start": "2026-11-05T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-04",
+      "verified": "2026-11-05",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02aa-21e40e257e01-64251de1d99e-1000--uefa-conference-league-matchday-2-highlights-and-round-up-tr/",
       "priority": 2,
       "featured": false
