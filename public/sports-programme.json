@@ -1,7 +1,7 @@
 {
   "timezone": "Europe/Athens",
-  "checked": "2026-11-09",
-  "coverageThrough": "2026-11-15",
+  "checked": "2026-11-10",
+  "coverageThrough": "2026-11-16",
   "replacesCompetitions": [
     "Premier League",
     "Bundesliga",
@@ -349,7 +349,7 @@
       "time": "14:30",
       "start": "2026-11-21T14:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-09",
+      "verified": "2026-11-10",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -363,7 +363,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-09",
+      "verified": "2026-11-10",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -377,7 +377,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-09",
+      "verified": "2026-11-10",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -391,7 +391,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-09",
+      "verified": "2026-11-10",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -405,7 +405,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-09",
+      "verified": "2026-11-10",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -419,7 +419,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-09",
+      "verified": "2026-11-10",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -433,7 +433,7 @@
       "time": "19:30",
       "start": "2026-11-21T19:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-09",
+      "verified": "2026-11-10",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -447,7 +447,7 @@
       "time": "16:00",
       "start": "2026-11-22T16:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-09",
+      "verified": "2026-11-10",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -461,7 +461,7 @@
       "time": "18:30",
       "start": "2026-11-22T18:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-09",
+      "verified": "2026-11-10",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -475,7 +475,7 @@
       "time": "22:00",
       "start": "2026-11-23T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-09",
+      "verified": "2026-11-10",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
