@@ -824,7 +824,7 @@
   color: #faf6ec;
 }
 .tebra-home .home-tripadvisor-platform { margin: 0 0 5px; color: #e7c77f; font-size: 9px; font-weight: 600; letter-spacing: .15em; }
-.tebra-home .home-tripadvisor h2 { margin: 0; color: #f0d98c; font-size: clamp(20px, 2.4vw, 30px); line-height: 1.25; }
+.tebra-home .home-tripadvisor h2 { margin: 0; color: #f0d98c; font-size: clamp(18px, 1.8vw, 24px); font-weight: 600; line-height: 1.35; letter-spacing: -.015em; text-transform: none; text-wrap: balance; }
 .tebra-home .home-tripadvisor h2 > span { font-weight: 800; }
 .tebra-home .home-tripadvisor-category { margin: 5px 0 0; color: #d5d4cd; font-size: 11px; }
 .tebra-home .home-tripadvisor-proof { display: grid; gap: 4px; justify-items: end; flex-shrink: 0; }
@@ -839,6 +839,7 @@
   .tebra-home .home-tripadvisor-proof { width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2px 10px; }
   .tebra-home .home-tripadvisor-platform { font-size: 8px; letter-spacing: .1em; }
   .tebra-home .home-tripadvisor-rating { font-size: 12px; }
+  .tebra-home .home-tripadvisor h2 { font-size: 18px; }
 }
 @media (min-width: 601px) and (max-width: 900px) {
   .tebra-home .home-tripadvisor { flex-direction: column; align-items: flex-start; gap: 8px; }
