@@ -1,6 +1,7 @@
 import { ArrowUpRight, CalendarDays, Clock3, Tv } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { loadProgramme } from "@/lib/programme-feed";
+import { getSummary } from "@/lib/reviews";
 import { eligibleFixtures, fixtureDate, greekTime, selectFixtures, type VerifiedFixture } from "@/lib/sports-fixtures";
 
 type Props = {
@@ -93,6 +94,21 @@ export function HomeLiveSports({ fixtures, requestUrl }: Props) {
           </div>
           <div className="home-sports-intro"><p>Find your match. Check the Greek time.<br />Make it a Tebra evening.</p><a href="/sports-desk" className="home-text-link">Full programme <ArrowUpRight size={18} aria-hidden="true" /></a></div>
         </div>
+
+        <aside className="home-tripadvisor" aria-label="Tebra Tripadvisor ranking">
+          <div className="home-tripadvisor-copy">
+            <p className="home-tripadvisor-platform">TRIPADVISOR · OUR GUESTS SAY IT BEST</p>
+            <h2><span>#1</span> Nightlife in Hersonissos</h2>
+            <p className="home-tripadvisor-category">Ranked #1 of 25 · Bars &amp; Clubs</p>
+          </div>
+          <div className="home-tripadvisor-proof">
+            <div className="home-tripadvisor-rating">
+              <span className="home-tripadvisor-circles" aria-hidden="true">{Array.from({ length: 5 }, (_, i) => <span key={i} />)}</span>
+              <span><strong>{getSummary().rating.toFixed(1)}</strong> · {getSummary().total} reviews</span>
+            </div>
+            <a href={getSummary().tripadvisorUrl} target="_blank" rel="noopener noreferrer">Read our reviews <ArrowUpRight size={16} aria-hidden="true" /></a>
+          </div>
+        </aside>
 
         <div className="home-league-offer" aria-labelledby="home-league-title">
           <div className="home-league-heading">
