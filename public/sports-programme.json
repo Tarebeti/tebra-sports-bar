@@ -1,7 +1,7 @@
 {
   "timezone": "Europe/Athens",
-  "checked": "2026-11-12",
-  "coverageThrough": "2026-11-18",
+  "checked": "2026-11-13",
+  "coverageThrough": "2026-11-19",
   "replacesCompetitions": [
     "Premier League",
     "Bundesliga",
@@ -33,62 +33,6 @@
   ],
   "events": [
     {
-      "id": "uefa-nations-league-2026-11-12-czechia-vs-spain",
-      "title": "Czechia vs Spain",
-      "competition": "UEFA Nations League",
-      "sport": "Football",
-      "date": "2026-11-12",
-      "time": "21:45",
-      "start": "2026-11-12T21:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-12",
-      "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "uefa-nations-league-2026-11-12-england-vs-croatia",
-      "title": "England vs Croatia",
-      "competition": "UEFA Nations League",
-      "sport": "Football",
-      "date": "2026-11-12",
-      "time": "21:45",
-      "start": "2026-11-12T21:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-12",
-      "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "uefa-nations-league-2026-11-12-italy-vs-france",
-      "title": "Italy vs France",
-      "competition": "UEFA Nations League",
-      "sport": "Football",
-      "date": "2026-11-12",
-      "time": "21:45",
-      "start": "2026-11-12T21:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-12",
-      "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "uefa-nations-league-2026-11-12-turkiye-vs-belgium",
-      "title": "Türkiye vs Belgium",
-      "competition": "UEFA Nations League",
-      "sport": "Football",
-      "date": "2026-11-12",
-      "time": "19:00",
-      "start": "2026-11-12T19:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-12",
-      "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 1,
-      "featured": false
-    },
-    {
       "id": "uefa-nations-league-2026-11-13-netherlands-vs-greece",
       "title": "Netherlands vs Greece",
       "competition": "UEFA Nations League",
@@ -97,10 +41,10 @@
       "time": "21:45",
       "start": "2026-11-13T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.epo.gr/el",
-      "priority": 1,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "uefa-nations-league-2026-11-13-scotland-vs-north-macedonia",
@@ -111,10 +55,10 @@
       "time": "21:45",
       "start": "2026-11-13T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 1,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "uefa-nations-league-2026-11-13-serbia-vs-germany",
@@ -125,10 +69,10 @@
       "time": "21:45",
       "start": "2026-11-13T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 1,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "uefa-nations-league-2026-11-14-norway-vs-wales",
@@ -139,7 +83,7 @@
       "time": "19:00",
       "start": "2026-11-14T19:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -153,7 +97,7 @@
       "time": "21:45",
       "start": "2026-11-14T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -167,7 +111,7 @@
       "time": "21:45",
       "start": "2026-11-14T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -181,7 +125,7 @@
       "time": "21:45",
       "start": "2026-11-14T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -209,7 +153,7 @@
       "time": "00:00",
       "start": "2026-11-15T00:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.ufc.com/event/ufc-334",
       "priority": 1,
       "featured": false
@@ -223,7 +167,7 @@
       "time": "02:00",
       "start": "2026-11-15T02:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.ufc.com/event/ufc-334",
       "priority": 1,
       "featured": false
@@ -237,7 +181,7 @@
       "time": "04:00",
       "start": "2026-11-15T04:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.ufc.com/event/ufc-334",
       "priority": 1,
       "featured": false
@@ -251,7 +195,7 @@
       "time": "21:45",
       "start": "2026-11-15T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -265,7 +209,7 @@
       "time": "21:45",
       "start": "2026-11-15T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -279,7 +223,7 @@
       "time": "21:45",
       "start": "2026-11-15T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -293,7 +237,7 @@
       "time": "21:45",
       "start": "2026-11-16T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -307,7 +251,7 @@
       "time": "21:45",
       "start": "2026-11-16T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.epo.gr/en/node/33733",
       "priority": 1,
       "featured": false
@@ -321,7 +265,7 @@
       "time": "21:45",
       "start": "2026-11-16T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -335,7 +279,7 @@
       "time": "21:45",
       "start": "2026-11-17T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -349,8 +293,64 @@
       "time": "21:45",
       "start": "2026-11-17T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
+      "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "formula-1-2026-11-20-las-vegas-grand-prix-practice-1",
+      "title": "Las Vegas Grand Prix - Practice 1",
+      "competition": "Formula 1",
+      "sport": "F1",
+      "date": "2026-11-20",
+      "time": "02:30",
+      "start": "2026-11-20T02:30:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-13",
+      "source": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
+      "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "formula-1-2026-11-20-las-vegas-grand-prix-practice-2",
+      "title": "Las Vegas Grand Prix - Practice 2",
+      "competition": "Formula 1",
+      "sport": "F1",
+      "date": "2026-11-20",
+      "time": "06:00",
+      "start": "2026-11-20T06:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-13",
+      "source": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
+      "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "formula-1-2026-11-21-las-vegas-grand-prix-practice-3",
+      "title": "Las Vegas Grand Prix - Practice 3",
+      "competition": "Formula 1",
+      "sport": "F1",
+      "date": "2026-11-21",
+      "time": "02:30",
+      "start": "2026-11-21T02:30:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-13",
+      "source": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
+      "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "formula-1-2026-11-21-las-vegas-grand-prix-qualifying",
+      "title": "Las Vegas Grand Prix - Qualifying",
+      "competition": "Formula 1",
+      "sport": "F1",
+      "date": "2026-11-21",
+      "time": "06:00",
+      "start": "2026-11-21T06:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-13",
+      "source": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
       "priority": 1,
       "featured": false
     },
@@ -363,7 +363,7 @@
       "time": "14:30",
       "start": "2026-11-21T14:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -377,7 +377,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -391,7 +391,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -405,7 +405,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -419,7 +419,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -433,7 +433,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -447,8 +447,22 @@
       "time": "19:30",
       "start": "2026-11-21T19:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.premierleague.com/en/news/4725574",
+      "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "formula-1-2026-11-22-las-vegas-grand-prix-race",
+      "title": "Las Vegas Grand Prix - Race",
+      "competition": "Formula 1",
+      "sport": "F1",
+      "date": "2026-11-22",
+      "time": "06:00",
+      "start": "2026-11-22T06:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-13",
+      "source": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
       "priority": 1,
       "featured": false
     },
@@ -461,8 +475,22 @@
       "time": "16:00",
       "start": "2026-11-22T16:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.premierleague.com/en/news/4725574",
+      "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "greek-super-league-2026-11-22-panathinaikos-vs-ofi",
+      "title": "Panathinaikos vs OFI",
+      "competition": "Greek Super League",
+      "sport": "Football",
+      "date": "2026-11-22",
+      "time": "17:30",
+      "start": "2026-11-22T17:30:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-13",
+      "source": "https://www.pao.gr/the-matches/fixtures/",
       "priority": 1,
       "featured": false
     },
@@ -475,7 +503,7 @@
       "time": "18:30",
       "start": "2026-11-22T18:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -489,7 +517,7 @@
       "time": "22:00",
       "start": "2026-11-23T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-12",
+      "verified": "2026-11-13",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
