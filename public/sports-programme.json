@@ -1,7 +1,7 @@
 {
   "timezone": "Europe/Athens",
-  "checked": "2026-11-15",
-  "coverageThrough": "2026-11-21",
+  "checked": "2026-11-16",
+  "coverageThrough": "2026-11-22",
   "replacesCompetitions": [
     "Premier League",
     "Bundesliga",
@@ -34,90 +34,6 @@
   ],
   "events": [
     {
-      "id": "ufc-334-2026-11-15-main-card",
-      "title": "UFC 334: Gane vs Hokit - Main card",
-      "competition": "UFC",
-      "sport": "Fight",
-      "date": "2026-11-15",
-      "time": "04:00",
-      "start": "2026-11-15T04:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-14",
-      "source": "https://www.ufc.com/event/ufc-334",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "atp-finals-2026-11-15-alexander-zverev-vs-rafael-jodar",
-      "title": "Alexander Zverev vs Rafael Jodar (not before)",
-      "competition": "Nitto ATP Finals",
-      "sport": "Tennis",
-      "date": "2026-11-15",
-      "time": "15:00",
-      "start": "2026-11-15T15:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-15",
-      "source": "https://www.nittoatpfinals.com/en/news/nitto-atp-finals-2026-schedule-sunday-monday",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "atp-finals-2026-11-15-ben-shelton-vs-arthur-fils",
-      "title": "Ben Shelton vs Arthur Fils (not before)",
-      "competition": "Nitto ATP Finals",
-      "sport": "Tennis",
-      "date": "2026-11-15",
-      "time": "21:30",
-      "start": "2026-11-15T21:30:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-15",
-      "source": "https://www.nittoatpfinals.com/en/news/nitto-atp-finals-2026-schedule-sunday-monday",
-      "priority": 1,
-      "featured": false
-    },
-    {
-      "id": "uefa-nations-league-2026-11-15-belgium-vs-italy",
-      "title": "Belgium vs Italy",
-      "competition": "UEFA Nations League",
-      "sport": "Football",
-      "date": "2026-11-15",
-      "time": "21:45",
-      "start": "2026-11-15T21:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-15",
-      "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "uefa-nations-league-2026-11-15-france-vs-turkiye",
-      "title": "France vs Türkiye",
-      "competition": "UEFA Nations League",
-      "sport": "Football",
-      "date": "2026-11-15",
-      "time": "21:45",
-      "start": "2026-11-15T21:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-15",
-      "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "uefa-nations-league-2026-11-15-spain-vs-england",
-      "title": "Spain vs England",
-      "competition": "UEFA Nations League",
-      "sport": "Football",
-      "date": "2026-11-15",
-      "time": "21:45",
-      "start": "2026-11-15T21:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-15",
-      "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 0,
-      "featured": true
-    },
-    {
       "id": "atp-finals-2026-11-16-carlos-alcaraz-vs-frances-tiafoe",
       "title": "Carlos Alcaraz vs Frances Tiafoe (not before)",
       "competition": "Nitto ATP Finals",
@@ -126,7 +42,7 @@
       "time": "15:00",
       "start": "2026-11-16T15:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-14",
+      "verified": "2026-11-16",
       "source": "https://www.nittoatpfinals.com/en/news/nitto-atp-finals-2026-schedule-sunday-monday",
       "priority": 1,
       "featured": false
@@ -140,7 +56,7 @@
       "time": "21:30",
       "start": "2026-11-16T21:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-14",
+      "verified": "2026-11-16",
       "source": "https://www.nittoatpfinals.com/en/news/nitto-atp-finals-2026-schedule-sunday-monday",
       "priority": 1,
       "featured": false
@@ -154,10 +70,10 @@
       "time": "21:45",
       "start": "2026-11-16T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 1,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "uefa-nations-league-2026-11-16-greece-vs-serbia",
@@ -168,10 +84,10 @@
       "time": "21:45",
       "start": "2026-11-16T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.epo.gr/en/node/33733",
-      "priority": 1,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "uefa-nations-league-2026-11-16-switzerland-vs-scotland",
@@ -182,10 +98,10 @@
       "time": "21:45",
       "start": "2026-11-16T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
-      "priority": 1,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "uefa-nations-league-2026-11-17-republic-of-ireland-vs-kosovo",
@@ -196,7 +112,7 @@
       "time": "21:45",
       "start": "2026-11-17T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -210,7 +126,7 @@
       "time": "21:45",
       "start": "2026-11-17T21:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.uefa.com/uefanationsleague/news/02a2-1fea18abbcbc-456e846509e7-1000--2026-27-uefa-nations-league-all-the-league-phase-fixtures/",
       "priority": 1,
       "featured": false
@@ -224,7 +140,7 @@
       "time": "02:30",
       "start": "2026-11-20T02:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
       "priority": 1,
       "featured": false
@@ -238,7 +154,7 @@
       "time": "06:00",
       "start": "2026-11-20T06:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
       "priority": 1,
       "featured": false
@@ -258,6 +174,20 @@
       "featured": false
     },
     {
+      "id": "la-liga-2026-11-20-athletic-club-vs-espanyol",
+      "title": "Athletic Club vs Espanyol",
+      "competition": "La Liga",
+      "sport": "Football",
+      "date": "2026-11-20",
+      "time": "22:00",
+      "start": "2026-11-20T22:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-16",
+      "source": "https://www.laliga.com/iframes/external-consumer-broadcast",
+      "priority": 2,
+      "featured": false
+    },
+    {
       "id": "formula-1-2026-11-21-las-vegas-grand-prix-practice-3",
       "title": "Las Vegas Grand Prix - Practice 3",
       "competition": "Formula 1",
@@ -266,7 +196,7 @@
       "time": "02:30",
       "start": "2026-11-21T02:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
       "priority": 1,
       "featured": false
@@ -280,7 +210,7 @@
       "time": "06:00",
       "start": "2026-11-21T06:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
       "priority": 1,
       "featured": false
@@ -294,7 +224,7 @@
       "time": "14:30",
       "start": "2026-11-21T14:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -350,7 +280,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -364,7 +294,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -378,7 +308,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -392,7 +322,7 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -406,9 +336,51 @@
       "time": "17:00",
       "start": "2026-11-21T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "championship-2026-11-21-bolton-wanderers-vs-portsmouth",
+      "title": "Bolton Wanderers vs Portsmouth",
+      "competition": "Championship",
+      "sport": "Football",
+      "date": "2026-11-21",
+      "time": "17:00",
+      "start": "2026-11-21T17:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-16",
+      "source": "https://www.efl.com/match-hub/",
+      "priority": 2,
+      "featured": false
+    },
+    {
+      "id": "championship-2026-11-21-sheffield-united-vs-watford",
+      "title": "Sheffield United vs Watford",
+      "competition": "Championship",
+      "sport": "Football",
+      "date": "2026-11-21",
+      "time": "17:00",
+      "start": "2026-11-21T17:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-16",
+      "source": "https://www.efl.com/match-hub/",
+      "priority": 2,
+      "featured": false
+    },
+    {
+      "id": "ufc-2026-11-21-ufc-fight-night-prochazka-vs-stirling-prelims",
+      "title": "UFC Fight Night: Prochazka vs Stirling - Prelims",
+      "competition": "UFC",
+      "sport": "Fight",
+      "date": "2026-11-21",
+      "time": "17:00",
+      "start": "2026-11-21T17:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-16",
+      "source": "https://www.ufc.com/events",
+      "priority": 2,
       "featured": false
     },
     {
@@ -420,7 +392,7 @@
       "time": "19:30",
       "start": "2026-11-21T19:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -440,6 +412,20 @@
       "featured": false
     },
     {
+      "id": "la-liga-2026-11-21-sevilla-vs-real-betis",
+      "title": "Sevilla vs Real Betis",
+      "competition": "La Liga",
+      "sport": "Football",
+      "date": "2026-11-21",
+      "time": "19:30",
+      "start": "2026-11-21T19:30:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-16",
+      "source": "https://www.laliga.com/iframes/external-consumer-broadcast",
+      "priority": 2,
+      "featured": false
+    },
+    {
       "id": "ufc-2026-11-21-ufc-fight-night-prochazka-vs-stirling",
       "title": "UFC Fight Night: Prochazka vs Stirling",
       "competition": "UFC",
@@ -448,8 +434,22 @@
       "time": "20:00",
       "start": "2026-11-21T20:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.ufc.com/event/ufc-fight-night-november-21-2026",
+      "priority": 2,
+      "featured": false
+    },
+    {
+      "id": "la-liga-2026-11-21-real-madrid-vs-celta",
+      "title": "Real Madrid vs Celta",
+      "competition": "La Liga",
+      "sport": "Football",
+      "date": "2026-11-21",
+      "time": "22:00",
+      "start": "2026-11-21T22:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-16",
+      "source": "https://www.laliga.com/iframes/external-consumer-broadcast",
       "priority": 2,
       "featured": false
     },
@@ -462,9 +462,37 @@
       "time": "06:00",
       "start": "2026-11-22T06:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.formula1.com/en/latest/article/formula-1-heineken-las-vegas-grand-prix-2026.1qmWzcBwKK5hkTbYbhVC22",
       "priority": 1,
+      "featured": false
+    },
+    {
+      "id": "championship-2026-11-22-burnley-vs-blackburn-rovers",
+      "title": "Burnley vs Blackburn Rovers",
+      "competition": "Championship",
+      "sport": "Football",
+      "date": "2026-11-22",
+      "time": "14:00",
+      "start": "2026-11-22T14:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-16",
+      "source": "https://www.efl.com/match-hub/",
+      "priority": 2,
+      "featured": false
+    },
+    {
+      "id": "la-liga-2026-11-22-barcelona-vs-villarreal",
+      "title": "Barcelona vs Villarreal",
+      "competition": "La Liga",
+      "sport": "Football",
+      "date": "2026-11-22",
+      "time": "15:00",
+      "start": "2026-11-22T15:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-16",
+      "source": "https://www.laliga.com/iframes/external-consumer-broadcast",
+      "priority": 2,
       "featured": false
     },
     {
@@ -476,7 +504,7 @@
       "time": "16:00",
       "start": "2026-11-22T16:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -504,7 +532,7 @@
       "time": "18:30",
       "start": "2026-11-22T18:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
@@ -524,6 +552,20 @@
       "featured": false
     },
     {
+      "id": "la-liga-2026-11-22-getafe-vs-atl-tico-madrid",
+      "title": "Getafe vs Atlético Madrid",
+      "competition": "La Liga",
+      "sport": "Football",
+      "date": "2026-11-22",
+      "time": "22:00",
+      "start": "2026-11-22T22:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-16",
+      "source": "https://www.laliga.com/iframes/external-consumer-broadcast",
+      "priority": 2,
+      "featured": false
+    },
+    {
       "id": "premier-league-2026-11-23-brentford-vs-everton",
       "title": "Brentford vs Everton",
       "competition": "Premier League",
@@ -532,7 +574,7 @@
       "time": "22:00",
       "start": "2026-11-23T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-15",
+      "verified": "2026-11-16",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 1,
       "featured": false
