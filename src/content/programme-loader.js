@@ -15,7 +15,7 @@ async function refreshProgrammeFeed(){
       'Eredivisie':'Football','La Liga':'Football','Ligue 1':'Football','Serie A':'Football',
       'Brazil Serie A':'Football','Championship':'Football','Formula 1':'F1',
       'EuroLeague':'Basketball','NBA':'Basketball','UFC':'Fight','Boxing':'Fight',
-      'ATP Masters 1000':'Tennis','WTA 500 Ningbo Open':'Tennis',
+      'Nitto ATP Finals':'Tennis','Greek Basketball League':'Basketball','ATP Masters 1000':'Tennis','WTA 500 Ningbo Open':'Tennis',
       'WTA 250 Kinoshita Group Japan Open':'Tennis','Greek Super League':'Football','Greek Cup':'Football'
     };
     for(const name of feed.replacesCompetitions){
