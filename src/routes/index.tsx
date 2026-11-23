@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform, useInView } from "motion/react";
 import { useQuery } from "@tanstack/react-query";
 import { getReviews, getSummary, type Review } from "@/lib/reviews";
 import { getLiveReviews } from "@/lib/reviews.functions";
+import { REVIEW_PLATFORMS } from "@/lib/review-feed";
 import { HomeLiveSports } from "@/components/home-live-sports";
 import { VERIFIED_SPORTS_PROGRAMME } from "@/lib/verified-sports-programme";
 
@@ -907,6 +908,13 @@ function Gallery() {
 type SortMode = "recent" | "rating";
 
 function Reviews() {
+  const { data: feeds = [] } = useQuery({
+    queryKey: ["live-platform-reviews"],
+    queryFn: () => getLiveReviews(),
+    staleTime: 60_000,
+    refetchInterval: 60_000,
+    refetchOnWindowFocus: true,
+  });
   const platforms = [
     { name: "Tripadvisor", href: getSummary().tripadvisorUrl, description: "Read our guests’ experiences on Tripadvisor." },
     { name: "Google", href: "https://maps.app.goo.gl/BKm2gsfkUKHxqGo67", description: "Read guest reviews and find Tebra on Google Maps." },
@@ -924,9 +932,28 @@ function Reviews() {
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {platforms.map(platform => <a key={platform.name} href={platform.href} target="_blank" rel="noopener" className="home-review-link deco-frame block bg-surface-raised/70 p-6 transition-colors hover:border-gold/60">
             <h3 className="text-xl font-semibold text-ivory">{platform.name} ↗</h3>
-            <p className="mt-4 text-sm leading-relaxed text-ivory-dim">{platform.description}</p>
+            {(() => {
+              const feed = feeds.find(item => item.name === platform.name);
+              return feed?.data ? <div className="mt-4">
+                <p className="text-2xl font-semibold text-gold">{feed.data.rating.toFixed(1)} / 5</p>
+                <p className="mt-1 text-sm text-ivory">{feed.data.total.toLocaleString("en-GB")} reviews</p>
+              </div> : <p className="mt-4 text-sm leading-relaxed text-ivory-dim">{platform.description}</p>;
+            })()}
           </a>)}
         </div>
+        {REVIEW_PLATFORMS.map(platform => {
+          const feed = feeds.find(item => item.id === platform.id);
+          if (!feed?.data?.reviews.length) return null;
+          return <div key={platform.id} className="mt-10">
+            <h3 className="text-xl font-semibold text-ivory">Recent reviews on {platform.name}</h3>
+            <div className="mt-5 grid gap-5 md:grid-cols-3">
+              {feed.data.reviews.slice(0, 6).map(r => <div key={`${r.name}-${r.date}`}>
+                <ReviewCard r={r} isNew={Date.now() - Date.parse(r.date) < 7 * 86400000} />
+                <a href={platform.href} target="_blank" rel="noopener noreferrer" className="mt-2 inline-block text-sm text-gold">Source: {platform.name} ↗</a>
+              </div>)}
+            </div>
+          </div>;
+        })}
       </div>
     </section>
   );
