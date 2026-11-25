@@ -1,7 +1,7 @@
 {
   "timezone": "Europe/Athens",
-  "checked": "2026-11-24",
-  "coverageThrough": "2026-11-30",
+  "checked": "2026-11-25",
+  "coverageThrough": "2026-12-01",
   "replacesCompetitions": [
     "Premier League",
     "Bundesliga",
@@ -30,160 +30,21 @@
     "Greek Cup",
     "UEFA Nations League",
     "Greek Basketball League",
-    "Nitto ATP Finals"
+    "Nitto ATP Finals",
+    "Davis Cup"
   ],
   "events": [
     {
-      "id": "champions-league-2026-11-24-bod-glimt-vs-lask",
-      "title": "Bodø/Glimt vs LASK",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "19:45",
-      "start": "2026-11-24T19:45:00+02:00",
+      "id": "davis-cup-2026-11-25-italy-vs-korea-republic",
+      "title": "Italy vs Korea Republic - Quarter-final",
+      "competition": "Davis Cup",
+      "sport": "Tennis",
+      "date": "2026-11-25",
+      "time": "17:00",
+      "start": "2026-11-25T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-ch/",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "champions-league-2026-11-24-galatasaray-vs-aston-villa",
-      "title": "Galatasaray vs Aston Villa",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "19:45",
-      "start": "2026-11-24T19:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-ch/",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "championship-2026-11-24-portsmouth-vs-west-ham-united",
-      "title": "Portsmouth vs West Ham United",
-      "competition": "Championship",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "21:45",
-      "start": "2026-11-24T21:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.efl.com/news/2026/november/18/referee-appointments--20---26-november/",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "championship-2026-11-24-sheffield-united-vs-southampton",
-      "title": "Sheffield United vs Southampton",
-      "competition": "Championship",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "21:45",
-      "start": "2026-11-24T21:45:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.efl.com/news/2026/november/18/referee-appointments--20---26-november/",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "champions-league-2026-11-24-arsenal-vs-borussia-dortmund",
-      "title": "Arsenal vs Borussia Dortmund",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "22:00",
-      "start": "2026-11-24T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-ch/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "champions-league-2026-11-24-como-vs-aek-athens",
-      "title": "Como vs AEK Athens",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "22:00",
-      "start": "2026-11-24T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-ch/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "champions-league-2026-11-24-manchester-city-vs-napoli",
-      "title": "Manchester City vs Napoli",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "22:00",
-      "start": "2026-11-24T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-ch/",
-      "priority": 0,
-      "featured": true
-    },
-    {
-      "id": "champions-league-2026-11-24-feyenoord-vs-porto",
-      "title": "Feyenoord vs Porto",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "22:00",
-      "start": "2026-11-24T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-ch/",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "champions-league-2026-11-24-leipzig-vs-lens",
-      "title": "Leipzig vs Lens",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "22:00",
-      "start": "2026-11-24T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-ch/",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "champions-league-2026-11-24-real-madrid-vs-psv-eindhoven",
-      "title": "Real Madrid vs PSV Eindhoven",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "22:00",
-      "start": "2026-11-24T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-ch/",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "champions-league-2026-11-24-slovan-bratislava-vs-real-betis",
-      "title": "Slovan Bratislava vs Real Betis",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-24",
-      "time": "22:00",
-      "start": "2026-11-24T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-ch/",
+      "verified": "2026-11-25",
+      "source": "https://www.daviscup.com/en/news/davis-cup-by-generali-final-8-where-to-watch",
       "priority": 2,
       "featured": false
     },
@@ -216,8 +77,8 @@
       "featured": false
     },
     {
-      "id": "champions-league-2026-11-25-atl-tico-madrid-vs-viking",
-      "title": "Atlético Madrid vs Viking",
+      "id": "champions-league-2026-11-25-club-brugge-vs-liverpool",
+      "title": "Club Brugge vs Liverpool",
       "competition": "Champions League",
       "sport": "Football",
       "date": "2026-11-25",
@@ -226,12 +87,26 @@
       "screening": "unconfirmed",
       "verified": "2026-11-21",
       "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
-      "priority": 2,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
-      "id": "champions-league-2026-11-25-club-brugge-vs-liverpool",
-      "title": "Club Brugge vs Liverpool",
+      "id": "champions-league-2026-11-25-sporting-cp-vs-manchester-united",
+      "title": "Sporting CP vs Manchester United",
+      "competition": "Champions League",
+      "sport": "Football",
+      "date": "2026-11-25",
+      "time": "22:00",
+      "start": "2026-11-25T22:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-21",
+      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
+      "priority": 0,
+      "featured": true
+    },
+    {
+      "id": "champions-league-2026-11-25-atl-tico-madrid-vs-viking",
+      "title": "Atlético Madrid vs Viking",
       "competition": "Champions League",
       "sport": "Football",
       "date": "2026-11-25",
@@ -300,20 +175,6 @@
       "featured": false
     },
     {
-      "id": "champions-league-2026-11-25-sporting-cp-vs-manchester-united",
-      "title": "Sporting CP vs Manchester United",
-      "competition": "Champions League",
-      "sport": "Football",
-      "date": "2026-11-25",
-      "time": "22:00",
-      "start": "2026-11-25T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-21",
-      "source": "https://www.uefa.com/uefachampionsleague/news/02a8-2174c9e9019d-f909a77bd77a-1000--2026-27-champions-league-all-the-league-phase-fixtures/",
-      "priority": 2,
-      "featured": false
-    },
-    {
       "id": "conference-league-2026-11-26-kairat-almaty-vs-mjallby",
       "title": "Kairat Almaty vs Mjallby",
       "competition": "Conference League",
@@ -322,7 +183,7 @@
       "time": "17:30",
       "start": "2026-11-26T17:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -336,7 +197,7 @@
       "time": "19:45",
       "start": "2026-11-26T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--2026-27-conference-league-all-the-league-phase-fixtures-a/",
       "priority": 2,
       "featured": false
@@ -350,7 +211,7 @@
       "time": "19:45",
       "start": "2026-11-26T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -364,7 +225,7 @@
       "time": "19:45",
       "start": "2026-11-26T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--2026-27-conference-league-all-the-league-phase-fixtures-a/",
       "priority": 2,
       "featured": false
@@ -378,7 +239,7 @@
       "time": "19:45",
       "start": "2026-11-26T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -392,7 +253,7 @@
       "time": "19:45",
       "start": "2026-11-26T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--2026-27-conference-league-all-the-league-phase-fixtures-a/",
       "priority": 2,
       "featured": false
@@ -406,7 +267,7 @@
       "time": "19:45",
       "start": "2026-11-26T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -420,7 +281,7 @@
       "time": "19:45",
       "start": "2026-11-26T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -434,7 +295,7 @@
       "time": "19:45",
       "start": "2026-11-26T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -448,7 +309,7 @@
       "time": "19:45",
       "start": "2026-11-26T19:45:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -574,7 +435,7 @@
       "time": "22:00",
       "start": "2026-11-26T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -588,7 +449,7 @@
       "time": "22:00",
       "start": "2026-11-26T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -602,7 +463,7 @@
       "time": "22:00",
       "start": "2026-11-26T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -616,7 +477,7 @@
       "time": "22:00",
       "start": "2026-11-26T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -630,7 +491,7 @@
       "time": "22:00",
       "start": "2026-11-26T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--2026-27-conference-league-all-the-league-phase-fixtures-a/",
       "priority": 2,
       "featured": false
@@ -644,7 +505,7 @@
       "time": "22:00",
       "start": "2026-11-26T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -658,7 +519,7 @@
       "time": "22:00",
       "start": "2026-11-26T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--202627-conference-league-all-the-league-phase-fixtures/",
       "priority": 2,
       "featured": false
@@ -672,7 +533,7 @@
       "time": "22:00",
       "start": "2026-11-26T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-21",
+      "verified": "2026-11-25",
       "source": "https://www.uefa.com/uefaconferenceleague/news/02a8-2174cb200f25-b94693ddff4e-1000--2026-27-conference-league-all-the-league-phase-fixtures-a/",
       "priority": 2,
       "featured": false
@@ -854,7 +715,7 @@
       "time": "22:00",
       "start": "2026-11-27T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-24",
+      "verified": "2026-11-25",
       "source": "https://www.premierleague.com/en/news/4725574",
       "priority": 2,
       "featured": false
@@ -882,7 +743,7 @@
       "time": "17:00",
       "start": "2026-11-28T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-24",
+      "verified": "2026-11-25",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
       "priority": 2,
       "featured": false
@@ -896,7 +757,7 @@
       "time": "17:00",
       "start": "2026-11-28T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-24",
+      "verified": "2026-11-25",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
       "priority": 2,
       "featured": false
@@ -910,7 +771,7 @@
       "time": "19:30",
       "start": "2026-11-28T19:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-24",
+      "verified": "2026-11-25",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
       "priority": 2,
       "featured": false
@@ -938,7 +799,7 @@
       "time": "14:00",
       "start": "2026-11-29T14:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-24",
+      "verified": "2026-11-25",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
       "priority": 2,
       "featured": false
@@ -952,7 +813,7 @@
       "time": "16:05",
       "start": "2026-11-29T16:05:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-24",
+      "verified": "2026-11-25",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
       "priority": 2,
       "featured": false
@@ -966,7 +827,7 @@
       "time": "16:05",
       "start": "2026-11-29T16:05:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-24",
+      "verified": "2026-11-25",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
       "priority": 2,
       "featured": false
@@ -980,7 +841,7 @@
       "time": "16:05",
       "start": "2026-11-29T16:05:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-24",
+      "verified": "2026-11-25",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
       "priority": 2,
       "featured": false
@@ -994,7 +855,7 @@
       "time": "16:05",
       "start": "2026-11-29T16:05:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-24",
+      "verified": "2026-11-25",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
       "priority": 2,
       "featured": false
@@ -1036,7 +897,7 @@
       "time": "18:30",
       "start": "2026-11-29T18:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-24",
+      "verified": "2026-11-25",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
       "priority": 2,
       "featured": false
