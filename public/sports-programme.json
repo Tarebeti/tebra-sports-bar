@@ -803,6 +803,20 @@
       "source": "https://www.pao.gr/en/the-matches/fixtures/",
       "priority": 2,
       "featured": false
+    },
+    {
+      "id": "boxing-2026-11-28-kabayel-vs-hysa-main-card",
+      "title": "Kabayel vs Hysa - Main card (approx.)",
+      "competition": "Boxing",
+      "sport": "Fight",
+      "date": "2026-11-28",
+      "time": "19:45",
+      "start": "2026-11-28T19:45:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-26",
+      "source": "https://dazngroup.com/press-room/agit-kabayel-vs-nelson-hysa-live-auf-dazn-schwergewichts-wm-duesseldorf/",
+      "priority": 2,
+      "featured": false
     }
   ],
   "verificationTimezone": "UTC"
