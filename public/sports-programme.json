@@ -35,6 +35,20 @@
   ],
   "events": [
     {
+      "id": "davis-cup-2026-11-28-great-britain-vs-spain-semi-final",
+      "title": "Great Britain vs Spain - Semi-final",
+      "competition": "Davis Cup",
+      "sport": "Tennis",
+      "date": "2026-11-28",
+      "time": "13:00",
+      "start": "2026-11-28T13:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-28",
+      "source": "https://www.daviscup.com/en",
+      "priority": 2,
+      "featured": false
+    },
+    {
       "id": "formula-1-2026-11-28-qatar-grand-prix-practice-3",
       "title": "Qatar Grand Prix - Practice 3",
       "competition": "Formula 1",
@@ -129,6 +143,20 @@
       "screening": "unconfirmed",
       "verified": "2026-11-27",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
+      "priority": 2,
+      "featured": false
+    },
+    {
+      "id": "davis-cup-2026-11-29-final",
+      "title": "Davis Cup Final",
+      "competition": "Davis Cup",
+      "sport": "Tennis",
+      "date": "2026-11-29",
+      "time": "16:00",
+      "start": "2026-11-29T16:00:00+02:00",
+      "screening": "unconfirmed",
+      "verified": "2026-11-28",
+      "source": "https://www.daviscup.com/en",
       "priority": 2,
       "featured": false
     },
