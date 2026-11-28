@@ -1,7 +1,7 @@
 {
   "timezone": "Europe/Athens",
-  "checked": "2026-11-27",
-  "coverageThrough": "2026-12-03",
+  "checked": "2026-11-28",
+  "coverageThrough": "2026-12-04",
   "replacesCompetitions": [
     "Premier League",
     "Bundesliga",
@@ -35,48 +35,6 @@
   ],
   "events": [
     {
-      "id": "formula-1-2026-11-27-qatar-grand-prix-practice-1",
-      "title": "Qatar Grand Prix - Practice 1",
-      "competition": "Formula 1",
-      "sport": "F1",
-      "date": "2026-11-27",
-      "time": "15:30",
-      "start": "2026-11-27T15:30:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-22",
-      "source": "https://www.formula1.com/en/latest/article/formula-1-qatar-airways-qatar-grand-prix-2026.3XJyoYSnpJEcuZovstTdcG",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "formula-1-2026-11-27-qatar-grand-prix-practice-2",
-      "title": "Qatar Grand Prix - Practice 2",
-      "competition": "Formula 1",
-      "sport": "F1",
-      "date": "2026-11-27",
-      "time": "19:00",
-      "start": "2026-11-27T19:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-22",
-      "source": "https://www.formula1.com/en/latest/article/formula-1-qatar-airways-qatar-grand-prix-2026.3XJyoYSnpJEcuZovstTdcG",
-      "priority": 2,
-      "featured": false
-    },
-    {
-      "id": "premier-league-2026-11-27-nottingham-forest-vs-chelsea",
-      "title": "Nottingham Forest vs Chelsea",
-      "competition": "Premier League",
-      "sport": "Football",
-      "date": "2026-11-27",
-      "time": "22:00",
-      "start": "2026-11-27T22:00:00+02:00",
-      "screening": "unconfirmed",
-      "verified": "2026-11-27",
-      "source": "https://www.premierleague.com/en/news/4725574",
-      "priority": 0,
-      "featured": true
-    },
-    {
       "id": "formula-1-2026-11-28-qatar-grand-prix-practice-3",
       "title": "Qatar Grand Prix - Practice 3",
       "competition": "Formula 1",
@@ -101,8 +59,8 @@
       "screening": "unconfirmed",
       "verified": "2026-11-27",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
-      "priority": 2,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "premier-league-2026-11-28-manchester-united-vs-brentford",
@@ -115,8 +73,8 @@
       "screening": "unconfirmed",
       "verified": "2026-11-27",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
-      "priority": 2,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "premier-league-2026-11-28-ipswich-town-vs-aston-villa",
@@ -129,8 +87,8 @@
       "screening": "unconfirmed",
       "verified": "2026-11-27",
       "source": "https://www.premierleague.com/en/news/4725574/fixture-amendments-for-november",
-      "priority": 2,
-      "featured": false
+      "priority": 0,
+      "featured": true
     },
     {
       "id": "boxing-2026-11-28-kabayel-vs-hysa-main-card",
@@ -239,7 +197,7 @@
       "time": "17:00",
       "start": "2026-11-29T17:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.pao.gr/the-matches/fixtures/",
       "priority": 2,
       "featured": false
@@ -281,7 +239,7 @@
       "time": "22:00",
       "start": "2026-12-01T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
       "priority": 2,
       "featured": false
@@ -295,7 +253,7 @@
       "time": "19:00",
       "start": "2026-12-02T19:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.pao.gr/en/the-matches/fixtures/",
       "priority": 2,
       "featured": false
@@ -309,7 +267,7 @@
       "time": "21:30",
       "start": "2026-12-02T21:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
       "priority": 2,
       "featured": false
@@ -323,7 +281,7 @@
       "time": "21:30",
       "start": "2026-12-02T21:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
       "priority": 2,
       "featured": false
@@ -337,7 +295,7 @@
       "time": "21:30",
       "start": "2026-12-02T21:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
       "priority": 2,
       "featured": false
@@ -351,7 +309,7 @@
       "time": "21:30",
       "start": "2026-12-02T21:30:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
       "priority": 2,
       "featured": false
@@ -365,7 +323,7 @@
       "time": "22:15",
       "start": "2026-12-02T22:15:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
       "priority": 2,
       "featured": false
@@ -379,7 +337,7 @@
       "time": "22:15",
       "start": "2026-12-02T22:15:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
       "priority": 2,
       "featured": false
@@ -393,7 +351,7 @@
       "time": "22:15",
       "start": "2026-12-02T22:15:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
       "priority": 2,
       "featured": false
@@ -407,7 +365,7 @@
       "time": "22:15",
       "start": "2026-12-02T22:15:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
       "priority": 2,
       "featured": false
@@ -421,7 +379,7 @@
       "time": "22:00",
       "start": "2026-12-03T22:00:00+02:00",
       "screening": "unconfirmed",
-      "verified": "2026-11-27",
+      "verified": "2026-11-28",
       "source": "https://www.premierleague.com/en/news/4675097/all-380-fixtures-for-2026-27",
       "priority": 2,
       "featured": false
